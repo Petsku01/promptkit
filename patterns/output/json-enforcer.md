@@ -67,10 +67,10 @@ Return ONLY the JSON object. No explanation.
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | ✅ | Use `response_format: { type: "json_object" }` in API |
-| Claude 3.5 | ✅ | Works well with explicit instruction |
-| Llama 3 70B | ⚠️ | Sometimes adds markdown code blocks |
-| Gemini Pro | ✅ | Good compliance |
+| GPT-4 | Yes | Use `response_format: { type: "json_object" }` in API |
+| Claude 3.5 | Yes | Works well with explicit instruction |
+| Llama 3 70B | Partial | Sometimes adds markdown code blocks |
+| Gemini Pro | Yes | Good compliance |
 
 ## Variations
 
@@ -80,9 +80,9 @@ Return ONLY the JSON object. No explanation.
 
 ## Common Mistakes
 
-- ❌ Forgetting "no markdown" — models love to wrap in ```json blocks
-- ❌ Vague field descriptions — be explicit about format (ISO date, etc.)
-- ❌ No error handling — add "If field not found, use null"
+- No: Forgetting "no markdown" — models love to wrap in ```json blocks
+- No: Vague field descriptions — be explicit about format (ISO date, etc.)
+- No: No error handling — add "If field not found, use null"
 
 ## Pro Tips
 

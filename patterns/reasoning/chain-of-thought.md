@@ -73,10 +73,10 @@ Step 3: Calculate final total
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | ✅ | Excellent, follows structure well |
-| Claude 3.5 | ✅ | Very thorough reasoning |
-| Llama 3 70B | ✅ | Works well |
-| Gemini Pro | ✅ | Good results |
+| GPT-4 | Yes | Excellent, follows structure well |
+| Claude 3.5 | Yes | Very thorough reasoning |
+| Llama 3 70B | Yes | Works well |
+| Gemini Pro | Yes | Good results |
 
 ## Variations
 
@@ -86,9 +86,9 @@ Step 3: Calculate final total
 
 ## Common Mistakes
 
-- ❌ Asking for "just the answer" — defeats the purpose
-- ❌ Too vague steps — be specific about what each step should analyze
-- ❌ Skipping verification — add "double-check your work" for math
+- No: Asking for "just the answer" — defeats the purpose
+- No: Too vague steps — be specific about what each step should analyze
+- No: Skipping verification — add "double-check your work" for math
 
 ## Related Patterns
 

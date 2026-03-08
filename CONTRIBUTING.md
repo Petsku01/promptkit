@@ -29,14 +29,14 @@ Thanks for contributing! This guide will help you add new patterns.
 
 ## What Makes a Good Pattern?
 
-✅ **Practical** — Solves a real problem developers have
-✅ **Tested** — Actually verified on multiple models
-✅ **Documented** — Explains the mechanics, not just the prompt
-✅ **Copyable** — Ready to paste and use immediately
+Yes **Practical** — Solves a real problem developers have
+Yes **Tested** — Actually verified on multiple models
+Yes **Documented** — Explains the mechanics, not just the prompt
+Yes **Copyable** — Ready to paste and use immediately
 
-❌ **Not good:** Theoretical patterns without real testing
-❌ **Not good:** Single-model tricks that don't generalize
-❌ **Not good:** Vague prompts without concrete examples
+No: **Not good:** Theoretical patterns without real testing
+No: **Not good:** Single-model tricks that don't generalize
+No: **Not good:** Vague prompts without concrete examples
 
 ## Updating Existing Patterns
 

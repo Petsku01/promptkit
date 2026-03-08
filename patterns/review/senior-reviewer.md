@@ -106,10 +106,10 @@ Session ID should be regenerated on login.
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | ✅ | Excellent critical analysis |
-| Claude 3.5 | ✅ | Very thorough, finds subtle issues |
-| Llama 3 70B | ⚠️ | Sometimes too polite |
-| Gemini Pro | ✅ | Good security focus |
+| GPT-4 | Yes | Excellent critical analysis |
+| Claude 3.5 | Yes | Very thorough, finds subtle issues |
+| Llama 3 70B | Partial | Sometimes too polite |
+| Gemini Pro | Yes | Good security focus |
 
 ## Variations
 
@@ -119,9 +119,9 @@ Session ID should be regenerated on login.
 
 ## Common Mistakes
 
-- ❌ Too short code samples — include enough context
-- ❌ Missing language tag — model needs to know syntax
-- ❌ Asking for praise — explicitly say "be critical"
+- No: Too short code samples — include enough context
+- No: Missing language tag — model needs to know syntax
+- No: Asking for praise — explicitly say "be critical"
 
 ## Related Patterns
 

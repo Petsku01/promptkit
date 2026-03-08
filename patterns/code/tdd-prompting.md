@@ -100,10 +100,10 @@ def fibonacci(n: int) -> int:
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | ✅ | Excellent test coverage |
-| Claude 3.5 | ✅ | Very thorough edge cases |
-| Llama 3 70B | ⚠️ | Sometimes skips error cases |
-| Codex | ✅ | Native strength |
+| GPT-4 | Yes | Excellent test coverage |
+| Claude 3.5 | Yes | Very thorough edge cases |
+| Llama 3 70B | Partial | Sometimes skips error cases |
+| Codex | Yes | Native strength |
 
 ## Variations
 
@@ -113,9 +113,9 @@ def fibonacci(n: int) -> int:
 
 ## Common Mistakes
 
-- ❌ Vague requirements — be specific about expected behavior
-- ❌ Skipping edge cases — explicitly ask for boundary testing
-- ❌ No error handling — always include "error cases"
+- No: Vague requirements — be specific about expected behavior
+- No: Skipping edge cases — explicitly ask for boundary testing
+- No: No error handling — always include "error cases"
 
 ## Related Patterns
 

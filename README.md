@@ -1,4 +1,4 @@
-# 🛠️ Prompt Patterns
+# Prompt Patterns
 
 A curated collection of practical, copy-pasteable prompt patterns for developers. No fluff, no "Awesome lists"—just prompts that work.
 
@@ -45,9 +45,9 @@ The underlying mechanics of WHY the LLM responds well to this.
 **Output:** [What you get back]
 
 ## Tested On
-- GPT-4: ✅ Works well
-- Claude: ✅ Works well  
-- Llama 3: ⚠️ Needs adjustment
+- GPT-4: Yes Works well
+- Claude: Yes Works well  
+- Llama 3: Partial Needs adjustment
 ```
 
 ## Categories
@@ -65,4 +65,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-*Built with 🌙 by [Petsku](https://github.com/Petsku01)*
+*Built with  by [Petsku](https://github.com/Petsku01)*

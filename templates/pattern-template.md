@@ -36,10 +36,10 @@
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | ✅ | Works well |
-| Claude 3.5 | ✅ | Works well |
-| Llama 3 70B | ⚠️ | Needs [adjustment] |
-| Gemini Pro | ✅ | Works well |
+| GPT-4 | Yes | Works well |
+| Claude 3.5 | Yes | Works well |
+| Llama 3 70B | Partial | Needs [adjustment] |
+| Gemini Pro | Yes | Works well |
 
 ## Variations
 
@@ -48,8 +48,8 @@
 
 ## Common Mistakes
 
-- ❌ [What NOT to do]
-- ❌ [Another common mistake]
+- No: [What NOT to do]
+- No: [Another common mistake]
 
 ## Related Patterns
 
