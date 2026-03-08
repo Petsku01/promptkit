@@ -1,13 +1,53 @@
 # Prompt Patterns
 
-A curated collection of practical, copy-pasteable prompt patterns for developers. No fluff, no "Awesome lists"—just prompts that work.
+A toolkit for building effective LLM prompts. Includes:
+- Documented prompt patterns (copy-paste ready)
+- Python library for composing prompts
+- CLI tool for quick prompt generation
 
-## How to Use
+## Installation
 
-1. Find your use case in the table below
-2. Copy the template block
-3. Replace `[VARIABLES]` with your context
-4. Paste into your LLM of choice
+```bash
+pip install prompt-patterns
+
+# With token counting support
+pip install prompt-patterns[tokens]
+```
+
+## Quick Start
+
+### Python API
+
+```python
+from prompt_patterns import PromptBuilder
+
+prompt = (PromptBuilder()
+    .persona("Senior Developer")
+    .pattern("chain-of-thought")
+    .task("Review this code for security issues")
+    .context(code_snippet)
+    .output_format("json", schema={"issues": [], "severity": "string"})
+    .build())
+
+print(prompt)
+```
+
+### CLI
+
+```bash
+# List available patterns
+prompt-patterns list
+
+# Build a prompt
+prompt-patterns build \
+    --persona "Senior Developer" \
+    --pattern chain-of-thought \
+    --task "Review this code" \
+    --tokens
+
+# Interactive mode
+prompt-patterns build --interactive
+```
 
 ## Pattern Directory
 
@@ -22,9 +62,66 @@ A curated collection of practical, copy-pasteable prompt patterns for developers
 | **Context** | [Few-Shot with Negatives](patterns/context/few-shot-negatives.md) | Teach by example (including what NOT to do) |
 | **Defensive** | [Hallucination Reducer](patterns/defensive/hallucination-reducer.md) | Reduce confident nonsense |
 
+## Available Patterns (Builder API)
+
+```python
+from prompt_patterns import PromptBuilder
+
+# Chain of Thought - step-by-step reasoning
+builder.pattern("chain-of-thought")
+
+# Few-Shot - learning from examples
+builder.pattern("few-shot")
+builder.example("input", "expected output")
+
+# JSON Output - structured responses
+builder.pattern("json-output")
+builder.output_format("json", schema={"key": "type"})
+
+# Senior Reviewer - critical code review
+builder.pattern("senior-reviewer")
+
+# Self-Consistency - verify through multiple paths
+builder.pattern("self-consistency")
+```
+
+## Builder API Reference
+
+```python
+builder = PromptBuilder()
+
+# Set persona/role
+builder.persona("Senior Developer")
+
+# Add patterns
+builder.pattern("chain-of-thought")
+
+# Set task
+builder.task("Analyze this code")
+
+# Add context
+builder.context("def hello(): ...")
+
+# Add examples (for few-shot)
+builder.example("input", "output")
+builder.examples([{"input": "x", "output": "y"}])
+
+# Set output format
+builder.output_format("json", schema={"key": "type"})
+
+# Add constraints
+builder.constraint("Max 100 words")
+
+# Build the prompt
+prompt = builder.build()
+
+# Estimate tokens (requires tiktoken)
+tokens = builder.estimate_tokens()
+```
+
 ## Anatomy of a Pattern
 
-Each pattern follows this format:
+Each documented pattern follows this format:
 
 ```markdown
 # Pattern Name
@@ -36,33 +133,35 @@ The specific scenario where this pattern excels.
 The underlying mechanics of WHY the LLM responds well to this.
 
 ## The Prompt
-\```
 [The actual prompt template]
-\```
 
 ## Example
 **Input:** [What you provide]
 **Output:** [What you get back]
 
 ## Tested On
-- GPT-4: Yes Works well
-- Claude: Yes Works well  
-- Llama 3: Partial Needs adjustment
+- GPT-4: Yes
+- Claude: Yes
+- Llama 3: Partial
 ```
 
 ## Categories
 
-- **reasoning/** — Logic, step-by-step, self-correction
-- **output/** — JSON, structured lists, schema extraction
-- **code/** — Generation, refactoring, debugging
-- **review/** — Code review, security, performance
-- **context/** — RAG, few-shot, long-context management
-- **defensive/** — Hallucination reduction, constraint enforcement
+- **reasoning/** - Logic, step-by-step, self-correction
+- **output/** - JSON, structured lists, schema extraction
+- **code/** - Generation, refactoring, debugging
+- **review/** - Code review, security, performance
+- **context/** - RAG, few-shot, long-context management
+- **defensive/** - Hallucination reduction, constraint enforcement
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+## License
+
+MIT
+
 ---
 
-*Built with  by [Petsku](https://github.com/Petsku01)*
+*Built by [Petsku](https://github.com/Petsku01)*

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-patterns"
+version = "0.1.0"
+description = "A toolkit for building effective LLM prompts from proven patterns"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Petsku", email = "petteri.a.kosonen@proton.me"}
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["llm", "prompt", "ai", "gpt", "claude", "prompt-engineering"]
+
+dependencies = []
+
+[project.optional-dependencies]
+tokens = ["tiktoken>=0.5.0"]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+prompt-patterns = "prompt_patterns.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Petsku01/prompt-patterns"
+Documentation = "https://github.com/Petsku01/prompt-patterns#readme"
+Repository = "https://github.com/Petsku01/prompt-patterns"
+Issues = "https://github.com/Petsku01/prompt-patterns/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
