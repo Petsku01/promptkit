@@ -27,6 +27,11 @@ class PromptBuilder:
         "json-output": "Return ONLY valid JSON matching this schema:\n{schema}\n\nNo explanation, no markdown, no code blocks.",
         "senior-reviewer": "You are a senior engineer with 15 years of experience. You are known for thorough, critical reviews. Never say 'looks good' unless it's genuinely excellent.",
         "self-consistency": "Solve this problem three different ways, then compare your answers and give the most likely correct one.",
+        "tree-of-thought": "Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realizes they are wrong at any point then they leave. The question is...",
+        "role-play": "Act as a {role}. Write your response from this perspective, using appropriate tone, vocabulary, and addressing the specific concerns of someone in this position.",
+        "step-back": "First, take a step back and identify the core principles or concepts that underlying this specific problem. Then, use those principles to solve the original problem.",
+        "decomposition": "Break this complex problem down into 3-5 smaller, manageable sub-problems. Solve each sub-problem independently, then combine them to form the final solution.",
+        "reflection": "After writing your initial response, review it critically. Identify any flaws, assumptions, or areas for improvement, and then provide a revised and improved final answer.",
     }
     
     def __init__(self):

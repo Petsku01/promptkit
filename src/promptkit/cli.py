@@ -9,18 +9,28 @@ Usage:
 
 import argparse
 import sys
+import time
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+from rich.progress import track
+from rich.prompt import Prompt, Confirm
+
 from .builder import PromptBuilder
 
+console = Console()
 
 def list_patterns():
     """List available patterns."""
-    print("Available patterns:")
-    print("-" * 40)
+    table = Table(title="Available Prompt Patterns", show_header=True, header_style="bold magenta")
+    table.add_column("Pattern", style="cyan")
+    table.add_column("Description", style="green")
+    
     for name, description in PromptBuilder.PATTERNS.items():
-        # Show first line of description
         first_line = description.split("\n")[0][:60]
-        print(f"  {name:20} {first_line}...")
-    print()
+        table.add_row(name, first_line + ("..." if len(description.split("\n")[0]) > 60 else ""))
+    
+    console.print(table)
 
 
 def build_prompt(args):
@@ -44,35 +54,37 @@ def build_prompt(args):
         for constraint in args.constraint:
             builder.constraint(constraint)
     
-    prompt = builder.build()
+    # Simulate thinking/processing with progress indicator
+    with console.status("[bold green]Building prompt...") as status:
+        time.sleep(0.5)
+        prompt = builder.build()
     
     if args.tokens:
         token_count = builder.estimate_tokens()
-        print(f"# Estimated tokens: {token_count}", file=sys.stderr)
+        console.print(f"[dim]# Estimated tokens: {token_count}[/dim]")
     
     if args.output:
         with open(args.output, "w") as f:
             f.write(prompt)
-        print(f"Prompt written to {args.output}", file=sys.stderr)
+        console.print(f"[bold green]Prompt written to {args.output}[/bold green]")
     else:
-        print(prompt)
+        console.print(Panel(prompt, title="Generated Prompt", border_style="blue"))
 
 
 def interactive_build():
     """Interactive prompt builder."""
-    print("Prompt Builder - Interactive Mode")
-    print("=" * 40)
+    console.print(Panel.fit("Prompt Builder - Interactive Mode", style="bold magenta"))
     
     builder = PromptBuilder()
     
     # Persona
-    persona = input("Persona (e.g., 'Senior Developer') [skip]: ").strip()
+    persona = Prompt.ask("Persona (e.g., 'Senior Developer')", default="")
     if persona:
         builder.persona(persona)
     
     # Patterns
-    print("\nAvailable patterns:", ", ".join(PromptBuilder.PATTERNS.keys()))
-    patterns_input = input("Patterns (comma-separated) [skip]: ").strip()
+    console.print("\n[bold cyan]vailable patterns:[/bold cyan]", ", ".join(PromptBuilder.PATTERNS.keys()))
+    patterns_input = Prompt.ask("Patterns (comma-separated)", default="")
     if patterns_input:
         for p in patterns_input.split(","):
             p = p.strip()
@@ -80,24 +92,27 @@ def interactive_build():
                 try:
                     builder.pattern(p)
                 except ValueError as e:
-                    print(f"Warning: {e}")
+                    console.print(f"[bold red]Warning:[/bold red] {e}")
     
     # Task
-    task = input("\nTask description: ").strip()
+    task = Prompt.ask("\nTask description", default="")
     if task:
         builder.task(task)
     
     # Context
-    context = input("Context (paste code/text, empty to skip): ").strip()
+    context = Prompt.ask("Context (paste code/text)", default="")
     if context:
         builder.context(context)
     
-    print("\n" + "=" * 40)
-    print("Generated Prompt:")
-    print("=" * 40)
-    print(builder.build())
-    print("=" * 40)
-    print(f"Estimated tokens: {builder.estimate_tokens()}")
+    # Simulate processing
+    for step in track(range(100), description="Generating prompt..."):
+        time.sleep(0.005)
+    
+    prompt = builder.build()
+    
+    console.print("\n")
+    console.print(Panel(prompt, title="Generated Prompt", border_style="blue"))
+    console.print(f"[dim]Estimated tokens: {builder.estimate_tokens()}[/dim]")
 
 
 def main():
