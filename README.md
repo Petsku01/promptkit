@@ -49,6 +49,23 @@ promptkit build \
 promptkit build --interactive
 ```
 
+## Quick vs Extended Prompts
+
+Prompts come in two types:
+
+| Type | Size | Use Case | Example |
+|------|------|----------|---------|
+| **Quick** | ~100 tokens | Single questions, fast iteration | `code-reviewer.md` |
+| **Extended** | 300-500 tokens | System prompts, agents, critical tasks | `code-reviewer-extended.md` |
+
+Extended prompts include:
+- Structured multi-pass processes
+- Specific output formats
+- Explicit rules and constraints
+- Failure modes to avoid
+
+**Rule of thumb:** Use extended for anything a sub-agent will run autonomously.
+
 ## Pattern Directory
 
 | Category | Pattern | Use When You Need To... |
