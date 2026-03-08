@@ -2,7 +2,7 @@
 prompt-patterns: A toolkit for building effective LLM prompts.
 
 Usage:
-    from prompt_patterns import PromptBuilder
+    from promptkit import PromptBuilder
     
     prompt = (PromptBuilder()
         .persona("Senior Developer")

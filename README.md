@@ -1,4 +1,4 @@
-# Prompt Patterns
+# Promptkit
 
 A toolkit for building effective LLM prompts. Includes:
 - Documented prompt patterns (copy-paste ready)
@@ -8,10 +8,10 @@ A toolkit for building effective LLM prompts. Includes:
 ## Installation
 
 ```bash
-pip install prompt-patterns
+pip install promptkit
 
 # With token counting support
-pip install prompt-patterns[tokens]
+pip install promptkit[tokens]
 ```
 
 ## Quick Start
@@ -19,7 +19,7 @@ pip install prompt-patterns[tokens]
 ### Python API
 
 ```python
-from prompt_patterns import PromptBuilder
+from promptkit import PromptBuilder
 
 prompt = (PromptBuilder()
     .persona("Senior Developer")
@@ -36,17 +36,17 @@ print(prompt)
 
 ```bash
 # List available patterns
-prompt-patterns list
+promptkit list
 
 # Build a prompt
-prompt-patterns build \
+promptkit build \
     --persona "Senior Developer" \
     --pattern chain-of-thought \
     --task "Review this code" \
     --tokens
 
 # Interactive mode
-prompt-patterns build --interactive
+promptkit build --interactive
 ```
 
 ## Pattern Directory
@@ -65,7 +65,7 @@ prompt-patterns build --interactive
 ## Available Patterns (Builder API)
 
 ```python
-from prompt_patterns import PromptBuilder
+from promptkit import PromptBuilder
 
 # Chain of Thought - step-by-step reasoning
 builder.pattern("chain-of-thought")
