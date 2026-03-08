@@ -164,4 +164,4 @@ MIT
 
 ---
 
-*Built by [Petsku](https://github.com/Petsku01)*
+*Built by [Petsku](https://github.com/Petsku01) & Kuu*
