@@ -25,6 +25,10 @@ Valitse yhtiö → malli → teema → kopioi.
 | **System Prompts** | Valmiit system promptit | [system-prompts/](system-prompts/) |
 | **Few-Shot** | Esimerkkipohjaiset | [few-shot/](few-shot/) |
 | **Edistyneet** | CoT, ToT, ReAct | [advanced-techniques/](advanced-techniques/) |
+| **Agentic** | Tool use, planning, reflection | [agentic/](agentic/) |
+| **Safety** | Moderation, injection defense | [safety/](safety/) |
+| **Evaluation** | LLM-as-judge, metrics | [evaluation/](evaluation/) |
+| **Use Cases** | Customer support, sales, HR | [use-cases/](use-cases/) |
 
 ## Pikaviitteet
 
@@ -43,11 +47,15 @@ Valitse yhtiö → malli → teema → kopioi.
 
 - **10+ provideria**
 - **25+ mallia**
-- **200+ promptia**
-- **6 edistynyttä tekniikkaa**
+- **250+ promptia**
+- **8 yleistä kategoriaa**
 - **50+ roolia**
 - **20+ system promptia**
 - **20+ few-shot esimerkkiä**
+- **15+ agentic promptia**
+- **10+ safety promptia**
+- **15+ evaluation promptia**
+- **25+ use-case promptia**
 
 ## Lähteet
 
