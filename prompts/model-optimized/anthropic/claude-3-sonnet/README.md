@@ -16,4 +16,4 @@
 
 ## Tärkeää muistaa
 
-✅ XML-tagit toimivat erinomaisesti: `<task>`, `<thinking>`, `<answer>`
+ XML-tagit toimivat erinomaisesti: `<task>`, `<thinking>`, `<answer>`

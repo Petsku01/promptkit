@@ -18,7 +18,7 @@ Using this outline, write a [document type].
 Review and improve the draft.
 ```
 
-## Analysis → Synthesis Chain
+## Analysis -> Synthesis Chain
 
 ```
 # Step 1: Extract

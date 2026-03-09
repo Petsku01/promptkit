@@ -1,6 +1,6 @@
 # Evaluation: LLM as Judge
 
-> ⚠️ **Best Practice**: Always require REASONING BEFORE SCORE.
+>  **Best Practice**: Always require REASONING BEFORE SCORE.
 > LLMs perform better when forced to think before deciding (Chain-of-Thought).
 
 ## Basic Quality Score

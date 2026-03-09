@@ -1,6 +1,6 @@
 # Agentic: Tool Use
 
-> ⚠️ **Modern Best Practice**: Use native function calling APIs (OpenAI, Anthropic, etc.)
+>  **Modern Best Practice**: Use native function calling APIs (OpenAI, Anthropic, etc.)
 > instead of text-based tool invocation. These prompts are for models without native tool support.
 
 ## Native Function Calling (Recommended)
@@ -35,9 +35,9 @@ tools = [
 You have access to these tools:
 
 TOOLS:
-- search(query: str) → Search results
-- calculate(expr: str) → Math result
-- read_file(path: str) → File contents
+- search(query: str) -> Search results
+- calculate(expr: str) -> Math result
+- read_file(path: str) -> File contents
 
 USAGE FORMAT:
 To use a tool, output EXACTLY:
@@ -128,8 +128,8 @@ Complex tasks may need multiple tools in sequence.
 TASK: [complex task]
 
 PLAN:
-1. First I need [info] → use [tool]
-2. Then I need [info] → use [tool]
+1. First I need [info] -> use [tool]
+2. Then I need [info] -> use [tool]
 3. Finally, combine results
 
 EXECUTION:
@@ -189,6 +189,6 @@ Use tools ONLY when necessary. Prefer:
 Before any tool call, ask:
 "Can I answer this without a tool?"
 
-If yes → answer directly
-If no → use minimal tools needed
+If yes -> answer directly
+If no -> use minimal tools needed
 ```

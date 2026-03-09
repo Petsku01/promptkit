@@ -5,14 +5,14 @@
 
 ## When to Use CoT
 
-✅ **USE CoT for:**
+ **USE CoT for:**
 - Math problems
 - Multi-step reasoning
 - Logic puzzles
 - Planning tasks
 - Complex analysis
 
-❌ **DON'T use CoT for:**
+ **DON'T use CoT for:**
 - Simple factual questions
 - Creative writing
 - Reasoning models (o1, o3) - they do it internally
@@ -98,20 +98,20 @@ IMPLEMENT:
 [code]
 
 VERIFY:
-Test case 1: [input] → [expected] ✓
-Test case 2: [input] → [expected] ✓
-Edge case: [input] → [expected] ✓
+Test case 1: [input] -> [expected] [x]
+Test case 2: [input] -> [expected] [x]
+Edge case: [input] -> [expected] [x]
 ```
 
 ## Anti-Patterns (What NOT to Do)
 
-❌ **Don't use with o1/o3 models:**
+ **Don't use with o1/o3 models:**
 ```
 # BAD - o1 already reasons internally
 Let's think step by step about this math problem...
 ```
 
-❌ **Don't force steps for simple questions:**
+ **Don't force steps for simple questions:**
 ```
 # BAD - overkill
 Q: What is 2+2?
@@ -120,7 +120,7 @@ Step 1: Identify the numbers (2 and 2)
 Step 2: Apply addition...
 ```
 
-❌ **Don't use vague step descriptions:**
+ **Don't use vague step descriptions:**
 ```
 # BAD - not actual reasoning
 Step 1: Think about it

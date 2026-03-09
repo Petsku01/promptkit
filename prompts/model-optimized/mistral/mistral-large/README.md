@@ -37,11 +37,11 @@ Understood. I will follow these guidelines.</s>
 
 ## Tips
 
-✅ **Best practices:**
+ **Best practices:**
 - Use `[INST]...[/INST]` tags for clarity
 - System prompt first, then instructions
 - Mistral handles complex reasoning well
 
-❌ **Avoid:**
+ **Avoid:**
 - Overly simple prompts (it can handle more)
 - Ignoring its multilingual strengths

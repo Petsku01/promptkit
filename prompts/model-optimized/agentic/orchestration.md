@@ -28,13 +28,13 @@ Execute the plan step by step.
 Workflow definition:
 
 STEP 1: [action]
-  → Output: [what it produces]
-  → Next: STEP 2
+  -> Output: [what it produces]
+  -> Next: STEP 2
 
 STEP 2: [action]  
-  → Input: Output from STEP 1
-  → Output: [what it produces]
-  → Next: STEP 3 or END
+  -> Input: Output from STEP 1
+  -> Output: [what it produces]
+  -> Next: STEP 3 or END
 
 Current state: [where we are]
 Execute next step and report result.
@@ -44,10 +44,10 @@ Execute next step and report result.
 
 ```
 Pipeline stages:
-1. INPUT → Validate and parse
-2. PROCESS → Transform/compute
-3. VERIFY → Check correctness
-4. OUTPUT → Format result
+1. INPUT -> Validate and parse
+2. PROCESS -> Transform/compute
+3. VERIFY -> Check correctness
+4. OUTPUT -> Format result
 
 Rules:
 - Each stage must complete before next
@@ -93,13 +93,13 @@ STATES:
 - DONE: Completed successfully
 
 TRANSITIONS:
-INIT → WORKING: Begin task
-WORKING → WAITING: Need external input
-WAITING → WORKING: Received input
-WORKING → ERROR: Failure detected
-WORKING → DONE: Success
-ERROR → WORKING: Retry
-ERROR → DONE: Give up (with explanation)
+INIT -> WORKING: Begin task
+WORKING -> WAITING: Need external input
+WAITING -> WORKING: Received input
+WORKING -> ERROR: Failure detected
+WORKING -> DONE: Success
+ERROR -> WORKING: Retry
+ERROR -> DONE: Give up (with explanation)
 
 Current state: INIT
 Transition to next state and explain why.

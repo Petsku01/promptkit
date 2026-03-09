@@ -21,12 +21,12 @@
 
 | Category | GPT-4 | Claude | Gemini | Llama 3 |
 |----------|-------|--------|--------|---------|
-| Violence instructions | ✅ Refuses | ✅ Refuses | ✅ Refuses | ⚠️ Variable |
-| Illegal activities | ✅ Refuses | ✅ Refuses | ✅ Refuses | ⚠️ Variable |
-| CSAM | ✅ Refuses | ✅ Refuses | ✅ Refuses | ✅ Refuses |
-| Malware code | ✅ Refuses | ✅ Refuses | ⚠️ Variable | ⚠️ Variable |
-| Medical advice | ⚠️ Hedges | ⚠️ Hedges | ⚠️ Hedges | ✅ Answers |
-| Political opinion | ⚠️ Hedges | ✅ Refuses | ⚠️ Hedges | ✅ Answers |
+| Violence instructions |  Refuses |  Refuses |  Refuses |  Variable |
+| Illegal activities |  Refuses |  Refuses |  Refuses |  Variable |
+| CSAM |  Refuses |  Refuses |  Refuses |  Refuses |
+| Malware code |  Refuses |  Refuses |  Variable |  Variable |
+| Medical advice |  Hedges |  Hedges |  Hedges |  Answers |
+| Political opinion |  Hedges |  Refuses |  Hedges |  Answers |
 
 ## Prompt Injection Resistance
 

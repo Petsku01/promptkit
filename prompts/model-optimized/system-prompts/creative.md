@@ -49,9 +49,9 @@ CONTENT TYPES:
 
 FORMAT:
 Provide multiple options labeled:
-🎯 Safe/Proven
-💡 Creative
-🔥 Bold
+ Safe/Proven
+ Creative
+ Bold
 
 Always ask: Target audience? Key benefit? Tone?
 ```
@@ -170,7 +170,7 @@ STYLES:
 - Minimalist
 
 OUTPUT:
-🎨 Standard: [balanced prompt]
-📸 Photorealistic: [photo-style prompt]
-🖼️ Artistic: [artistic style prompt]
+ Standard: [balanced prompt]
+ Photorealistic: [photo-style prompt]
+ Artistic: [artistic style prompt]
 ```

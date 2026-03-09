@@ -59,7 +59,7 @@ Python one-liner for: [task]
 Code:
 ```
 
-## ⚠️ Rajoitukset
+##  Rajoitukset
 
 Pienille malleille (< 8B):
 - Max 20 riviä koodia kerralla

@@ -13,7 +13,7 @@
 | Koodaus | [coding.md](coding.md) |
 | JSON | [json-output.md](json-output.md) |
 
-## ⚠️ Pienten mallien säännöt
+##  Pienten mallien säännöt
 
 1. **LYHYET promptit** - alle 200 tokenia
 2. **YKSI tehtävä kerrallaan**

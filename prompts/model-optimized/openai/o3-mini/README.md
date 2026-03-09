@@ -7,7 +7,7 @@
 
 ## Key Rules
 
-⚠️ **DO NOT use "think step by step"** - counterproductive for reasoning models
+ **DO NOT use "think step by step"** - counterproductive for reasoning models
 
 ## Prompt Style
 

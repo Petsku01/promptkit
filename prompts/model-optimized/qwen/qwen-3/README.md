@@ -14,7 +14,7 @@ Käytä samoja prompteja kuin Qwen 2.5:
 
 ## MoE-mallit (30B-A3B, 235B-A22B)
 
-- Aktivoi vain osa parametreista → nopea
+- Aktivoi vain osa parametreista -> nopea
 - Käyttäytyy kuin isompi malli, mutta tehokkaampi
 - Samat promptit toimivat
 

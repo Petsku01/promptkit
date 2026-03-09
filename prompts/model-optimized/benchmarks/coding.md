@@ -63,8 +63,8 @@ Code:
 ## Key Findings
 
 1. **Specificity matters most**
-   - "Write a function" → 72% pass
-   - "Write a function that takes X and returns Y" → 91% pass
+   - "Write a function" -> 72% pass
+   - "Write a function that takes X and returns Y" -> 91% pass
 
 2. **Examples dramatically improve output**
    - Input/output examples: +15-20% quality
@@ -76,7 +76,7 @@ Code:
    - Rust/Go: Variable, test more carefully
 
 4. **Test-first prompting helps**
-   - "Write tests first, then implement" → better code
+   - "Write tests first, then implement" -> better code
    - Especially effective for Claude
 
 ## Model Recommendations by Task

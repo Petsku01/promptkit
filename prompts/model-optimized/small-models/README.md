@@ -8,7 +8,7 @@
 | [Phi 3.5](phi-3.5/) | 3.8B | Parannettu, vision |
 | [Gemma 2](gemma-2/) | 2B, 9B | Google, tehokas |
 
-## ⚠️ Yleiset säännöt pienille malleille
+##  Yleiset säännöt pienille malleille
 
 1. **LYHYET PROMPTIT** (< 200 tokenia)
 2. **YKSI tehtävä kerrallaan**
@@ -18,14 +18,14 @@
 
 ## Milloin käyttää pientä mallia?
 
-✅ **Sopii:**
+ **Sopii:**
 - Luokittelu
 - NER (nimien/paikkojen tunnistus)
 - Yksinkertainen Q&A
 - Tekstin muotoilu
 - Kielentunnistus
 
-❌ **Ei sovi:**
+ **Ei sovi:**
 - Monimutkainen päättely
 - Pitkä koodin generointi
 - Luova kirjoitus

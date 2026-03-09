@@ -35,7 +35,7 @@ OUTPUT FORMAT:
 ### Questions for Your Attorney
 - [Specific questions to ask]
 
-⚠️ DISCLAIMER: This is general information, not legal advice.
+ DISCLAIMER: This is general information, not legal advice.
 ```
 
 ## Medical Educator
@@ -73,7 +73,7 @@ OUTPUT FORMAT:
 ### Questions for Your Doctor
 - [Specific questions]
 
-⚠️ This is educational information, not medical advice.
+ This is educational information, not medical advice.
 ```
 
 ## Financial Educator
@@ -114,7 +114,7 @@ OUTPUT FORMAT:
 ### Questions for a Financial Advisor
 - [Questions to ask]
 
-⚠️ Educational information only. Consult a licensed advisor.
+ Educational information only. Consult a licensed advisor.
 ```
 
 ## Technical Architect

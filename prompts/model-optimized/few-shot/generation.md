@@ -25,7 +25,7 @@ Generate engaging email subject lines.
 
 Topic: New product launch announcement
 Subjects:
-- 🚀 It's Finally Here: Introducing [Product Name]
+-  It's Finally Here: Introducing [Product Name]
 - You're the first to know: Our biggest launch yet
 - The wait is over. Meet your new favorite [product].
 

@@ -54,7 +54,7 @@ From: [text]
 JSON:
 ```
 
-## ⚠️ Pienet mallit
+##  Pienet mallit
 
 - Max 3-5 kenttää
 - Yksinkertaiset tyypit (string, number)

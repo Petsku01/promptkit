@@ -100,13 +100,13 @@ For each section:
 
 ## Llama 3.1 Specific Tips
 
-✅ **DO:**
+ **DO:**
 - Use clear, direct instructions
 - Ask for reasoning before code (improves quality)
 - Specify language explicitly
 - Request comments/docs
 
-❌ **DON'T:**
+ **DON'T:**
 - Expect 8B to handle complex multi-file projects
 - Use overly complex nested instructions
 - Assume it knows your codebase context

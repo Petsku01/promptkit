@@ -1,6 +1,6 @@
 # Model-Optimized Prompts
 
-Valitse yhtiö → malli → teema → kopioi.
+Valitse yhtiö -> malli -> teema -> kopioi.
 
 ## Mallikohtaiset
 
@@ -61,7 +61,7 @@ Valitse yhtiö → malli → teema → kopioi.
 
 ## Lähteet
 
-- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ ⭐)
+- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ )
 - [GPTs leaked prompts](https://github.com/linexjlin/GPTs)
 - [Anthropic Prompt Library](https://docs.anthropic.com)
 - [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)

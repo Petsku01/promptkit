@@ -11,8 +11,8 @@
 ## Key Differences
 
 - **GPT-4**: Most reliable, detailed instructions OK
-- **GPT-4o**: Faster, may skip steps → say "show each step"
-- **o1/o3**: Reasoning models → DON'T say "think step by step"
+- **GPT-4o**: Faster, may skip steps -> say "show each step"
+- **o1/o3**: Reasoning models -> DON'T say "think step by step"
 
 ## General Tips
 

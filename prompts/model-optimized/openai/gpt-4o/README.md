@@ -17,4 +17,4 @@
 
 ## Tärkeää muistaa
 
-⚠️ GPT-4o voi skipata vaiheita → sano aina **"Show each step"**
+ GPT-4o voi skipata vaiheita -> sano aina **"Show each step"**

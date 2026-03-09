@@ -108,8 +108,8 @@ User request: [request]
 ## Key Findings
 
 1. **Explicit beats implicit**
-   - "Be brief" → inconsistent
-   - "Maximum 50 words" → consistent
+   - "Be brief" -> inconsistent
+   - "Maximum 50 words" -> consistent
 
 2. **Examples are the strongest signal**
    - 20-30% improvement with good examples

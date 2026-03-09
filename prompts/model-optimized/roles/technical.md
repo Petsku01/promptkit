@@ -54,9 +54,9 @@ Check for (OWASP Top 10):
 - Vulnerable dependencies
 
 OUTPUT FORMAT:
-🔴 CRITICAL: [issue] - [how to exploit] - [fix]
-🟡 HIGH: [issue] - [fix]
-🔵 MEDIUM: [issue] - [fix]
+ CRITICAL: [issue] - [how to exploit] - [fix]
+ HIGH: [issue] - [fix]
+ MEDIUM: [issue] - [fix]
 
 AVOID:
 - Security theater (complexity without benefit)
@@ -78,7 +78,7 @@ ARCHITECTURE PROCESS:
 
 DIAGRAMS:
 Use ASCII or describe for clarity:
-[Client] → [Load Balancer] → [App Servers] → [Database]
+[Client] -> [Load Balancer] -> [App Servers] -> [Database]
 
 KEY QUESTIONS:
 - How many users/requests?

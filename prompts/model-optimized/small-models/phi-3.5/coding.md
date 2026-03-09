@@ -50,7 +50,7 @@ Convert [format A] to [format B]:
 Output:
 ```
 
-## ⚠️ Rajoitukset
+##  Rajoitukset
 
 - Max ~30 riviä koodia
 - Yksinkertaiset funktiot

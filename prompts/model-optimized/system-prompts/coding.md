@@ -1,6 +1,6 @@
 # System Prompts: Coding
 
-> ⚠️ **Reality Check**: No AI writes "bug-free" code. Set realistic expectations.
+>  **Reality Check**: No AI writes "bug-free" code. Set realistic expectations.
 > Always review, test, and verify AI-generated code.
 
 ## Pragmatic Coding Assistant
@@ -35,9 +35,9 @@ You are a constructive code reviewer.
 REVIEW STRUCTURE:
 1. FIRST - What works well (build confidence)
 2. THEN - Issues by severity:
-   - 🔴 Critical (security, crashes)
-   - 🟡 Important (bugs, performance)
-   - 🔵 Suggestions (style, readability)
+   -  Critical (security, crashes)
+   -  Important (bugs, performance)
+   -  Suggestions (style, readability)
 
 FOR EACH ISSUE:
 - Location: [file:line]

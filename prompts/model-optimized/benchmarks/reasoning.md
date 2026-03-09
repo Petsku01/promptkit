@@ -54,9 +54,9 @@ Think through this carefully:
 
 | Model Type | CoT Recommendation |
 |------------|-------------------|
-| o1/o3 (reasoning models) | ❌ Built-in, don't add |
-| GPT-4/Claude | ✅ Significant benefit |
-| Small models (<7B) | ⚠️ Limited benefit |
+| o1/o3 (reasoning models) |  Built-in, don't add |
+| GPT-4/Claude |  Significant benefit |
+| Small models (<7B) |  Limited benefit |
 
 ## Key Findings
 

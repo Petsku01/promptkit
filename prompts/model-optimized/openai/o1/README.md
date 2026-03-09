@@ -8,7 +8,7 @@
 
 ---
 
-## ⚠️ CRITICAL: How o1/o3 Works Differently
+##  CRITICAL: How o1/o3 Works Differently
 
 These models think **internally** before responding. 
 
@@ -26,12 +26,12 @@ These models think **internally** before responding.
 
 ## Prompt 1: Math Problem
 
-❌ Wrong:
+ Wrong:
 ```
 Think step by step and solve this integral.
 ```
 
-✅ Correct:
+ Correct:
 ```
 Solve: ∫ x² · eˣ dx
 

@@ -1,6 +1,6 @@
 # Self-Consistency
 
-Generoi useita vastauksia ja valitse yleisin → luotettavampi tulos.
+Generoi useita vastauksia ja valitse yleisin -> luotettavampi tulos.
 
 ## Basic Self-Consistency
 

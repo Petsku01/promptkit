@@ -135,13 +135,13 @@ A:
 
 ## What NOT to Use Haiku For
 
-❌ Complex reasoning
-❌ Long-form writing
-❌ Nuanced analysis
-❌ Multi-step problems
-❌ Code generation (use Sonnet)
+ Complex reasoning
+ Long-form writing
+ Nuanced analysis
+ Multi-step problems
+ Code generation (use Sonnet)
 
-→ Use Sonnet or Opus for these.
+-> Use Sonnet or Opus for these.
 
 ---
 
