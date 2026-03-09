@@ -1,6 +1,6 @@
-# GPT-4o: Kuva-analyysi (Vision)
+# GPT-4o: Vision (Image Analysis)
 
-## Yleinen kuva-analyysi
+## General Image Analysis
 
 ```
 Analyze this image thoroughly:
@@ -15,7 +15,7 @@ Analyze this image thoroughly:
 Be specific and detailed.
 ```
 
-## OCR / Tekstin poiminta
+## OCR / Text Extraction
 
 ```
 Extract all text from this image.
@@ -28,7 +28,7 @@ Format:
 Return only the extracted text.
 ```
 
-## Kuvan vertailu
+## Image Comparison
 
 ```
 Compare these two images:
@@ -40,7 +40,7 @@ Compare these two images:
 Be specific about locations of differences.
 ```
 
-## Diagrammin tulkinta
+## Diagram Interpretation
 
 ```
 Analyze this diagram/chart:
@@ -52,7 +52,7 @@ Analyze this diagram/chart:
 5. **Anomalies**: Anything unexpected?
 ```
 
-## UI/Screenshot analyysi
+## UI/Screenshot Analysis
 
 ```
 Analyze this screenshot:
@@ -64,7 +64,7 @@ Analyze this screenshot:
 5. **Issues**: Any UX problems visible?
 ```
 
-## Tuotekuvan analyysi
+## Product Image Analysis
 
 ```
 Analyze this product image:
