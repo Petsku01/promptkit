@@ -7,53 +7,148 @@
 
 ## Key Principle
 
-Keep prompts SHORT and DIRECT. Haiku is optimized for speed.
+**SHORT prompts. DIRECT instructions. FAST responses.**
 
-## Chain of Thought
+---
 
-Use simplified version:
-
-```
-Solve step by step:
-1. [step]
-2. [step]
-3. Answer: [answer]
-```
-
-## JSON Output
+## Prompt 1: Classification
 
 ```
-Return JSON only:
-{"field": "value"}
-```
+Classify as: positive, negative, or neutral.
 
-## Classification
-
-```
-Classify this text as: positive, negative, or neutral.
 Text: [input]
 Classification:
 ```
 
-## Extraction
+---
+
+## Prompt 2: Entity Extraction
 
 ```
-Extract from this text:
-- Name:
-- Date:
-- Amount:
+Extract from text:
+- Names:
+- Dates:
+- Amounts:
+- Locations:
 
 Text: [input]
 ```
 
+---
+
+## Prompt 3: Yes/No Question
+
+```
+Answer yes or no.
+
+Question: [question]
+Context: [brief context]
+
+Answer:
+```
+
+---
+
+## Prompt 4: Simple Summary
+
+```
+Summarize in 2 sentences:
+
+[text]
+
+Summary:
+```
+
+---
+
+## Prompt 5: Format Conversion
+
+```
+Convert to JSON:
+{"name": "", "email": "", "phone": ""}
+
+Input: John Smith, john@email.com, 555-1234
+
+JSON:
+```
+
+---
+
+## Prompt 6: Language Detection
+
+```
+What language is this? Reply with language name only.
+
+Text: [input]
+Language:
+```
+
+---
+
+## Prompt 7: Keyword Extraction
+
+```
+List 5 keywords from this text:
+
+[text]
+
+Keywords:
+```
+
+---
+
+## Prompt 8: Spam Detection
+
+```
+Is this spam? Reply: spam or not_spam
+
+Message: [input]
+Result:
+```
+
+---
+
+## Prompt 9: Data Cleaning
+
+```
+Fix formatting issues:
+- Capitalize names
+- Format phone as XXX-XXX-XXXX
+- Format date as YYYY-MM-DD
+
+Input: [messy data]
+Output:
+```
+
+---
+
+## Prompt 10: Quick Q&A
+
+```
+Answer briefly (1-2 sentences).
+
+Q: [question]
+A:
+```
+
+---
+
+## What NOT to Use Haiku For
+
+❌ Complex reasoning
+❌ Long-form writing
+❌ Nuanced analysis
+❌ Multi-step problems
+❌ Code generation (use Sonnet)
+
+→ Use Sonnet or Opus for these.
+
+---
+
 ## Key Tips
 
-- Shorter prompts = faster responses
-- Skip elaborate XML for simple tasks
-- Best for:
-  - Classification
-  - Entity extraction
-  - Simple Q&A
-  - High-volume processing
-- Not ideal for complex reasoning
-- Use Sonnet/Opus for harder tasks
+- Shorter prompt = faster response
+- Skip XML tags for simple tasks
+- One task per prompt
+- High volume? Haiku is most cost-effective
+- Batch processing: great for Haiku
