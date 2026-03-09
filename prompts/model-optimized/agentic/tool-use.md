@@ -1,120 +1,194 @@
 # Agentic: Tool Use
 
-## Basic Tool Selection
+> ⚠️ **Modern Best Practice**: Use native function calling APIs (OpenAI, Anthropic, etc.)
+> instead of text-based tool invocation. These prompts are for models without native tool support.
+
+## Native Function Calling (Recommended)
+
+```python
+# OpenAI / Anthropic native approach - NO PROMPT NEEDED
+# Define tools in API call, model returns structured JSON
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "search",
+            "description": "Search the web for information",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Search query"}
+                },
+                "required": ["query"]
+            }
+        }
+    }
+]
+
+# Model automatically returns: {"name": "search", "arguments": {"query": "..."}}
+```
+
+## Text-Based Tool Use (Fallback for older/local models)
 
 ```
 You have access to these tools:
 
-1. **search(query)** - Search the web for information
-2. **calculate(expression)** - Evaluate math expressions
-3. **read_file(path)** - Read file contents
-4. **write_file(path, content)** - Write to file
+TOOLS:
+- search(query: str) → Search results
+- calculate(expr: str) → Math result
+- read_file(path: str) → File contents
 
-To use a tool, respond with:
-<tool>tool_name</tool>
-<input>tool input</input>
+USAGE FORMAT:
+To use a tool, output EXACTLY:
+ACTION: tool_name
+INPUT: tool_input
 
-Then wait for the result before continuing.
+Then STOP and wait for OBSERVATION.
 
+EXAMPLE:
+User: What's 25 * 4?
+ACTION: calculate
+INPUT: 25 * 4
+
+OBSERVATION: 100
+
+Now I can answer: 25 * 4 equals 100.
+
+---
 Task: [task]
 ```
 
-## Tool Use with Reasoning
+## ReAct Pattern (Reasoning + Acting)
 
 ```
-You have tools available. Before using a tool:
+You solve problems by alternating between thinking and acting.
 
-1. THINK: What information do I need?
-2. SELECT: Which tool provides this?
-3. USE: Call the tool with correct input
-4. INTERPRET: What does the result mean?
-5. CONTINUE: Do I need more tools or can I answer?
+FORMAT:
+THOUGHT: [what you're thinking, what you need]
+ACTION: [tool_name]
+INPUT: [tool input]
+OBSERVATION: [result - will be provided]
+... repeat until solved ...
+THOUGHT: [final reasoning]
+ANSWER: [final answer]
 
-Available tools:
+RULES:
+- Always THOUGHT before ACTION
+- One ACTION at a time
+- Wait for OBSERVATION before next step
+- When you have enough info, give ANSWER
+
+TOOLS:
 [list tools]
 
+TASK: [task]
+
+Begin:
+THOUGHT:
+```
+
+## Tool Selection Reasoning
+
+```
+Before using any tool, answer:
+
+1. DO I NEED A TOOL?
+   Can I answer from my knowledge? If yes, just answer.
+
+2. WHICH TOOL?
+   | Tool | Use when |
+   |------|----------|
+   | search | Need current/external info |
+   | calculate | Math beyond mental math |
+   | code | Need to run/test code |
+
+3. WHAT INPUT?
+   Formulate the exact query/input needed.
+
+4. WHAT IF IT FAILS?
+   Have a backup plan.
+
 Task: [task]
 
-Show your reasoning before each tool use.
+My reasoning:
+1. Do I need a tool? [yes/no because...]
+2. Best tool: [tool] because [reason]
+3. Input: [exact input]
+4. Backup: [alternative approach]
+
+Proceeding with: [action or direct answer]
 ```
 
 ## Multi-Tool Orchestration
 
 ```
-You are an AI assistant with access to multiple tools.
+Complex tasks may need multiple tools in sequence.
 
-Tools:
-- search: Get current information from web
-- database: Query structured data
-- calculator: Perform calculations
-- code_executor: Run Python code
+TASK: [complex task]
 
-Strategy:
-1. Break down the task
-2. Identify which tools are needed
-3. Use tools in logical order
-4. Combine results into final answer
+PLAN:
+1. First I need [info] → use [tool]
+2. Then I need [info] → use [tool]
+3. Finally, combine results
 
-Task: [complex task]
+EXECUTION:
+Step 1:
+ACTION: [tool]
+INPUT: [input]
+OBSERVATION: [result]
+LEARNED: [what this tells me]
 
-Think step by step about which tools to use and in what order.
+Step 2:
+ACTION: [tool]
+INPUT: [input based on step 1]
+OBSERVATION: [result]
+LEARNED: [what this tells me]
+
+SYNTHESIS:
+Combining all observations: [final answer]
 ```
 
-## Tool Error Handling
+## Error Recovery
 
 ```
-When using tools:
+Tool errors happen. Handle them gracefully.
 
-SUCCESS: Use the result and continue
-ERROR: 
-1. Understand the error
-2. Try alternative approach
-3. If still failing, explain what you tried
+If tool returns ERROR:
+1. UNDERSTAND: What went wrong?
+2. DIAGNOSE: Bad input? Tool down? Wrong tool?
+3. RETRY: Fix input and try again
+4. FALLBACK: Try alternative tool/approach
+5. GIVE UP: After 3 attempts, explain what you tried
 
-Never give up on first error. Try at least 2 alternative approaches.
+EXAMPLE:
+ACTION: search
+INPUT: latest news
+OBSERVATION: ERROR - query too vague
 
-Tools: [tools]
-Task: [task]
+RECOVERY:
+The search failed because query was too vague.
+Retrying with more specific query.
+
+ACTION: search
+INPUT: latest technology news March 2024
+OBSERVATION: [results]
+
+Success after retry.
 ```
 
-## Function Calling Format
+## Minimal Tool Use
 
 ```
-You can call functions using this format:
+Use tools ONLY when necessary. Prefer:
+1. Direct answer from knowledge (fastest)
+2. Reasoning without tools (no latency)
+3. Single tool call (minimal)
+4. Multiple tools (only if required)
 
-<function_call>
-{
-  "name": "function_name",
-  "arguments": {
-    "param1": "value1",
-    "param2": "value2"
-  }
-}
-</function_call>
+Before any tool call, ask:
+"Can I answer this without a tool?"
 
-Available functions:
-[function definitions]
-
-Rules:
-- Use exact parameter names
-- Provide all required parameters
-- Wait for result before next action
-```
-
-## Tool Selection Criteria
-
-```
-Before selecting a tool, evaluate:
-
-1. **Necessity**: Can I answer without a tool?
-2. **Efficiency**: Which tool is fastest?
-3. **Accuracy**: Which tool is most reliable for this?
-4. **Cost**: Consider API limits/costs
-
-Only use tools when they provide clear value.
-
-Tools: [tools]
-Question: [question]
-
-First decide: Do I need a tool? If yes, which one and why?
+If yes → answer directly
+If no → use minimal tools needed
 ```
