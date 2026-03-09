@@ -1,19 +1,22 @@
-# Google (Gemini) Models
+# Google (Gemini)
 
-## Models
+## Mallit
 
-| Model | Best For | Prompts |
-|-------|----------|---------|
-| [Gemini Pro](gemini-pro/) | Complex reasoning | 5 |
+| Malli | Paras käyttö | Promptit |
+|-------|--------------|----------|
+| [Gemini Pro](gemini-pro/) | Yleiskäyttö | 5+ |
+| [Gemini Flash](gemini-flash/) | Nopeus, volyymi | 5+ |
+| [Gemini 2](gemini-2/) | Uusin, multimodal | 5+ |
 
-## Coming Soon
+## Vahvuudet
 
-- Gemini Flash (speed)
-- Gemini Ultra (highest capability)
+- Multimodal (kuva, video, audio)
+- Pitkä konteksti (jopa 2M tokenia)
+- Hyvä grounding
+- Nopea (Flash)
 
-## General Tips
+## Yleiset vinkit
 
-- Structured format with bullets
-- Clear section headers
-- Multimodal capable (images, video)
-- Good for grounded generation
+- Strukturoitu output toimii hyvin
+- Bullet points ja listat
+- Selkeät sektiot

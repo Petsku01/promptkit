@@ -1,6 +1,6 @@
 # Model-Optimized Prompts
 
-Valitse yhtiö/kategoria → malli → teema → kopioi.
+Valitse yhtiö → malli → teema → kopioi.
 
 ## Yhtiöt
 
@@ -8,29 +8,14 @@ Valitse yhtiö/kategoria → malli → teema → kopioi.
 |-------|--------|--------|
 | **OpenAI** | GPT-4, GPT-4o, o1/o3 | [openai/](openai/) |
 | **Anthropic** | Claude Opus, Sonnet, Haiku | [anthropic/](anthropic/) |
-| **Mistral** | Mistral Large, Mixtral | [mistral/](mistral/) |
+| **Google** | Gemini Pro, Flash, 2.0 | [google/](google/) |
 | **Meta** | Llama 3.1, 3.2, 3.3 | [meta/](meta/) |
-| **Google** | Gemini Pro | [google/](google/) |
-| **Qwen** | Qwen 2.5, 3, 3.5 | [qwen/](qwen/) |
-| **Pienet mallit** | Phi, Gemma (<10B) | [small-models/](small-models/) |
-
-## Rakenne
-
-```
-model-optimized/
-├── openai/
-│   └── gpt-4o/
-│       ├── README.md      ← Yleiskatsaus
-│       ├── analysis.md    ← Analyysipromptit
-│       ├── coding.md      ← Koodauspromptit
-│       └── ...
-├── qwen/
-│   ├── qwen-2.5/
-│   └── qwen-3.5/          ← Pienet versiot
-└── small-models/
-    ├── phi-3.5/
-    └── gemma-2/
-```
+| **Mistral** | Large, Mixtral, Nemo, Codestral | [mistral/](mistral/) |
+| **DeepSeek** | V3, Coder | [deepseek/](deepseek/) |
+| **Cohere** | Command R, Command R+ | [cohere/](cohere/) |
+| **xAI** | Grok 2 | [xai/](xai/) |
+| **Qwen** | 2.5, 3, 3.5 | [qwen/](qwen/) |
+| **Pienet** | Phi, Gemma (<10B) | [small-models/](small-models/) |
 
 ## Pikaviitteet
 
@@ -40,5 +25,22 @@ model-optimized/
 | o1/o3 | ÄLÄ "think step by step" |
 | Claude | XML-tagit |
 | Haiku | LYHYET promptit |
-| Qwen 3.5 | Yksinkertaiset tehtävät |
+| Gemini Flash | Pitkä konteksti OK |
+| DeepSeek V3 | Halpa + hyvä |
+| Command R | RAG-erikoinen |
+| Grok | Reaaliaikainen tieto |
+| Qwen 3.5 | Pienille koneille |
 | Phi/Gemma | Max 200 tokenia |
+
+## Rakenne
+
+```
+model-optimized/
+├── [yhtiö]/
+│   ├── README.md           ← Yhtiön yleiskatsaus
+│   └── [malli]/
+│       ├── README.md       ← Mallin yleiskatsaus
+│       ├── analysis.md     ← Analyysipromptit
+│       ├── coding.md       ← Koodauspromptit
+│       └── ...             ← Teemakohtaiset
+```
