@@ -1,52 +1,60 @@
 # Model-Optimized Prompts
 
-Each model family has different strengths and optimal prompting styles. This directory contains model-specific optimizations for common patterns.
-
-## Model Families
-
-| Family | Models | Key Optimizations |
-|--------|--------|-------------------|
-| **OpenAI** | GPT-4, GPT-4o, o1, o3 | developer/user roles, concise, markdown |
-| **Anthropic** | Claude 3/4, Opus, Sonnet, Haiku | XML tags, long context OK, thinking tags |
-| **Mistral** | Mistral, Mixtral, Large | clear sections, worded scales, few-shot |
-| **Meta** | Llama 3, 3.1, 3.2, 3.3 | simple structure, explicit format, BOS/EOS |
-| **Google** | Gemini Pro, Flash, Ultra | structured, bullets, grounding |
-| **Open Source** | Qwen, DeepSeek, Yi, Phi | simple prompts, less meta-instructions |
-
-## Usage
-
-```python
-from llm_promptkit import PromptBuilder
-
-# Auto-select optimized version
-prompt = (PromptBuilder()
-    .pattern("chain-of-thought")
-    .for_model("claude-3-opus")
-    .task("Analyze this code")
-    .build())
-```
+Version-specific prompting guides for each model family.
 
 ## Directory Structure
 
 ```
 model-optimized/
 ├── openai/
-│   ├── chain-of-thought.md
-│   ├── json-output.md
-│   └── ...
+│   ├── gpt-4.md          # GPT-4 (8K/32K)
+│   ├── gpt-4o.md         # GPT-4o (128K, multimodal)
+│   └── o1.md             # o1/o3 reasoning models
 ├── anthropic/
-│   ├── chain-of-thought.md
-│   └── ...
+│   ├── claude-3-opus.md  # Highest capability
+│   ├── claude-3-sonnet.md # Balanced
+│   └── claude-3-haiku.md # Fast & cheap
 ├── mistral/
+│   ├── mistral-large.md  # Top tier
+│   └── mixtral.md        # MoE models
 ├── meta/
+│   ├── llama-3.1.md      # 128K, tool use
+│   ├── llama-3.2.md      # Multimodal, edge
+│   └── llama-3.3.md      # Best 70B
 ├── google/
+│   └── _base-cot.md      # Gemini
 └── open-source/
+    └── chain-of-thought.md  # Qwen, DeepSeek, etc.
 ```
 
-## Optimization Sources
+## Quick Reference
 
-- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
-- [Anthropic Claude Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
-- [Mistral Prompting Guide](https://docs.mistral.ai/guides/prompting_capabilities/)
-- [Meta Llama Documentation](https://llama.meta.com/docs/)
-- [Google Gemini Prompting Guide](https://ai.google.dev/gemini-api/docs/prompting-intro)
+| Model | Key Optimization |
+|-------|-----------------|
+| **GPT-4** | Concise, markdown, developer role |
+| **GPT-4o** | "Show each step" (may skip), Structured Outputs |
+| **o1/o3** | DON'T say "think step by step" - it's automatic |
+| **Claude Opus** | XML tags, extended thinking, detailed |
+| **Claude Sonnet** | XML tags, balanced, great for code |
+| **Claude Haiku** | SHORT prompts, simple tasks only |
+| **Mistral Large** | Markdown sections, worded scales |
+| **Mixtral** | Few-shot examples, efficient |
+| **Llama 3.1** | 128K context, tool calling |
+| **Llama 3.2** | Vision support (11B/90B) |
+| **Llama 3.3** | Best instruction following |
+
+## Usage
+
+Find your model → Open the guide → Copy optimized patterns.
+
+```python
+# Future API support planned:
+prompt = PromptBuilder().pattern("cot").for_model("claude-3-sonnet").build()
+```
+
+## Sources
+
+- [OpenAI Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+- [Anthropic Claude Docs](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
+- [Mistral Documentation](https://docs.mistral.ai/guides/prompting_capabilities/)
+- [Meta Llama Docs](https://llama.meta.com/docs/)
