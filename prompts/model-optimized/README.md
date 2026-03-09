@@ -2,7 +2,7 @@
 
 Valitse yhtiö → malli → teema → kopioi.
 
-## Yhtiöt
+## Mallikohtaiset
 
 | Yhtiö | Mallit | Linkki |
 |-------|--------|--------|
@@ -17,12 +17,14 @@ Valitse yhtiö → malli → teema → kopioi.
 | **Qwen** | 2.5, 3, 3.5 | [qwen/](qwen/) |
 | **Pienet** | Phi, Gemma (<10B) | [small-models/](small-models/) |
 
-## Erikoiskategoriat
+## Yleiset kategoriat
 
 | Kategoria | Kuvaus | Linkki |
 |-----------|--------|--------|
-| **Roolit** | Persona-pohjaiset promptit | [roles/](roles/) |
-| **Edistyneet** | CoT, ToT, ReAct, etc. | [advanced-techniques/](advanced-techniques/) |
+| **Roolit** | Persona-pohjaiset (50+) | [roles/](roles/) |
+| **System Prompts** | Valmiit system promptit | [system-prompts/](system-prompts/) |
+| **Few-Shot** | Esimerkkipohjaiset | [few-shot/](few-shot/) |
+| **Edistyneet** | CoT, ToT, ReAct | [advanced-techniques/](advanced-techniques/) |
 
 ## Pikaviitteet
 
@@ -31,16 +33,25 @@ Valitse yhtiö → malli → teema → kopioi.
 | GPT-4o | "Show each step" |
 | o1/o3 | ÄLÄ "think step by step" |
 | Claude | XML-tagit |
-| Gemini Flash | Pitkä konteksti OK |
-| DeepSeek V3 | Halpa + hyvä |
+| Gemini | Pitkä konteksti OK |
+| DeepSeek | Halpa + hyvä |
 | Command R | RAG-erikoinen |
-| Grok | Reaaliaikainen tieto |
-| Phi/Gemma | Max 200 tokenia |
+| Grok | Reaaliaikainen |
+| Phi/Gemma | Max 200 tok |
 
 ## Tilastot
 
-- **10 provideria**
-- **20+ mallia**
-- **150+ promptia**
+- **10+ provideria**
+- **25+ mallia**
+- **200+ promptia**
 - **6 edistynyttä tekniikkaa**
-- **5 roolikategoriaa**
+- **50+ roolia**
+- **20+ system promptia**
+- **20+ few-shot esimerkkiä**
+
+## Lähteet
+
+- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ ⭐)
+- [GPTs leaked prompts](https://github.com/linexjlin/GPTs)
+- [Anthropic Prompt Library](https://docs.anthropic.com)
+- [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
