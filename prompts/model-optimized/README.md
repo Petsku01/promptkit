@@ -29,6 +29,7 @@ Valitse yhtiö → malli → teema → kopioi.
 | **Safety** | Moderation, injection defense | [safety/](safety/) |
 | **Evaluation** | LLM-as-judge, metrics | [evaluation/](evaluation/) |
 | **Use Cases** | Customer support, sales, HR | [use-cases/](use-cases/) |
+| **Benchmarks** | Model comparison, metrics | [benchmarks/](benchmarks/) |
 
 ## Pikaviitteet
 
@@ -47,8 +48,8 @@ Valitse yhtiö → malli → teema → kopioi.
 
 - **10+ provideria**
 - **25+ mallia**
-- **250+ promptia**
-- **8 yleistä kategoriaa**
+- **270+ promptia**
+- **9 yleistä kategoriaa**
 - **50+ roolia**
 - **20+ system promptia**
 - **20+ few-shot esimerkkiä**
@@ -56,6 +57,7 @@ Valitse yhtiö → malli → teema → kopioi.
 - **10+ safety promptia**
 - **15+ evaluation promptia**
 - **25+ use-case promptia**
+- **4 benchmark-vertailua**
 
 ## Lähteet
 
