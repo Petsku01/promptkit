@@ -1,6 +1,7 @@
-import pytest
-from unittest.mock import patch, MagicMock
-from promptkit.cli import build_prompt
+from unittest.mock import patch
+
+from llm_promptkit.cli import build_prompt
+
 
 class MockArgs:
     def __init__(self):
@@ -12,7 +13,7 @@ class MockArgs:
         self.tokens = False
         self.output = None
 
-@patch("promptkit.cli.console.print")
+@patch("llm_promptkit.cli.console.print")
 def test_build_prompt_cli(mock_print):
     args = MockArgs()
     build_prompt(args)

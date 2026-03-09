@@ -1,4 +1,8 @@
-# Promptkit
+# LLM Promptkit
+
+[![CI](https://github.com/Petsku01/promptkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Petsku01/promptkit/actions/workflows/ci.yml)
+[![PyPI version](https://badge.fury.io/py/llm-promptkit.svg)](https://badge.fury.io/py/llm-promptkit)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 A toolkit for building effective LLM prompts. Includes:
 - Documented prompt patterns (copy-paste ready)
@@ -8,10 +12,10 @@ A toolkit for building effective LLM prompts. Includes:
 ## Installation
 
 ```bash
-pip install promptkit
+pip install llm-promptkit
 
 # With token counting support
-pip install promptkit[tokens]
+pip install llm-promptkit[tokens]
 ```
 
 ## Quick Start
@@ -19,7 +23,7 @@ pip install promptkit[tokens]
 ### Python API
 
 ```python
-from promptkit import PromptBuilder
+from llm_promptkit import PromptBuilder
 
 prompt = (PromptBuilder()
     .persona("Senior Developer")
