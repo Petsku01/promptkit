@@ -5,20 +5,39 @@ Usage:
     prompt-patterns list
     prompt-patterns build --pattern chain-of-thought --task "Review this code"
     prompt-patterns build --interactive
+    prompt-patterns prompts
+    prompt-patterns prompts --model openai/gpt-4o
+    prompt-patterns prompts --show openai/gpt-4o/coding
 """
 
 import argparse
 import time
+from pathlib import Path
 
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import track
 from rich.prompt import Prompt
+from rich.syntax import Syntax
 from rich.table import Table
 
 from .builder import PromptBuilder
 
 console = Console()
+
+# Find prompts directory relative to package
+def get_prompts_dir() -> Path:
+    """Get the prompts directory path."""
+    # Try relative to this file (installed package)
+    pkg_dir = Path(__file__).parent.parent.parent
+    prompts_dir = pkg_dir / "prompts"
+    if prompts_dir.exists():
+        return prompts_dir
+    # Try current working directory
+    cwd_prompts = Path.cwd() / "prompts"
+    if cwd_prompts.exists():
+        return cwd_prompts
+    return prompts_dir  # Return default even if not found
 
 def list_patterns():
     """List available patterns."""
@@ -115,6 +134,120 @@ def interactive_build():
     console.print(f"[dim]Estimated tokens: {builder.estimate_tokens()}[/dim]")
 
 
+def list_providers():
+    """List available model providers."""
+    prompts_dir = get_prompts_dir()
+    model_dir = prompts_dir / "model-optimized"
+
+    if not model_dir.exists():
+        console.print("[red]Model-optimized prompts directory not found.[/red]")
+        console.print(f"[dim]Looking in: {model_dir}[/dim]")
+        return
+
+    table = Table(title="Available Providers", show_header=True, header_style="bold magenta")
+    table.add_column("Provider", style="cyan")
+    table.add_column("Models", style="green")
+
+    for provider_path in sorted(model_dir.iterdir()):
+        if provider_path.is_dir():
+            models = [m.name for m in provider_path.iterdir() if m.is_dir()]
+            if models:
+                table.add_row(
+                    provider_path.name,
+                    ", ".join(sorted(models)[:4]) + ("..." if len(models) > 4 else "")
+                )
+
+    console.print(table)
+    console.print("\n[dim]Use: promptkit prompts --model <provider> to list models[/dim]")
+    console.print("[dim]Use: promptkit prompts --model <provider>/<model> to list prompts[/dim]")
+
+
+def list_model_prompts(model_path: str):
+    """List available prompts for a specific model."""
+    prompts_dir = get_prompts_dir()
+
+    parts = model_path.split("/")
+    if len(parts) == 1:
+        # Just provider - list models
+        provider_dir = prompts_dir / "model-optimized" / parts[0]
+        if not provider_dir.exists():
+            console.print(f"[red]Provider '{parts[0]}' not found.[/red]")
+            return
+
+        table = Table(title=f"Models for {parts[0]}", show_header=True, header_style="bold magenta")
+        table.add_column("Model", style="cyan")
+        table.add_column("Prompts", style="green")
+
+        for model_subdir in sorted(provider_dir.iterdir()):
+            if model_subdir.is_dir():
+                prompts = [p.stem for p in model_subdir.glob("*.md") if p.stem.lower() != "readme"]
+                table.add_row(model_subdir.name, ", ".join(sorted(prompts)))
+
+        console.print(table)
+        console.print(f"\n[dim]Use: promptkit prompts --model {parts[0]}/<model> to list prompts[/dim]")
+
+    elif len(parts) == 2:
+        # Provider/model - list prompts
+        full_model_dir = prompts_dir / "model-optimized" / parts[0] / parts[1]
+        if not full_model_dir.exists():
+            console.print(f"[red]Model '{model_path}' not found.[/red]")
+            return
+
+        table = Table(title=f"Prompts for {model_path}", show_header=True, header_style="bold magenta")
+        table.add_column("Prompt", style="cyan")
+        table.add_column("File", style="dim")
+
+        for prompt_file in sorted(full_model_dir.glob("*.md")):
+            if prompt_file.stem.lower() != "readme":
+                table.add_row(prompt_file.stem, prompt_file.name)
+
+        console.print(table)
+        console.print(f"\n[dim]Use: promptkit prompts --show {model_path}/<prompt> to view[/dim]")
+    else:
+        console.print("[red]Invalid format. Use: provider or provider/model[/red]")
+
+
+def show_prompt(prompt_path: str):
+    """Show a specific prompt."""
+    prompts_dir = get_prompts_dir()
+
+    parts = prompt_path.split("/")
+    if len(parts) != 3:
+        console.print("[red]Invalid format. Use: provider/model/prompt[/red]")
+        console.print("[dim]Example: openai/gpt-4o/coding[/dim]")
+        return
+
+    provider, model, prompt_name = parts
+    prompt_file = prompts_dir / "model-optimized" / provider / model / f"{prompt_name}.md"
+
+    if not prompt_file.exists():
+        console.print(f"[red]Prompt '{prompt_path}' not found.[/red]")
+        console.print(f"[dim]Looking for: {prompt_file}[/dim]")
+        return
+
+    content = prompt_file.read_text()
+
+    # Display with syntax highlighting
+    console.print(Panel(
+        Syntax(content, "markdown", theme="monokai", word_wrap=True),
+        title=f"{provider}/{model}/{prompt_name}",
+        border_style="blue"
+    ))
+
+    # Show token estimate
+    console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+
+
+def prompts_command(args):
+    """Handle prompts subcommand."""
+    if args.show:
+        show_prompt(args.show)
+    elif args.model:
+        list_model_prompts(args.model)
+    else:
+        list_providers()
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="prompt-patterns",
@@ -136,6 +269,11 @@ def main():
     build_parser.add_argument("--tokens", action="store_true", help="Show token estimate")
     build_parser.add_argument("--interactive", "-i", action="store_true", help="Interactive mode")
 
+    # Prompts command
+    prompts_parser = subparsers.add_parser("prompts", help="Browse model-optimized prompts")
+    prompts_parser.add_argument("--model", "-m", help="Provider or provider/model (e.g., openai or openai/gpt-4o)")
+    prompts_parser.add_argument("--show", "-s", help="Show prompt content (e.g., openai/gpt-4o/coding)")
+
     args = parser.parse_args()
 
     if args.command == "list":
@@ -145,6 +283,8 @@ def main():
             interactive_build()
         else:
             build_prompt(args)
+    elif args.command == "prompts":
+        prompts_command(args)
     else:
         parser.print_help()
 
