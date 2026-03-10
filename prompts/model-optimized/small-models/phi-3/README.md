@@ -2,21 +2,21 @@
 
 ## Ominaisuudet
 - **Koko:** 3.8B parametria
-- **Konteksti:** 128K tokenia
-- **Vahvuudet:** Reasoning, koodi, matematiikka
+- **Konteksti:** 128K tokens
+- **Strengths:** Reasoning, koodi, matematiikka
 
-## Promptit
+## Prompts
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
 | Koodi | [coding.md](coding.md) |
 
 ## Erikoisuudet
 
-- Yllättävän hyvä päättely kokoonsa nähden
-- Hyvä matematiikassa
-- 128K konteksti mahdollistaa pitkät dokumentit
+- Surprisingly good reasoning for its size
+- Good at math
+- 128K context enables long documents
 - Vision-variantti kuville
 
 ## Esimerkkipromptit

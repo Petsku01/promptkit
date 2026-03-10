@@ -1,4 +1,4 @@
-# Gemini Flash: Perustehtävät
+# Gemini Flash: Basic Tasks
 
 ## Quick Answer
 

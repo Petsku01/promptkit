@@ -1,4 +1,4 @@
-# Phi 3.5: Koodaus
+# Phi 3.5: Coding
 
 ## Simple Function
 
@@ -52,7 +52,7 @@ Output:
 
 ##  Rajoitukset
 
-- Max ~30 riviä koodia
-- Yksinkertaiset funktiot
-- Yksi tehtävä kerrallaan
-- Anna input/output esimerkki jos epäselvää
+- Max ~30 lines of code
+- Simple functions
+- One task at a time
+- Provide input/output example if unclear

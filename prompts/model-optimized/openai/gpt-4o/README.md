@@ -1,20 +1,20 @@
 # GPT-4o
 
 ## Ominaisuudet
-- **Konteksti:** 128K tokenia
-- **Vahvuudet:** Nopeus, multimodal (kuva + ääni)
+- **Konteksti:** 128K tokens
+- **Strengths:** Speed, multimodal (image + audio)
 - **Paras:** Reaaliaikasovellukset, kuvat, volyymi
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto | Kuvaus |
+| Teema | File | Kuvaus |
 |-------|----------|--------|
-| Analyysi | [analysis.md](analysis.md) | Ongelmanratkaisu, päättely |
-| Koodaus | [coding.md](coding.md) | Review, generointi, debug |
+| Analysis | [analysis.md](analysis.md) | Problem solving, reasoning |
+| Coding | [coding.md](coding.md) | Review, generointi, debug |
 | JSON | [json-output.md](json-output.md) | Strukturoitu data |
 | Visio | [vision.md](vision.md) | Kuva-analyysi |
-| Kirjoitus | [writing.md](writing.md) | Tekstin parannus |
+| Writing | [writing.md](writing.md) | Tekstin parannus |
 
-## Tärkeää muistaa
+## Important to remember
 
  GPT-4o voi skipata vaiheita -> sano aina **"Show each step"**

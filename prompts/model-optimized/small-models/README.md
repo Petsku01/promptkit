@@ -1,22 +1,22 @@
 # Pienet mallit (< 10B parametria)
 
-## Mallit
+## Models
 
-| Malli | Koot | Vahvuudet |
+| Model | Sizes | Strengths |
 |-------|------|-----------|
 | [Phi 3](phi-3/) | 3.8B | Microsoft, reasoning |
 | [Phi 3.5](phi-3.5/) | 3.8B | Parannettu, vision |
 | [Gemma 2](gemma-2/) | 2B, 9B | Google, tehokas |
 
-##  Yleiset säännöt pienille malleille
+##  General rules for small models
 
-1. **LYHYET PROMPTIT** (< 200 tokenia)
-2. **YKSI tehtävä kerrallaan**
-3. **NÄYTÄ formaatti** - anna esimerkki
+1. **LYHYET PROMPTIT** (< 200 tokens)
+2. **ONE task at a time**
+3. **SHOW format** - provide example
 4. **YKSINKERTAINEN kieli** - ei monimutkaisia ohjeita
-5. **EI syvää päättelyä** - käytä isompaa mallia
+5. **NO deep reasoning** - use a larger model
 
-## Milloin käyttää pientä mallia?
+## When to use a small model?
 
  **Sopii:**
 - Luokittelu
@@ -26,7 +26,7 @@
 - Kielentunnistus
 
  **Ei sovi:**
-- Monimutkainen päättely
-- Pitkä koodin generointi
+- Complex reasoning
+- Long code generation
 - Luova kirjoitus
 - Monimutkaiset JSON-rakenteet

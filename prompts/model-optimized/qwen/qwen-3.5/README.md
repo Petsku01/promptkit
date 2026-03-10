@@ -1,29 +1,29 @@
 # Qwen 3.5 (Pieni malli)
 
 ## Ominaisuudet
-- **Koot:** 0.6B, 1.7B, 4B, 8B, 14B, 32B
-- **Konteksti:** 32K tokenia
-- **Vahvuudet:** Nopea, edge-käyttö, kustannustehokas
+- **Sizes:** 0.6B, 1.7B, 4B, 8B, 14B, 32B
+- **Konteksti:** 32K tokens
+- **Strengths:** Fast, edge use, cost-effective
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
-| Koodaus | [coding.md](coding.md) |
+| Coding | [coding.md](coding.md) |
 | JSON | [json-output.md](json-output.md) |
 
-##  Pienten mallien säännöt
+##  Small model rules
 
-1. **LYHYET promptit** - alle 200 tokenia
-2. **YKSI tehtävä kerrallaan**
-3. **Selkeä formaatti** - näytä esimerkkioutput
-4. **Ei monimutkaista päättelyä** - käytä isompaa mallia
+1. **LYHYET promptit** - alle 200 tokens
+2. **ONE task at a time**
+3. **Clear format** - show example output
+4. **No complex reasoning** - use a larger model
 
 ## Kokosuositukset
 
 | Koko | Sopii | Ei sovi |
 |------|-------|---------|
-| 0.6B-1.7B | Luokittelu, NER, yksinkertainen | Koodi, päättely |
+| 0.6B-1.7B | Luokittelu, NER, yksinkertainen | Koodi, reasoning |
 | 4B-8B | Peruskoodaus, yhteenveto | Monimutkainen analyysi |
-| 14B+ | Useimmat tehtävät | - |
+| 14B+ | Most tasks | - |

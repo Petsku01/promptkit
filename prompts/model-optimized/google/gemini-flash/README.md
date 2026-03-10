@@ -1,19 +1,19 @@
 # Gemini Flash
 
 ## Ominaisuudet
-- **Konteksti:** 1M tokenia
-- **Vahvuudet:** Nopeus, kustannustehokas, pitkä konteksti
+- **Konteksti:** 1M tokens
+- **Strengths:** Speed, cost-effective, long context
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
-| Pitkä konteksti | [long-context.md](long-context.md) |
+| Long context | [long-context.md](long-context.md) |
 
-## Käyttötapaukset
+## Use cases
 
 - Nopea Q&A
-- Dokumenttien käsittely
+- Document processing
 - Korkea volyymi
 - Embedding-pohjainen haku

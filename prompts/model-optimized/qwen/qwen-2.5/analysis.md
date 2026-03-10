@@ -1,4 +1,4 @@
-# Qwen 2.5: Analyysi
+# Qwen 2.5: Analysis
 
 ## Step-by-Step Reasoning
 

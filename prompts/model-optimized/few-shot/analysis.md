@@ -1,4 +1,4 @@
-# Few-Shot: Analyysi
+# Few-Shot: Analysis
 
 ## Entity Extraction
 

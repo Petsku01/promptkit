@@ -1,13 +1,13 @@
 # DeepSeek Coder
 
 ## Ominaisuudet
-- **Koot:** 1.3B, 6.7B, 33B
-- **Konteksti:** 16K tokenia
-- **Vahvuudet:** Koodin generointi, täydennys, debug
+- **Sizes:** 1.3B, 6.7B, 33B
+- **Konteksti:** 16K tokens
+- **Strengths:** Code generation, completion, debug
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Generointi | [generation.md](generation.md) |
 | Debug | [debugging.md](debugging.md) |
@@ -18,4 +18,4 @@
 
 - Fill-in-the-Middle (FIM) tuki
 - Erinomainen Python, JavaScript, Java, C++
-- Hyvä dokumentaation generointi
+- Good documentation generation

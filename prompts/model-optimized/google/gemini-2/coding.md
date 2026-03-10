@@ -1,4 +1,4 @@
-# Gemini 2: Koodaus
+# Gemini 2: Coding
 
 ## Code Generation
 

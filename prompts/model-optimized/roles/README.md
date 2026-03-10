@@ -4,7 +4,7 @@ Persona/rooli-pohjaiset promptit jotka toimivat kaikilla malleilla.
 
 ## Kategoriat
 
-| Kategoria | Tiedosto |
+| Kategoria | File |
 |-----------|----------|
 | Tekninen | [technical.md](technical.md) |
 | Luova | [creative.md](creative.md) |
@@ -12,10 +12,10 @@ Persona/rooli-pohjaiset promptit jotka toimivat kaikilla malleilla.
 | Opetus | [education.md](education.md) |
 | Simulaattorit | [simulators.md](simulators.md) |
 
-## Käyttöohje
+## Usage guide
 
 1. Kopioi rooli-prompt
 2. Muokkaa `{placeholders}` tarpeen mukaan
-3. Lisää oma kysymyksesi perään
+3. Add your own question at the end
 
-Lähde: awesome-chatgpt-prompts (150k+ stars)
+Source: awesome-chatgpt-prompts (150k+ stars)

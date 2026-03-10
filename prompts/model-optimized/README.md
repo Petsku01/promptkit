@@ -1,10 +1,10 @@
 # Model-Optimized Prompts
 
-Valitse yhtiö -> malli -> teema -> kopioi.
+Select company -> model -> theme -> copy.
 
-## Mallikohtaiset
+## Modelkohtaiset
 
-| Yhtiö | Mallit | Linkki |
+| Company | Models | Link |
 |-------|--------|--------|
 | **OpenAI** | GPT-4, GPT-4o, o1/o3 | [openai/](openai/) |
 | **Anthropic** | Claude Opus, Sonnet, Haiku | [anthropic/](anthropic/) |
@@ -19,7 +19,7 @@ Valitse yhtiö -> malli -> teema -> kopioi.
 
 ## Yleiset kategoriat
 
-| Kategoria | Kuvaus | Linkki |
+| Kategoria | Kuvaus | Link |
 |-----------|--------|--------|
 | **Roolit** | Persona-pohjaiset (50+) | [roles/](roles/) |
 | **System Prompts** | Valmiit system promptit | [system-prompts/](system-prompts/) |
@@ -33,13 +33,13 @@ Valitse yhtiö -> malli -> teema -> kopioi.
 
 ## Pikaviitteet
 
-| Malli | Muista |
+| Model | Remember |
 |-------|--------|
 | GPT-4o | "Show each step" |
 | o1/o3 | ÄLÄ "think step by step" |
 | Claude | XML-tagit |
-| Gemini | Pitkä konteksti OK |
-| DeepSeek | Halpa + hyvä |
+| Gemini | Long context OK |
+| DeepSeek | Cheap + good |
 | Command R | RAG-erikoinen |
 | Grok | Reaaliaikainen |
 | Phi/Gemma | Max 200 tok |
@@ -49,17 +49,17 @@ Valitse yhtiö -> malli -> teema -> kopioi.
 - **10+ provideria**
 - **25+ mallia**
 - **270+ promptia**
-- **9 yleistä kategoriaa**
+- **9 common categories**
 - **50+ roolia**
 - **20+ system promptia**
-- **20+ few-shot esimerkkiä**
+- **20+ few-shot examples**
 - **15+ agentic promptia**
 - **10+ safety promptia**
 - **15+ evaluation promptia**
 - **25+ use-case promptia**
 - **4 benchmark-vertailua**
 
-## Lähteet
+## Sources
 
 - [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ )
 - [GPTs leaked prompts](https://github.com/linexjlin/GPTs)

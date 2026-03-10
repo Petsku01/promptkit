@@ -1,12 +1,12 @@
 # System Prompts
 
-Valmiita system prompteja eri käyttötarkoituksiin.
+Ready-made system prompts eri for various purposes.
 
 ## Kategoriat
 
-| Kategoria | Tiedosto | Kuvaus |
+| Kategoria | File | Kuvaus |
 |-----------|----------|--------|
-| Koodaus | [coding.md](coding.md) | Coding assistants |
+| Coding | [coding.md](coding.md) | Coding assistants |
 | Tuottavuus | [productivity.md](productivity.md) | Writing, analysis, research |
 | Opetus | [education.md](education.md) | Tutors, teachers |
 | Luova | [creative.md](creative.md) | Writing, art, storytelling |
@@ -16,22 +16,22 @@ Valmiita system prompteja eri käyttötarkoituksiin.
 
 ```
 [ROOLI]
-Kuka olet, mitä osaat
+Who you are, what you can do
 
 [KÄYTTÄYTYMINEN]
 Miten vastaat, tyyli
 
 [RAJOITUKSET]
-Mitä et tee
+What you do not do
 
 [OUTPUT-FORMAATTI]
 Miten muotoilet vastaukset
 
 [ESIMERKIT] (valinnainen)
-Few-shot esimerkkejä
+Few-shot examples
 ```
 
-## Lähteet
+## Sources
 
 - GPT Store top performers
 - Anthropic prompt library

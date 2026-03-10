@@ -1,19 +1,19 @@
 # Agentic Prompts
 
-Promptit agenttisiin työnkulkuihin: tool use, planning, multi-step reasoning.
+Prompts for agentic workflows: tool use, planning, multi-step reasoning.
 
 ## Kategoriat
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Tool Use | [tool-use.md](tool-use.md) |
 | Planning | [planning.md](planning.md) |
 | Reflection | [reflection.md](reflection.md) |
 | Orchestration | [orchestration.md](orchestration.md) |
 
-## Milloin käyttää agenttista promptia?
+## When to use agenttista promptia?
 
-- Tehtävä vaatii **useita vaiheita**
-- Tarvitaan **ulkoisia työkaluja** (haku, laskenta, API)
+- Task requires **multiple steps**
+- Needs **external tools** (search, calculation, API)
 - Itsekorjaus ja **reflektio** tarpeen
-- Monimutkainen **päätöksenteko**
+- Monimutkainen **decision making**

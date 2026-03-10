@@ -1,4 +1,4 @@
-# DeepSeek V3: Analyysi
+# DeepSeek V3: Analysis
 
 ## Step-by-Step Reasoning
 

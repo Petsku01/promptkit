@@ -1,6 +1,6 @@
 # ReAct (Reasoning + Acting)
 
-Yhdistää päättelyn ja toiminnan iteratiivisesti.
+Combines reasoningn and action iteratively.
 
 ## Basic ReAct
 

@@ -1,20 +1,20 @@
 # Grok 2
 
 ## Ominaisuudet
-- **Konteksti:** 128K tokenia
-- **Vahvuudet:** Reaaliaikaisuus, reasoning, persoonallisuus
+- **Konteksti:** 128K tokens
+- **Strengths:** Reaaliaikaisuus, reasoning, persoonallisuus
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
-| Analyysi | [analysis.md](analysis.md) |
+| Analysis | [analysis.md](analysis.md) |
 | Luova | [creative.md](creative.md) |
-| Koodaus | [coding.md](coding.md) |
+| Coding | [coding.md](coding.md) |
 | Ajankohtainen | [realtime.md](realtime.md) |
 
 ## Erikoisuudet
 
 - Voi olla suora ja humoristinen
-- Pääsy reaaliaikaiseen tietoon
-- Ei vältä kiistanalaisia aiheita
+- Access to real-time information
+- Does not avoid controversial topics

@@ -56,8 +56,8 @@ JSON:
 
 ##  Pienet mallit
 
-- Max 3-5 kenttää
-- Yksinkertaiset tyypit (string, number)
-- Ei syviä nested-rakenteita
-- Anna aina esimerkki-output
+- Max 3-5 fields
+- Simple types (string, number)
+- No deep nested structures
+- Always provide example output
 ```

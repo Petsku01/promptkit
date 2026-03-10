@@ -1,15 +1,15 @@
 # DeepSeek V3
 
 ## Ominaisuudet
-- **Konteksti:** 64K tokenia
+- **Konteksti:** 64K tokens
 - **Tyyppi:** MoE (671B total, 37B active)
-- **Vahvuudet:** Reasoning, math, code, kustannustehokas
+- **Strengths:** Reasoning, math, code, kustannustehokas
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
-| Analyysi | [analysis.md](analysis.md) |
-| Koodaus | [coding.md](coding.md) |
+| Analysis | [analysis.md](analysis.md) |
+| Coding | [coding.md](coding.md) |
 | JSON | [json-output.md](json-output.md) |
 | Math | [math.md](math.md) |

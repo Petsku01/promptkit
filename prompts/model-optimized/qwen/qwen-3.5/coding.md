@@ -1,4 +1,4 @@
-# Qwen 3.5: Koodaus (yksinkertaistettu)
+# Qwen 3.5: Coding (yksinkertaistettu)
 
 ## Koodin selitys
 
@@ -62,7 +62,7 @@ Code:
 ##  Rajoitukset
 
 Pienille malleille (< 8B):
-- Max 20 riviä koodia kerralla
-- Yksinkertaiset funktiot
+- Max 20 lines of code kerralla
+- Simple functions
 - Ei monimutkaista logiikkaa
-- Anna esimerkki-input/output
+- Provide example input/output

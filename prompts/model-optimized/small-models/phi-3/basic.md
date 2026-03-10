@@ -1,4 +1,4 @@
-# Phi 3.5: Perustehtävät
+# Phi 3.5: Basic Tasks
 
 ## Classification
 

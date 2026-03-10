@@ -1,4 +1,4 @@
-# Gemini Flash: Pitkä konteksti
+# Gemini Flash: Long context
 
 ## Document Q&A
 

@@ -1,4 +1,4 @@
-# Qwen 3.5: Perustehtävät
+# Qwen 3.5: Basic Tasks
 
 ## Luokittelu
 
@@ -20,7 +20,7 @@ Names:
 Places:
 ```
 
-## Kyllä/Ei
+## Yes/No
 
 ```
 Answer yes or no.
@@ -29,7 +29,7 @@ Answer yes or no.
 Answer:
 ```
 
-## Tiivistelmä (lyhyt)
+## Summary (short)
 
 ```
 Summarize in 1-2 sentences:
@@ -58,7 +58,7 @@ What language? Answer with language name only.
 Language:
 ```
 
-## Täydennys
+## Completion
 
 ```
 Complete:

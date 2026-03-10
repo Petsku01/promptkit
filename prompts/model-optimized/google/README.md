@@ -1,22 +1,22 @@
 # Google (Gemini)
 
-## Mallit
+## Models
 
-| Malli | Paras käyttö | Promptit |
+| Model | Best for | Prompts |
 |-------|--------------|----------|
-| [Gemini Pro](gemini-pro/) | Yleiskäyttö | 5+ |
+| [Gemini Pro](gemini-pro/) | General purpose | 5+ |
 | [Gemini Flash](gemini-flash/) | Nopeus, volyymi | 5+ |
 | [Gemini 2](gemini-2/) | Uusin, multimodal | 5+ |
 
-## Vahvuudet
+## Strengths
 
 - Multimodal (kuva, video, audio)
-- Pitkä konteksti (jopa 2M tokenia)
-- Hyvä grounding
+- Long context (jopa 2M tokens)
+- Good grounding
 - Nopea (Flash)
 
 ## Yleiset vinkit
 
-- Strukturoitu output toimii hyvin
+- Strukturoitu output works well
 - Bullet points ja listat
-- Selkeät sektiot
+- Clear sections

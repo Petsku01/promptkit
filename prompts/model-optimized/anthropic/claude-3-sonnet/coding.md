@@ -1,4 +1,4 @@
-# Claude Sonnet: Koodaus
+# Claude Sonnet: Coding
 
 ## Code Generation
 

@@ -1,19 +1,19 @@
 # Safety & Guardrails
 
-Promptit turvallisuuteen, sisällön moderointiin ja rajojen asettamiseen.
+Prompts for security, content moderation and setting limits.
 
 ## Kategoriat
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | Content Moderation | [moderation.md](moderation.md) |
 | Input Validation | [validation.md](validation.md) |
 | Output Filtering | [filtering.md](filtering.md) |
 | Prompt Injection Defense | [injection-defense.md](injection-defense.md) |
 
-## Miksi tärkeää?
+## Why important?
 
-- Estä haitallinen sisältö
+- Block harmful content
 - Suojaa prompt injectionilta
 - Varmista policy-noudattaminen
 - Rakenna luotettavia sovelluksia

@@ -1,4 +1,4 @@
-# GPT-4o: Kirjoitus
+# GPT-4o: Writing
 
 ## Tekstin parannus
 
@@ -18,7 +18,7 @@ Provide:
 Text:
 ```
 
-## Tiivistelmä
+## Summary
 
 ```
 Summarize this text:
@@ -30,7 +30,7 @@ Audience: [technical / general / executive]
 Text:
 ```
 
-## Sähköpostin kirjoitus
+## Email writing
 
 ```
 Write an email:
@@ -60,7 +60,7 @@ Include:
 - Common errors
 ```
 
-## Käännös + lokalisointi
+## Translation + localization
 
 ```
 Translate and localize:

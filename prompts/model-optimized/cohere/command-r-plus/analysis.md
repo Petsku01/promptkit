@@ -1,4 +1,4 @@
-# Command R+: Analyysi
+# Command R+: Analysis
 
 ## Document Analysis
 

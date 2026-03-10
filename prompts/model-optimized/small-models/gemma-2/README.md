@@ -1,17 +1,17 @@
 # Gemma 2 (Google)
 
 ## Ominaisuudet
-- **Koot:** 2B, 9B, 27B
-- **Konteksti:** 8K tokenia
-- **Vahvuudet:** Tehokas, hyvä hinta-laatu
+- **Sizes:** 2B, 9B, 27B
+- **Konteksti:** 8K tokens
+- **Strengths:** Efficient, good price-quality
 
-## Promptit
+## Prompts
 
-Käytä samoja lyhyitä prompteja kuin Phi:
+Use the same short prompts as Phi:
 - [../phi-3.5/basic.md](../phi-3.5/basic.md)
 - [../phi-3.5/coding.md](../phi-3.5/coding.md)
 
-## Esimerkkejä
+## Examples
 
 ### Classification
 ```
@@ -34,9 +34,9 @@ Context: [context]
 A:
 ```
 
-## Huomioita
+## Notes
 
-- 2B hyvin rajoitettu - vain yksinkertaisimmat tehtävät
-- 9B hyvä yleismalli
-- 27B lähestyy keskikokoisten mallien tasoa
-- Lyhyt konteksti (8K) - ei pitkiä dokumentteja
+- 2B very limited - only simplest tasks
+- 9B good general model
+- 27B approaches mid-size model level
+- Short context (8K) - no long documents

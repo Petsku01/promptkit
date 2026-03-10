@@ -1,13 +1,13 @@
 # Command R+
 
 ## Ominaisuudet
-- **Konteksti:** 128K tokenia
-- **Vahvuudet:** RAG, grounding, tool use
+- **Konteksti:** 128K tokens
+- **Strengths:** RAG, grounding, tool use
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | RAG | [rag.md](rag.md) |
-| Analyysi | [analysis.md](analysis.md) |
+| Analysis | [analysis.md](analysis.md) |
 | Grounding | [grounding.md](grounding.md) |

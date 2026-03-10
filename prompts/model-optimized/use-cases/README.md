@@ -1,10 +1,10 @@
 # Use Case Prompts
 
-Valmiit promptit yleisiin käyttötapauksiin.
+Ready-made prompts yleisiin for use cases.
 
 ## Kategoriat
 
-| Käyttötapaus | Tiedosto |
+| Usagetapaus | File |
 |--------------|----------|
 | Customer Support | [customer-support.md](customer-support.md) |
 | Sales & Marketing | [sales-marketing.md](sales-marketing.md) |
@@ -14,6 +14,6 @@ Valmiit promptit yleisiin käyttötapauksiin.
 ## Miksi valmiit use-case promptit?
 
 - Testattu tuotannossa
-- Parhaita käytäntöjä sisäänrakennettu
+- Best practices built-in
 - Helppo muokata omaan tarpeeseen
-- Säästät aikaa suunnittelussa
+- Save time in planning

@@ -1,4 +1,4 @@
-# Qwen 2.5: Koodaus
+# Qwen 2.5: Coding
 
 ## Code Generation
 

@@ -1,6 +1,6 @@
 # Prompt Chaining
 
-Pilko monimutkainen tehtävä ketjutettuihin prompteihin.
+Split complex task into chained prompts.
 
 ## Basic Chain
 

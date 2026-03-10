@@ -1,19 +1,19 @@
 # Claude 3/3.5 Sonnet
 
 ## Ominaisuudet
-- **Konteksti:** 200K tokenia
-- **Vahvuudet:** Tasapainoinen, koodaus, tuotanto
-- **Paras:** Production workloads, koodaus, yleiskäyttö
+- **Konteksti:** 200K tokens
+- **Strengths:** Tasapainoinen, koodaus, tuotanto
+- **Paras:** Production workloads, coding, general use
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto | Kuvaus |
+| Teema | File | Kuvaus |
 |-------|----------|--------|
-| Analyysi | [analysis.md](analysis.md) | Päättely, dokumenttianalyysi |
-| Koodaus | [coding.md](coding.md) | Generointi, review, API |
+| Analysis | [analysis.md](analysis.md) | Reasoning, document analysis |
+| Coding | [coding.md](coding.md) | Generointi, review, API |
 | JSON | [json-output.md](json-output.md) | Strukturoitu data (XML) |
-| Kirjoitus | [writing.md](writing.md) | Tekstin parannus, päätökset |
+| Writing | [writing.md](writing.md) | Text improvement, decisions |
 
-## Tärkeää muistaa
+## Important to remember
 
  XML-tagit toimivat erinomaisesti: `<task>`, `<thinking>`, `<answer>`

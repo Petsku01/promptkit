@@ -1,6 +1,6 @@
 # Tree-of-Thoughts (ToT)
 
-Eksploroi useita ajatuspolkuja, arvioi ja valitse paras.
+Explore multiple thought paths, evaluate and select the best.
 
 ## Basic ToT
 

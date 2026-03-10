@@ -1,13 +1,13 @@
 # Cohere
 
-## Mallit
+## Models
 
-| Malli | Paras käyttö | Promptit |
+| Model | Best for | Prompts |
 |-------|--------------|----------|
-| [Command R](command-r/) | Yleiskäyttö, RAG | 5+ |
+| [Command R](command-r/) | General purpose, RAG | 5+ |
 | [Command R+](command-r-plus/) | Monimutkaisemmat | 5+ |
 
-## Vahvuudet
+## Strengths
 
 - Erinomainen RAG (Retrieval Augmented Generation)
 - Grounded generation (siteeraukset)
@@ -16,6 +16,6 @@
 
 ## Yleiset vinkit
 
-- Käytä "Preamble" system promptina
-- Grounding: anna lähteet erikseen
-- Tool use: määrittele funktiot selkeästi
+- Use "Preamble" as system prompt
+- Grounding: provide sources separately
+- Tool use: define functions clearly

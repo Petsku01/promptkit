@@ -1,16 +1,16 @@
 # Evaluation Prompts
 
-Promptit LLM-outputtien arviointiin ja testaukseen.
+Prompts LLM-outputtien arviointiin ja testaukseen.
 
 ## Kategoriat
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
 | LLM as Judge | [llm-judge.md](llm-judge.md) |
 | Quality Metrics | [quality-metrics.md](quality-metrics.md) |
 | A/B Testing | [ab-testing.md](ab-testing.md) |
 
-## Käyttötarkoitukset
+## Use cases
 
 - Promptien vertailu
 - Vastausten laadun arviointi

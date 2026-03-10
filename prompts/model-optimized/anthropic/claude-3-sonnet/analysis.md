@@ -1,4 +1,4 @@
-# Claude Sonnet: Analyysi
+# Claude Sonnet: Analysis
 
 ## Chain of Thought (XML)
 

@@ -1,4 +1,4 @@
-# Gemini 2: Analyysi
+# Gemini 2: Analysis
 
 ## Deep Analysis
 

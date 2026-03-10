@@ -1,21 +1,21 @@
 # DeepSeek
 
-## Mallit
+## Models
 
-| Malli | Paras käyttö | Promptit |
+| Model | Best for | Prompts |
 |-------|--------------|----------|
-| [DeepSeek V3](deepseek-v3/) | Yleiskäyttö, reasoning | 5+ |
-| [DeepSeek Coder](deepseek-coder/) | Koodaus | 5+ |
+| [DeepSeek V3](deepseek-v3/) | General purpose, reasoning | 5+ |
+| [DeepSeek Coder](deepseek-coder/) | Coding | 5+ |
 
-## Vahvuudet
+## Strengths
 
-- Erittäin kustannustehokas
-- Hyvä reasoning (V3)
+- Very cost-effective
+- Good reasoning (V3)
 - Erinomainen koodauksessa (Coder)
 - Avoimet painot
 
 ## Yleiset vinkit
 
 - Toimii hyvin suorilla prompteilla
-- Step-by-step reasoning toimii
-- JSON output: anna esimerkki
+- Step-by-step reasoning works
+- JSON output: provide example

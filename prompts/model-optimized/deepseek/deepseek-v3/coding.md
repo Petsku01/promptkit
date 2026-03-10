@@ -1,4 +1,4 @@
-# DeepSeek V3: Koodaus
+# DeepSeek V3: Coding
 
 ## Code Generation
 

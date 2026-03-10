@@ -1,20 +1,20 @@
 # xAI
 
-## Mallit
+## Models
 
-| Malli | Paras käyttö | Promptit |
+| Model | Best for | Prompts |
 |-------|--------------|----------|
-| [Grok 2](grok-2/) | Yleiskäyttö, reaaliaikainen tieto | 5+ |
+| [Grok 2](grok-2/) | General purpose, real-time information | 5+ |
 
-## Vahvuudet
+## Strengths
 
 - Reaaliaikainen tieto (X/Twitter integraatio)
 - Huumori ja persoonallisuus
-- Hyvä reasoning
-- Pitkä konteksti
+- Good reasoning
+- Long context
 
 ## Yleiset vinkit
 
-- Voi käyttää suoria, epämuodollisia prompteja
-- Hyvä ajankohtaisiin aiheisiin
-- Ei pelkää mielipiteitä
+- Can use direct, informal prompts
+- Good for current topics
+- Not afraid of opinions

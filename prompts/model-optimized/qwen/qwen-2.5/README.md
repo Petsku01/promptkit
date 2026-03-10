@@ -1,21 +1,21 @@
 # Qwen 2.5
 
 ## Ominaisuudet
-- **Koot:** 0.5B, 1.5B, 3B, 7B, 14B, 32B, 72B
+- **Sizes:** 0.5B, 1.5B, 3B, 7B, 14B, 32B, 72B
 - **Konteksti:** 32K - 128K (koon mukaan)
-- **Vahvuudet:** Monikielinen, koodi, matematiikka
+- **Strengths:** Monikielinen, koodi, matematiikka
 
-## Promptit teemoittain
+## Prompts teemoittain
 
-| Teema | Tiedosto |
+| Teema | File |
 |-------|----------|
-| Analyysi | [analysis.md](analysis.md) |
-| Koodaus | [coding.md](coding.md) |
+| Analysis | [analysis.md](analysis.md) |
+| Coding | [coding.md](coding.md) |
 | JSON | [json-output.md](json-output.md) |
 | Kielet | [multilingual.md](multilingual.md) |
 
-## Tärkeää
+## Important
 
-- 7B+ suositellaan monimutkaisiin tehtäviin
-- 3B ja alle: pidä promptit yksinkertaisina
+- 7B+ recommended for complex tasks
+- 3B and below: keep prompts simple
 - Qwen2.5-Coder parempi koodaukseen

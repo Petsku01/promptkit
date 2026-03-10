@@ -1,4 +1,4 @@
-# GPT-4o: Koodaus
+# GPT-4o: Coding
 
 ## Code Review
 

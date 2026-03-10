@@ -1,6 +1,6 @@
 # Meta-Prompting
 
-Käytä LLM:ää luomaan parempia prompteja.
+Use LLM to create better prompts.
 
 ## Prompt Generator
 

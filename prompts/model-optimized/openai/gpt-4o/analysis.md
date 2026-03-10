@@ -1,4 +1,4 @@
-# GPT-4o: Analyysi & Päättely
+# GPT-4o: Analysis Analysis & Reasoning Reasoning
 
 ## Step-by-Step Analysis
 

@@ -1,4 +1,4 @@
-# Claude Sonnet: Kirjoitus
+# Claude Sonnet: Writing
 
 ## Text Improvement
 

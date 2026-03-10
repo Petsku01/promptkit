@@ -1,4 +1,4 @@
-# Grok 2: Analyysi
+# Grok 2: Analysis
 
 ## Direct Analysis
 

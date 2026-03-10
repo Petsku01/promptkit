@@ -1,4 +1,4 @@
-# Grok 2: Koodaus
+# Grok 2: Coding
 
 ## Quick Code
 
