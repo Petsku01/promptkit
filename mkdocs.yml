@@ -60,6 +60,19 @@ nav:
     - Output Control: patterns/output.md
     - Code: patterns/code.md
     - Review: patterns/review.md
+  - Prompts:
+    - Overview: prompts/index.md
+    - Code: prompts/code.md
+    - Reasoning: prompts/reasoning.md
+    - Debug: prompts/debug.md
+    - Defensive: prompts/defensive.md
+    - Education: prompts/education.md
+    - Professional: prompts/professional.md
+    - Creative: prompts/creative.md
+    - Output: prompts/output.md
+    - System: prompts/system.md
+    - Context: prompts/context.md
+    - Model-Optimized: prompts/model-optimized.md
   - API Reference:
     - PromptBuilder: api/builder.md
     - CLI: api/cli.md
