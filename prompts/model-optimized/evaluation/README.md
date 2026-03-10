@@ -4,7 +4,7 @@ Prompts LLM-outputtien arviointiin ja testaukseen.
 
 ## Kategoriat
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | LLM as Judge | [llm-judge.md](llm-judge.md) |
 | Quality Metrics | [quality-metrics.md](quality-metrics.md) |

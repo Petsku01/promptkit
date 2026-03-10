@@ -1,13 +1,13 @@
 # DeepSeek Coder
 
-## Ominaisuudet
+## Features
 - **Sizes:** 1.3B, 6.7B, 33B
-- **Konteksti:** 16K tokens
+- **Context:** 16K tokens
 - **Strengths:** Code generation, completion, debug
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Generointi | [generation.md](generation.md) |
 | Debug | [debugging.md](debugging.md) |

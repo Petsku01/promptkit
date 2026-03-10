@@ -1,18 +1,18 @@
 # GPT-4o
 
-## Ominaisuudet
-- **Konteksti:** 128K tokens
+## Features
+- **Context:** 128K tokens
 - **Strengths:** Speed, multimodal (image + audio)
-- **Paras:** Reaaliaikasovellukset, kuvat, volyymi
+- **Paras:** Real-time applications, images, volume
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File | Kuvaus |
+| Theme | File | Description |
 |-------|----------|--------|
 | Analysis | [analysis.md](analysis.md) | Problem solving, reasoning |
-| Coding | [coding.md](coding.md) | Review, generointi, debug |
-| JSON | [json-output.md](json-output.md) | Strukturoitu data |
-| Visio | [vision.md](vision.md) | Kuva-analyysi |
+| Coding | [coding.md](coding.md) | Review, generation, debug |
+| JSON | [json-output.md](json-output.md) | Structured data |
+| Vision | [vision.md](vision.md) | Image analysis |
 | Writing | [writing.md](writing.md) | Tekstin parannus |
 
 ## Important to remember

@@ -1,12 +1,12 @@
 # Gemini Flash
 
-## Ominaisuudet
-- **Konteksti:** 1M tokens
+## Features
+- **Context:** 1M tokens
 - **Strengths:** Speed, cost-effective, long context
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
 | Long context | [long-context.md](long-context.md) |

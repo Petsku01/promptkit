@@ -1,4 +1,4 @@
-# Qwen 3.5: Coding (yksinkertaistettu)
+# Qwen 3.5: Coding (simplified)
 
 ## Koodin selitys
 

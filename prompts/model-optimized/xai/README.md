@@ -8,7 +8,7 @@
 
 ## Strengths
 
-- Reaaliaikainen tieto (X/Twitter integraatio)
+- Real-time information (X/Twitter integration)
 - Huumori ja persoonallisuus
 - Good reasoning
 - Long context

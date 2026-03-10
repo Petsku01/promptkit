@@ -1,13 +1,13 @@
 # Qwen 2.5
 
-## Ominaisuudet
+## Features
 - **Sizes:** 0.5B, 1.5B, 3B, 7B, 14B, 32B, 72B
-- **Konteksti:** 32K - 128K (koon mukaan)
+- **Context:** 32K - 128K (koon mukaan)
 - **Strengths:** Monikielinen, koodi, matematiikka
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Analysis | [analysis.md](analysis.md) |
 | Coding | [coding.md](coding.md) |

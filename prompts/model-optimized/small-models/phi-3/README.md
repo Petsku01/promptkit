@@ -1,13 +1,13 @@
 # Phi 3 (Microsoft)
 
-## Ominaisuudet
+## Features
 - **Koko:** 3.8B parametria
-- **Konteksti:** 128K tokens
+- **Context:** 128K tokens
 - **Strengths:** Reasoning, koodi, matematiikka
 
 ## Prompts
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
 | Koodi | [coding.md](coding.md) |
@@ -17,7 +17,7 @@
 - Surprisingly good reasoning for its size
 - Good at math
 - 128K context enables long documents
-- Vision-variantti kuville
+- Visionn-variantti kuville
 
 ## Esimerkkipromptit
 

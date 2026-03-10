@@ -1,8 +1,8 @@
 # Qwen 3
 
-## Ominaisuudet
+## Features
 - **Sizes:** 0.6B, 1.7B, 4B, 8B, 14B, 32B, 30B-A3B (MoE), 235B-A22B (MoE)
-- **Konteksti:** 32K - 128K
+- **Context:** 32K - 128K
 - **Strengths:** MoE-arkkitehtuuri, reasoning, tool use
 
 ## Prompts
@@ -21,6 +21,6 @@ Use the same prompts as Qwen 2.5:
 ## Qwen3-Coder
 
 For coding tasks use Qwen3-Coder variant:
-- Parempi koodin generointi
+- Better code generation
 - Parempi debuggaus
 - Samat promptit toimivat

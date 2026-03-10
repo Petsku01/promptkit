@@ -7,7 +7,7 @@ Comparison data on different prompts and model performance.
 | Kategoria | File | Mittaa |
 |-----------|----------|--------|
 | Reasoning | [reasoning.md](reasoning.md) | Reasoningkyky |
-| Coding | [coding.md](coding.md) | Koodin generointi |
+| Coding | [coding.md](coding.md) | Code generation |
 | Instruction Following | [instruction-following.md](instruction-following.md) | Ohjeiden noudattaminen |
 | Safety | [safety.md](safety.md) | Turvallisuus |
 

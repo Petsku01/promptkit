@@ -4,7 +4,7 @@ Ready-made system prompts eri for various purposes.
 
 ## Kategoriat
 
-| Kategoria | File | Kuvaus |
+| Kategoria | File | Description |
 |-----------|----------|--------|
 | Coding | [coding.md](coding.md) | Coding assistants |
 | Tuottavuus | [productivity.md](productivity.md) | Writing, analysis, research |

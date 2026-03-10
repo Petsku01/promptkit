@@ -1,4 +1,4 @@
-# Qwen 3.5: JSON (yksinkertaistettu)
+# Qwen 3.5: JSON (simplified)
 
 ## Perus JSON
 
@@ -54,7 +54,7 @@ From: [text]
 JSON:
 ```
 
-##  Pienet mallit
+##  Small mallit
 
 - Max 3-5 fields
 - Simple types (string, number)

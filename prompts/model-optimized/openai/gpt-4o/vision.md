@@ -1,4 +1,4 @@
-# GPT-4o: Vision (Image Analysis)
+# GPT-4o: Visionn (Image Analysis)
 
 ## General Image Analysis
 

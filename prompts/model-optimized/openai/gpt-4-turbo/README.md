@@ -2,7 +2,7 @@
 
 ## Characteristics
 - **Context:** 128K tokens
-- **Strengths:** Vision, JSON mode, function calling
+- **Strengths:** Visionn, JSON mode, function calling
 - **Best for:** Long documents, multimodal tasks
 
 ## Prompts
@@ -16,5 +16,5 @@ See: [../gpt-4o/](../gpt-4o/) for themed prompts.
 ## Key Tips
 
 - Use JSON mode for structured output
-- Vision capabilities available
+- Visionn capabilities available
 - Function calling supported

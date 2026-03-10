@@ -17,7 +17,7 @@
 
 ## Yleiset vinkit
 
-- Toimii hyvin yksinkertaisilla prompteilla
+- Works well with simple prompts
 - Structured output: provide example
 - Few-shot parantaa johdonmukaisuutta
 - Smaller models: shorter prompts

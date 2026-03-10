@@ -4,7 +4,7 @@ Prompts for agentic workflows: tool use, planning, multi-step reasoning.
 
 ## Kategoriat
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Tool Use | [tool-use.md](tool-use.md) |
 | Planning | [planning.md](planning.md) |
@@ -16,4 +16,4 @@ Prompts for agentic workflows: tool use, planning, multi-step reasoning.
 - Task requires **multiple steps**
 - Needs **external tools** (search, calculation, API)
 - Itsekorjaus ja **reflektio** tarpeen
-- Monimutkainen **decision making**
+- Complex **decision making**

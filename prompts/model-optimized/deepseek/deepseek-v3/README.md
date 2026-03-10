@@ -1,13 +1,13 @@
 # DeepSeek V3
 
-## Ominaisuudet
-- **Konteksti:** 64K tokens
+## Features
+- **Context:** 64K tokens
 - **Tyyppi:** MoE (671B total, 37B active)
 - **Strengths:** Reasoning, math, code, kustannustehokas
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Analysis | [analysis.md](analysis.md) |
 | Coding | [coding.md](coding.md) |

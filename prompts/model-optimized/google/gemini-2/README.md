@@ -1,12 +1,12 @@
 # Gemini 2.0
 
-## Ominaisuudet
-- **Konteksti:** 2M tokens
+## Features
+- **Context:** 2M tokens
 - **Strengths:** Multimodal, reasoning, code, tool use
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Analysis | [analysis.md](analysis.md) |
 | Multimodal | [multimodal.md](multimodal.md) |

@@ -11,7 +11,7 @@ Tutkimukseen perustuvat edistyneet tekniikat.
 | Tree-of-Thoughts | [tree-of-thoughts.md](tree-of-thoughts.md) | Eksploratiivinen ongelmanratkaisu |
 | ReAct | [react.md](react.md) | Action + reasoning |
 | Prompt Chaining | [prompt-chaining.md](prompt-chaining.md) | Multi-step tasks |
-| Meta-Prompting | [meta-prompting.md](meta-prompting.md) | Promptin generointi |
+| Meta-Prompting | [meta-prompting.md](meta-prompting.md) | Prompt generation |
 
 ## Sources
 

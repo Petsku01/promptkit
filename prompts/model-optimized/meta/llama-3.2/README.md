@@ -4,9 +4,9 @@
 - **Context:** 128K tokens
 - **Sizes:** 1B, 3B (text), 11B, 90B (vision)
 - **Strengths:** Multimodal, edge deployment, efficient
-- **Best for:** Vision tasks, mobile/edge, lightweight apps
+- **Best for:** Visionn tasks, mobile/edge, lightweight apps
 
-## Vision Models (11B, 90B)
+## Visionn Models (11B, 90B)
 
 ```
 <image>
@@ -31,7 +31,7 @@ Answer this question:
 Answer:
 ```
 
-## Chain of Thought (Vision)
+## Chain of Thought (Visionn)
 
 ```
 Look at this image and analyze:
@@ -48,5 +48,5 @@ Conclusion:
 - 1B/3B: Very simple prompts, basic tasks only
 - 11B/90B: Multimodal, can see images
 - Edge-optimized for mobile deployment
-- Vision models need explicit image references
+- Visionn models need explicit image references
 - Smaller context needs for edge models

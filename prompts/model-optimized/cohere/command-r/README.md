@@ -1,12 +1,12 @@
 # Command R
 
-## Ominaisuudet
-- **Konteksti:** 128K tokens
+## Features
+- **Context:** 128K tokens
 - **Strengths:** RAG, grounding, tool use
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | RAG | [rag.md](rag.md) |
 | Analysis | [analysis.md](analysis.md) |

@@ -1,8 +1,8 @@
 # Gemma 2 (Google)
 
-## Ominaisuudet
+## Features
 - **Sizes:** 2B, 9B, 27B
-- **Konteksti:** 8K tokens
+- **Context:** 8K tokens
 - **Strengths:** Efficient, good price-quality
 
 ## Prompts

@@ -1,4 +1,4 @@
-# Grok 2: Reaaliaikainen tieto
+# Grok 2: Real-time information
 
 ## Current Events
 

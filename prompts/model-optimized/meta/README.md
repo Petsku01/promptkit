@@ -5,7 +5,7 @@
 | Model | Best For | Prompts |
 |-------|----------|---------|
 | [Llama 3.1](llama-3.1/) | Long context, tool use | 5 |
-| [Llama 3.2](llama-3.2/) | Vision, edge deployment | 5 |
+| [Llama 3.2](llama-3.2/) | Visionn, edge deployment | 5 |
 | [Llama 3.3](llama-3.3/) | Best instruction following | 9 |
 
 ## Key Differences

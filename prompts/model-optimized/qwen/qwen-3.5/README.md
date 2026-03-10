@@ -1,13 +1,13 @@
 # Qwen 3.5 (Pieni malli)
 
-## Ominaisuudet
+## Features
 - **Sizes:** 0.6B, 1.7B, 4B, 8B, 14B, 32B
-- **Konteksti:** 32K tokens
+- **Context:** 32K tokens
 - **Strengths:** Fast, edge use, cost-effective
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Perus | [basic.md](basic.md) |
 | Coding | [coding.md](coding.md) |
@@ -24,6 +24,6 @@
 
 | Koko | Sopii | Ei sovi |
 |------|-------|---------|
-| 0.6B-1.7B | Luokittelu, NER, yksinkertainen | Koodi, reasoning |
-| 4B-8B | Peruskoodaus, yhteenveto | Monimutkainen analyysi |
+| 0.6B-1.7B | Classification, NER, simple | Code, reasoning |
+| 4B-8B | Peruskoodaus, yhteenveto | Complex analyysi |
 | 14B+ | Most tasks | - |

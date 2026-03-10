@@ -1,11 +1,11 @@
-# Pienet mallit (< 10B parametria)
+# Small mallit (< 10B parametria)
 
 ## Models
 
 | Model | Sizes | Strengths |
 |-------|------|-----------|
 | [Phi 3](phi-3/) | 3.8B | Microsoft, reasoning |
-| [Phi 3.5](phi-3.5/) | 3.8B | Parannettu, vision |
+| [Phi 3.5](phi-3.5/) | 3.8B | Improved, vision |
 | [Gemma 2](gemma-2/) | 2B, 9B | Google, tehokas |
 
 ##  General rules for small models
@@ -21,7 +21,7 @@
  **Sopii:**
 - Luokittelu
 - NER (nimien/paikkojen tunnistus)
-- Yksinkertainen Q&A
+- Simple Q&A
 - Tekstin muotoilu
 - Kielentunnistus
 
@@ -29,4 +29,4 @@
 - Complex reasoning
 - Long code generation
 - Luova kirjoitus
-- Monimutkaiset JSON-rakenteet
+- Complex JSON structures

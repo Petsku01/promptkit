@@ -1,17 +1,17 @@
 # Claude 3/3.5 Sonnet
 
-## Ominaisuudet
-- **Konteksti:** 200K tokens
+## Features
+- **Context:** 200K tokens
 - **Strengths:** Tasapainoinen, koodaus, tuotanto
 - **Paras:** Production workloads, coding, general use
 
-## Prompts teemoittain
+## Prompts by theme
 
-| Teema | File | Kuvaus |
+| Theme | File | Description |
 |-------|----------|--------|
 | Analysis | [analysis.md](analysis.md) | Reasoning, document analysis |
-| Coding | [coding.md](coding.md) | Generointi, review, API |
-| JSON | [json-output.md](json-output.md) | Strukturoitu data (XML) |
+| Coding | [coding.md](coding.md) | Generation, review, API |
+| JSON | [json-output.md](json-output.md) | Structured data (XML) |
 | Writing | [writing.md](writing.md) | Text improvement, decisions |
 
 ## Important to remember

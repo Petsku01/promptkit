@@ -4,7 +4,7 @@ Prompts for security, content moderation and setting limits.
 
 ## Kategoriat
 
-| Teema | File |
+| Theme | File |
 |-------|----------|
 | Content Moderation | [moderation.md](moderation.md) |
 | Input Validation | [validation.md](validation.md) |

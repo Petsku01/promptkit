@@ -2,7 +2,7 @@
 
 Select company -> model -> theme -> copy.
 
-## Modelkohtaiset
+## Model-specific
 
 | Company | Models | Link |
 |-------|--------|--------|
@@ -15,11 +15,11 @@ Select company -> model -> theme -> copy.
 | **Cohere** | Command R, R+ | [cohere/](cohere/) |
 | **xAI** | Grok 2 | [xai/](xai/) |
 | **Qwen** | 2.5, 3, 3.5 | [qwen/](qwen/) |
-| **Pienet** | Phi, Gemma (<10B) | [small-models/](small-models/) |
+| **Small** | Phi, Gemma (<10B) | [small-models/](small-models/) |
 
-## Yleiset kategoriat
+## Common categories
 
-| Kategoria | Kuvaus | Link |
+| Kategoria | Description | Link |
 |-----------|--------|--------|
 | **Roolit** | Persona-pohjaiset (50+) | [roles/](roles/) |
 | **System Prompts** | Valmiit system promptit | [system-prompts/](system-prompts/) |
@@ -41,7 +41,7 @@ Select company -> model -> theme -> copy.
 | Gemini | Long context OK |
 | DeepSeek | Cheap + good |
 | Command R | RAG-erikoinen |
-| Grok | Reaaliaikainen |
+| Grok | Real-time |
 | Phi/Gemma | Max 200 tok |
 
 ## Tilastot

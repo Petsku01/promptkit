@@ -17,6 +17,6 @@
 
 ## Yleiset vinkit
 
-- Strukturoitu output works well
+- Structured output works well
 - Bullet points ja listat
 - Clear sections
