@@ -108,7 +108,11 @@ def build_prompt(args):
 
     if args.pattern:
         for pattern in args.pattern:
-            builder.pattern(pattern)
+            try:
+                builder.pattern(pattern)
+            except ValueError as e:
+                console.print(f"[red]Error: {e}[/red]")
+                return
 
     if args.task:
         builder.task(args.task)
