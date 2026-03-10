@@ -11,12 +11,12 @@ Usage:
 """
 
 import argparse
-import time
+import subprocess
 from pathlib import Path
+from typing import List, Tuple
 
 from rich.console import Console
 from rich.panel import Panel
-from rich.progress import track
 from rich.prompt import Prompt
 from rich.syntax import Syntax
 from rich.table import Table
@@ -25,7 +25,10 @@ from .builder import PromptBuilder
 
 console = Console()
 
-# Find prompts directory relative to package
+# Constants
+CHARS_PER_TOKEN = 4  # Rough estimate for token counting
+
+
 def get_prompts_dir() -> Path:
     """Get the prompts directory path."""
     # Try relative to this file (installed package)
@@ -37,7 +40,51 @@ def get_prompts_dir() -> Path:
     cwd_prompts = Path.cwd() / "prompts"
     if cwd_prompts.exists():
         return cwd_prompts
-    return prompts_dir  # Return default even if not found
+    return prompts_dir
+
+
+def is_prompt_file(path: Path) -> bool:
+    """Check if a file is a prompt (not README)."""
+    return path.suffix == ".md" and path.stem.lower() != "readme"
+
+
+def get_prompt_files(directory: Path) -> List[Path]:
+    """Get all prompt files in a directory."""
+    return sorted([p for p in directory.glob("*.md") if is_prompt_file(p)])
+
+
+def count_prompts(directory: Path) -> int:
+    """Count prompt files in a directory."""
+    return len(get_prompt_files(directory))
+
+
+def get_models_with_prompts(provider_path: Path) -> List[Tuple[str, int]]:
+    """Get models that have actual prompts."""
+    models = []
+    for m in sorted(provider_path.iterdir()):
+        if m.is_dir():
+            prompt_count = count_prompts(m)
+            if prompt_count > 0:
+                models.append((m.name, prompt_count))
+    return models
+
+
+def copy_to_clipboard(text: str) -> bool:
+    """Copy text to clipboard. Returns True on success."""
+    commands = [
+        ["xclip", "-selection", "clipboard"],
+        ["xsel", "--clipboard", "--input"],
+        ["pbcopy"],
+    ]
+    for cmd in commands:
+        try:
+            process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+            process.communicate(text.encode())
+            if process.returncode == 0:
+                return True
+        except FileNotFoundError:
+            continue
+    return False
 
 def list_patterns():
     """List available patterns."""
@@ -73,10 +120,7 @@ def build_prompt(args):
         for constraint in args.constraint:
             builder.constraint(constraint)
 
-    # Simulate thinking/processing with progress indicator
-    with console.status("[bold green]Building prompt..."):
-        time.sleep(0.5)
-        prompt = builder.build()
+    prompt = builder.build()
 
     if args.tokens:
         token_count = builder.estimate_tokens()
@@ -123,10 +167,6 @@ def interactive_build():
     if context:
         builder.context(context)
 
-    # Simulate processing
-    for step in track(range(100), description="Generating prompt..."):
-        time.sleep(0.005)
-
     prompt = builder.build()
 
     console.print("\n")
@@ -151,13 +191,7 @@ def interactive_prompts():
         providers = []
         for p in sorted(model_dir.iterdir()):
             if p.is_dir():
-                # Count models with actual prompts
-                models_with_prompts = 0
-                for m in p.iterdir():
-                    if m.is_dir():
-                        prompt_count = len([pf for pf in m.glob("*.md") if pf.stem.lower() != "readme"])
-                        if prompt_count > 0:
-                            models_with_prompts += 1
+                models_with_prompts = len(get_models_with_prompts(p))
                 if models_with_prompts > 0:
                     providers.append((p.name, models_with_prompts))
 
@@ -184,12 +218,7 @@ def interactive_prompts():
         # Step 2: Select model (only those with prompts)
         while True:
             provider_path = model_dir / selected_provider
-            models = []
-            for m in sorted(provider_path.iterdir()):
-                if m.is_dir():
-                    prompt_count = len([p for p in m.glob("*.md") if p.stem.lower() != "readme"])
-                    if prompt_count > 0:
-                        models.append((m.name, prompt_count))
+            models = get_models_with_prompts(provider_path)
 
             if not models:
                 console.print(f"[red]No models with prompts found for {selected_provider}.[/red]")
@@ -217,7 +246,7 @@ def interactive_prompts():
             # Step 3: Select prompt
             while True:
                 model_path = provider_path / selected_model
-                prompt_files = sorted([p for p in model_path.glob("*.md") if p.stem.lower() != "readme"])
+                prompt_files = get_prompt_files(model_path)
 
                 if not prompt_files:
                     console.print(f"[red]No prompts found for {selected_provider}/{selected_model}.[/red]")
@@ -250,29 +279,17 @@ def interactive_prompts():
                     title=f"{selected_provider}/{selected_model}/{selected_prompt.stem}",
                     border_style="blue"
                 ))
-                console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+                console.print(f"\n[dim]Estimated tokens: ~{len(content) // CHARS_PER_TOKEN}[/dim]")
 
                 # Copy option
                 copy_choice = Prompt.ask("\nCopy to clipboard? [y/n/q]", default="n").strip().lower()
                 if copy_choice == "q":
                     return
                 if copy_choice == "y":
-                    try:
-                        import subprocess
-                        # Try xclip first, then xsel, then pbcopy (macOS)
-                        for cmd in [["xclip", "-selection", "clipboard"], ["xsel", "--clipboard", "--input"], ["pbcopy"]]:
-                            try:
-                                process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-                                process.communicate(content.encode())
-                                if process.returncode == 0:
-                                    console.print("[green]Copied to clipboard![/green]")
-                                    break
-                            except FileNotFoundError:
-                                continue
-                        else:
-                            console.print("[yellow]No clipboard tool found (install xclip or xsel).[/yellow]")
-                    except Exception as e:
-                        console.print(f"[yellow]Could not copy: {e}[/yellow]")
+                    if copy_to_clipboard(content):
+                        console.print("[green]Copied to clipboard![/green]")
+                    else:
+                        console.print("[yellow]No clipboard tool found (install xclip or xsel).[/yellow]")
 
                 # After showing prompt, ask what to do next
                 next_action = Prompt.ask("\n[dim]Press Enter to select another prompt, 'b' for back, 'q' to quit[/dim]", default="").strip().lower()
@@ -283,7 +300,7 @@ def interactive_prompts():
 
 
 def list_providers():
-    """List available model providers."""
+    """List available model providers (only those with prompts)."""
     prompts_dir = get_prompts_dir()
     model_dir = prompts_dir / "model-optimized"
 
@@ -298,11 +315,12 @@ def list_providers():
 
     for provider_path in sorted(model_dir.iterdir()):
         if provider_path.is_dir():
-            models = [m.name for m in provider_path.iterdir() if m.is_dir()]
+            models = get_models_with_prompts(provider_path)
             if models:
+                model_names = [m[0] for m in models]
                 table.add_row(
                     provider_path.name,
-                    ", ".join(sorted(models)[:4]) + ("..." if len(models) > 4 else "")
+                    ", ".join(model_names[:4]) + ("..." if len(models) > 4 else "")
                 )
 
     console.print(table)
@@ -326,10 +344,9 @@ def list_model_prompts(model_path: str):
         table.add_column("Model", style="cyan")
         table.add_column("Prompts", style="green")
 
-        for model_subdir in sorted(provider_dir.iterdir()):
-            if model_subdir.is_dir():
-                prompts = [p.stem for p in model_subdir.glob("*.md") if p.stem.lower() != "readme"]
-                table.add_row(model_subdir.name, ", ".join(sorted(prompts)))
+        for model_name, prompt_count in get_models_with_prompts(provider_dir):
+            prompts = get_prompt_files(provider_dir / model_name)
+            table.add_row(model_name, ", ".join(p.stem for p in prompts))
 
         console.print(table)
         console.print(f"\n[dim]Use: promptkit prompts --model {parts[0]}/<model> to list prompts[/dim]")
@@ -345,9 +362,8 @@ def list_model_prompts(model_path: str):
         table.add_column("Prompt", style="cyan")
         table.add_column("File", style="dim")
 
-        for prompt_file in sorted(full_model_dir.glob("*.md")):
-            if prompt_file.stem.lower() != "readme":
-                table.add_row(prompt_file.stem, prompt_file.name)
+        for prompt_file in get_prompt_files(full_model_dir):
+            table.add_row(prompt_file.stem, prompt_file.name)
 
         console.print(table)
         console.print(f"\n[dim]Use: promptkit prompts --show {model_path}/<prompt> to view[/dim]")
@@ -383,7 +399,7 @@ def show_prompt(prompt_path: str):
     ))
 
     # Show token estimate
-    console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+    console.print(f"\n[dim]Estimated tokens: ~{len(content) // CHARS_PER_TOKEN}[/dim]")
 
 
 def prompts_command(args):
