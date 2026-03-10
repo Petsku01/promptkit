@@ -135,7 +135,7 @@ def interactive_build():
 
 
 def interactive_prompts():
-    """Interactive prompt selector."""
+    """Interactive prompt selector with back navigation."""
     prompts_dir = get_prompts_dir()
     model_dir = prompts_dir / "model-optimized"
 
@@ -144,96 +144,142 @@ def interactive_prompts():
         return
 
     console.print(Panel.fit("Prompt Selector", style="bold magenta"))
+    console.print("[dim]Enter number to select, 'b' to go back, 'q' to quit[/dim]")
 
-    # Step 1: Select provider (only those with models that have prompts)
-    providers = []
-    for p in sorted(model_dir.iterdir()):
-        if p.is_dir():
-            models = [m for m in p.iterdir() if m.is_dir()]
-            # Check if any model has prompts
-            has_prompts = any(
-                any(pf.suffix == ".md" and pf.stem.lower() != "readme" for pf in m.iterdir())
-                for m in models
-            )
-            if has_prompts:
-                providers.append(p.name)
+    while True:
+        # Step 1: Select provider (only those with models that have prompts)
+        providers = []
+        for p in sorted(model_dir.iterdir()):
+            if p.is_dir():
+                # Count models with actual prompts
+                models_with_prompts = 0
+                for m in p.iterdir():
+                    if m.is_dir():
+                        prompt_count = len([pf for pf in m.glob("*.md") if pf.stem.lower() != "readme"])
+                        if prompt_count > 0:
+                            models_with_prompts += 1
+                if models_with_prompts > 0:
+                    providers.append((p.name, models_with_prompts))
 
-    console.print("\n[bold cyan]Select a provider:[/bold cyan]")
-    for i, provider in enumerate(providers, 1):
-        models = [m.name for m in (model_dir / provider).iterdir() if m.is_dir()]
-        console.print(f"  [dim]{i}.[/dim] [cyan]{provider}[/cyan] [dim]({len(models)} models)[/dim]")
+        console.print("\n[bold cyan]Select a provider:[/bold cyan]")
+        for i, (provider, model_count) in enumerate(providers, 1):
+            console.print(f"  [dim]{i}.[/dim] [cyan]{provider}[/cyan] [dim]({model_count} models)[/dim]")
 
-    provider_choice = Prompt.ask("\nProvider number", default="1")
-    try:
-        provider_idx = int(provider_choice) - 1
-        if provider_idx < 0 or provider_idx >= len(providers):
-            console.print("[red]Invalid selection.[/red]")
+        provider_choice = Prompt.ask("\nProvider").strip().lower()
+        if provider_choice == "q":
             return
-        selected_provider = providers[provider_idx]
-    except ValueError:
-        console.print("[red]Invalid number.[/red]")
-        return
+        if provider_choice == "b":
+            console.print("[dim]Already at top level.[/dim]")
+            continue
+        try:
+            provider_idx = int(provider_choice) - 1
+            if provider_idx < 0 or provider_idx >= len(providers):
+                console.print("[red]Invalid selection.[/red]")
+                continue
+            selected_provider = providers[provider_idx][0]
+        except ValueError:
+            console.print("[red]Enter a number, 'b' for back, or 'q' to quit.[/red]")
+            continue
 
-    # Step 2: Select model (only those with prompts)
-    provider_path = model_dir / selected_provider
-    models = []
-    for m in sorted(provider_path.iterdir()):
-        if m.is_dir():
-            prompt_count = len([p for p in m.glob("*.md") if p.stem.lower() != "readme"])
-            if prompt_count > 0:
-                models.append((m.name, prompt_count))
+        # Step 2: Select model (only those with prompts)
+        while True:
+            provider_path = model_dir / selected_provider
+            models = []
+            for m in sorted(provider_path.iterdir()):
+                if m.is_dir():
+                    prompt_count = len([p for p in m.glob("*.md") if p.stem.lower() != "readme"])
+                    if prompt_count > 0:
+                        models.append((m.name, prompt_count))
 
-    if not models:
-        console.print(f"[red]No models with prompts found for {selected_provider}.[/red]")
-        return
+            if not models:
+                console.print(f"[red]No models with prompts found for {selected_provider}.[/red]")
+                break
 
-    console.print(f"\n[bold cyan]Select a model for {selected_provider}:[/bold cyan]")
-    for i, (model, prompt_count) in enumerate(models, 1):
-        console.print(f"  [dim]{i}.[/dim] [cyan]{model}[/cyan] [dim]({prompt_count} prompts)[/dim]")
+            console.print(f"\n[bold cyan]Select a model for {selected_provider}:[/bold cyan]")
+            for i, (model, prompt_count) in enumerate(models, 1):
+                console.print(f"  [dim]{i}.[/dim] [cyan]{model}[/cyan] [dim]({prompt_count} prompts)[/dim]")
 
-    model_choice = Prompt.ask("\nModel number", default="1")
-    try:
-        model_idx = int(model_choice) - 1
-        if model_idx < 0 or model_idx >= len(models):
-            console.print("[red]Invalid selection.[/red]")
-            return
-        selected_model = models[model_idx][0]  # Get name from tuple
-    except ValueError:
-        console.print("[red]Invalid number.[/red]")
-        return
+            model_choice = Prompt.ask("\nModel").strip().lower()
+            if model_choice == "q":
+                return
+            if model_choice == "b":
+                break  # Back to provider selection
+            try:
+                model_idx = int(model_choice) - 1
+                if model_idx < 0 or model_idx >= len(models):
+                    console.print("[red]Invalid selection.[/red]")
+                    continue
+                selected_model = models[model_idx][0]
+            except ValueError:
+                console.print("[red]Enter a number, 'b' for back, or 'q' to quit.[/red]")
+                continue
 
-    # Step 3: Select prompt
-    model_path = provider_path / selected_model
-    prompt_files = sorted([p for p in model_path.glob("*.md") if p.stem.lower() != "readme"])
+            # Step 3: Select prompt
+            while True:
+                model_path = provider_path / selected_model
+                prompt_files = sorted([p for p in model_path.glob("*.md") if p.stem.lower() != "readme"])
 
-    if not prompt_files:
-        console.print(f"[red]No prompts found for {selected_provider}/{selected_model}.[/red]")
-        return
+                if not prompt_files:
+                    console.print(f"[red]No prompts found for {selected_provider}/{selected_model}.[/red]")
+                    break
 
-    console.print(f"\n[bold cyan]Select a prompt for {selected_provider}/{selected_model}:[/bold cyan]")
-    for i, pf in enumerate(prompt_files, 1):
-        console.print(f"  [dim]{i}.[/dim] [cyan]{pf.stem}[/cyan]")
+                console.print(f"\n[bold cyan]Select a prompt for {selected_provider}/{selected_model}:[/bold cyan]")
+                for i, pf in enumerate(prompt_files, 1):
+                    console.print(f"  [dim]{i}.[/dim] [cyan]{pf.stem}[/cyan]")
 
-    prompt_choice = Prompt.ask("\nPrompt number", default="1")
-    try:
-        prompt_idx = int(prompt_choice) - 1
-        if prompt_idx < 0 or prompt_idx >= len(prompt_files):
-            console.print("[red]Invalid selection.[/red]")
-            return
-        selected_prompt = prompt_files[prompt_idx]
-    except ValueError:
-        console.print("[red]Invalid number.[/red]")
-        return
+                prompt_choice = Prompt.ask("\nPrompt").strip().lower()
+                if prompt_choice == "q":
+                    return
+                if prompt_choice == "b":
+                    break  # Back to model selection
+                try:
+                    prompt_idx = int(prompt_choice) - 1
+                    if prompt_idx < 0 or prompt_idx >= len(prompt_files):
+                        console.print("[red]Invalid selection.[/red]")
+                        continue
+                    selected_prompt = prompt_files[prompt_idx]
+                except ValueError:
+                    console.print("[red]Enter a number, 'b' for back, or 'q' to quit.[/red]")
+                    continue
 
-    # Show the selected prompt
-    content = selected_prompt.read_text()
-    console.print("\n")
-    console.print(Panel(
-        Syntax(content, "markdown", theme="monokai", word_wrap=True),
-        title=f"{selected_provider}/{selected_model}/{selected_prompt.stem}",
-        border_style="blue"
-    ))
-    console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+                # Show the selected prompt
+                content = selected_prompt.read_text()
+                console.print("\n")
+                console.print(Panel(
+                    Syntax(content, "markdown", theme="monokai", word_wrap=True),
+                    title=f"{selected_provider}/{selected_model}/{selected_prompt.stem}",
+                    border_style="blue"
+                ))
+                console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+
+                # Copy option
+                copy_choice = Prompt.ask("\nCopy to clipboard? [y/n/q]", default="n").strip().lower()
+                if copy_choice == "q":
+                    return
+                if copy_choice == "y":
+                    try:
+                        import subprocess
+                        # Try xclip first, then xsel, then pbcopy (macOS)
+                        for cmd in [["xclip", "-selection", "clipboard"], ["xsel", "--clipboard", "--input"], ["pbcopy"]]:
+                            try:
+                                process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+                                process.communicate(content.encode())
+                                if process.returncode == 0:
+                                    console.print("[green]Copied to clipboard![/green]")
+                                    break
+                            except FileNotFoundError:
+                                continue
+                        else:
+                            console.print("[yellow]No clipboard tool found (install xclip or xsel).[/yellow]")
+                    except Exception as e:
+                        console.print(f"[yellow]Could not copy: {e}[/yellow]")
+
+                # After showing prompt, ask what to do next
+                next_action = Prompt.ask("\n[dim]Press Enter to select another prompt, 'b' for back, 'q' to quit[/dim]", default="").strip().lower()
+                if next_action == "q":
+                    return
+                if next_action == "b":
+                    break
 
 
 def list_providers():
