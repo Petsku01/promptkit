@@ -134,6 +134,108 @@ def interactive_build():
     console.print(f"[dim]Estimated tokens: {builder.estimate_tokens()}[/dim]")
 
 
+def interactive_prompts():
+    """Interactive prompt selector."""
+    prompts_dir = get_prompts_dir()
+    model_dir = prompts_dir / "model-optimized"
+
+    if not model_dir.exists():
+        console.print("[red]Model-optimized prompts directory not found.[/red]")
+        return
+
+    console.print(Panel.fit("Prompt Selector", style="bold magenta"))
+
+    # Step 1: Select provider (only those with models that have prompts)
+    providers = []
+    for p in sorted(model_dir.iterdir()):
+        if p.is_dir():
+            models = [m for m in p.iterdir() if m.is_dir()]
+            # Check if any model has prompts
+            has_prompts = any(
+                any(pf.suffix == ".md" and pf.stem.lower() != "readme" for pf in m.iterdir())
+                for m in models
+            )
+            if has_prompts:
+                providers.append(p.name)
+
+    console.print("\n[bold cyan]Select a provider:[/bold cyan]")
+    for i, provider in enumerate(providers, 1):
+        models = [m.name for m in (model_dir / provider).iterdir() if m.is_dir()]
+        console.print(f"  [dim]{i}.[/dim] [cyan]{provider}[/cyan] [dim]({len(models)} models)[/dim]")
+
+    provider_choice = Prompt.ask("\nProvider number", default="1")
+    try:
+        provider_idx = int(provider_choice) - 1
+        if provider_idx < 0 or provider_idx >= len(providers):
+            console.print("[red]Invalid selection.[/red]")
+            return
+        selected_provider = providers[provider_idx]
+    except ValueError:
+        console.print("[red]Invalid number.[/red]")
+        return
+
+    # Step 2: Select model (only those with prompts)
+    provider_path = model_dir / selected_provider
+    models = []
+    for m in sorted(provider_path.iterdir()):
+        if m.is_dir():
+            prompt_count = len([p for p in m.glob("*.md") if p.stem.lower() != "readme"])
+            if prompt_count > 0:
+                models.append((m.name, prompt_count))
+
+    if not models:
+        console.print(f"[red]No models with prompts found for {selected_provider}.[/red]")
+        return
+
+    console.print(f"\n[bold cyan]Select a model for {selected_provider}:[/bold cyan]")
+    for i, (model, prompt_count) in enumerate(models, 1):
+        console.print(f"  [dim]{i}.[/dim] [cyan]{model}[/cyan] [dim]({prompt_count} prompts)[/dim]")
+
+    model_choice = Prompt.ask("\nModel number", default="1")
+    try:
+        model_idx = int(model_choice) - 1
+        if model_idx < 0 or model_idx >= len(models):
+            console.print("[red]Invalid selection.[/red]")
+            return
+        selected_model = models[model_idx][0]  # Get name from tuple
+    except ValueError:
+        console.print("[red]Invalid number.[/red]")
+        return
+
+    # Step 3: Select prompt
+    model_path = provider_path / selected_model
+    prompt_files = sorted([p for p in model_path.glob("*.md") if p.stem.lower() != "readme"])
+
+    if not prompt_files:
+        console.print(f"[red]No prompts found for {selected_provider}/{selected_model}.[/red]")
+        return
+
+    console.print(f"\n[bold cyan]Select a prompt for {selected_provider}/{selected_model}:[/bold cyan]")
+    for i, pf in enumerate(prompt_files, 1):
+        console.print(f"  [dim]{i}.[/dim] [cyan]{pf.stem}[/cyan]")
+
+    prompt_choice = Prompt.ask("\nPrompt number", default="1")
+    try:
+        prompt_idx = int(prompt_choice) - 1
+        if prompt_idx < 0 or prompt_idx >= len(prompt_files):
+            console.print("[red]Invalid selection.[/red]")
+            return
+        selected_prompt = prompt_files[prompt_idx]
+    except ValueError:
+        console.print("[red]Invalid number.[/red]")
+        return
+
+    # Show the selected prompt
+    content = selected_prompt.read_text()
+    console.print("\n")
+    console.print(Panel(
+        Syntax(content, "markdown", theme="monokai", word_wrap=True),
+        title=f"{selected_provider}/{selected_model}/{selected_prompt.stem}",
+        border_style="blue"
+    ))
+    console.print(f"\n[dim]Estimated tokens: ~{len(content) // 4}[/dim]")
+
+
 def list_providers():
     """List available model providers."""
     prompts_dir = get_prompts_dir()
@@ -240,7 +342,9 @@ def show_prompt(prompt_path: str):
 
 def prompts_command(args):
     """Handle prompts subcommand."""
-    if args.show:
+    if args.interactive:
+        interactive_prompts()
+    elif args.show:
         show_prompt(args.show)
     elif args.model:
         list_model_prompts(args.model)
@@ -273,6 +377,7 @@ def main():
     prompts_parser = subparsers.add_parser("prompts", help="Browse model-optimized prompts")
     prompts_parser.add_argument("--model", "-m", help="Provider or provider/model (e.g., openai or openai/gpt-4o)")
     prompts_parser.add_argument("--show", "-s", help="Show prompt content (e.g., openai/gpt-4o/coding)")
+    prompts_parser.add_argument("--interactive", "-i", action="store_true", help="Interactive selection mode")
 
     args = parser.parse_args()
 
