@@ -110,7 +110,7 @@ Output: Spanish
 Input: "Hallo, wie geht es dir?"
 Output: German
 
-Input: "Moi, mitä kuuluu?"
+Input: "Hello, how are you?"
 Output: Finnish
 
 Input: [TEXT]

@@ -1,11 +1,11 @@
 # Qwen 3: Multilingual
 
-## Chinese-English Translation
+## Translation Task
 ```
-翻译成英文 / Translate to English:
-[中文文本]
+Translate this to English:
+[Text in another language]
 
-Translate to Chinese / 翻译成中文:
+Translate this to Chinese:
 [English text]
 ```
 

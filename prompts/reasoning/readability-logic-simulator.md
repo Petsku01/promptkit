@@ -1,11 +1,11 @@
-# Readability Logic Simulator - 全功能翻译版
+# Readability Logic Simulator
 
 **Category:** reasoning
 **Source:** prompts.chat (contributor: @lucifer871007@gmail.com)
 
 ## When to Use
 
-Use this prompt when you need an AI to act as a readability logic simulator - 全功能翻译版.
+Use this prompt when you need an AI to act as a readability logic simulator.
 
 ## The Prompt
 

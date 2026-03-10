@@ -1,4 +1,4 @@
-# Qwen 2.5: Monikielinen
+# Qwen 2.5: Multilingual
 
 ## Translation (Any Direction)
 
@@ -17,13 +17,13 @@ Translation:
 ## Chinese ↔ English
 
 ```
-翻译成英文 / Translate to English:
+Translate to English:
 
 [Chinese text]
 
 ---
 
-翻译成中文 / Translate to Chinese:
+Translate to Chinese:
 
 [English text]
 ```
