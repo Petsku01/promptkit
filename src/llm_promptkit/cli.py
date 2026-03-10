@@ -83,7 +83,7 @@ def interactive_build():
         builder.persona(persona)
 
     # Patterns
-    console.print("\n[bold cyan]vailable patterns:[/bold cyan]", ", ".join(PromptBuilder.PATTERNS.keys()))
+    console.print("\n[bold cyan]Available patterns:[/bold cyan]", ", ".join(PromptBuilder.PATTERNS.keys()))
     patterns_input = Prompt.ask("Patterns (comma-separated)", default="")
     if patterns_input:
         for p in patterns_input.split(","):
