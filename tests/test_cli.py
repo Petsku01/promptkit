@@ -10,8 +10,11 @@ from llm_promptkit.cli import (
     build_prompt,
     copy_to_clipboard,
     count_prompts,
+    get_models_with_prompts,
     get_prompt_files,
     get_prompts_dir,
+    interactive_build,
+    interactive_prompts,
     is_prompt_file,
     list_model_prompts,
     list_patterns,
@@ -607,3 +610,381 @@ class TestCLIIntegration:
         content = output_file.read_text()
         assert "Expert Reviewer" in content
         assert "Analyze" in content or "architecture" in content
+
+
+# =============================================================================
+# Additional Coverage Tests
+# =============================================================================
+
+class TestGetModelsWithPrompts:
+    """Tests for get_models_with_prompts function."""
+
+    def test_get_models_with_prompts_returns_models(self, tmp_path):
+        """Should return models that have prompts."""
+        provider_dir = tmp_path / "openai"
+        provider_dir.mkdir()
+        
+        model1 = provider_dir / "gpt-4o"
+        model1.mkdir()
+        (model1 / "coding.md").write_text("# Coding")
+        (model1 / "review.md").write_text("# Review")
+        
+        model2 = provider_dir / "gpt-3.5"
+        model2.mkdir()
+        (model2 / "basic.md").write_text("# Basic")
+        
+        # Empty model - should not be included
+        model3 = provider_dir / "empty-model"
+        model3.mkdir()
+        
+        results = get_models_with_prompts(provider_dir)
+        
+        assert len(results) == 2
+        model_names = [r[0] for r in results]
+        assert "gpt-4o" in model_names
+        assert "gpt-3.5" in model_names
+        assert "empty-model" not in model_names
+        
+        # Check prompt counts
+        for name, count in results:
+            if name == "gpt-4o":
+                assert count == 2
+            elif name == "gpt-3.5":
+                assert count == 1
+
+    def test_get_models_with_prompts_empty_provider(self, tmp_path):
+        """Should return empty list for provider with no models."""
+        provider_dir = tmp_path / "empty-provider"
+        provider_dir.mkdir()
+        
+        results = get_models_with_prompts(provider_dir)
+        assert results == []
+
+    def test_get_models_with_prompts_ignores_files(self, tmp_path):
+        """Should ignore files, only process directories."""
+        provider_dir = tmp_path / "provider"
+        provider_dir.mkdir()
+        (provider_dir / "README.md").write_text("# Readme")
+        
+        model = provider_dir / "model"
+        model.mkdir()
+        (model / "prompt.md").write_text("# Prompt")
+        
+        results = get_models_with_prompts(provider_dir)
+        assert len(results) == 1
+        assert results[0][0] == "model"
+
+
+class TestListModelPromptsSuccess:
+    """Tests for successful list_model_prompts flows."""
+
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_list_model_prompts_provider_success(self, mock_get_dir, mock_print, tmp_path):
+        """Should list models for valid provider."""
+        prompts_dir = tmp_path / "prompts"
+        provider_dir = prompts_dir / "model-optimized" / "openai"
+        model_dir = provider_dir / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        (model_dir / "review.md").write_text("# Review")
+        
+        mock_get_dir.return_value = prompts_dir
+        
+        list_model_prompts("openai")
+        
+        assert mock_print.called
+        # Should print table with models
+
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_list_model_prompts_model_success(self, mock_get_dir, mock_print, tmp_path):
+        """Should list prompts for valid provider/model."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        (model_dir / "review.md").write_text("# Review")
+        
+        mock_get_dir.return_value = prompts_dir
+        
+        list_model_prompts("openai/gpt-4o")
+        
+        assert mock_print.called
+
+
+class TestInteractiveBuild:
+    """Tests for interactive_build function."""
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    def test_interactive_build_basic(self, mock_print, mock_ask):
+        """Should build prompt interactively."""
+        # Simulate user inputs
+        mock_ask.side_effect = [
+            "Developer",  # persona
+            "chain-of-thought",  # patterns
+            "Review this code",  # task
+            "",  # context (empty)
+        ]
+        
+        interactive_build()
+        
+        assert mock_print.called
+        assert mock_ask.call_count == 4
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    def test_interactive_build_with_invalid_pattern(self, mock_print, mock_ask):
+        """Should handle invalid pattern gracefully."""
+        mock_ask.side_effect = [
+            "",  # persona (empty)
+            "invalid-xyz-pattern",  # invalid pattern
+            "Test task",  # task
+            "",  # context
+        ]
+        
+        interactive_build()
+        
+        # Should print warning about invalid pattern
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("warning" in str(c).lower() for c in calls)
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    def test_interactive_build_all_empty(self, mock_print, mock_ask):
+        """Should handle all empty inputs."""
+        mock_ask.side_effect = ["", "", "", ""]
+        
+        interactive_build()
+        
+        assert mock_print.called
+
+
+class TestInteractivePrompts:
+    """Tests for interactive_prompts function."""
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_quit_immediately(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should quit on 'q' input."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.return_value = "q"  # Quit immediately
+        
+        interactive_prompts()
+        
+        # Should have printed providers and then quit
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_invalid_selection(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should handle invalid selection."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = ["999", "q"]  # Invalid selection, then quit
+        
+        interactive_prompts()
+        
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("invalid" in str(c).lower() for c in calls)
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_back_at_top(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should handle 'b' at top level."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = ["b", "q"]  # Back (at top), then quit
+        
+        interactive_prompts()
+        
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("top level" in str(c).lower() or "already" in str(c).lower() for c in calls)
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_full_navigation(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should navigate through provider → model → prompt → view."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding Prompt\n\nWrite clean code.")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = [
+            "1",   # Select provider (openai)
+            "1",   # Select model (gpt-4o)
+            "1",   # Select prompt (coding)
+            "n",   # Don't copy to clipboard
+            "q",   # Quit
+        ]
+        
+        interactive_prompts()
+        
+        # Should have displayed the prompt content
+        assert mock_print.called
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_no_providers(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should show error when no model-optimized dir exists."""
+        prompts_dir = tmp_path / "prompts"
+        prompts_dir.mkdir()  # No model-optimized subdir
+        
+        mock_get_dir.return_value = prompts_dir
+        
+        interactive_prompts()
+        
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("not found" in str(c).lower() for c in calls)
+
+    @patch("llm_promptkit.cli.copy_to_clipboard")
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_copy_success(self, mock_get_dir, mock_print, mock_ask, mock_copy, tmp_path):
+        """Should copy to clipboard when requested."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_copy.return_value = True  # Clipboard success
+        mock_ask.side_effect = ["1", "1", "1", "y", "q"]  # Navigate and copy
+        
+        interactive_prompts()
+        
+        mock_copy.assert_called_once()
+
+    @patch("llm_promptkit.cli.copy_to_clipboard")
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_copy_failure(self, mock_get_dir, mock_print, mock_ask, mock_copy, tmp_path):
+        """Should handle clipboard failure gracefully."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_copy.return_value = False  # Clipboard failure
+        mock_ask.side_effect = ["1", "1", "1", "y", "q"]
+        
+        interactive_prompts()
+        
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("no clipboard" in str(c).lower() or "xclip" in str(c).lower() for c in calls)
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_back_from_model(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should go back from model selection to provider."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = ["1", "b", "q"]  # Select provider, back, quit
+        
+        interactive_prompts()
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_back_from_prompt(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should go back from prompt selection to model."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = ["1", "1", "b", "q"]  # Provider, model, back, quit
+        
+        interactive_prompts()
+
+    @patch("llm_promptkit.cli.Prompt.ask")
+    @patch("llm_promptkit.cli.console.print")
+    @patch("llm_promptkit.cli.get_prompts_dir")
+    def test_interactive_prompts_non_numeric_input(self, mock_get_dir, mock_print, mock_ask, tmp_path):
+        """Should handle non-numeric input."""
+        prompts_dir = tmp_path / "prompts"
+        model_dir = prompts_dir / "model-optimized" / "openai" / "gpt-4o"
+        model_dir.mkdir(parents=True)
+        (model_dir / "coding.md").write_text("# Coding")
+        
+        mock_get_dir.return_value = prompts_dir
+        mock_ask.side_effect = ["abc", "q"]  # Non-numeric, then quit
+        
+        interactive_prompts()
+        
+        calls = [str(c) for c in mock_print.call_args_list]
+        assert any("number" in str(c).lower() for c in calls)
+
+
+class TestMainArgumentParsing:
+    """Tests for main() argument parsing edge cases."""
+
+    @patch("llm_promptkit.cli.build_prompt")
+    def test_main_build_with_all_args(self, mock_build):
+        """main() with all build args should pass them correctly."""
+        with patch("sys.argv", [
+            "promptkit", "build",
+            "--persona", "Dev",
+            "--pattern", "chain-of-thought",
+            "--pattern", "few-shot",
+            "--task", "Test task",
+            "--context", "code here",
+            "--constraint", "be brief",
+            "--tokens"
+        ]):
+            main()
+        
+        mock_build.assert_called_once()
+        args = mock_build.call_args[0][0]
+        assert args.persona == "Dev"
+        assert args.pattern == ["chain-of-thought", "few-shot"]
+        assert args.task == "Test task"
+        assert args.context == "code here"
+        assert args.constraint == ["be brief"]
+        assert args.tokens is True
+
+    @patch("llm_promptkit.cli.interactive_build")
+    def test_main_build_interactive(self, mock_interactive):
+        """main() with build --interactive should call interactive_build."""
+        with patch("sys.argv", ["promptkit", "build", "--interactive"]):
+            main()
+        mock_interactive.assert_called_once()
+
+    @patch("llm_promptkit.cli.search_command")
+    def test_main_search_with_options(self, mock_search):
+        """main() with search options should pass them correctly."""
+        with patch("sys.argv", ["promptkit", "search", "security", "review", "--limit", "5"]):
+            main()
+        
+        mock_search.assert_called_once()
+        args = mock_search.call_args[0][0]
+        assert args.query == ["security", "review"]
+        assert args.limit == 5
