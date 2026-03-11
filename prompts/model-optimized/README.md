@@ -1,11 +1,11 @@
 # Model-Optimized Prompts
 
-Select company -> model -> theme -> copy.
+Select company → model → theme → copy.
 
 ## Model-specific
 
 | Company | Models | Link |
-|-------|--------|--------|
+|---------|--------|------|
 | **OpenAI** | GPT-4, GPT-4o, o1/o3 | [openai/](openai/) |
 | **Anthropic** | Claude Opus, Sonnet, Haiku | [anthropic/](anthropic/) |
 | **Google** | Gemini Pro, Flash, 2.0 | [google/](google/) |
@@ -17,51 +17,51 @@ Select company -> model -> theme -> copy.
 | **Qwen** | 2.5, 3, 3.5 | [qwen/](qwen/) |
 | **Small** | Phi, Gemma (<10B) | [small-models/](small-models/) |
 
-## Common categories
+## Common Categories
 
-| Kategoria | Description | Link |
-|-----------|--------|--------|
-| **Roolit** | Persona-pohjaiset (50+) | [roles/](roles/) |
-| **System Prompts** | Valmiit system promptit | [system-prompts/](system-prompts/) |
-| **Few-Shot** | Esimerkkipohjaiset | [few-shot/](few-shot/) |
-| **Edistyneet** | CoT, ToT, ReAct | [advanced-techniques/](advanced-techniques/) |
+| Category | Description | Link |
+|----------|-------------|------|
+| **Roles** | Persona-based prompts (50+) | [roles/](roles/) |
+| **System Prompts** | Ready-made system prompts | [system-prompts/](system-prompts/) |
+| **Few-Shot** | Example-based prompts | [few-shot/](few-shot/) |
+| **Advanced** | CoT, ToT, ReAct | [advanced-techniques/](advanced-techniques/) |
 | **Agentic** | Tool use, planning, reflection | [agentic/](agentic/) |
 | **Safety** | Moderation, injection defense | [safety/](safety/) |
 | **Evaluation** | LLM-as-judge, metrics | [evaluation/](evaluation/) |
 | **Use Cases** | Customer support, sales, HR | [use-cases/](use-cases/) |
 | **Benchmarks** | Model comparison, metrics | [benchmarks/](benchmarks/) |
 
-## Pikaviitteet
+## Quick Reference
 
 | Model | Remember |
-|-------|--------|
+|-------|----------|
 | GPT-4o | "Show each step" |
-| o1/o3 | ÄLÄ "think step by step" |
-| Claude | XML-tagit |
+| o1/o3 | DON'T use "think step by step" |
+| Claude | XML tags |
 | Gemini | Long context OK |
 | DeepSeek | Cheap + good |
-| Command R | RAG-erikoinen |
+| Command R | RAG-specialized |
 | Grok | Real-time |
 | Phi/Gemma | Max 200 tok |
 
-## Tilastot
+## Statistics
 
-- **10+ provideria**
-- **25+ mallia**
-- **270+ promptia**
+- **10+ providers**
+- **25+ models**
+- **270+ prompts**
 - **9 common categories**
-- **50+ roolia**
-- **20+ system promptia**
+- **50+ roles**
+- **20+ system prompts**
 - **20+ few-shot examples**
-- **15+ agentic promptia**
-- **10+ safety promptia**
-- **15+ evaluation promptia**
-- **25+ use-case promptia**
-- **4 benchmark-vertailua**
+- **15+ agentic prompts**
+- **10+ safety prompts**
+- **15+ evaluation prompts**
+- **25+ use-case prompts**
+- **4 benchmark comparisons**
 
 ## Sources
 
-- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ )
+- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) (150k+ ⭐)
 - [GPTs leaked prompts](https://github.com/linexjlin/GPTs)
 - [Anthropic Prompt Library](https://docs.anthropic.com)
 - [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)

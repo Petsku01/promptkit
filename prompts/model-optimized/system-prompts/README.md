@@ -1,33 +1,33 @@
 # System Prompts
 
-Ready-made system prompts eri for various purposes.
+Ready-made system prompts for various purposes.
 
-## Kategoriat
+## Categories
 
-| Kategoria | File | Description |
-|-----------|----------|--------|
+| Category | File | Description |
+|----------|------|-------------|
 | Coding | [coding.md](coding.md) | Coding assistants |
-| Tuottavuus | [productivity.md](productivity.md) | Writing, analysis, research |
-| Opetus | [education.md](education.md) | Tutors, teachers |
-| Luova | [creative.md](creative.md) | Writing, art, storytelling |
-| Asiantuntija | [expert.md](expert.md) | Domain experts |
+| Productivity | [productivity.md](productivity.md) | Writing, analysis, research |
+| Education | [education.md](education.md) | Tutors, teachers |
+| Creative | [creative.md](creative.md) | Writing, art, storytelling |
+| Expert | [expert.md](expert.md) | Domain experts |
 
-## System Prompt -rakenne
+## System Prompt Structure
 
 ```
-[ROOLI]
+[ROLE]
 Who you are, what you can do
 
-[KÄYTTÄYTYMINEN]
-Miten vastaat, tyyli
+[BEHAVIOR]
+How you respond, style
 
-[RAJOITUKSET]
+[CONSTRAINTS]
 What you do not do
 
-[OUTPUT-FORMAATTI]
-Miten muotoilet vastaukset
+[OUTPUT FORMAT]
+How you format responses
 
-[ESIMERKIT] (valinnainen)
+[EXAMPLES] (optional)
 Few-shot examples
 ```
 
