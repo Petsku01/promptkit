@@ -564,11 +564,15 @@ def doctor_command(args):
     from pathlib import Path
     
     # Get text to analyze
-    if Path(args.target).exists():
-        text = Path(args.target).read_text().lower()
-        console.print(f"[bold]Analyzing file:[/bold] {args.target}\n")
+    if getattr(args, 'file', None):
+        path = Path(args.file)
+        if not path.exists():
+            console.print(f"[red]Error: File not found: {args.file}[/red]")
+            return
+        text = path.read_text().lower()
+        console.print(f"[bold]Analyzing file:[/bold] {args.file}\n")
     else:
-        text = args.target.lower()
+        text = args.target.lower() if args.target else ""
         console.print("[bold]Analyzing text prompt...[/bold]\n")
         
     issues = []
@@ -649,7 +653,8 @@ def main():
 
     # Doctor command
     doctor_parser = subparsers.add_parser("doctor", help="Analyze prompts for common issues")
-    doctor_parser.add_argument("target", help="Prompt file path or raw text string")
+    doctor_parser.add_argument("target", nargs="?", default="", help="Prompt text string")
+    doctor_parser.add_argument("--file", "-f", help="Read prompt from file")
 
     args = parser.parse_args()
 
