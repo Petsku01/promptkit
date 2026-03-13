@@ -20,7 +20,7 @@ import re
 
 # Doctor Command Constants
 VAGUE_PHRASES = ["make it good", "do it well", "as best as you can", "stuff", "things"]
-ROLE_PHRASES = ["you are a", "role:", "persona:", "act as", "system:"]
+ROLE_PHRASES = ["you are a", "you are an", "role:", "persona:", "act as", "system:"]
 VERBOSE_PHRASES = ["please could you", "i would like you to", "if you don't mind", "can you please"]
 FORMAT_PHRASES = ["format", "json", "markdown", "output:", "structure", "return as"]
 EXAMPLE_PHRASES = ["example:", "e.g.", "for instance", "few-shot", "here is an example"]
