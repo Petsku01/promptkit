@@ -584,44 +584,60 @@ def doctor_command(args):
         console.print("[bold]Analyzing text prompt...[/bold]\n")
 
     issues = []
+    
+    clean_text = text.strip()
 
-    # Length check
-    if len(text.strip()) < 20:
+    if not clean_text:
+        issues.append(("Error", "Prompt is empty.", "Please provide text to analyze."))
+        _print_issues(issues)
+        return
+
+    # Strip code blocks for NLP checks
+    text_no_code = re.sub(r'```.*?```', '', text, flags=re.DOTALL).strip()
+    
+    if len(clean_text) < 20:
         issues.append(("Warning", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
 
-    # Vague phrases
-    for phrase in VAGUE_PHRASES:
-        if _match_phrase(text, phrase):
-            issues.append(("Warning", "Vague or ambiguous instructions.", f"Found '{phrase}'. Be more specific."))
+    # Only run NLP checks if there's non-code text
+    if text_no_code:
+        # Vague phrases
+        for phrase in VAGUE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(("Warning", "Vague or ambiguous instructions.", f"Found '{phrase}'. Be more specific."))
 
-    # Missing role
-    if not _has_any_phrase(text, ROLE_PHRASES):
-        issues.append(("Suggestion", "Missing context or role definition.", "Add a persona (e.g., 'You are an expert...')."))
+        # Missing role
+        if not _has_any_phrase(text_no_code, ROLE_PHRASES):
+            issues.append(("Suggestion", "Missing context or role definition.", "Add a persona (e.g., 'You are an expert...')."))
 
-    # Verbose phrasing
-    for phrase in VERBOSE_PHRASES:
-        if _match_phrase(text, phrase):
-            issues.append(("Info", "Token inefficiency.", f"Found '{phrase}'. Use direct commands."))
+        # Verbose phrasing
+        for phrase in VERBOSE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(("Info", "Token inefficiency.", f"Found '{phrase}'. Use direct commands."))
 
-    # Missing format
-    if not _has_any_phrase(text, FORMAT_PHRASES):
-        issues.append(("Warning", "Missing output format.", "Specify format (e.g., 'Output as JSON')."))
+        # Missing format
+        if not _has_any_phrase(text_no_code, FORMAT_PHRASES):
+            issues.append(("Warning", "Missing output format.", "Specify format (e.g., 'Output as JSON')."))
 
-    # Missing examples
-    if not _has_any_phrase(text, EXAMPLE_PHRASES):
-        issues.append(("Info", "No examples provided.", "Few-shot examples improve output quality."))
+        # Missing examples
+        if not _has_any_phrase(text_no_code, EXAMPLE_PHRASES):
+            issues.append(("Info", "No examples provided.", "Few-shot examples improve output quality."))
 
-    # Negative phrasing
-    for phrase in NEGATIVE_PHRASES:
-        if _match_phrase(text, phrase):
-            issues.append(("Warning", "Negative constraints.", f"Found '{phrase}'. LLMs follow positive instructions better (e.g., 'Do X' instead of 'Don't do Y')."))
+        # Negative phrasing
+        for phrase in NEGATIVE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(("Warning", "Negative constraints.", f"Found '{phrase}'. LLMs follow positive instructions better (e.g., 'Do X' instead of 'Don\'t do Y')."))
+    else:
+        issues.append(("Info", "Prompt contains only code.", "No natural language instructions found. Consider adding context or formatting instructions."))
 
     # Structural formatting check for longer prompts
-    if len(text.strip()) > 200:
+    if len(clean_text) > 200:
         has_structure = any(marker in text for marker in ["#", "```", "- ", "* ", "1. "])
         if not has_structure:
             issues.append(("Suggestion", "Lacks structural formatting.", "Long prompt detected without markdown structure. Use headers, bullet points, or code blocks."))
 
+    _print_issues(issues)
+
+def _print_issues(issues):
     if not issues:
         console.print("[bold green]No issues found. Prompt looks solid.[/bold green]")
         return
@@ -636,8 +652,8 @@ def doctor_command(args):
 
     console.print(table)
 
-
 def main():
+
     parser = argparse.ArgumentParser(
         prog="prompt-patterns",
         description="Build effective LLM prompts from patterns"
