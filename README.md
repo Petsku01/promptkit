@@ -5,6 +5,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 A toolkit for building effective LLM prompts. Includes:
+- **Prompt Doctor** - Analyze prompts for common issues
 - Documented prompt patterns (copy-paste ready)
 - Python library for composing prompts
 - CLI tool for quick prompt generation
@@ -51,7 +52,42 @@ promptkit build \
 
 # Interactive mode
 promptkit build --interactive
+
+# Analyze a prompt for issues
+promptkit doctor "Write something good"
+
+# Analyze from file
+promptkit doctor --file my-prompt.md
 ```
+
+## Prompt Doctor
+
+Analyze prompts for common issues without API calls:
+
+```bash
+$ promptkit doctor "Make it good please"
+
+┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Severity ┃ Issue                      ┃ Suggestion                   ┃
+┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Warning  │ Vague or ambiguous         │ Found 'make it good'. Be     │
+│          │ instructions.              │ more specific.               │
+│ Info     │ Token inefficiency.        │ Found 'please'. Use direct   │
+│          │                            │ commands.                    │
+│ Sugges.  │ Missing context or role.   │ Add a persona.               │
+│ Warning  │ Missing output format.     │ Specify format (JSON, etc).  │
+└──────────┴────────────────────────────┴──────────────────────────────┘
+```
+
+**Checks:**
+- Vague/ambiguous instructions
+- Missing role/persona
+- Token inefficiency (verbose phrasing)
+- Missing output format
+- Lack of examples (few-shot)
+- Negative constraints ("don't" → use positive)
+- Structural formatting (long prompts need headers/lists)
+- Code block handling (skips NLP checks inside code)
 
 ## Quick vs Extended Prompts
 
