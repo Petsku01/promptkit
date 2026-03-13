@@ -16,6 +16,16 @@ import subprocess
 from pathlib import Path
 from typing import List, Optional, Tuple
 
+import re
+
+# Doctor Command Constants
+VAGUE_PHRASES = ["make it good", "do it well", "as best as you can", "stuff", "things"]
+ROLE_PHRASES = ["you are a", "role:", "persona:", "act as", "system:"]
+VERBOSE_PHRASES = ["please could you", "i would like you to", "if you don't mind", "can you please"]
+FORMAT_PHRASES = ["format", "json", "markdown", "output:", "structure", "return as"]
+EXAMPLE_PHRASES = ["example:", "e.g.", "for instance", "few-shot", "here is an example"]
+
+
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
@@ -548,6 +558,61 @@ def search_command(args):
     console.print("[dim]View with: promptkit prompts --show <path>[/dim]")
 
 
+
+def doctor_command(args):
+    """Analyze a prompt for common issues."""
+    from pathlib import Path
+    
+    # Get text to analyze
+    if Path(args.target).exists():
+        text = Path(args.target).read_text().lower()
+        console.print(f"[bold]Analyzing file:[/bold] {args.target}\n")
+    else:
+        text = args.target.lower()
+        console.print("[bold]Analyzing text prompt...[/bold]\n")
+        
+    issues = []
+    
+    if len(text.strip()) < 20:
+        issues.append(("[yellow]Warning[/yellow]", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
+    
+    # 1. Vague/ambiguous
+    for phrase in VAGUE_PHRASES:
+        if re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE):
+            issues.append(("[yellow]Warning[/yellow]", "Vague or ambiguous instructions detected.", f"Found '{phrase}'. Be more specific."))
+            
+    # 2. Missing context/role
+    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in ROLE_PHRASES):
+        issues.append(("[red]Suggestion[/red]", "Missing context or role definition.", "Add a persona or role to ground the LLM's responses (e.g., 'You are an expert...')."))
+        
+    # 3. Token inefficiency
+    for phrase in VERBOSE_PHRASES:
+        if re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE):
+            issues.append(("[blue]Info[/blue]", "Token inefficiency detected.", f"Found verbose phrasing '{phrase}'. Use direct commands to save tokens."))
+            
+    # 4. Missing output format
+    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in FORMAT_PHRASES):
+        issues.append(("[yellow]Warning[/yellow]", "Missing output format specification.", "Specify how you want the output formatted (e.g., 'Output as JSON', 'Use markdown headers')."))
+        
+    # 5. Lack of examples
+    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in EXAMPLE_PHRASES):
+        issues.append(("[blue]Info[/blue]", "Lack of examples (few-shot opportunities).", "Providing examples can significantly improve output quality and consistency."))
+
+    if not issues:
+        console.print("[bold green]✅ No issues found! Your prompt looks solid.[/bold green]")
+        return
+        
+    table = Table(title="Prompt Analysis Results", show_header=True, header_style="bold magenta")
+    table.add_column("Severity", style="bold")
+    table.add_column("Issue", style="cyan")
+    table.add_column("Actionable Suggestion", style="green")
+    
+    for severity, issue, suggestion in issues:
+        table.add_row(severity, issue, suggestion)
+        
+    console.print(table)
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="prompt-patterns",
@@ -581,10 +646,18 @@ def main():
     search_parser.add_argument("--limit", "-l", type=int, default=10, help="Max results (default: 10)")
     search_parser.add_argument("--category", "-c", help="Limit to category (e.g., model-optimized, reasoning)")
 
+
+    # Doctor command
+    doctor_parser = subparsers.add_parser("doctor", help="Analyze prompts for common issues")
+    doctor_parser.add_argument("target", help="Prompt file path or raw text string")
+
     args = parser.parse_args()
+
 
     if args.command == "list":
         list_patterns()
+    elif args.command == "doctor":
+        doctor_command(args)
     elif args.command == "build":
         if args.interactive:
             interactive_build()
