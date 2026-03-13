@@ -10,7 +10,7 @@ class DummyArgs:
 
 @patch('llm_promptkit.cli.console')
 def test_doctor_command_no_issues(mock_console, tmp_path):
-    good_prompt = "You are a helpful assistant. Please format your output as JSON. Here is an example: {}"
+    good_prompt = "You are a helpful assistant. Format your output as JSON. Here is an example: {}"
     f = tmp_path / "good.md"
     f.write_text(good_prompt)
     
