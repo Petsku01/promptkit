@@ -23,7 +23,7 @@ VAGUE_PHRASES = ["make it good", "do it well", "as best as you can", "stuff", "t
 ROLE_PHRASES = ["you are a", "you are an", "role:", "persona:", "act as", "system:"]
 VERBOSE_PHRASES = ["please could you", "i would like you to", "if you don't mind", "can you please", "please", "thank you", "thanks", "kindly"]
 FORMAT_PHRASES = ["format", "json", "markdown", "output:", "structure", "return as"]
-EXAMPLE_PHRASES = ["example:", "e.g.", "for instance", "few-shot", "here is an example"]
+EXAMPLE_PHRASES = ["example:", "example", "e.g.", "for instance", "few-shot", "here is an example"]
 NEGATIVE_PHRASES = ["don't", "do not", "never", "avoid", "must not", "stop"]
 
 
