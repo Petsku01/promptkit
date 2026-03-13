@@ -559,11 +559,18 @@ def search_command(args):
 
 
 
+def _match_phrase(text: str, phrase: str) -> bool:
+    """Check if phrase exists as whole word in text."""
+    return bool(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE))
+
+
+def _has_any_phrase(text: str, phrases: list) -> bool:
+    """Check if any phrase exists in text."""
+    return any(_match_phrase(text, p) for p in phrases)
+
+
 def doctor_command(args):
     """Analyze a prompt for common issues."""
-    from pathlib import Path
-    
-    # Get text to analyze
     if getattr(args, 'file', None):
         path = Path(args.file)
         if not path.exists():
@@ -574,46 +581,47 @@ def doctor_command(args):
     else:
         text = args.target.lower() if args.target else ""
         console.print("[bold]Analyzing text prompt...[/bold]\n")
-        
+
     issues = []
-    
+
+    # Length check
     if len(text.strip()) < 20:
-        issues.append(("[yellow]Warning[/yellow]", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
-    
-    # 1. Vague/ambiguous
+        issues.append(("Warning", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
+
+    # Vague phrases
     for phrase in VAGUE_PHRASES:
-        if re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE):
-            issues.append(("[yellow]Warning[/yellow]", "Vague or ambiguous instructions detected.", f"Found '{phrase}'. Be more specific."))
-            
-    # 2. Missing context/role
-    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in ROLE_PHRASES):
-        issues.append(("[red]Suggestion[/red]", "Missing context or role definition.", "Add a persona or role to ground the LLM's responses (e.g., 'You are an expert...')."))
-        
-    # 3. Token inefficiency
+        if _match_phrase(text, phrase):
+            issues.append(("Warning", "Vague or ambiguous instructions.", f"Found '{phrase}'. Be more specific."))
+
+    # Missing role
+    if not _has_any_phrase(text, ROLE_PHRASES):
+        issues.append(("Suggestion", "Missing context or role definition.", "Add a persona (e.g., 'You are an expert...')."))
+
+    # Verbose phrasing
     for phrase in VERBOSE_PHRASES:
-        if re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE):
-            issues.append(("[blue]Info[/blue]", "Token inefficiency detected.", f"Found verbose phrasing '{phrase}'. Use direct commands to save tokens."))
-            
-    # 4. Missing output format
-    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in FORMAT_PHRASES):
-        issues.append(("[yellow]Warning[/yellow]", "Missing output format specification.", "Specify how you want the output formatted (e.g., 'Output as JSON', 'Use markdown headers')."))
-        
-    # 5. Lack of examples
-    if not any(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE) for phrase in EXAMPLE_PHRASES):
-        issues.append(("[blue]Info[/blue]", "Lack of examples (few-shot opportunities).", "Providing examples can significantly improve output quality and consistency."))
+        if _match_phrase(text, phrase):
+            issues.append(("Info", "Token inefficiency.", f"Found '{phrase}'. Use direct commands."))
+
+    # Missing format
+    if not _has_any_phrase(text, FORMAT_PHRASES):
+        issues.append(("Warning", "Missing output format.", "Specify format (e.g., 'Output as JSON')."))
+
+    # Missing examples
+    if not _has_any_phrase(text, EXAMPLE_PHRASES):
+        issues.append(("Info", "No examples provided.", "Few-shot examples improve output quality."))
 
     if not issues:
-        console.print("[bold green]✅ No issues found! Your prompt looks solid.[/bold green]")
+        console.print("[bold green]No issues found. Prompt looks solid.[/bold green]")
         return
-        
-    table = Table(title="Prompt Analysis Results", show_header=True, header_style="bold magenta")
+
+    table = Table(title="Prompt Analysis", show_header=True, header_style="bold magenta")
     table.add_column("Severity", style="bold")
     table.add_column("Issue", style="cyan")
-    table.add_column("Actionable Suggestion", style="green")
-    
+    table.add_column("Suggestion", style="green")
+
     for severity, issue, suggestion in issues:
         table.add_row(severity, issue, suggestion)
-        
+
     console.print(table)
 
 
