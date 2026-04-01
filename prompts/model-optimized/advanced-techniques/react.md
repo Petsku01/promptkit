@@ -1,6 +1,6 @@
 # ReAct (Reasoning + Acting)
 
-Combines reasoningn and action iteratively.
+Combines reasoning and action iteratively.
 
 ## Basic ReAct
 

@@ -20,7 +20,7 @@ import re
 
 # Doctor Command Constants
 VAGUE_PHRASES = ["make it good", "do it well", "as best as you can", "stuff", "things", "as soon as possible", "asap", "etc", "and so on", "whatever you think"]
-ROLE_PHRASES = ["you are a", "you are an", "role:", "persona:", "act as", "system:"]
+ROLE_PHRASES = ["you are a", "you are an", "role:", "persona:", "act as", "system:", "<role>", "<system_prompt>", "<persona>"]
 VERBOSE_PHRASES = ["please could you", "i would like you to", "if you don't mind", "can you please", "please", "thank you", "thanks", "kindly"]
 FORMAT_PHRASES = ["format", "json", "markdown", "output:", "structure", "return as"]
 EXAMPLE_PHRASES = ["example:", "example", "e.g.", "for instance", "few-shot", "here is an example"]
@@ -631,9 +631,12 @@ def doctor_command(args):
 
     # Structural formatting check for longer prompts
     if len(clean_text) > 200:
-        has_structure = any(marker in text for marker in ["#", "```", "- ", "* ", "1. "])
+        # Check for markdown OR XML structure
+        has_markdown = any(marker in text for marker in ["#", "```", "- ", "* ", "1. "])
+        has_xml = bool(re.search(r'<[a-z_]+>', text, re.IGNORECASE))
+        has_structure = has_markdown or has_xml
         if not has_structure:
-            issues.append(("Suggestion", "Lacks structural formatting.", "Long prompt detected without markdown structure. Use headers, bullet points, or code blocks."))
+            issues.append(("Suggestion", "Lacks structural formatting.", "Long prompt detected without markdown or XML structure. Use headers, bullet points, code blocks, or XML tags."))
 
     _print_issues(issues)
 
