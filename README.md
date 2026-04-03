@@ -6,9 +6,10 @@
 
 A toolkit for building effective LLM prompts. Includes:
 - **Prompt Doctor** - Analyze prompts for common issues
+- **275+ curated prompts** - Model-optimized, role-based, and technique prompts (included in package)
 - Documented prompt patterns (copy-paste ready)
 - Python library for composing prompts
-- CLI tool for quick prompt generation
+- CLI tool for quick prompt generation and prompt browsing
 
 ## Installation
 
@@ -58,6 +59,14 @@ promptkit doctor "Write something good"
 
 # Analyze from file
 promptkit doctor --file my-prompt.md
+
+# Browse included prompts
+promptkit prompts                              # List all providers
+promptkit prompts --model openai/gpt-4o        # List prompts for a model
+promptkit prompts --show openai/gpt-4o/coding  # View prompt content
+
+# Search prompts
+promptkit search "code review"
 ```
 
 ## Prompt Doctor
