@@ -1,0 +1,15 @@
+# DeepSeek V3
+
+## Features
+- **Context:** 64K tokens
+- **Tyyppi:** MoE (671B total, 37B active)
+- **Strengths:** Reasoning, math, code, kustannustehokas
+
+## Prompts by theme
+
+| Theme | File |
+|-------|----------|
+| Analysis | [analysis.md](analysis.md) |
+| Coding | [coding.md](coding.md) |
+| JSON | [json-output.md](json-output.md) |
+| Math | [math.md](math.md) |

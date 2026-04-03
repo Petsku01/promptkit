@@ -122,7 +122,7 @@ Extended prompts include:
 ## Available Patterns (Builder API)
 
 ```python
-from promptkit import PromptBuilder
+from llm_promptkit import PromptBuilder
 
 # Chain of Thought - step-by-step reasoning
 builder.pattern("chain-of-thought")

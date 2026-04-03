@@ -9,7 +9,7 @@ Command-line interface for LLM Promptkit.
 List all available patterns.
 
 ```bash
-llm-promptkit list
+promptkit list
 ```
 
 Output:
@@ -31,7 +31,7 @@ Output:
 Build a prompt from arguments.
 
 ```bash
-llm-promptkit build [OPTIONS]
+promptkit build [OPTIONS]
 ```
 
 **Options:**
@@ -51,26 +51,26 @@ llm-promptkit build [OPTIONS]
 
 ```bash
 # Simple prompt
-llm-promptkit build -t "Explain recursion"
+promptkit build -t "Explain recursion"
 
 # With persona and pattern
-llm-promptkit build \
+promptkit build \
     -p "Senior Developer" \
     -P chain-of-thought \
     -t "Review this code" \
     -c "def foo(): pass"
 
 # Multiple patterns
-llm-promptkit build \
+promptkit build \
     -P chain-of-thought \
     -P reflection \
     -t "Solve this problem"
 
 # With token count
-llm-promptkit build -t "Write a story" --tokens
+promptkit build -t "Write a story" --tokens
 
 # Save to file
-llm-promptkit build -t "Write docs" -o prompt.txt
+promptkit build -t "Write docs" -o prompt.txt
 ```
 
 ---
@@ -78,7 +78,7 @@ llm-promptkit build -t "Write docs" -o prompt.txt
 ### Interactive Mode
 
 ```bash
-llm-promptkit build --interactive
+promptkit build --interactive
 ```
 
 Guides you through building a prompt step-by-step:

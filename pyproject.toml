@@ -7,7 +7,7 @@ name = "llm-promptkit"
 version = "0.1.0"
 description = "A toolkit for building effective LLM prompts from proven patterns"
 readme = "README.md"
-license = "MIT"
+license = {text = "MIT"}
 authors = [
     {name = "Petsku", email = "petteri.a.kosonen@proton.me"},
     {name = "Kuu"}
@@ -51,6 +51,12 @@ Issues = "https://github.com/Petsku01/promptkit/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+llm_promptkit = [
+    "prompts/**/*.md",
+    "patterns/**/*.md",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -79,17 +79,17 @@ prompt = (PromptBuilder()
 
 ```bash
 # List patterns
-llm-promptkit list
+promptkit list
 
 # Build a prompt
-llm-promptkit build \
+promptkit build \
     --persona "Data Scientist" \
     --pattern chain-of-thought \
     --task "Analyze this dataset" \
     --tokens
 
 # Interactive mode
-llm-promptkit build --interactive
+promptkit build --interactive
 ```
 
 ## Next Steps

@@ -25,9 +25,8 @@ pip install -e ".[dev]"
 ## Requirements
 
 - Python 3.9+
-- No required dependencies (just stdlib)
+- Required: `rich` for CLI and formatted output
 - Optional: `tiktoken` for accurate token counting
-- Optional: `rich` for CLI formatting
 
 ## Verify Installation
 
@@ -41,6 +40,6 @@ print(PromptBuilder.PATTERNS.keys())
 Or from CLI:
 
 ```bash
-llm-promptkit list
+promptkit list
 # Shows all available patterns
 ```

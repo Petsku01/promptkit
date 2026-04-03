@@ -1,17 +1,18 @@
 """
-CLI for prompt-patterns.
+CLI for promptkit.
 
 Usage:
-    prompt-patterns list
-    prompt-patterns build --pattern chain-of-thought --task "Review this code"
-    prompt-patterns build --interactive
-    prompt-patterns prompts
-    prompt-patterns prompts --model openai/gpt-4o
-    prompt-patterns prompts --show openai/gpt-4o/coding
-    prompt-patterns search "security code review"
+    promptkit list
+    promptkit build --pattern chain-of-thought --task "Review this code"
+    promptkit build --interactive
+    promptkit prompts
+    promptkit prompts --model openai/gpt-4o
+    promptkit prompts --show openai/gpt-4o/coding
+    promptkit search "security code review"
 """
 
 import argparse
+from importlib import resources
 import subprocess
 from pathlib import Path
 from typing import List, Optional, Tuple
@@ -43,16 +44,15 @@ CHARS_PER_TOKEN = 4  # Rough estimate for token counting
 
 def get_prompts_dir() -> Path:
     """Get the prompts directory path."""
-    # Try relative to this file (installed package)
-    pkg_dir = Path(__file__).parent.parent.parent
-    prompts_dir = pkg_dir / "prompts"
-    if prompts_dir.exists():
-        return prompts_dir
-    # Try current working directory
+    package_prompts = Path(str(resources.files("llm_promptkit").joinpath("prompts")))
+    if package_prompts.exists():
+        return package_prompts
+
+    # Local repo fallback
     cwd_prompts = Path.cwd() / "prompts"
     if cwd_prompts.exists():
         return cwd_prompts
-    return prompts_dir
+    return package_prompts
 
 
 def is_prompt_file(path: Path) -> bool:
@@ -658,7 +658,7 @@ def _print_issues(issues):
 def main():
 
     parser = argparse.ArgumentParser(
-        prog="prompt-patterns",
+        prog="promptkit",
         description="Build effective LLM prompts from patterns"
     )
     subparsers = parser.add_subparsers(dest="command", help="Commands")
