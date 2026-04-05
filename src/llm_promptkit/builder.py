@@ -3,7 +3,41 @@ PromptBuilder - Fluent API for composing prompts from patterns.
 """
 
 import json
+from pathlib import Path
 from typing import Dict, List, Optional
+
+from llm_promptkit.pattern_loader import PatternLoader
+
+
+DEFAULT_PATTERNS = {
+    # Reasoning patterns
+    "chain-of-thought": "Think through this step-by-step:\n1. First, analyze the problem\n2. Then, consider possible approaches\n3. Finally, provide your solution\n\nShow your reasoning at each step.",
+    "self-consistency": "Solve this problem three different ways, then compare your answers and give the most likely correct one.",
+    "tree-of-thought": "Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realizes they are wrong at any point then they leave. The question is...",
+    "step-back": "First, take a step back and identify the core principles or concepts that underlying this specific problem. Then, use those principles to solve the original problem.",
+    "decomposition": "Break this complex problem down into 3-5 smaller, manageable sub-problems. Solve each sub-problem independently, then combine them to form the final solution.",
+    "reflection": "After writing your initial response, review it critically. Identify any flaws, assumptions, or areas for improvement, and then provide a revised and improved final answer.",
+    # Agentic patterns
+    "react": "Task: {task}\n\nThought 1: [what I need to find out or do first]\nAction 1: [action to take]\nObservation 1: [result of the action]\n\nThought 2: [what I learned and what to do next]\nAction 2: [next action]\nObservation 2: [result]\n\nThought 3: [synthesizing and concluding]\nAction 3: Finish[final answer]",
+    "prompt-chaining": "This task will be completed in stages:\n\nStage 1: {stage1}\n-> Output: [result]\n\nStage 2: {stage2}\n-> Input: Output from Stage 1\n-> Output: [result]\n\nStage 3: {stage3}\n-> Input: Output from Stage 2\n-> Output: [final result]",
+    "meta-prompting": "Before responding, consider:\n1. What type of task is this? (analysis, generation, transformation, etc.)\n2. What format would be most effective for the output?\n3. What context or constraints are important?\n4. What could go wrong?\n\nThen proceed with the optimal approach for this specific task.",
+    # Context patterns
+    "few-shot": "Here are some examples:\n{examples}\n\nNow apply the same approach to:",
+    "role-play": "Act as a {role}. Write your response from this perspective, using appropriate tone, vocabulary, and addressing the specific concerns of someone in this position.",
+    # Output patterns
+    "json-output": "Return ONLY valid JSON matching this schema:\n{schema}\n\nNo explanation, no markdown, no code blocks.",
+    # Review patterns
+    "senior-reviewer": "You are a senior engineer with 15 years of experience. You are known for thorough, critical reviews. Never say 'looks good' unless it's genuinely excellent.",
+}
+
+
+def _load_patterns() -> Dict[str, str]:
+    """Load patterns from repository patterns directory, fallback to defaults."""
+    patterns_dir = Path(__file__).resolve().parents[2] / "patterns"
+    loaded = PatternLoader().load_from_directory(patterns_dir)
+    if loaded:
+        return loaded
+    return dict(DEFAULT_PATTERNS)
 
 
 class PromptBuilder:
@@ -20,26 +54,7 @@ class PromptBuilder:
             .build())
     """
 
-    PATTERNS = {
-        # Reasoning patterns
-        "chain-of-thought": "Think through this step-by-step:\n1. First, analyze the problem\n2. Then, consider possible approaches\n3. Finally, provide your solution\n\nShow your reasoning at each step.",
-        "self-consistency": "Solve this problem three different ways, then compare your answers and give the most likely correct one.",
-        "tree-of-thought": "Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realizes they are wrong at any point then they leave. The question is...",
-        "step-back": "First, take a step back and identify the core principles or concepts that underlying this specific problem. Then, use those principles to solve the original problem.",
-        "decomposition": "Break this complex problem down into 3-5 smaller, manageable sub-problems. Solve each sub-problem independently, then combine them to form the final solution.",
-        "reflection": "After writing your initial response, review it critically. Identify any flaws, assumptions, or areas for improvement, and then provide a revised and improved final answer.",
-        # Agentic patterns
-        "react": "Task: {task}\n\nThought 1: [what I need to find out or do first]\nAction 1: [action to take]\nObservation 1: [result of the action]\n\nThought 2: [what I learned and what to do next]\nAction 2: [next action]\nObservation 2: [result]\n\nThought 3: [synthesizing and concluding]\nAction 3: Finish[final answer]",
-        "prompt-chaining": "This task will be completed in stages:\n\nStage 1: {stage1}\n-> Output: [result]\n\nStage 2: {stage2}\n-> Input: Output from Stage 1\n-> Output: [result]\n\nStage 3: {stage3}\n-> Input: Output from Stage 2\n-> Output: [final result]",
-        "meta-prompting": "Before responding, consider:\n1. What type of task is this? (analysis, generation, transformation, etc.)\n2. What format would be most effective for the output?\n3. What context or constraints are important?\n4. What could go wrong?\n\nThen proceed with the optimal approach for this specific task.",
-        # Context patterns
-        "few-shot": "Here are some examples:\n{examples}\n\nNow apply the same approach to:",
-        "role-play": "Act as a {role}. Write your response from this perspective, using appropriate tone, vocabulary, and addressing the specific concerns of someone in this position.",
-        # Output patterns
-        "json-output": "Return ONLY valid JSON matching this schema:\n{schema}\n\nNo explanation, no markdown, no code blocks.",
-        # Review patterns
-        "senior-reviewer": "You are a senior engineer with 15 years of experience. You are known for thorough, critical reviews. Never say 'looks good' unless it's genuinely excellent.",
-    }
+    PATTERNS = _load_patterns()
 
     def __init__(self):
         self._system: Optional[str] = None

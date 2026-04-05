@@ -8,14 +8,8 @@ import pytest
 from llm_promptkit import cli
 from llm_promptkit.cli import (
     build_prompt,
-    copy_to_clipboard,
-    count_prompts,
-    get_models_with_prompts,
-    get_prompt_files,
-    get_prompts_dir,
     interactive_build,
     interactive_prompts,
-    is_prompt_file,
     list_model_prompts,
     list_patterns,
     list_providers,
@@ -24,6 +18,14 @@ from llm_promptkit.cli import (
     search_command,
     search_prompts,
     show_prompt,
+)
+from llm_promptkit.utils import (
+    copy_to_clipboard,
+    count_prompts,
+    get_models_with_prompts,
+    get_prompt_files,
+    get_prompts_dir,
+    is_prompt_file,
 )
 
 
@@ -95,7 +97,7 @@ class TestHelperFunctions:
 class TestCopyToClipboard:
     """Tests for clipboard functionality."""
 
-    @patch("llm_promptkit.cli.subprocess.Popen")
+    @patch("llm_promptkit.utils.subprocess.Popen")
     def test_copy_to_clipboard_xclip_success(self, mock_popen):
         """Should use xclip when available."""
         mock_process = MagicMock()
@@ -107,7 +109,7 @@ class TestCopyToClipboard:
         assert result is True
         mock_popen.assert_called()
 
-    @patch("llm_promptkit.cli.subprocess.Popen")
+    @patch("llm_promptkit.utils.subprocess.Popen")
     def test_copy_to_clipboard_no_tool(self, mock_popen):
         """Should return False when no clipboard tool is available."""
         mock_popen.side_effect = FileNotFoundError
@@ -116,7 +118,7 @@ class TestCopyToClipboard:
 
         assert result is False
 
-    @patch("llm_promptkit.cli.subprocess.Popen")
+    @patch("llm_promptkit.utils.subprocess.Popen")
     def test_copy_to_clipboard_tool_fails(self, mock_popen):
         """Should try next tool when one fails."""
         mock_process = MagicMock()
@@ -314,7 +316,7 @@ class TestListProviders:
     """Tests for list_providers function."""
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_providers_no_dir(self, mock_get_dir, mock_print, tmp_path):
         """Should show error when model-optimized dir doesn't exist."""
         mock_get_dir.return_value = tmp_path / "nonexistent"
@@ -325,7 +327,7 @@ class TestListProviders:
         assert any("not found" in str(c).lower() for c in calls)
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_providers_with_providers(self, mock_get_dir, mock_print, tmp_path):
         """Should list providers that have prompts."""
         prompts_dir = tmp_path / "prompts"
@@ -345,7 +347,7 @@ class TestListModelPrompts:
     """Tests for list_model_prompts function."""
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_model_prompts_provider_not_found(self, mock_get_dir, mock_print, tmp_path):
         """Should show error for unknown provider."""
         prompts_dir = tmp_path / "prompts"
@@ -358,7 +360,7 @@ class TestListModelPrompts:
         assert any("not found" in str(c).lower() for c in calls)
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_model_prompts_model_not_found(self, mock_get_dir, mock_print, tmp_path):
         """Should show error for unknown model."""
         prompts_dir = tmp_path / "prompts"
@@ -371,7 +373,7 @@ class TestListModelPrompts:
         assert any("not found" in str(c).lower() for c in calls)
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_model_prompts_invalid_format(self, mock_get_dir, mock_print, tmp_path):
         """Should show error for invalid path format."""
         mock_get_dir.return_value = tmp_path
@@ -386,7 +388,7 @@ class TestShowPrompt:
     """Tests for show_prompt function."""
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_show_prompt_invalid_format(self, mock_get_dir, mock_print, tmp_path):
         """Should show error for invalid path format."""
         mock_get_dir.return_value = tmp_path
@@ -397,7 +399,7 @@ class TestShowPrompt:
         assert any("invalid" in str(c).lower() for c in calls)
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_show_prompt_not_found(self, mock_get_dir, mock_print, tmp_path):
         """Should show error when prompt doesn't exist."""
         prompts_dir = tmp_path / "prompts"
@@ -410,7 +412,7 @@ class TestShowPrompt:
         assert any("not found" in str(c).lower() for c in calls)
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_show_prompt_displays_content(self, mock_get_dir, mock_print, tmp_path):
         """Should display prompt content."""
         prompts_dir = tmp_path / "prompts"
@@ -448,7 +450,7 @@ class TestSearchPrompts:
         (prompts_dir / "coding.md").write_text("# Coding\n\nWrite Python code.")
         (prompts_dir / "review.md").write_text("# Review\n\nReview Java code.")
 
-        with patch("llm_promptkit.cli.get_prompts_dir", return_value=tmp_path):
+        with patch("llm_promptkit.utils.get_prompts_dir", return_value=tmp_path):
             results = search_prompts("Python")
 
         assert len(results) >= 1
@@ -460,7 +462,7 @@ class TestSearchPrompts:
         prompts_dir.mkdir()
         (prompts_dir / "coding.md").write_text("# Coding prompt")
 
-        with patch("llm_promptkit.cli.get_prompts_dir", return_value=tmp_path):
+        with patch("llm_promptkit.utils.get_prompts_dir", return_value=tmp_path):
             results = search_prompts("xyznonexistent123")
 
         assert len(results) == 0
@@ -472,7 +474,7 @@ class TestSearchPrompts:
         for i in range(20):
             (prompts_dir / f"prompt{i}.md").write_text(f"# Prompt {i}\n\nTest content.")
 
-        with patch("llm_promptkit.cli.get_prompts_dir", return_value=tmp_path):
+        with patch("llm_promptkit.utils.get_prompts_dir", return_value=tmp_path):
             results = search_prompts("Test", limit=5)
 
         assert len(results) <= 5
@@ -483,7 +485,7 @@ class TestSearchPrompts:
         prompts_dir.mkdir()
         (prompts_dir / "security-audit.md").write_text("# Audit\n\nGeneric content.")
 
-        with patch("llm_promptkit.cli.get_prompts_dir", return_value=tmp_path):
+        with patch("llm_promptkit.utils.get_prompts_dir", return_value=tmp_path):
             results = search_prompts("security")
 
         assert len(results) >= 1
@@ -679,7 +681,7 @@ class TestListModelPromptsSuccess:
     """Tests for successful list_model_prompts flows."""
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_model_prompts_provider_success(self, mock_get_dir, mock_print, tmp_path):
         """Should list models for valid provider."""
         prompts_dir = tmp_path / "prompts"
@@ -697,7 +699,7 @@ class TestListModelPromptsSuccess:
         # Should print table with models
 
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_list_model_prompts_model_success(self, mock_get_dir, mock_print, tmp_path):
         """Should list prompts for valid provider/model."""
         prompts_dir = tmp_path / "prompts"
@@ -766,7 +768,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_quit_immediately(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should quit on 'q' input."""
         prompts_dir = tmp_path / "prompts"
@@ -783,7 +785,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_invalid_selection(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should handle invalid selection."""
         prompts_dir = tmp_path / "prompts"
@@ -801,7 +803,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_back_at_top(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should handle 'b' at top level."""
         prompts_dir = tmp_path / "prompts"
@@ -819,7 +821,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_full_navigation(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should navigate through provider → model → prompt → view."""
         prompts_dir = tmp_path / "prompts"
@@ -843,7 +845,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_no_providers(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should show error when no model-optimized dir exists."""
         prompts_dir = tmp_path / "prompts"
@@ -856,10 +858,10 @@ class TestInteractivePrompts:
         calls = [str(c) for c in mock_print.call_args_list]
         assert any("not found" in str(c).lower() for c in calls)
 
-    @patch("llm_promptkit.cli.copy_to_clipboard")
+    @patch("llm_promptkit.utils.copy_to_clipboard")
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_copy_success(self, mock_get_dir, mock_print, mock_ask, mock_copy, tmp_path):
         """Should copy to clipboard when requested."""
         prompts_dir = tmp_path / "prompts"
@@ -875,10 +877,10 @@ class TestInteractivePrompts:
         
         mock_copy.assert_called_once()
 
-    @patch("llm_promptkit.cli.copy_to_clipboard")
+    @patch("llm_promptkit.utils.copy_to_clipboard")
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_copy_failure(self, mock_get_dir, mock_print, mock_ask, mock_copy, tmp_path):
         """Should handle clipboard failure gracefully."""
         prompts_dir = tmp_path / "prompts"
@@ -897,7 +899,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_back_from_model(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should go back from model selection to provider."""
         prompts_dir = tmp_path / "prompts"
@@ -912,7 +914,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_back_from_prompt(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should go back from prompt selection to model."""
         prompts_dir = tmp_path / "prompts"
@@ -927,7 +929,7 @@ class TestInteractivePrompts:
 
     @patch("llm_promptkit.cli.Prompt.ask")
     @patch("llm_promptkit.cli.console.print")
-    @patch("llm_promptkit.cli.get_prompts_dir")
+    @patch("llm_promptkit.utils.get_prompts_dir")
     def test_interactive_prompts_non_numeric_input(self, mock_get_dir, mock_print, mock_ask, tmp_path):
         """Should handle non-numeric input."""
         prompts_dir = tmp_path / "prompts"

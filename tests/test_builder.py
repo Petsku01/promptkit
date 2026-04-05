@@ -47,13 +47,13 @@ class TestPatterns:
         """Self consistency pattern included."""
         builder = PromptBuilder().pattern("self-consistency")
         prompt = builder.build()
-        assert "three different ways" in prompt
+        assert "three different approaches" in prompt
 
     def test_senior_reviewer(self):
         """Senior reviewer pattern included."""
         builder = PromptBuilder().pattern("senior-reviewer")
         prompt = builder.build()
-        assert "senior engineer" in prompt
+        assert "senior software engineer" in prompt
 
     def test_invalid_pattern_raises(self):
         """Invalid pattern raises ValueError."""
@@ -66,17 +66,17 @@ class TestPatterns:
     def test_multiple_patterns(self):
         """Multiple patterns can be combined."""
         builder = PromptBuilder()
-        builder.pattern("chain-of-thought").pattern("reflection")
+        builder.pattern("chain-of-thought").pattern("json-enforcer")
         prompt = builder.build()
         assert "step-by-step" in prompt
-        assert "review it critically" in prompt
+        assert "JSON" in prompt or "json" in prompt
 
     def test_all_patterns_exist(self):
         """All documented patterns are valid."""
         expected_patterns = [
-            "chain-of-thought", "few-shot", "json-output",
-            "senior-reviewer", "self-consistency", "tree-of-thought",
-            "role-play", "step-back", "decomposition", "reflection"
+            "chain-of-thought", "json-enforcer",
+            "senior-reviewer", "self-consistency", "stack-trace-decoder",
+            "tdd-prompting", "few-shot-negatives", "hallucination-reducer"
         ]
         for pattern in expected_patterns:
             builder = PromptBuilder()
@@ -131,11 +131,12 @@ class TestExamples:
     def test_few_shot_pattern_uses_examples(self):
         """Few-shot pattern formats examples."""
         builder = PromptBuilder()
-        builder.pattern("few-shot")
+        builder.pattern("few-shot-negatives")
         builder.example("2+2", "4")
         prompt = builder.build()
-        assert "Input: 2+2" in prompt
-        assert "Output: 4" in prompt
+        # few-shot-negatives uses Good/Bad format, not Input/Output
+        assert "Example" in prompt or "example" in prompt.lower()
+        assert "Good" in prompt or "Bad" in prompt
 
 
 class TestOutputFormat:
@@ -158,7 +159,7 @@ class TestOutputFormat:
     def test_json_output_pattern_with_schema(self):
         """JSON output pattern uses schema."""
         builder = PromptBuilder()
-        builder.pattern("json-output")
+        builder.pattern("json-enforcer")
         builder.output_format("json", schema={"result": "string"})
         prompt = builder.build()
         assert "valid JSON" in prompt

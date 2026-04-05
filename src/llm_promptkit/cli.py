@@ -12,21 +12,10 @@ Usage:
 """
 
 import argparse
-from importlib import resources
-import subprocess
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import List, Optional
 
 import re
-
-# Doctor Command Constants
-VAGUE_PHRASES = ["make it good", "do it well", "as best as you can", "stuff", "things", "as soon as possible", "asap", "etc", "and so on", "whatever you think"]
-ROLE_PHRASES = ["you are a", "you are an", "role:", "persona:", "act as", "system:", "<role>", "<system_prompt>", "<persona>"]
-VERBOSE_PHRASES = ["please could you", "i would like you to", "if you don't mind", "can you please", "please", "thank you", "thanks", "kindly"]
-FORMAT_PHRASES = ["format", "json", "markdown", "output:", "structure", "return as"]
-EXAMPLE_PHRASES = ["example:", "example", "e.g.", "for instance", "few-shot", "here is an example"]
-NEGATIVE_PHRASES = ["don't", "do not", "never", "avoid", "must not", "stop"]
-
 
 from rich.console import Console
 from rich.panel import Panel
@@ -38,65 +27,21 @@ from .builder import PromptBuilder
 
 console = Console()
 
-# Constants
-CHARS_PER_TOKEN = 4  # Rough estimate for token counting
+from .utils import (
+    CHARS_PER_TOKEN,
+    EXAMPLE_PHRASES,
+    FORMAT_PHRASES,
+    NEGATIVE_PHRASES,
+    ROLE_PHRASES,
+    VAGUE_PHRASES,
+    VERBOSE_PHRASES,
+    copy_to_clipboard,
+    get_models_with_prompts,
+    get_prompt_files,
+    get_prompts_dir,
+    is_prompt_file,
+)
 
-
-def get_prompts_dir() -> Path:
-    """Get the prompts directory path."""
-    package_prompts = Path(str(resources.files("llm_promptkit").joinpath("prompts")))
-    if package_prompts.exists():
-        return package_prompts
-
-    # Local repo fallback
-    cwd_prompts = Path.cwd() / "prompts"
-    if cwd_prompts.exists():
-        return cwd_prompts
-    return package_prompts
-
-
-def is_prompt_file(path: Path) -> bool:
-    """Check if a file is a prompt (not README)."""
-    return path.suffix == ".md" and path.stem.lower() != "readme"
-
-
-def get_prompt_files(directory: Path) -> List[Path]:
-    """Get all prompt files in a directory."""
-    return sorted([p for p in directory.glob("*.md") if is_prompt_file(p)])
-
-
-def count_prompts(directory: Path) -> int:
-    """Count prompt files in a directory."""
-    return len(get_prompt_files(directory))
-
-
-def get_models_with_prompts(provider_path: Path) -> List[Tuple[str, int]]:
-    """Get models that have actual prompts."""
-    models = []
-    for m in sorted(provider_path.iterdir()):
-        if m.is_dir():
-            prompt_count = count_prompts(m)
-            if prompt_count > 0:
-                models.append((m.name, prompt_count))
-    return models
-
-
-def copy_to_clipboard(text: str) -> bool:
-    """Copy text to clipboard. Returns True on success."""
-    commands = [
-        ["xclip", "-selection", "clipboard"],
-        ["xsel", "--clipboard", "--input"],
-        ["pbcopy"],
-    ]
-    for cmd in commands:
-        try:
-            process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-            process.communicate(text.encode())
-            if process.returncode == 0:
-                return True
-        except FileNotFoundError:
-            continue
-    return False
 
 def list_patterns():
     """List available patterns."""
@@ -560,6 +505,10 @@ def search_command(args):
 
 
 
+from enum import Enum
+from dataclasses import dataclass
+
+
 def _match_phrase(text: str, phrase: str) -> bool:
     """Check if phrase exists as whole word in text."""
     return bool(re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", text, re.IGNORECASE))
@@ -568,6 +517,77 @@ def _match_phrase(text: str, phrase: str) -> bool:
 def _has_any_phrase(text: str, phrases: list) -> bool:
     """Check if any phrase exists in text."""
     return any(_match_phrase(text, p) for p in phrases)
+
+
+class IssueSeverity(Enum):
+    ERROR = "Error"
+    WARNING = "Warning"
+    SUGGESTION = "Suggestion"
+    INFO = "Info"
+
+
+@dataclass
+class DoctorIssue:
+    severity: IssueSeverity
+    issue: str
+    suggestion: str
+
+
+def analyze_prompt(text: str) -> List[DoctorIssue]:
+    """Analyze prompt text and return detected issues."""
+    issues: List[DoctorIssue] = []
+    clean_text = (text or "").strip()
+
+    if not clean_text:
+        return [DoctorIssue(IssueSeverity.ERROR, "Prompt is empty.", "Please provide text to analyze.")]
+
+    # Strip code blocks for NLP checks
+    text_no_code = re.sub(r'```.*?```', '', text or '', flags=re.DOTALL).strip()
+
+    if len(clean_text) < 20:
+        issues.append(DoctorIssue(IssueSeverity.WARNING, "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
+
+    # Only run NLP checks if there's non-code text
+    if text_no_code:
+        # Vague phrases
+        for phrase in VAGUE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(DoctorIssue(IssueSeverity.WARNING, "Vague or ambiguous instructions.", f"Found '{phrase}'. Be more specific."))
+
+        # Missing role
+        if not _has_any_phrase(text_no_code, ROLE_PHRASES):
+            issues.append(DoctorIssue(IssueSeverity.SUGGESTION, "Missing context or role definition.", "Add a persona (e.g., 'You are an expert...')."))
+
+        # Verbose phrasing
+        for phrase in VERBOSE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(DoctorIssue(IssueSeverity.INFO, "Token inefficiency.", f"Found '{phrase}'. Use direct commands."))
+
+        # Missing format
+        if not _has_any_phrase(text_no_code, FORMAT_PHRASES):
+            issues.append(DoctorIssue(IssueSeverity.WARNING, "Missing output format.", "Specify format (e.g., 'Output as JSON')."))
+
+        # Missing examples
+        if not _has_any_phrase(text_no_code, EXAMPLE_PHRASES):
+            issues.append(DoctorIssue(IssueSeverity.INFO, "No examples provided.", "Few-shot examples improve output quality."))
+
+        # Negative phrasing
+        for phrase in NEGATIVE_PHRASES:
+            if _match_phrase(text_no_code, phrase):
+                issues.append(DoctorIssue(IssueSeverity.WARNING, "Negative constraints.", f"Found '{phrase}'. LLMs follow positive instructions better (e.g., 'Do X' instead of 'Don\'t do Y')."))
+    else:
+        issues.append(DoctorIssue(IssueSeverity.INFO, "Prompt contains only code.", "No natural language instructions found. Consider adding context or formatting instructions."))
+
+    # Structural formatting check for longer prompts
+    if len(clean_text) > 200:
+        # Check for markdown OR XML structure
+        has_markdown = any(marker in text for marker in ["#", "```", "- ", "* ", "1. "])
+        has_xml = bool(re.search(r'<[a-z_]+>', text, re.IGNORECASE))
+        has_structure = has_markdown or has_xml
+        if not has_structure:
+            issues.append(DoctorIssue(IssueSeverity.SUGGESTION, "Lacks structural formatting.", "Long prompt detected without markdown or XML structure. Use headers, bullet points, code blocks, or XML tags."))
+
+    return issues
 
 
 def doctor_command(args):
@@ -583,61 +603,7 @@ def doctor_command(args):
         text = args.target.lower() if args.target else ""
         console.print("[bold]Analyzing text prompt...[/bold]\n")
 
-    issues = []
-    
-    clean_text = text.strip()
-
-    if not clean_text:
-        issues.append(("Error", "Prompt is empty.", "Please provide text to analyze."))
-        _print_issues(issues)
-        return
-
-    # Strip code blocks for NLP checks
-    text_no_code = re.sub(r'```.*?```', '', text, flags=re.DOTALL).strip()
-    
-    if len(clean_text) < 20:
-        issues.append(("Warning", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
-
-    # Only run NLP checks if there's non-code text
-    if text_no_code:
-        # Vague phrases
-        for phrase in VAGUE_PHRASES:
-            if _match_phrase(text_no_code, phrase):
-                issues.append(("Warning", "Vague or ambiguous instructions.", f"Found '{phrase}'. Be more specific."))
-
-        # Missing role
-        if not _has_any_phrase(text_no_code, ROLE_PHRASES):
-            issues.append(("Suggestion", "Missing context or role definition.", "Add a persona (e.g., 'You are an expert...')."))
-
-        # Verbose phrasing
-        for phrase in VERBOSE_PHRASES:
-            if _match_phrase(text_no_code, phrase):
-                issues.append(("Info", "Token inefficiency.", f"Found '{phrase}'. Use direct commands."))
-
-        # Missing format
-        if not _has_any_phrase(text_no_code, FORMAT_PHRASES):
-            issues.append(("Warning", "Missing output format.", "Specify format (e.g., 'Output as JSON')."))
-
-        # Missing examples
-        if not _has_any_phrase(text_no_code, EXAMPLE_PHRASES):
-            issues.append(("Info", "No examples provided.", "Few-shot examples improve output quality."))
-
-        # Negative phrasing
-        for phrase in NEGATIVE_PHRASES:
-            if _match_phrase(text_no_code, phrase):
-                issues.append(("Warning", "Negative constraints.", f"Found '{phrase}'. LLMs follow positive instructions better (e.g., 'Do X' instead of 'Don\'t do Y')."))
-    else:
-        issues.append(("Info", "Prompt contains only code.", "No natural language instructions found. Consider adding context or formatting instructions."))
-
-    # Structural formatting check for longer prompts
-    if len(clean_text) > 200:
-        # Check for markdown OR XML structure
-        has_markdown = any(marker in text for marker in ["#", "```", "- ", "* ", "1. "])
-        has_xml = bool(re.search(r'<[a-z_]+>', text, re.IGNORECASE))
-        has_structure = has_markdown or has_xml
-        if not has_structure:
-            issues.append(("Suggestion", "Lacks structural formatting.", "Long prompt detected without markdown or XML structure. Use headers, bullet points, code blocks, or XML tags."))
-
+    issues = analyze_prompt(text)
     _print_issues(issues)
 
 def _print_issues(issues):
@@ -650,8 +616,12 @@ def _print_issues(issues):
     table.add_column("Issue", style="cyan")
     table.add_column("Suggestion", style="green")
 
-    for severity, issue, suggestion in issues:
-        table.add_row(severity, issue, suggestion)
+    for entry in issues:
+        if isinstance(entry, DoctorIssue):
+            table.add_row(entry.severity.value, entry.issue, entry.suggestion)
+        else:
+            severity, issue, suggestion = entry
+            table.add_row(severity, issue, suggestion)
 
     console.print(table)
 

@@ -6,10 +6,35 @@
 
 A toolkit for building effective LLM prompts. Includes:
 - **Prompt Doctor** - Analyze prompts for common issues
-- **275+ curated prompts** - Model-optimized, role-based, and technique prompts (included in package)
-- Documented prompt patterns (copy-paste ready)
+- **275+ model-specific prompts** - Curated by provider (OpenAI, Anthropic, Google, etc.)
+- **9 reusable prompt patterns** - Documented templates for common techniques
 - Python library for composing prompts
 - CLI tool for quick prompt generation and prompt browsing
+
+## What's Included
+
+### Prompts Directory (`prompts/`)
+**275+ curated prompts** organized by category:
+- `code/` — Code generation, refactoring, review
+- `debug/` — Debugging, error analysis
+- `reasoning/` — Chain-of-thought, step-by-step
+- `output/` — Structured outputs, JSON
+- `defensive/` — Safety, hallucination reduction
+- `system/` — System prompts, personas
+- `professional/`, `education/`, `creative/` — Domain-specific
+
+Each prompt has **Quick** (~100 tokens) and **Extended** (~300-500 tokens) versions.
+
+### Patterns Directory (`patterns/`)
+**9 documented prompt engineering patterns** (reusable templates):
+- Reasoning: Chain-of-Thought, Self-Consistency
+- Code: TDD Prompting, Stack Trace Decoder
+- Output: JSON Enforcer
+- Context: Few-Shot with Negatives
+- Defensive: Hallucination Reducer
+- Review: Senior Reviewer
+
+Copy-paste ready with examples.
 
 ## Installation
 
@@ -149,6 +174,74 @@ builder.pattern("senior-reviewer")
 
 # Self-Consistency - verify through multiple paths
 builder.pattern("self-consistency")
+```
+
+## CLI Reference
+
+Full command reference for the `promptkit` CLI:
+
+```bash
+$ promptkit --help
+
+Usage: promptkit [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  build       Build a prompt from pattern
+  doctor      Analyze a prompt for issues
+  list        List available patterns
+  prompts     Browse included prompts
+  search      Search prompts by keyword
+```
+
+### promptkit build
+
+```bash
+$ promptkit build --help
+
+Usage: promptkit build [OPTIONS]
+
+  Build a prompt from pattern
+
+Options:
+  --persona TEXT       Set AI persona/role
+  --pattern TEXT       Select prompt pattern (chain-of-thought, json-output, etc.)
+  --task TEXT          Main task description
+  --context TEXT       Context text (code, document, data)
+  --output TEXT        Output format (json, markdown, list)
+  --interactive        Interactive mode (prompts for values)
+  --tokens             Show estimated token count
+  --help               Show this message and exit.
+```
+
+### promptkit doctor
+
+```bash
+$ promptkit doctor --help
+
+Usage: promptkit doctor [OPTIONS] [TEXT]
+
+  Analyze a prompt for common issues
+
+Options:
+  --file PATH  Analyze prompt from file
+  --help       Show this message and exit.
+```
+
+### promptkit prompts
+
+```bash
+$ promptkit prompts                              # List all providers
+$ promptkit prompts --model openai/gpt-4o        # List prompts for a model
+$ promptkit prompts --show openai/gpt-4o/coding  # View prompt content
+```
+
+### promptkit search
+
+```bash
+$ promptkit search "code review"                 # Search prompts by keyword
 ```
 
 ## Builder API Reference
