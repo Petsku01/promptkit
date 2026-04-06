@@ -597,14 +597,60 @@ def doctor_command(args):
         if not path.exists():
             console.print(f"[red]Error: File not found: {args.file}[/red]")
             return
-        text = path.read_text().lower()
-        console.print(f"[bold]Analyzing file:[/bold] {args.file}\n")
+        text = path.read_text()
+        display_text = args.file
     else:
-        text = args.target.lower() if args.target else ""
-        console.print("[bold]Analyzing text prompt...[/bold]\n")
-
-    issues = analyze_prompt(text)
-    _print_issues(issues)
+        text = args.target if args.target else ""
+        display_text = "text prompt"
+    
+    # ML-based analysis
+    if getattr(args, 'ml', False):
+        try:
+            from .ml_doctor import MLDoctor, MLDoctorIssue
+            
+            console.print(f"[bold]Analyzing {display_text} with ML...[/bold]")
+            console.print(f"[dim]Model: {args.model}[/dim]\n")
+            
+            ml_doctor = MLDoctor(model=args.model)
+            
+            if not ml_doctor.is_available():
+                console.print("[yellow]Warning: Ollama not available. Falling back to rule-based analysis.[/yellow]")
+                console.print("[dim]To use ML mode, start Ollama: ollama serve[/dim]\n")
+                issues = analyze_prompt(text.lower())
+                _print_issues(issues)
+                return
+            
+            ml_issues, metadata = ml_doctor.analyze(text)
+            
+            # Convert MLDoctorIssue to DoctorIssue for printing
+            issues = []
+            for ml_issue in ml_issues:
+                from .utils import IssueSeverity
+                severity = IssueSeverity(ml_issue.severity.upper())
+                issues.append((severity, ml_issue.issue, ml_issue.suggestion))
+            
+            _print_issues(issues)
+            
+            # Print metadata
+            console.print(f"\n[dim]Overall Score: {metadata['overall_score']:.1%}[/dim]")
+            if metadata.get('strengths'):
+                console.print(f"[dim]Strengths: {', '.join(metadata['strengths'])}[/dim]")
+            
+        except ImportError as e:
+            console.print(f"[red]Error: ML doctor module not available: {e}[/red]")
+            console.print("[yellow]Falling back to rule-based analysis.[/yellow]\n")
+            issues = analyze_prompt(text.lower())
+            _print_issues(issues)
+        except RuntimeError as e:
+            console.print(f"[red]Error: {e}[/red]")
+            console.print("[yellow]Falling back to rule-based analysis.[/yellow]\n")
+            issues = analyze_prompt(text.lower())
+            _print_issues(issues)
+    else:
+        # Rule-based analysis
+        console.print(f"[bold]Analyzing {display_text}...[/bold]\n")
+        issues = analyze_prompt(text.lower())
+        _print_issues(issues)
 
 def _print_issues(issues):
     if not issues:
@@ -664,6 +710,8 @@ def main():
     doctor_parser = subparsers.add_parser("doctor", help="Analyze prompts for common issues")
     doctor_parser.add_argument("target", nargs="?", default="", help="Prompt text string")
     doctor_parser.add_argument("--file", "-f", help="Read prompt from file")
+    doctor_parser.add_argument("--ml", action="store_true", help="Use ML-based analysis (requires Ollama)")
+    doctor_parser.add_argument("--model", "-m", default="qwen2.5:3b", help="Ollama model for ML analysis (default: qwen2.5:3b)")
 
     args = parser.parse_args()
 
