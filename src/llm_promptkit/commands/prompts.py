@@ -52,6 +52,31 @@ def list_providers():
     console.print(table)
 
 
+def _get_similar_names(target: str, candidates: list, max_results: int = 3) -> list:
+    """Find similar names using simple edit distance."""
+    def edit_distance(s1: str, s2: str) -> int:
+        if len(s1) < len(s2):
+            return edit_distance(s2, s1)
+        if len(s2) == 0:
+            return len(s1)
+        
+        previous_row = range(len(s2) + 1)
+        for i, c1 in enumerate(s1):
+            current_row = [i + 1]
+            for j, c2 in enumerate(s2):
+                insertions = previous_row[j + 1] + 1
+                deletions = current_row[j] + 1
+                substitutions = previous_row[j] + (c1 != c2)
+                current_row.append(min(insertions, deletions, substitutions))
+            previous_row = current_row
+        
+        return previous_row[-1]
+    
+    distances = [(c, edit_distance(target.lower(), c.lower())) for c in candidates]
+    distances.sort(key=lambda x: x[1])
+    return [name for name, dist in distances[:max_results] if dist <= 5]
+
+
 def list_model_prompts(provider: str, model: str = None):
     """List prompts for a specific provider/model."""
     prompts_dir = get_prompts_dir()
@@ -65,7 +90,14 @@ def list_model_prompts(provider: str, model: str = None):
         # List prompts for specific model
         model_path = provider_path / model
         if not model_path.exists():
+            # Find similar model names
+            available_models = [m.name for m in provider_path.iterdir() if m.is_dir()]
+            similar = _get_similar_names(model, available_models)
+            
             console.print(f"[red]Model '{model}' not found in '{provider}'.[/red]")
+            if similar:
+                console.print(f"[dim]Did you mean: {', '.join(similar)}?[/dim]")
+            console.print(f"[dim]Available models: {', '.join(available_models[:10])}{'...' if len(available_models) > 10 else ''}[/dim]")
             return
 
         prompt_files = get_prompt_files(model_path)
