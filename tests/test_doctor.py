@@ -1,6 +1,7 @@
 import pytest
 
-from llm_promptkit.cli import IssueSeverity, analyze_prompt
+from llm_promptkit.doctor.models import IssueSeverity
+from llm_promptkit.services import analyze_prompt
 
 
 def _issues_with(result, needle: str):
@@ -80,7 +81,7 @@ def test_negative_constraints_detected(text):
 def test_empty_prompt_returns_error():
     result = analyze_prompt("")
     assert result
-    assert result[0].severity == IssueSeverity.ERROR
+    assert result[0].severity == IssueSeverity.CRITICAL
     assert "empty" in result[0].issue.lower()
 
 
