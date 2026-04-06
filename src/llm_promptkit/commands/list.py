@@ -3,7 +3,7 @@
 from rich.table import Table
 
 from ..builder import PromptBuilder
-from ..cli import console
+from ..console import console
 
 
 def list_patterns():

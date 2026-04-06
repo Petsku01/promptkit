@@ -4,7 +4,7 @@ from pathlib import Path
 
 from rich.table import Table
 
-from ..cli import console
+from ..console import console
 from ..services import analyze_prompt
 
 

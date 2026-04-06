@@ -8,7 +8,7 @@ from rich.syntax import Syntax
 from rich.table import Table
 
 from ..builder import PromptBuilder
-from ..cli import console
+from ..console import console
 from ..utils import CHARS_PER_TOKEN, copy_to_clipboard, get_models_with_prompts, get_prompt_files, get_prompts_dir
 
 

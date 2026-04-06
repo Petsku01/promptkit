@@ -4,7 +4,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 from ..builder import PromptBuilder
-from ..cli import console
+from ..console import console
 
 
 def build_prompt(args):

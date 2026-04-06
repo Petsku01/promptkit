@@ -5,7 +5,7 @@ from typing import List, Optional
 
 from rich.table import Table
 
-from ..cli import console
+from ..console import console
 from ..utils import get_prompts_dir, is_prompt_file
 
 

@@ -1,19 +1,9 @@
 """Shared utility functions and constants for promptkit."""
 
-from enum import Enum
 from importlib import resources
 from pathlib import Path
 import subprocess
 from typing import List, Tuple
-
-
-class IssueSeverity(Enum):
-    """Severity levels for doctor issues."""
-    CRITICAL = "Critical"
-    WARNING = "Warning"
-    SUGGESTION = "Suggestion"
-    INFO = "Info"
-
 
 # Constants
 CHARS_PER_TOKEN = 4  # Rough estimate for token counting
