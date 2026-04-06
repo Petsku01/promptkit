@@ -61,6 +61,13 @@ def main():
     doctor_parser.add_argument("--ml", action="store_true", help="Use ML-based analysis (requires Ollama)")
     doctor_parser.add_argument("--model", "-m", default="qwen2.5:3b", help="Ollama model for ML analysis (default: qwen2.5:3b)")
 
+    # Config command
+    config_parser = subparsers.add_parser("config", help="Manage configuration")
+    config_parser.add_argument("--init", action="store_true", help="Initialize default config file")
+    config_parser.add_argument("--show", action="store_true", help="Show current config")
+    config_parser.add_argument("--edit", action="store_true", help="Open config in editor")
+    config_parser.add_argument("--set", nargs=2, metavar=("KEY", "VALUE"), action="append", help="Set config value")
+
     args = parser.parse_args()
 
     # Dispatch to command handlers
@@ -77,6 +84,9 @@ def main():
         prompts_command(args)
     elif args.command == "search":
         search_command(args)
+    elif args.command == "config":
+        from .commands.config import config_command
+        config_command(args)
     else:
         parser.print_help()
 

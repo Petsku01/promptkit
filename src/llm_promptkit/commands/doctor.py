@@ -4,12 +4,15 @@ from pathlib import Path
 
 from rich.table import Table
 
+from ..config import get_config
 from ..console import console
 from ..services import analyze_prompt
 
 
 def doctor_command(args):
     """Analyze a prompt for common issues."""
+    config = get_config()
+    
     if getattr(args, 'file', None):
         path = Path(args.file)
         if not path.exists():
@@ -21,16 +24,19 @@ def doctor_command(args):
         text = args.target if args.target else ""
         display_text = "text prompt"
     
-    # ML-based analysis
-    if getattr(args, 'ml', False):
+    # ML-based analysis (use config default if not overridden)
+    ml_enabled = getattr(args, 'ml', config.doctor_ml_enabled)
+    ml_model = getattr(args, 'model', config.doctor_ml_model)
+    
+    if ml_enabled:
         try:
             from ..ml_doctor import MLDoctor
             from ..doctor.models import DoctorIssue, IssueSeverity
             
             console.print(f"[bold]Analyzing {display_text} with ML...[/bold]")
-            console.print(f"[dim]Model: {args.model}[/dim]\n")
+            console.print(f"[dim]Model: {ml_model}[/dim]\n")
             
-            ml_doctor = MLDoctor(model=args.model)
+            ml_doctor = MLDoctor(model=ml_model)
             
             if not ml_doctor.is_available():
                 console.print("[yellow]Warning: Ollama not available. Falling back to rule-based analysis.[/yellow]")

@@ -4,15 +4,19 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 from ..builder import PromptBuilder
+from ..config import get_config
 from ..console import console
 
 
 def build_prompt(args):
     """Build a prompt from arguments."""
+    config = get_config()
     builder = PromptBuilder()
 
-    if args.persona:
-        builder.persona(args.persona)
+    # Apply config defaults if not overridden
+    persona = args.persona or config.default_persona
+    if persona:
+        builder.persona(persona)
 
     if args.pattern:
         for pattern in args.pattern:
