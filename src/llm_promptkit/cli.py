@@ -14,6 +14,8 @@ from .commands import (
     prompts_command,
     search_command,
 )
+from .commands.prompts import list_model_prompts, list_providers, show_prompt
+from .commands.search import search_prompts
 from .console import console
 
 
