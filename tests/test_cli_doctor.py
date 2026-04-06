@@ -8,7 +8,7 @@ class DummyArgs:
         self.target = target
         self.file = file
 
-@patch('llm_promptkit.cli.console')
+@patch('llm_promptkit.commands.doctor.console')
 def test_doctor_command_no_issues(mock_console, tmp_path):
     good_prompt = "You are a helpful assistant. Format your output as JSON. Here is an example: {}"
     f = tmp_path / "good.md"
@@ -19,7 +19,7 @@ def test_doctor_command_no_issues(mock_console, tmp_path):
     
     mock_console.print.assert_any_call("[bold green]No issues found. Prompt looks solid.[/bold green]")
 
-@patch('llm_promptkit.cli.console')
+@patch('llm_promptkit.commands.doctor.console')
 def test_doctor_command_with_issues(mock_console):
     bad_prompt = "Make it good. I would like you to do it."
     args = DummyArgs(target=bad_prompt)
@@ -31,7 +31,7 @@ def test_doctor_command_with_issues(mock_console):
     table_found = any('Table' in str(type(call_args[0][0])) for call_args in args_list)
     assert table_found
 
-@patch('llm_promptkit.cli.console')
+@patch('llm_promptkit.commands.doctor.console')
 def test_doctor_command_text_input(mock_console):
     prompt_text = "System: analyze this. Return JSON. Example: X."
     args = DummyArgs(target=prompt_text)
