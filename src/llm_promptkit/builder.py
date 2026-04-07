@@ -8,7 +8,6 @@ from typing import Dict, List, Optional
 
 from llm_promptkit.pattern_loader import PatternLoader
 
-
 DEFAULT_PATTERNS = {
     # Reasoning patterns
     "chain-of-thought": "Think through this step-by-step:\n1. First, analyze the problem\n2. Then, consider possible approaches\n3. Finally, provide your solution\n\nShow your reasoning at each step.",
@@ -171,13 +170,14 @@ class PromptBuilder:
         Estimate token count for the built prompt.
         Requires tiktoken: pip install tiktoken
         """
+        prompt = self.build()
         try:
             import tiktoken
             encoding = tiktoken.encoding_for_model(model)
-            return len(encoding.encode(self.build()))
+            return len(encoding.encode(prompt))
         except ImportError:
             # Rough estimate: ~4 chars per token
-            return len(self.build()) // 4
+            return len(prompt) // 4
 
     def __str__(self) -> str:
         return self.build()

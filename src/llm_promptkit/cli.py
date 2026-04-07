@@ -18,6 +18,21 @@ from .commands.prompts import list_model_prompts, list_providers, show_prompt
 from .commands.search import search_prompts
 from .console import console
 
+__all__ = [
+    "build_prompt",
+    "console",
+    "doctor_command",
+    "interactive_build",
+    "interactive_prompts",
+    "list_model_prompts",
+    "list_patterns",
+    "list_providers",
+    "main",
+    "prompts_command",
+    "search_command",
+    "search_prompts",
+    "show_prompt",
+]
 
 
 def main():

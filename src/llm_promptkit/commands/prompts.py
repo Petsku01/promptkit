@@ -1,17 +1,12 @@
 """Prompts command for promptkit."""
 
-from pathlib import Path
 
 from rich.panel import Panel
-from rich.prompt import Prompt
 from rich.syntax import Syntax
 from rich.table import Table
 
-from ..builder import PromptBuilder
 from ..console import console
-from ..utils import CHARS_PER_TOKEN, copy_to_clipboard, get_models_with_prompts, get_prompt_files, get_prompts_dir
-
-
+from ..utils import CHARS_PER_TOKEN, get_models_with_prompts, get_prompt_files, get_prompts_dir
 from .prompts_state_machine import run_interactive_prompts
 
 
@@ -59,7 +54,7 @@ def _get_similar_names(target: str, candidates: list, max_results: int = 3) -> l
             return edit_distance(s2, s1)
         if len(s2) == 0:
             return len(s1)
-        
+
         previous_row = range(len(s2) + 1)
         for i, c1 in enumerate(s1):
             current_row = [i + 1]
@@ -69,9 +64,9 @@ def _get_similar_names(target: str, candidates: list, max_results: int = 3) -> l
                 substitutions = previous_row[j] + (c1 != c2)
                 current_row.append(min(insertions, deletions, substitutions))
             previous_row = current_row
-        
+
         return previous_row[-1]
-    
+
     distances = [(c, edit_distance(target.lower(), c.lower())) for c in candidates]
     distances.sort(key=lambda x: x[1])
     return [name for name, dist in distances[:max_results] if dist <= 5]
@@ -93,7 +88,7 @@ def list_model_prompts(provider: str, model: str = None):
             # Find similar model names
             available_models = [m.name for m in provider_path.iterdir() if m.is_dir()]
             similar = _get_similar_names(model, available_models)
-            
+
             console.print(f"[red]Model '{model}' not found in '{provider}'.[/red]")
             if similar:
                 console.print(f"[dim]Did you mean: {', '.join(similar)}?[/dim]")

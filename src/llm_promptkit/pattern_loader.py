@@ -1,8 +1,8 @@
 """Utilities for loading prompt patterns from markdown files."""
 
+import re
 from pathlib import Path
 from typing import Dict
-import re
 
 
 class PatternLoader:

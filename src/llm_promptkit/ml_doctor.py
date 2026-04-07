@@ -1,6 +1,7 @@
 """ML-powered prompt analysis using local Ollama models."""
 
 import json
+import os
 import re
 import subprocess
 from dataclasses import dataclass
@@ -21,10 +22,10 @@ class MLDoctorIssue:
 
 class MLDoctor:
     """ML-powered prompt doctor using local Ollama models."""
-    
+
     DEFAULT_MODEL = "qwen2.5:3b"
-    OLLAMA_URL = "http://localhost:11434/api/generate"
-    
+    OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/generate")
+
     SYSTEM_PROMPT = """You are an expert prompt engineer analyzing prompts for LLMs.
 
 Analyze the given prompt and identify issues in these categories:
@@ -61,7 +62,7 @@ If no issues found, return empty issues array. Be thorough but concise."""
     def __init__(self, model: Optional[str] = None):
         self.model = model or self.DEFAULT_MODEL
         self._check_ollama()
-    
+
     def _check_ollama(self) -> bool:
         """Check if Ollama is running."""
         try:
@@ -69,11 +70,11 @@ If no issues found, return empty issues array. Be thorough but concise."""
             return response.status_code == 200
         except requests.RequestException:
             return False
-    
+
     def is_available(self) -> bool:
         """Check if ML analysis is available."""
         return self._check_ollama()
-    
+
     def _pull_model_if_needed(self) -> bool:
         """Try to pull model if not available."""
         try:
@@ -86,21 +87,21 @@ If no issues found, return empty issues array. Be thorough but concise."""
             return result.returncode == 0
         except (subprocess.TimeoutExpired, FileNotFoundError):
             return False
-    
+
     def analyze(self, prompt_text: str, timeout: int = 30) -> Tuple[List[MLDoctorIssue], Dict]:
         """Analyze prompt using ML model.
-        
+
         Returns:
             Tuple of (issues list, metadata dict with overall_score and strengths)
         """
         if not self.is_available():
             raise RuntimeError(
-                f"Ollama not available. Make sure Ollama is running: "
-                f"curl http://localhost:11434/api/tags"
+                "Ollama not available. Make sure Ollama is running: "
+                "curl http://localhost:11434/api/tags"
             )
-        
+
         analysis_prompt = f"Analyze this prompt:\n\n```\n{prompt_text}\n```\n\nReturn JSON analysis."
-        
+
         try:
             response = requests.post(
                 self.OLLAMA_URL,
@@ -114,18 +115,18 @@ If no issues found, return empty issues array. Be thorough but concise."""
                 timeout=timeout
             )
             response.raise_for_status()
-            
+
             result = response.json()
             response_text = result.get("response", "")
-            
+
             # Parse JSON response
             return self._parse_response(response_text)
-            
+
         except requests.Timeout:
             raise RuntimeError(f"ML analysis timed out after {timeout}s")
         except requests.RequestException as e:
             raise RuntimeError(f"Ollama request failed: {e}")
-    
+
     def _parse_response(self, response_text: str) -> Tuple[List[MLDoctorIssue], Dict]:
         """Parse JSON response from model."""
         # Try to extract JSON from response
@@ -135,12 +136,12 @@ If no issues found, return empty issues array. Be thorough but concise."""
             json_text = response_text
         else:
             json_text = json_match.group()
-        
+
         try:
             data = json.loads(json_text)
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Failed to parse ML response as JSON: {e}\nResponse: {response_text[:200]}")
-        
+
         issues = []
         for issue_data in data.get("issues", []):
             issues.append(MLDoctorIssue(
@@ -150,26 +151,26 @@ If no issues found, return empty issues array. Be thorough but concise."""
                 suggestion=issue_data.get("suggestion", ""),
                 confidence=float(issue_data.get("confidence", 0.5))
             ))
-        
+
         metadata = {
             "overall_score": data.get("overall_score", 0.5),
             "strengths": data.get("strengths", []),
             "model": self.model
         }
-        
+
         return issues, metadata
 
 
 def analyze_with_ml(prompt_text: str, model: Optional[str] = None) -> Tuple[List[MLDoctorIssue], Dict]:
     """Convenience function for ML analysis.
-    
+
     Args:
         prompt_text: The prompt to analyze
         model: Ollama model to use (default: qwen2.5:3b)
-        
+
     Returns:
         Tuple of (issues list, metadata)
-        
+
     Raises:
         RuntimeError: If Ollama is not available
     """

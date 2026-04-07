@@ -23,7 +23,7 @@ class PromptsState(Enum):
 
 class PromptsContext:
     """Context object carrying state between transitions."""
-    
+
     def __init__(self, model_dir: Path):
         self.model_dir = model_dir
         self.provider: Optional[str] = None
@@ -41,23 +41,23 @@ def select_provider(context: PromptsContext) -> Tuple[PromptsState, PromptsConte
             models_with_prompts = len(get_models_with_prompts(p))
             if models_with_prompts > 0:
                 providers.append((p.name, models_with_prompts))
-    
+
     if not providers:
         console.print("[red]No providers with prompts found.[/red]")
         return PromptsState.EXIT, context
-    
+
     console.print("\n[bold cyan]Select a provider:[/bold cyan]")
     for i, (provider, model_count) in enumerate(providers, 1):
         console.print(f"  [dim]{i}.[/dim] [cyan]{provider}[/cyan] [dim]({model_count} models)[/dim]")
-    
+
     provider_choice = Prompt.ask("\nProvider").strip().lower()
-    
+
     if provider_choice == "q":
         return PromptsState.EXIT, context
     if provider_choice == "b":
         console.print("[dim]Already at top level.[/dim]")
         return PromptsState.SELECT_PROVIDER, context
-    
+
     try:
         provider_idx = int(provider_choice) - 1
         if provider_idx < 0 or provider_idx >= len(providers):
@@ -75,24 +75,24 @@ def select_model(context: PromptsContext) -> Tuple[PromptsState, PromptsContext]
     """State: Select a model."""
     if not context.selected_provider_path:
         return PromptsState.SELECT_PROVIDER, context
-    
+
     models = get_models_with_prompts(context.selected_provider_path)
-    
+
     if not models:
         console.print(f"[red]No models with prompts found for {context.provider}.[/red]")
         return PromptsState.SELECT_PROVIDER, context
-    
+
     console.print(f"\n[bold cyan]Select a model for {context.provider}:[/bold cyan]")
     for i, (model, prompt_count) in enumerate(models, 1):
         console.print(f"  [dim]{i}.[/dim] [cyan]{model}[/cyan] [dim]({prompt_count} prompts)[/dim]")
-    
+
     model_choice = Prompt.ask("\nModel").strip().lower()
-    
+
     if model_choice == "q":
         return PromptsState.EXIT, context
     if model_choice == "b":
         return PromptsState.SELECT_PROVIDER, context
-    
+
     try:
         model_idx = int(model_choice) - 1
         if model_idx < 0 or model_idx >= len(models):
@@ -110,24 +110,24 @@ def select_prompt(context: PromptsContext) -> Tuple[PromptsState, PromptsContext
     """State: Select a specific prompt."""
     if not context.selected_model_path:
         return PromptsState.SELECT_MODEL, context
-    
+
     prompt_files = get_prompt_files(context.selected_model_path)
-    
+
     if not prompt_files:
         console.print(f"[red]No prompts found for {context.provider}/{context.model}.[/red]")
         return PromptsState.SELECT_MODEL, context
-    
+
     console.print(f"\n[bold cyan]Select a prompt for {context.provider}/{context.model}:[/bold cyan]")
     for i, pf in enumerate(prompt_files, 1):
         console.print(f"  [dim]{i}.[/dim] [cyan]{pf.stem}[/cyan]")
-    
+
     prompt_choice = Prompt.ask("\nPrompt").strip().lower()
-    
+
     if prompt_choice == "q":
         return PromptsState.EXIT, context
     if prompt_choice == "b":
         return PromptsState.SELECT_MODEL, context
-    
+
     try:
         prompt_idx = int(prompt_choice) - 1
         if prompt_idx < 0 or prompt_idx >= len(prompt_files):
@@ -144,9 +144,9 @@ def view_prompt(context: PromptsContext) -> Tuple[PromptsState, PromptsContext]:
     """State: View selected prompt and handle post-view actions."""
     if not context.prompt_file:
         return PromptsState.SELECT_PROMPT, context
-    
+
     content = context.prompt_file.read_text()
-    
+
     console.print("\n")
     console.print(Panel(
         Syntax(content, "markdown", theme="monokai", word_wrap=True),
@@ -154,7 +154,7 @@ def view_prompt(context: PromptsContext) -> Tuple[PromptsState, PromptsContext]:
         border_style="blue"
     ))
     console.print(f"\n[dim]Estimated tokens: ~{len(content) // CHARS_PER_TOKEN}[/dim]")
-    
+
     # Copy option
     copy_choice = Prompt.ask("\nCopy to clipboard? [y/n/q]", default="n").strip().lower()
     if copy_choice == "q":
@@ -164,18 +164,18 @@ def view_prompt(context: PromptsContext) -> Tuple[PromptsState, PromptsContext]:
             console.print("[green]Copied to clipboard![/green]")
         else:
             console.print("[yellow]No clipboard tool found (install xclip or xsel).[/yellow]")
-    
+
     # Next action
     next_action = Prompt.ask(
         "\n[dim]Press Enter to select another prompt, 'b' for back, 'q' to quit[/dim]",
         default=""
     ).strip().lower()
-    
+
     if next_action == "q":
         return PromptsState.EXIT, context
     if next_action == "b":
         return PromptsState.SELECT_PROMPT, context
-    
+
     # Default: stay in view mode (can view same prompt again or select new)
     return PromptsState.SELECT_PROMPT, context
 
@@ -185,13 +185,13 @@ def run_interactive_prompts(model_dir: Path) -> None:
     if not model_dir.exists():
         console.print("[red]Model-optimized prompts directory not found.[/red]")
         return
-    
+
     console.print(Panel.fit("Prompt Selector", style="bold magenta"))
     console.print("[dim]Enter number to select, 'b' to go back, 'q' to quit[/dim]")
-    
+
     context = PromptsContext(model_dir)
     state = PromptsState.SELECT_PROVIDER
-    
+
     while state != PromptsState.EXIT:
         if state == PromptsState.SELECT_PROVIDER:
             state, context = select_provider(context)

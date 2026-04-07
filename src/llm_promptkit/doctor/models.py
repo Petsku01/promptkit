@@ -16,7 +16,7 @@ class IssueSeverity(Enum):
 @dataclass
 class DoctorIssue:
     """Represents an issue found by prompt analysis.
-    
+
     This is the canonical model used across all doctor backends
     (rule-based and ML-based).
     """
@@ -25,6 +25,6 @@ class DoctorIssue:
     issue: str
     suggestion: str
     metadata: Dict[str, Any] = field(default_factory=dict)
-    
+
     def __repr__(self) -> str:
         return f"DoctorIssue({self.severity.value}: {self.issue[:50]}...)"

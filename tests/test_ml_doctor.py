@@ -57,7 +57,7 @@ class TestMLDoctorAnalyze:
         """Analysis returns parsed issues."""
         # Mock availability check
         mock_get.return_value = MagicMock(status_code=200)
-        
+
         # Mock analysis response
         mock_response = MagicMock()
         mock_response.json.return_value = {
@@ -76,10 +76,10 @@ class TestMLDoctorAnalyze:
             })
         }
         mock_post.return_value = mock_response
-        
+
         doctor = MLDoctor()
         issues, metadata = doctor.analyze("Make it good")
-        
+
         assert len(issues) == 1
         assert issues[0].severity == "warning"
         assert issues[0].category == "clarity"
@@ -90,11 +90,11 @@ class TestMLDoctorAnalyze:
     def test_analyze_raises_when_unavailable(self, mock_get):
         """Analysis raises error when Ollama unavailable."""
         mock_get.side_effect = requests.RequestException("Connection refused")
-        
+
         doctor = MLDoctor()
         with pytest.raises(RuntimeError) as exc_info:
             doctor.analyze("Test prompt")
-        
+
         assert "Ollama not available" in str(exc_info.value)
 
     @patch("llm_promptkit.ml_doctor.requests.post")
@@ -103,11 +103,11 @@ class TestMLDoctorAnalyze:
         """Analysis raises error on timeout."""
         mock_get.return_value = MagicMock(status_code=200)
         mock_post.side_effect = requests.Timeout()
-        
+
         doctor = MLDoctor()
         with pytest.raises(RuntimeError) as exc_info:
             doctor.analyze("Test prompt")
-        
+
         assert "timed out" in str(exc_info.value).lower()
 
 
@@ -144,9 +144,9 @@ class TestAnalyzeWithML:
             })
         }
         mock_post.return_value = mock_response
-        
+
         issues, metadata = analyze_with_ml("Test prompt", model="llama3:8b")
-        
+
         assert len(issues) == 0
         assert metadata["overall_score"] == 0.9
 
@@ -154,11 +154,11 @@ class TestAnalyzeWithML:
     def test_uses_default_model(self, mock_get):
         """Default model used when not specified."""
         mock_get.return_value = MagicMock(status_code=200)
-        
+
         # Just check that MLDoctor is created with default
         with patch("llm_promptkit.ml_doctor.MLDoctor.analyze") as mock_analyze:
             mock_analyze.return_value = ([], {"overall_score": 0.5})
             analyze_with_ml("Test")
-            
+
             # Verify MLDoctor was created (can't easily check default)
             mock_analyze.assert_called_once()

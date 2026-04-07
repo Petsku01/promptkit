@@ -1,6 +1,5 @@
 """Search command for promptkit."""
 
-from pathlib import Path
 from typing import List, Optional
 
 from rich.table import Table

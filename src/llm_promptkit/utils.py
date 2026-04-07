@@ -1,8 +1,8 @@
 """Shared utility functions and constants for promptkit."""
 
+import subprocess
 from importlib import resources
 from pathlib import Path
-import subprocess
 from typing import List, Tuple
 
 # Constants

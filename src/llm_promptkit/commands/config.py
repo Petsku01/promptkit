@@ -13,7 +13,7 @@ from ..console import console
 def config_command(args):
     """Manage promptkit configuration."""
     config_path = get_config_file()
-    
+
     if args.init:
         if config_path.exists():
             console.print(f"[yellow]Config file already exists at:[/yellow] {config_path}")
@@ -22,10 +22,10 @@ def config_command(args):
             init_config()
             console.print(f"[green]Created config file:[/green] {config_path}")
             console.print("[dim]Edit with: promptkit config --edit[/dim]")
-    
+
     elif args.show:
         config = get_config()
-        
+
         content = f"""# Promptkit Configuration
 
 # Prompt Defaults
@@ -56,28 +56,27 @@ custom_prompts_dir = "{config.custom_prompts_dir or 'Not set'}"
             title=f"Config: {config_path}",
             border_style="blue"
         ))
-    
+
     elif args.edit:
         editor = os.environ.get("EDITOR", "nano")
-        
+
         if not config_path.exists():
             init_config()
-        
+
         try:
             subprocess.run([editor, str(config_path)], check=True)
-            console.print(f"[green]Config updated.[/green]")
+            console.print("[green]Config updated.[/green]")
         except FileNotFoundError:
             console.print(f"[red]Editor not found: {editor}[/red]")
-            console.print(f"[dim]Set EDITOR environment variable or edit manually:[/dim]")
+            console.print("[dim]Set EDITOR environment variable or edit manually:[/dim]")
             console.print(f"  {config_path}")
         except subprocess.CalledProcessError:
             console.print("[yellow]Editor exited with error. Config may not be saved.[/yellow]")
-    
+
     elif args.set:
-        from ..config import Config
-        
+
         config = get_config()
-        
+
         for key, value in args.set:
             if key == "prompt.default_persona":
                 config.default_persona = value
@@ -98,10 +97,10 @@ custom_prompts_dir = "{config.custom_prompts_dir or 'Not set'}"
                 console.print(f"[red]Unknown config key: {key}[/red]")
                 continue
             console.print(f"[green]Set {key} = {value}[/green]")
-        
+
         save_config(config)
         console.print(f"[dim]Config saved to {config_path}[/dim]")
-    
+
     else:
         # Default: show config file path and status
         if config_path.exists():
@@ -112,5 +111,5 @@ custom_prompts_dir = "{config.custom_prompts_dir or 'Not set'}"
             console.print("  --edit    Open in editor")
             console.print("  --set KEY VALUE  Set a value")
         else:
-            console.print(f"[yellow]No config file found.[/yellow]")
+            console.print("[yellow]No config file found.[/yellow]")
             console.print("[dim]Create one with: promptkit config --init[/dim]")

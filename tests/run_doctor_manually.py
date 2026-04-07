@@ -1,5 +1,7 @@
 from unittest.mock import patch
+
 from llm_promptkit.cli import doctor_command
+
 
 class DummyArgs:
     def __init__(self, target=None, file=None):
