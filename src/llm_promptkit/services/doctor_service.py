@@ -3,8 +3,7 @@
 import re
 from typing import List
 
-from ..doctor.models import DoctorIssue, IssueSeverity
-from ..utils import (
+from ..doctor.constants import (
     EXAMPLE_PHRASES,
     FORMAT_PHRASES,
     NEGATIVE_PHRASES,
@@ -12,6 +11,7 @@ from ..utils import (
     VAGUE_PHRASES,
     VERBOSE_PHRASES,
 )
+from ..doctor.models import DoctorIssue, IssueSeverity
 
 
 def _match_phrase(text: str, phrase: str) -> bool:

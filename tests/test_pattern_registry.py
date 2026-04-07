@@ -46,25 +46,37 @@ class TestPatternRegistry:
             assert len(w) == 1
             assert "deprecated" in str(w[0].message).lower()
 
-    def test_resolve_underscore_alias(self):
+    def test_resolve_underscore_normalizes_without_alias(self):
+        """Underscores normalize to hyphens — no alias table entry needed."""
         registry = PatternRegistry()
         registry._patterns = {"chain-of-thought": "Think step by step."}
 
-        # Underscore variant normalizes to the canonical name, so no deprecation warning
+        # chain_of_thought -> chain-of-thought via normalization, hits _patterns directly
         result = registry.resolve("chain_of_thought")
         assert result == "chain-of-thought"
 
-    def test_resolve_shorthand_alias_warns(self):
+    def test_resolve_true_rename_warns(self):
+        """Aliases that map to a DIFFERENT canonical name should warn."""
         registry = PatternRegistry()
         registry._patterns = {"json-output": "Return JSON."}
 
-        # "json_enforcer" is a true alias (different canonical name), should warn
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
-            result = registry.resolve("json_enforcer")
+            result = registry.resolve("json-enforcer")
             assert result == "json-output"
             assert len(caught) == 1
             assert "deprecated" in str(caught[0].message).lower()
+
+    def test_resolve_concatenated_alias(self):
+        """Concatenated forms (no separator) need alias since normalization can't split words."""
+        registry = PatternRegistry()
+        registry._patterns = {"chain-of-thought": "Think step by step."}
+
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always")
+            result = registry.resolve("chainofthought")
+            assert result == "chain-of-thought"
+            assert len(caught) == 1
 
     def test_resolve_unknown_raises(self):
         registry = PatternRegistry()
@@ -136,7 +148,7 @@ class TestPatternAliases:
     def test_common_aliases_exist(self):
         assert "cot" in PATTERN_ALIASES
         assert "fewshot" in PATTERN_ALIASES
-        assert "json_enforcer" in PATTERN_ALIASES
+        assert "json-enforcer" in PATTERN_ALIASES
 
     def test_all_alias_values_are_strings(self):
         for key, value in PATTERN_ALIASES.items():

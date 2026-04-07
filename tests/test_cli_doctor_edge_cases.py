@@ -2,13 +2,15 @@
 
 from unittest.mock import patch
 
-from llm_promptkit.cli import doctor_command
+from llm_promptkit.commands import doctor_command
 
 
 class DummyArgs:
-    def __init__(self, target=None, file=None):
+    def __init__(self, target=None, file=None, ml=False, model="qwen2.5:3b"):
         self.target = target
         self.file = file
+        self.ml = ml
+        self.model = model
 
 
 @patch('llm_promptkit.commands.doctor.console')

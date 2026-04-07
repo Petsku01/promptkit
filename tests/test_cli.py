@@ -1,19 +1,17 @@
 """Comprehensive tests for CLI module."""
 from unittest.mock import MagicMock, patch
 
-from llm_promptkit.cli import (
+from llm_promptkit.cli import main
+from llm_promptkit.commands import (
     build_prompt,
     interactive_build,
     interactive_prompts,
-    list_model_prompts,
     list_patterns,
-    list_providers,
-    main,
     prompts_command,
     search_command,
-    search_prompts,
-    show_prompt,
 )
+from llm_promptkit.commands.prompts import list_model_prompts, list_providers, show_prompt
+from llm_promptkit.commands.search import search_prompts
 from llm_promptkit.utils import (
     copy_to_clipboard,
     count_prompts,
@@ -243,7 +241,7 @@ class TestBuildPrompt:
             output=str(output_file)
         )
 
-        with patch("llm_promptkit.cli.console.print"):
+        with patch("llm_promptkit.commands.build.console.print"):
             build_prompt(args)
 
         assert output_file.exists()
@@ -495,7 +493,7 @@ class TestSearchCommand:
         calls = [str(c) for c in mock_print.call_args_list]
         assert any("provide" in str(c).lower() or "query" in str(c).lower() for c in calls)
 
-    @patch("llm_promptkit.cli.search_prompts")
+    @patch("llm_promptkit.commands.search.search_prompts")
     @patch("llm_promptkit.commands.prompts_state_machine.console.print")
     def test_search_command_no_results(self, mock_print, mock_search):
         """Should show message when no results found."""
@@ -507,7 +505,7 @@ class TestSearchCommand:
         calls = [str(c) for c in mock_print.call_args_list]
         assert any("no" in str(c).lower() and "found" in str(c).lower() for c in calls)
 
-    @patch("llm_promptkit.cli.search_prompts")
+    @patch("llm_promptkit.commands.search.search_prompts")
     @patch("llm_promptkit.commands.prompts_state_machine.console.print")
     def test_search_command_with_results(self, mock_print, mock_search):
         """Should display results table."""
@@ -598,7 +596,7 @@ class TestCLIIntegration:
             output=str(output_file)
         )
 
-        with patch("llm_promptkit.cli.console.print"):
+        with patch("llm_promptkit.commands.build.console.print"):
             build_prompt(args)
 
         content = output_file.read_text()

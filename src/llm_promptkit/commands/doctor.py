@@ -13,7 +13,7 @@ def doctor_command(args):
     """Analyze a prompt for common issues."""
     config = get_config()
 
-    if getattr(args, 'file', None):
+    if args.file:
         path = Path(args.file)
         if not path.exists():
             console.print(f"[red]Error: File not found: {args.file}[/red]")
@@ -24,9 +24,9 @@ def doctor_command(args):
         text = args.target if args.target else ""
         display_text = "text prompt"
 
-    # ML-based analysis (use config default if not overridden)
-    ml_enabled = getattr(args, 'ml', config.doctor_ml_enabled)
-    ml_model = getattr(args, 'model', config.doctor_ml_model)
+    # CLI flags override config; config overrides hardcoded defaults
+    ml_enabled = args.ml or config.doctor_ml_enabled
+    ml_model = args.model if args.model != "qwen2.5:3b" else config.doctor_ml_model
 
     if ml_enabled:
         try:

@@ -6,33 +6,23 @@ from typing import Dict, List, Optional
 
 from .pattern_loader import PatternLoader
 
-# Pattern name aliases for backward compatibility
+# Pattern name aliases for backward compatibility.
+# Only includes aliases that normalization (lowercasing + replacing _/spaces with -)
+# cannot resolve automatically. Underscore variants are handled by normalize.
 PATTERN_ALIASES = {
-    # Legacy names -> canonical names
+    # True renames: old name -> new canonical name
     "json-enforcer": "json-output",
-    "json_enforcer": "json-output",
     "jsonoutput": "json-output",
     "few-shot": "few-shot-negatives",
-    "few_shot": "few-shot-negatives",
     "fewshot": "few-shot-negatives",
-    "chain-of-thought": "chain-of-thought",
-    "chain_of_thought": "chain-of-thought",
-    "chainofthought": "chain-of-thought",
+    # Shorthand aliases
     "cot": "chain-of-thought",
-    "self-consistency": "self-consistency",
-    "self_consistency": "self-consistency",
+    # Concatenated forms (no separator) that normalization can't resolve
+    "chainofthought": "chain-of-thought",
     "selfconsistency": "self-consistency",
-    "senior-reviewer": "senior-reviewer",
-    "senior_reviewer": "senior-reviewer",
     "seniorreviewer": "senior-reviewer",
-    "stack-trace-decoder": "stack-trace-decoder",
-    "stack_trace_decoder": "stack-trace-decoder",
     "stacktracedecoder": "stack-trace-decoder",
-    "tdd-prompting": "tdd-prompting",
-    "tdd_prompting": "tdd-prompting",
     "tddprompting": "tdd-prompting",
-    "hallucination-reducer": "hallucination-reducer",
-    "hallucination_reducer": "hallucination-reducer",
     "hallucinationreducer": "hallucination-reducer",
 }
 
