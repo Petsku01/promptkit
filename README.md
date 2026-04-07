@@ -1,40 +1,15 @@
 # LLM Promptkit
 
 [![CI](https://github.com/Petsku01/promptkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Petsku01/promptkit/actions/workflows/ci.yml)
-[![PyPI version](https://badge.fury.io/py/llm-promptkit.svg)](https://badge.fury.io/py/llm-promptkit)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-A toolkit for building effective LLM prompts. Includes:
-- **Prompt Doctor** - Analyze prompts for common issues
-- **275+ model-specific prompts** - Curated by provider (OpenAI, Anthropic, Google, etc.)
-- **9 reusable prompt patterns** - Documented templates for common techniques
-- Python library for composing prompts
-- CLI tool for quick prompt generation and prompt browsing
+A lean toolkit for building effective LLM prompts from proven patterns.
 
-## What's Included
-
-### Prompts Directory (`prompts/`)
-**275+ curated prompts** organized by category:
-- `code/` — Code generation, refactoring, review
-- `debug/` — Debugging, error analysis
-- `reasoning/` — Chain-of-thought, step-by-step
-- `output/` — Structured outputs, JSON
-- `defensive/` — Safety, hallucination reduction
-- `system/` — System prompts, personas
-- `professional/`, `education/`, `creative/` — Domain-specific
-
-Each prompt has **Quick** (~100 tokens) and **Extended** (~300-500 tokens) versions.
-
-### Patterns Directory (`patterns/`)
-**9 documented prompt engineering patterns** (reusable templates):
-- Reasoning: Chain-of-Thought, Self-Consistency
-- Code: TDD Prompting, Stack Trace Decoder
-- Output: JSON Enforcer
-- Context: Few-Shot with Negatives
-- Defensive: Hallucination Reducer
-- Review: Senior Reviewer
-
-Copy-paste ready with examples.
+- **PromptBuilder** — fluent Python API for composing prompts
+- **Prompt Doctor** — rule-based prompt linter (no API calls, no dependencies)
+- **48 prompt patterns** — documented, tested templates (chain-of-thought, few-shot, etc.)
+- **29 curated prompts** — the best prompts for code, debug, reasoning, and more
+- **Simple CLI** — 3 commands: `list`, `build`, `doctor`
 
 ## Installation
 
@@ -59,8 +34,18 @@ prompt = (PromptBuilder()
     .context(code_snippet)
     .output_format("json", schema={"issues": [], "severity": "string"})
     .build())
+```
 
-print(prompt)
+### Prompt Doctor
+
+Analyze prompts for common issues — no API calls needed:
+
+```python
+from llm_promptkit import analyze_prompt
+
+issues = analyze_prompt("Make it good please")
+for issue in issues:
+    print(f"[{issue.severity.value}] {issue.issue} — {issue.suggestion}")
 ```
 
 ### CLI
@@ -76,29 +61,16 @@ promptkit build \
     --task "Review this code" \
     --tokens
 
-# Interactive mode
-promptkit build --interactive
-
-# Analyze a prompt for issues
+# Analyze a prompt
 promptkit doctor "Write something good"
-
-# Analyze from file
 promptkit doctor --file my-prompt.md
-
-# Browse included prompts
-promptkit prompts                              # List all providers
-promptkit prompts --model openai/gpt-4o        # List prompts for a model
-promptkit prompts --show openai/gpt-4o/coding  # View prompt content
-
-# Search prompts
-promptkit search "code review"
 ```
 
 ## Prompt Doctor
 
-Analyze prompts for common issues without API calls:
+Catches common prompt anti-patterns:
 
-```bash
+```
 $ promptkit doctor "Make it good please"
 
 ┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -113,209 +85,82 @@ $ promptkit doctor "Make it good please"
 └──────────┴────────────────────────────┴──────────────────────────────┘
 ```
 
-**Checks:**
+**What it checks:**
 - Vague/ambiguous instructions
 - Missing role/persona
 - Token inefficiency (verbose phrasing)
 - Missing output format
-- Lack of examples (few-shot)
-- Negative constraints ("don't" → use positive)
-- Structural formatting (long prompts need headers/lists)
-- Code block handling (skips NLP checks inside code)
+- Lack of examples
+- Negative constraints ("don't" -> use positive)
+- Structural formatting for long prompts
+- Code block awareness (skips NLP checks inside code)
 
-## Quick vs Extended Prompts
+## Patterns
 
-Prompts come in two types:
+48 documented prompt engineering patterns in `patterns/`:
 
-| Type | Size | Use Case | Example |
-|------|------|----------|---------|
-| **Quick** | ~100 tokens | Single questions, fast iteration | `code-reviewer.md` |
-| **Extended** | 300-500 tokens | System prompts, agents, critical tasks | `code-reviewer-extended.md` |
+| Category | Patterns |
+|----------|----------|
+| **reasoning/** | chain-of-thought, self-consistency, step-by-step-analysis, react |
+| **code/** | tdd-prompting, stack-trace-decoder, comprehensive-code-review, test-generation, api-design, ... |
+| **output/** | json-enforcer, structured-output-enforcement, markdown-table-format, bullet-list |
+| **context/** | few-shot-negatives, rag-retrieval, template-based, zero-shot |
+| **defensive/** | hallucination-reducer, chain-of-verification, fact-check, negative-constraints |
+| **planning/** | task-decomposition, system-design-document, architecture-decision-record, ... |
+| **review/** | senior-reviewer, code-review-checklist |
+| **system/** | agent-role-definition, error-recovery, circuit-breaker, tool-use, ... |
 
-Extended prompts include:
-- Structured multi-pass processes
-- Specific output formats
-- Explicit rules and constraints
-- Failure modes to avoid
+Each pattern includes: when to use, how it works, the template, examples, and model compatibility.
 
-**Rule of thumb:** Use extended for anything a sub-agent will run autonomously.
+## Curated Prompts
 
-## Pattern Directory
+29 best prompts in `prompts/`, organized by domain:
 
-| Category | Pattern | Use When You Need To... |
-|----------|---------|-------------------------|
-| **Reasoning** | [Chain-of-Thought](patterns/reasoning/chain-of-thought.md) | Get step-by-step logical reasoning |
-| **Reasoning** | [Self-Consistency](patterns/reasoning/self-consistency.md) | Verify answers through multiple paths |
-| **Output** | [JSON Enforcer](patterns/output/json-enforcer.md) | Get clean, valid JSON output |
-| **Code** | [TDD Prompting](patterns/code/tdd-prompting.md) | Generate tests first, then implementation |
-| **Code** | [Stack Trace Decoder](patterns/code/stack-trace-decoder.md) | Debug errors from stack traces |
-| **Review** | [Senior Reviewer](patterns/review/senior-reviewer.md) | Get strict code review feedback |
-| **Context** | [Few-Shot with Negatives](patterns/context/few-shot-negatives.md) | Teach by example (including what NOT to do) |
-| **Defensive** | [Hallucination Reducer](patterns/defensive/hallucination-reducer.md) | Reduce confident nonsense |
-
-## Available Patterns (Builder API)
-
-```python
-from llm_promptkit import PromptBuilder
-
-# Chain of Thought - step-by-step reasoning
-builder.pattern("chain-of-thought")
-
-# Few-Shot - learning from examples
-builder.pattern("few-shot")
-builder.example("input", "expected output")
-
-# JSON Output - structured responses
-builder.pattern("json-output")
-builder.output_format("json", schema={"key": "type"})
-
-# Senior Reviewer - critical code review
-builder.pattern("senior-reviewer")
-
-# Self-Consistency - verify through multiple paths
-builder.pattern("self-consistency")
-```
-
-## CLI Reference
-
-Full command reference for the `promptkit` CLI:
-
-```bash
-$ promptkit --help
-
-Usage: promptkit [OPTIONS] COMMAND [ARGS]...
-
-Options:
-  --help  Show this message and exit.
-
-Commands:
-  build       Build a prompt from pattern
-  doctor      Analyze a prompt for issues
-  list        List available patterns
-  prompts     Browse included prompts
-  search      Search prompts by keyword
-```
-
-### promptkit build
-
-```bash
-$ promptkit build --help
-
-Usage: promptkit build [OPTIONS]
-
-  Build a prompt from pattern
-
-Options:
-  --persona TEXT       Set AI persona/role
-  --pattern TEXT       Select prompt pattern (chain-of-thought, json-output, etc.)
-  --task TEXT          Main task description
-  --context TEXT       Context text (code, document, data)
-  --output TEXT        Output format (json, markdown, list)
-  --interactive        Interactive mode (prompts for values)
-  --tokens             Show estimated token count
-  --help               Show this message and exit.
-```
-
-### promptkit doctor
-
-```bash
-$ promptkit doctor --help
-
-Usage: promptkit doctor [OPTIONS] [TEXT]
-
-  Analyze a prompt for common issues
-
-Options:
-  --file PATH  Analyze prompt from file
-  --help       Show this message and exit.
-```
-
-### promptkit prompts
-
-```bash
-$ promptkit prompts                              # List all providers
-$ promptkit prompts --model openai/gpt-4o        # List prompts for a model
-$ promptkit prompts --show openai/gpt-4o/coding  # View prompt content
-```
-
-### promptkit search
-
-```bash
-$ promptkit search "code review"                 # Search prompts by keyword
-```
+| Category | Prompts |
+|----------|---------|
+| **code/** | senior-engineer, brutal-reviewer, tdd-generator, code-reviewer, fullstack-developer, ... |
+| **debug/** | rubber-duck, stack-trace-analyzer, bug-risk-analysis, root-cause-analyst |
+| **reasoning/** | chain-of-thought, tree-of-thoughts, decomposition, self-consistency, expert-persona |
+| **output/** | structured-json-enforcer, json-enforcer, diagram-generator |
+| **defensive/** | pull-request-review-assistant, hallucination-reducer, refactoring-expert, contrarian |
+| **system/** | coding-assistant, error-recovery |
+| **professional/** | product-manager, project-manager |
+| **education/** | socratic-teacher |
+| **creative/** | tech-writer, essay-writer |
 
 ## Builder API Reference
 
 ```python
 builder = PromptBuilder()
 
-# Set persona/role
-builder.persona("Senior Developer")
+builder.persona("Senior Developer")       # Set persona/role
+builder.pattern("chain-of-thought")       # Add a pattern
+builder.task("Analyze this code")         # Set the task
+builder.context("def hello(): ...")       # Add context
+builder.example("input", "output")       # Add few-shot example
+builder.output_format("json", schema={}) # Set output format
+builder.constraint("Max 100 words")      # Add constraint
 
-# Add patterns
-builder.pattern("chain-of-thought")
-
-# Set task
-builder.task("Analyze this code")
-
-# Add context
-builder.context("def hello(): ...")
-
-# Add examples (for few-shot)
-builder.example("input", "output")
-builder.examples([{"input": "x", "output": "y"}])
-
-# Set output format
-builder.output_format("json", schema={"key": "type"})
-
-# Add constraints
-builder.constraint("Max 100 words")
-
-# Build the prompt
-prompt = builder.build()
-
-# Estimate tokens (requires tiktoken)
-tokens = builder.estimate_tokens()
+prompt = builder.build()                  # Build the prompt string
+tokens = builder.estimate_tokens()        # Estimate token count
 ```
 
-## Anatomy of a Pattern
+All methods return `self` for chaining.
 
-Each documented pattern follows this format:
+## Project Structure
 
-```markdown
-# Pattern Name
-
-## When to Use
-The specific scenario where this pattern excels.
-
-## How It Works
-The underlying mechanics of WHY the LLM responds well to this.
-
-## The Prompt
-[The actual prompt template]
-
-## Example
-**Input:** [What you provide]
-**Output:** [What you get back]
-
-## Tested On
-- GPT-4: Yes
-- Claude: Yes
-- Llama 3: Partial
 ```
-
-## Categories
-
-- **reasoning/** - Logic, step-by-step, self-correction
-- **output/** - JSON, structured lists, schema extraction
-- **code/** - Generation, refactoring, debugging
-- **review/** - Code review, security, performance
-- **context/** - RAG, few-shot, long-context management
-- **defensive/** - Hallucination reduction, constraint enforcement
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+src/llm_promptkit/
+    __init__.py          # Exports: PromptBuilder, analyze_prompt
+    builder.py           # Fluent prompt builder API
+    doctor.py            # Rule-based prompt analysis
+    cli.py               # CLI: list, build, doctor
+    pattern_loader.py    # Load patterns from markdown files
+    console.py           # Rich console instance
+    utils.py             # Clipboard helper
+patterns/                # 48 documented prompt engineering patterns
+prompts/                 # 29 curated best prompts
+```
 
 ## License
 
