@@ -1,37 +1,97 @@
-"""CLI for promptkit.
-
-Thin adapter layer - delegates to command modules.
-"""
+"""CLI for promptkit — build, list, and doctor commands."""
 
 import argparse
+from pathlib import Path
 
-from .commands import (
-    build_prompt,
-    doctor_command,
-    interactive_build,
-    interactive_prompts,
-    list_patterns,
-    prompts_command,
-    search_command,
-)
-from .commands.prompts import list_model_prompts, list_providers, show_prompt
-from .commands.search import search_prompts
+from rich.panel import Panel
+from rich.table import Table
+
+from .builder import PromptBuilder
 from .console import console
+from .doctor import analyze_prompt
 
+
+def list_patterns():
+    """List all available patterns."""
+    table = Table(title="Available Patterns", show_header=True, header_style="bold magenta")
+    table.add_column("Pattern", style="cyan")
+    table.add_column("Preview", style="dim")
+
+    for name, text in sorted(PromptBuilder.PATTERNS.items()):
+        preview = text[:80].replace("\n", " ") + ("..." if len(text) > 80 else "")
+        table.add_row(name, preview)
+
+    console.print(table)
+
+
+def build_prompt(args):
+    """Build a prompt from CLI args."""
+    builder = PromptBuilder()
+
+    if args.persona:
+        builder.persona(args.persona)
+
+    for pattern_name in args.pattern or []:
+        try:
+            builder.pattern(pattern_name)
+        except ValueError as e:
+            console.print(f"[red]Error: {e}[/red]")
+            return
+
+    if args.task:
+        builder.task(args.task)
+    if args.context:
+        builder.context(args.context)
+    for c in args.constraint or []:
+        builder.constraint(c)
+
+    prompt = builder.build()
+
+    if args.tokens:
+        console.print(f"[dim]# Estimated tokens: {builder.estimate_tokens()}[/dim]")
+
+    if args.output:
+        Path(args.output).write_text(prompt)
+        console.print(f"[bold green]Prompt written to {args.output}[/bold green]")
+    else:
+        console.print(Panel(prompt, title="Generated Prompt", border_style="blue"))
+
+
+def doctor_command(args):
+    """Analyze a prompt for common issues."""
+    if args.file:
+        path = Path(args.file)
+        if not path.exists():
+            console.print(f"[red]Error: File not found: {args.file}[/red]")
+            return
+        text = path.read_text()
+    else:
+        text = args.target or ""
+
+    issues = analyze_prompt(text.lower())
+
+    if not issues:
+        console.print("[bold green]No issues found. Prompt looks solid.[/bold green]")
+        return
+
+    table = Table(title="Prompt Analysis", show_header=True, header_style="bold magenta")
+    table.add_column("Severity", style="bold")
+    table.add_column("Issue", style="cyan")
+    table.add_column("Suggestion", style="green")
+
+    for entry in issues:
+        table.add_row(entry.severity.value, entry.issue, entry.suggestion)
+
+    console.print(table)
 
 
 def main():
     """Main entry point for CLI."""
-    parser = argparse.ArgumentParser(
-        prog="promptkit",
-        description="Build effective LLM prompts from patterns"
-    )
+    parser = argparse.ArgumentParser(prog="promptkit", description="Build effective LLM prompts from patterns")
     subparsers = parser.add_subparsers(dest="command", help="Commands")
 
-    # List command
     subparsers.add_parser("list", help="List available patterns")
 
-    # Build command
     build_parser = subparsers.add_parser("build", help="Build a prompt")
     build_parser.add_argument("--persona", "-p", help="AI persona/role")
     build_parser.add_argument("--pattern", "-P", action="append", help="Pattern to use (can repeat)")
@@ -40,53 +100,19 @@ def main():
     build_parser.add_argument("--constraint", action="append", help="Constraint (can repeat)")
     build_parser.add_argument("--output", "-o", help="Output file")
     build_parser.add_argument("--tokens", action="store_true", help="Show token estimate")
-    build_parser.add_argument("--interactive", "-i", action="store_true", help="Interactive mode")
 
-    # Prompts command
-    prompts_parser = subparsers.add_parser("prompts", help="Browse model-optimized prompts")
-    prompts_parser.add_argument("--model", "-m", help="Provider or provider/model (e.g., openai or openai/gpt-4o)")
-    prompts_parser.add_argument("--show", "-s", help="Show prompt content (e.g., openai/gpt-4o/coding)")
-    prompts_parser.add_argument("--interactive", "-i", action="store_true", help="Interactive selection mode")
-
-    # Search command
-    search_parser = subparsers.add_parser("search", help="Search prompts by content")
-    search_parser.add_argument("query", nargs="+", help="Search terms")
-    search_parser.add_argument("--limit", "-l", type=int, default=10, help="Max results (default: 10)")
-    search_parser.add_argument("--category", "-c", help="Limit to category (e.g., model-optimized, reasoning)")
-
-    # Doctor command
     doctor_parser = subparsers.add_parser("doctor", help="Analyze prompts for common issues")
     doctor_parser.add_argument("target", nargs="?", default="", help="Prompt text string")
     doctor_parser.add_argument("--file", "-f", help="Read prompt from file")
-    doctor_parser.add_argument("--ml", action="store_true", help="Use ML-based analysis (requires Ollama)")
-    doctor_parser.add_argument("--model", "-m", default="qwen2.5:3b", help="Ollama model for ML analysis (default: qwen2.5:3b)")
-
-    # Config command
-    config_parser = subparsers.add_parser("config", help="Manage configuration")
-    config_parser.add_argument("--init", action="store_true", help="Initialize default config file")
-    config_parser.add_argument("--show", action="store_true", help="Show current config")
-    config_parser.add_argument("--edit", action="store_true", help="Open config in editor")
-    config_parser.add_argument("--set", nargs=2, metavar=("KEY", "VALUE"), action="append", help="Set config value")
 
     args = parser.parse_args()
 
-    # Dispatch to command handlers
     if args.command == "list":
         list_patterns()
     elif args.command == "doctor":
         doctor_command(args)
     elif args.command == "build":
-        if args.interactive:
-            interactive_build()
-        else:
-            build_prompt(args)
-    elif args.command == "prompts":
-        prompts_command(args)
-    elif args.command == "search":
-        search_command(args)
-    elif args.command == "config":
-        from .commands.config import config_command
-        config_command(args)
+        build_prompt(args)
     else:
         parser.print_help()
 
