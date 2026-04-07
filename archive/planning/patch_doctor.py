@@ -1,4 +1,3 @@
-import re
 from pathlib import Path
 
 cli_path = Path("/home/ette/.openclaw/workspace/promptkit/src/llm_promptkit/cli.py")
@@ -18,7 +17,7 @@ new_doctor_func = """def doctor_command(args):
         console.print("[bold]Analyzing text prompt...[/bold]\\n")
 
     issues = []
-    
+
     clean_text = text.strip()
 
     if not clean_text:
@@ -28,7 +27,7 @@ new_doctor_func = """def doctor_command(args):
 
     # Strip code blocks for NLP checks
     text_no_code = re.sub(r'```.*?```', '', text, flags=re.DOTALL).strip()
-    
+
     if len(clean_text) < 20:
         issues.append(("Warning", "Prompt is very short.", "Prompts under 20 characters often lack sufficient detail."))
 
