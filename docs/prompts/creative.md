@@ -1,15 +1,10 @@
 # Creative Prompts
 
-Prompts for writing, storytelling, and creative ideation.
+Prompts for writing and creative work.
 
 ## Available Prompts
 
 | Prompt | Use Case |
 |--------|----------|
-| [novelist](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/novelist.md) | Fiction writing |
-| [essay-writer](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/essay-writer.md) | Essay composition |
-| [advertiser](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/advertiser.md) | Ad copywriting |
-| [artist-advisor](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/artist-advisor.md) | Art guidance |
-| [ascii-artist](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/ascii-artist.md) | ASCII art generation |
-
-[View all creative prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/creative)
+| [tech-writer](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/tech-writer.md) | Technical documentation |
+| [essay-writer](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/essay-writer.md) | Structured persuasive writing |

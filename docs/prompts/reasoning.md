@@ -1,16 +1,13 @@
 # Reasoning Prompts
 
-Prompts for logic, analysis, and problem-solving tasks.
+Prompts for logic, analysis, and structured thinking.
 
 ## Available Prompts
 
 | Prompt | Use Case |
 |--------|----------|
 | [chain-of-thought](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/chain-of-thought.md) | Step-by-step reasoning |
-| [decomposition](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/decomposition.md) | Break down complex problems |
-| [expert-persona](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/expert-persona.md) | Domain expert perspective |
-| [data-analyst](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/data-analyst.md) | Data analysis tasks |
-| [financial-analyst](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/financial-analyst.md) | Financial analysis |
-| [readability-logic-simulator](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/readability-logic-simulator.md) | Logic simulation |
-
-[View all reasoning prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/reasoning)
+| [tree-of-thoughts](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/tree-of-thoughts.md) | Multi-path decision making |
+| [decomposition](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/decomposition.md) | Break complex problems down |
+| [self-consistency](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/self-consistency.md) | Verify through multiple approaches |
+| [expert-persona](https://github.com/Petsku01/promptkit/blob/master/prompts/reasoning/expert-persona.md) | Role-based reasoning |

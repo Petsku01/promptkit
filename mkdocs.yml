@@ -1,5 +1,5 @@
 site_name: LLM Promptkit
-site_description: A toolkit for building effective LLM prompts from proven patterns
+site_description: A lean toolkit for building effective LLM prompts from proven patterns
 site_url: https://petsku01.github.io/promptkit
 repo_url: https://github.com/Petsku01/promptkit
 repo_name: Petsku01/promptkit
@@ -63,18 +63,17 @@ nav:
   - Prompts:
     - Overview: prompts/index.md
     - Code: prompts/code.md
-    - Reasoning: prompts/reasoning.md
     - Debug: prompts/debug.md
+    - Reasoning: prompts/reasoning.md
     - Defensive: prompts/defensive.md
-    - Education: prompts/education.md
-    - Professional: prompts/professional.md
-    - Creative: prompts/creative.md
     - Output: prompts/output.md
     - System: prompts/system.md
-    - Context: prompts/context.md
-    - Model-Optimized: prompts/model-optimized.md
+    - Professional: prompts/professional.md
+    - Education: prompts/education.md
+    - Creative: prompts/creative.md
   - API Reference:
     - PromptBuilder: api/builder.md
+    - Prompt Doctor: api/doctor.md
     - CLI: api/cli.md
   - Contributing: contributing.md
 

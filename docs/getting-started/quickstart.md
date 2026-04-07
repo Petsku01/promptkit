@@ -75,6 +75,24 @@ prompt = (PromptBuilder()
     .build())
 ```
 
+## Prompt Doctor
+
+Check your prompts for common issues:
+
+```python
+from llm_promptkit import analyze_prompt
+
+issues = analyze_prompt("Make it good please")
+for issue in issues:
+    print(f"[{issue.severity.value}] {issue.issue}")
+```
+
+Or from the CLI:
+
+```bash
+promptkit doctor "Make it good please"
+```
+
 ## CLI Usage
 
 ```bash
@@ -83,13 +101,14 @@ promptkit list
 
 # Build a prompt
 promptkit build \
-    --persona "Data Scientist" \
-    --pattern chain-of-thought \
-    --task "Analyze this dataset" \
+    -p "Data Scientist" \
+    -P chain-of-thought \
+    -t "Analyze this dataset" \
     --tokens
 
-# Interactive mode
-promptkit build --interactive
+# Analyze a prompt
+promptkit doctor "Write something good"
+promptkit doctor --file my-prompt.md
 ```
 
 ## Next Steps

@@ -1,13 +1,14 @@
 # LLM Promptkit
 
-A toolkit for building effective LLM prompts from proven patterns.
+A lean toolkit for building effective LLM prompts from proven patterns.
 
 ## Why Promptkit?
 
-- **Proven patterns** — Battle-tested prompt techniques from research and practice
-- **Composable** — Mix and match patterns with a fluent Python API
-- **Copy-paste ready** — Each pattern documented with examples
-- **Framework agnostic** — Works with any LLM (GPT, Claude, Llama, etc.)
+- **Proven patterns** -- battle-tested prompt techniques from research and practice
+- **Composable** -- mix and match patterns with a fluent Python API
+- **Prompt doctor** -- catch anti-patterns before you ship
+- **Framework agnostic** -- works with any LLM (GPT, Claude, Llama, etc.)
+- **Minimal** -- 7 source files, 1 dependency (`rich`)
 
 ## Quick Example
 
@@ -26,9 +27,11 @@ prompt = (PromptBuilder()
 
 | Feature | Description |
 |---------|-------------|
-| **10 Patterns** | Chain-of-Thought, Self-Consistency, Few-Shot, and more |
+| **48 Patterns** | Chain-of-Thought, Self-Consistency, Few-Shot, and more |
+| **29 Curated Prompts** | Best prompts for code, debug, reasoning, review |
 | **Python API** | Fluent builder for composing prompts |
-| **CLI Tool** | Quick prompt generation from terminal |
+| **Prompt Doctor** | Rule-based linter for prompt quality |
+| **CLI Tool** | 3 commands: `list`, `build`, `doctor` |
 | **Token Estimation** | Know your token count before sending |
 
 ## Getting Started

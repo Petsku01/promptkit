@@ -1,29 +1,20 @@
 # Prompts Library
 
-Ready-to-use prompts for common tasks. Copy-paste and customize for your needs.
+29 curated, ready-to-use prompts for common tasks. Copy-paste and customize.
 
 ## Categories
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| [Code](code.md) | 18 | Code review, development, debugging |
-| [Reasoning](reasoning.md) | 15 | Logic, analysis, problem-solving |
-| [Debug](debug.md) | 12 | Error analysis, troubleshooting |
-| [Defensive](defensive.md) | 13 | Hallucination reduction, safety |
-| [Education](education.md) | 11 | Teaching, explaining, tutoring |
-| [Professional](professional.md) | 11 | Business, consulting, writing |
-| [Creative](creative.md) | 10 | Writing, storytelling, ideation |
-| [Output](output.md) | 9 | JSON, formatting, structure |
+| [Code](code.md) | 7 | Code review, development, TDD |
+| [Debug](debug.md) | 4 | Error analysis, troubleshooting |
+| [Reasoning](reasoning.md) | 5 | Logic, analysis, problem-solving |
+| [Defensive](defensive.md) | 4 | Hallucination reduction, review |
+| [Output](output.md) | 3 | JSON, formatting, diagrams |
 | [System](system.md) | 2 | Base system prompts |
-| [Context](context.md) | 1 | Few-shot, RAG |
-| [Model-Optimized](model-optimized.md) | 20+ | Provider-specific prompts |
-
-## Quick vs Extended
-
-Each prompt comes in two variants:
-
-- **Quick** (~100 tokens): Single questions, fast iteration
-- **Extended** (300-500 tokens): System prompts, agents, critical tasks
+| [Professional](professional.md) | 2 | Product/project management |
+| [Education](education.md) | 1 | Socratic teaching |
+| [Creative](creative.md) | 2 | Tech writing, essays |
 
 ## Usage
 
@@ -47,6 +38,5 @@ prompt = (PromptBuilder()
 ### With CLI
 
 ```bash
-# Build with a base prompt file
 promptkit build --task "Review this code" --pattern senior-reviewer
 ```

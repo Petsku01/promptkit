@@ -1,17 +1,17 @@
 # System Prompts
 
-Base system prompts for AI assistants.
+Base system-level prompts for LLM configuration.
 
 ## Available Prompts
 
 | Prompt | Use Case |
 |--------|----------|
-| [coding-assistant](https://github.com/Petsku01/promptkit/blob/master/prompts/system/coding-assistant.md) | General coding assistant |
-| [claude-soul-principles](https://github.com/Petsku01/promptkit/blob/master/prompts/system/claude-soul-principles.md) | Claude-style principles |
+| [coding-assistant](https://github.com/Petsku01/promptkit/blob/master/prompts/system/coding-assistant.md) | Core coding workflow |
+| [error-recovery](https://github.com/Petsku01/promptkit/blob/master/prompts/system/error-recovery.md) | Error handling and resilience |
 
 ## Usage
 
-System prompts define the base behavior of your AI. Use them as the foundation:
+System prompts define the base behavior of your AI:
 
 ```python
 from llm_promptkit import PromptBuilder

@@ -15,7 +15,7 @@ promptkit list
 Output:
 ```
 ┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Pattern           ┃ Description                                   ┃
+┃ Pattern           ┃ Preview                                       ┃
 ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 │ chain-of-thought  │ Think through this step-by-step...           │
 │ few-shot          │ Here are some examples...                     │
@@ -45,7 +45,6 @@ promptkit build [OPTIONS]
 | `--constraint` | | Constraint (repeatable) |
 | `--output` | `-o` | Save to file |
 | `--tokens` | | Show token estimate |
-| `--interactive` | `-i` | Interactive mode |
 
 **Examples:**
 
@@ -75,16 +74,38 @@ promptkit build -t "Write docs" -o prompt.txt
 
 ---
 
-### Interactive Mode
+### `doctor`
+
+Analyze a prompt for common issues.
 
 ```bash
-promptkit build --interactive
+promptkit doctor [TEXT]
+promptkit doctor --file PATH
 ```
 
-Guides you through building a prompt step-by-step:
+**Options:**
 
-1. Enter persona (optional)
-2. Select patterns
-3. Enter task
-4. Add context (optional)
-5. Preview and copy
+| Option | Short | Description |
+|--------|-------|-------------|
+| `--file` | `-f` | Read prompt from file |
+
+**Examples:**
+
+```bash
+# Analyze inline text
+promptkit doctor "Make it good please"
+
+# Analyze from file
+promptkit doctor --file my-prompt.md
+```
+
+**Checks performed:**
+
+- Vague/ambiguous instructions
+- Missing role/persona
+- Token inefficiency (verbose phrasing)
+- Missing output format
+- Lack of examples
+- Negative constraints
+- Structural formatting for long prompts
+- Code block awareness
