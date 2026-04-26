@@ -78,7 +78,7 @@ def read_pattern(name: str) -> str:
             if candidate.is_file():
                 try:
                     return _parse_pattern_body(candidate)
-                except Exception as e:
+                except (OSError, UnicodeDecodeError) as e:
                     raise PatternLoadError(f"Failed to read pattern '{name}': {e}") from e
 
     available = ", ".join(list_pattern_names())
