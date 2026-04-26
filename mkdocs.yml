@@ -57,6 +57,7 @@ nav:
   - Patterns:
     - Overview: patterns/index.md
     - Reasoning: patterns/reasoning.md
+    - Agentic: patterns/agentic.md
     - Output Control: patterns/output.md
     - Code: patterns/code.md
     - Review: patterns/review.md
