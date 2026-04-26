@@ -5,11 +5,11 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 A toolkit for building effective LLM prompts. Includes:
-- **Prompt Doctor** - Analyze prompts for common issues
-- **275+ curated prompts** - Model-optimized, role-based, and technique prompts (included in package)
-- Documented prompt patterns (copy-paste ready)
-- Python library for composing prompts
-- CLI tool for quick prompt generation and prompt browsing
+- **Prompt Doctor** — Analyze prompts for common issues
+- **18 prompt patterns** across 7 categories (reasoning, agentic, context, output, code, review, defensive)
+- **275+ curated prompts** — Model-optimized, role-based, and technique prompts
+- **Python API** — Fluent builder for composing prompts
+- **CLI** — Quick prompt generation and browsing from the terminal
 
 ## Installation
 
@@ -59,6 +59,7 @@ promptkit doctor "Write something good"
 
 # Analyze from file
 promptkit doctor my-prompt.md
+promptkit doctor --file my-prompt.md
 
 # Browse included prompts
 promptkit prompts                              # List all providers
@@ -67,6 +68,7 @@ promptkit prompts --show openai/gpt-4o/coding  # View prompt content
 
 # Search prompts
 promptkit search "code review"
+promptkit search "json" --category output
 ```
 
 ## Prompt Doctor
@@ -79,12 +81,12 @@ $ promptkit doctor "Make it good please"
 ┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ Severity ┃ Issue                      ┃ Suggestion                   ┃
 ┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ Warning  │ Vague or ambiguous         │ Found 'make it good'. Be     │
-│          │ instructions.              │ more specific.               │
-│ Info     │ Token inefficiency.        │ Found 'please'. Use direct   │
-│          │                            │ commands.                    │
-│ Sugges.  │ Missing context or role.   │ Add a persona.               │
-│ Warning  │ Missing output format.     │ Specify format (JSON, etc).  │
+│ Warning  │ Vague or ambiguous         │ Found 'make it good'. Be    │
+│          │ instructions.              │ more specific.              │
+│ Info     │ Token inefficiency.        │ Found 'please'. Use direct  │
+│          │                            │ commands.                   │
+│ Sugges.  │ Missing context or role.   │ Add a persona.              │
+│ Warning  │ Missing output format.     │ Specify format (JSON, etc). │
 └──────────┴────────────────────────────┴──────────────────────────────┘
 ```
 
@@ -97,6 +99,84 @@ $ promptkit doctor "Make it good please"
 - Negative constraints ("don't" → use positive)
 - Structural formatting (long prompts need headers/lists)
 - Code block handling (skips NLP checks inside code)
+
+## Prompt Patterns
+
+| Category | Pattern | Use When You Need To... |
+|----------|---------|-------------------------|
+| **Reasoning** | `chain-of-thought` | Get step-by-step logical reasoning |
+| **Reasoning** | `self-consistency` | Verify answers through multiple paths |
+| **Reasoning** | `tree-of-thought` | Explore multiple expert perspectives |
+| **Reasoning** | `step-back` | Identify core principles first |
+| **Reasoning** | `decomposition` | Break complex problems into sub-problems |
+| **Reasoning** | `reflection` | Self-critique and improve initial response |
+| **Agentic** | `react` | Interleave thought, action, observation |
+| **Agentic** | `prompt-chaining` | Multi-stage task decomposition |
+| **Agentic** | `meta-prompting` | Let model choose optimal approach |
+| **Context** | `few-shot` | Learn from examples |
+| **Context** | `few-shot-negatives` | Learn from both positive and negative examples |
+| **Context** | `role-play` | Adopt a specific persona |
+| **Output** | `json-output` | Get structured JSON responses |
+| **Output** | `json-enforcer` | Strictly enforce valid JSON |
+| **Code** | `tdd-prompting` | Generate tests first, then implementation |
+| **Code** | `stack-trace-decoder` | Debug errors from stack traces |
+| **Review** | `senior-reviewer` | Get strict code review feedback |
+| **Defensive** | `hallucination-reducer` | Reduce confident nonsense |
+
+## Builder API Reference
+
+```python
+from llm_promptkit import PromptBuilder
+
+builder = PromptBuilder()
+
+# Set persona/role
+builder.persona("Senior Developer")
+
+# Add patterns (by slug name)
+builder.pattern("chain-of-thought")
+
+# Set task
+builder.task("Analyze this code")
+
+# Add context
+builder.context("def hello(): pass")
+
+# Add examples (for few-shot)
+builder.example("input", "output")
+builder.examples([{"input": "x", "output": "y"}])
+
+# Set output format
+builder.output_format("json", schema={"key": "type"})
+
+# Add constraints
+builder.constraint("Max 100 words")
+
+# Override system prompt (overrides persona)
+builder.system("You are a helpful assistant specialized in Python.")
+
+# Build the prompt
+prompt = builder.build()
+
+# Estimate tokens (requires tiktoken, falls back to chars/4)
+tokens = builder.estimate_tokens()
+
+# List available patterns
+patterns = builder.get_available_patterns()
+```
+
+## Available Patterns
+
+```python
+from llm_promptkit.patterns import list_pattern_names
+
+names = list_pattern_names()
+# ('meta-prompting', 'prompt-chaining', 'react', 'stack-trace-decoder',
+#  'tdd-prompting', 'few-shot-negatives', 'few-shot', 'role-play',
+#  'hallucination-reducer', 'json-enforcer', 'json-output',
+#  'chain-of-thought', 'decomposition', 'reflection', 'self-consistency',
+#  'step-back', 'tree-of-thought', 'senior-reviewer')
+```
 
 ## Quick vs Extended Prompts
 
@@ -114,122 +194,6 @@ Extended prompts include:
 - Failure modes to avoid
 
 **Rule of thumb:** Use extended for anything a sub-agent will run autonomously.
-
-## Pattern Directory
-
-| Category | Pattern | Use When You Need To... |
-|----------|---------|-------------------------|
-| **Reasoning** | [Chain-of-Thought](patterns/reasoning/chain-of-thought.md) | Get step-by-step logical reasoning |
-| **Reasoning** | [Self-Consistency](patterns/reasoning/self-consistency.md) | Verify answers through multiple paths |
-| **Reasoning** | [Tree-of-Thought](patterns/reasoning/tree-of-thought.md) | Explore multiple expert perspectives |
-| **Reasoning** | [Step-Back](patterns/reasoning/step-back.md) | Identify core principles first |
-| **Reasoning** | [Decomposition](patterns/reasoning/decomposition.md) | Break complex problems into sub-problems |
-| **Reasoning** | [Reflection](patterns/reasoning/reflection.md) | Self-critique and improve initial response |
-| **Agentic** | [ReAct](patterns/agentic/react.md) | Interleave thought, action, observation |
-| **Agentic** | [Prompt Chaining](patterns/agentic/prompt-chaining.md) | Multi-stage task decomposition |
-| **Agentic** | [Meta-Prompting](patterns/agentic/meta-prompting.md) | Let model choose optimal approach |
-| **Context** | [Few-Shot](patterns/context/few-shot.md) | Learn from examples |
-| **Context** | [Role-Play](patterns/context/role-play.md) | Adopt a specific persona |
-| **Context** | [Few-Shot with Negatives](patterns/context/few-shot-negatives.md) | Teach by example (including what NOT to do) |
-| **Output** | [JSON Output](patterns/output/json-output.md) | Get structured JSON responses |
-| **Output** | [JSON Enforcer](patterns/output/json-enforcer.md) | Strictly enforce valid JSON |
-| **Code** | [TDD Prompting](patterns/code/tdd-prompting.md) | Generate tests first, then implementation |
-| **Code** | [Stack Trace Decoder](patterns/code/stack-trace-decoder.md) | Debug errors from stack traces |
-| **Review** | [Senior Reviewer](patterns/review/senior-reviewer.md) | Get strict code review feedback |
-| **Defensive** | [Hallucination Reducer](patterns/defensive/hallucination-reducer.md) | Reduce confident nonsense |
-
-## Available Patterns (Builder API)
-
-```python
-from llm_promptkit import PromptBuilder
-
-# Chain of Thought - step-by-step reasoning
-builder.pattern("chain-of-thought")
-
-# Few-Shot - learning from examples
-builder.pattern("few-shot")
-builder.example("input", "expected output")
-
-# JSON Output - structured responses
-builder.pattern("json-output")
-builder.output_format("json", schema={"key": "type"})
-
-# Senior Reviewer - critical code review
-builder.pattern("senior-reviewer")
-
-# Self-Consistency - verify through multiple paths
-builder.pattern("self-consistency")
-```
-
-## Builder API Reference
-
-```python
-builder = PromptBuilder()
-
-# Set persona/role
-builder.persona("Senior Developer")
-
-# Add patterns
-builder.pattern("chain-of-thought")
-
-# Set task
-builder.task("Analyze this code")
-
-# Add context
-builder.context("def hello(): ...")
-
-# Add examples (for few-shot)
-builder.example("input", "output")
-builder.examples([{"input": "x", "output": "y"}])
-
-# Set output format
-builder.output_format("json", schema={"key": "type"})
-
-# Add constraints
-builder.constraint("Max 100 words")
-
-# Build the prompt
-prompt = builder.build()
-
-# Estimate tokens (requires tiktoken)
-tokens = builder.estimate_tokens()
-```
-
-## Anatomy of a Pattern
-
-Each documented pattern follows this format:
-
-```markdown
-# Pattern Name
-
-## When to Use
-The specific scenario where this pattern excels.
-
-## How It Works
-The underlying mechanics of WHY the LLM responds well to this.
-
-## The Prompt
-[The actual prompt template]
-
-## Example
-**Input:** [What you provide]
-**Output:** [What you get back]
-
-## Tested On
-- GPT-4: Yes
-- Claude: Yes
-- Llama 3: Partial
-```
-
-## Categories
-
-- **reasoning/** - Logic, step-by-step, self-correction
-- **agentic/** - ReAct, prompt chaining, meta-prompting
-- **output/** - JSON, structured lists, schema extraction
-- **code/** - Generation, refactoring, debugging
-- **review/** - Code review, security, performance
-- **context/** - RAG, few-shot, role-play, long-context management
-- **defensive/** - Hallucination reduction, constraint enforcement
 
 ## Contributing
 

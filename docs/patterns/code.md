@@ -1,84 +1,34 @@
 # Code Patterns
 
-Patterns for development tasks.
+Patterns for software development tasks.
 
-## Senior Reviewer
+## TDD Prompting
 
-Strict, critical code review.
+Generate tests first, then implementation.
 
 ```python
 from llm_promptkit import PromptBuilder
 
 prompt = (PromptBuilder()
-    .pattern("senior-reviewer")
-    .task("Review this pull request")
-    .context(diff)
+    .pattern("tdd-prompting")
+    .task("Implement a user authentication module")
     .build())
 ```
 
-**The prompt includes:**
-```
-You are a senior engineer with 15 years of experience. 
-You are known for thorough, critical reviews. 
-Never say 'looks good' unless it's genuinely excellent.
-```
+**When to use:** Writing new features, ensuring testability.
 
 ---
 
-## Code Review Combo
+## Stack Trace Decoder
 
-Combine patterns for thorough review:
-
-```python
-prompt = (PromptBuilder()
-    .pattern("senior-reviewer")
-    .pattern("chain-of-thought")
-    .task("Review this code for security issues")
-    .context(code)
-    .constraint("Focus on: injection, auth, data exposure")
-    .build())
-```
-
----
-
-## Debugging
+Analyze and explain stack traces.
 
 ```python
 prompt = (PromptBuilder()
-    .pattern("step-back")
-    .pattern("decomposition")
-    .task("Why is this failing?")
-    .context(f"Error: {error}\n\nCode:\n{code}")
+    .pattern("stack-trace-decoder")
+    .task("Debug this error")
+    .context(traceback_text)
     .build())
 ```
 
----
-
-## TDD Prompting
-
-Generate tests first:
-
-```python
-prompt = (PromptBuilder()
-    .persona("TDD practitioner")
-    .task("Write tests for this function, then implement it")
-    .context(function_signature)
-    .constraint("Write failing tests first")
-    .constraint("Then write minimal code to pass")
-    .build())
-```
-
----
-
-## Code Generation
-
-```python
-prompt = (PromptBuilder()
-    .persona("Senior Python developer")
-    .pattern("decomposition")
-    .task("Implement a rate limiter")
-    .constraint("Use stdlib only")
-    .constraint("Thread-safe")
-    .constraint("Include docstrings")
-    .build())
-```
+**When to use:** Debugging errors, understanding crashes.

@@ -6,29 +6,17 @@ Command-line interface for LLM Promptkit.
 
 ### `list`
 
-List all available patterns.
+List all available patterns with categories and descriptions.
 
 ```bash
 promptkit list
-```
-
-Output:
-```
-┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Pattern           ┃ Description                                   ┃
-┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ chain-of-thought  │ Think through this step-by-step...           │
-│ few-shot          │ Here are some examples...                     │
-│ json-output       │ Return ONLY valid JSON...                     │
-│ ...               │ ...                                           │
-└───────────────────┴───────────────────────────────────────────────┘
 ```
 
 ---
 
 ### `build`
 
-Build a prompt from arguments.
+Build a prompt from arguments or interactively.
 
 ```bash
 promptkit build [OPTIONS]
@@ -39,7 +27,7 @@ promptkit build [OPTIONS]
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--persona` | `-p` | AI persona/role |
-| `--pattern` | `-P` | Pattern to use (repeatable) |
+| `--pattern` | `-P` | Pattern slug to use (repeatable) |
 | `--task` | `-t` | Task description |
 | `--context` | `-c` | Context text |
 | `--constraint` | | Constraint (repeatable) |
@@ -66,6 +54,12 @@ promptkit build \
     -P reflection \
     -t "Solve this problem"
 
+# With constraints
+promptkit build \
+    -t "Write a poem about AI" \
+    --constraint "Max 4 lines" \
+    --constraint "Must rhyme"
+
 # With token count
 promptkit build -t "Write a story" --tokens
 
@@ -75,16 +69,54 @@ promptkit build -t "Write docs" -o prompt.txt
 
 ---
 
-### Interactive Mode
+### `doctor`
+
+Analyze a prompt for common issues. No API calls required.
 
 ```bash
-promptkit build --interactive
+promptkit doctor "Make it good please"
+promptkit doctor my-prompt.md
+promptkit doctor --file my-prompt.md
 ```
 
-Guides you through building a prompt step-by-step:
+**Checks:**
+- Vague/ambiguous instructions
+- Missing role/persona
+- Token inefficiency (verbose phrasing)
+- Missing output format
+- Lack of examples (few-shot)
+- Negative constraints ("don't" → use positive)
+- Structural formatting
+- Code block handling
 
-1. Enter persona (optional)
-2. Select patterns
-3. Enter task
-4. Add context (optional)
-5. Preview and copy
+---
+
+### `search`
+
+Search prompts by content and category.
+
+```bash
+promptkit search "json"
+promptkit search "code review" --category reasoning
+promptkit search "debug" --limit 5
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--category` | Filter by category |
+| `--limit` | Maximum number of results |
+
+---
+
+### `prompts`
+
+Browse included model-optimized prompts.
+
+```bash
+promptkit prompts                              # List all providers
+promptkit prompts --model openai               # List models for provider
+promptkit prompts --model openai/gpt-4o        # List prompts for model
+promptkit prompts --show openai/gpt-4o/coding  # View prompt content
+```

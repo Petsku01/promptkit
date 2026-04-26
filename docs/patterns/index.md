@@ -2,24 +2,34 @@
 
 Patterns are proven techniques that improve LLM responses. Each pattern targets a specific problem.
 
-## Available Patterns
+## Available Patterns (18)
 
-| Pattern | Use When You Need To... |
-|---------|-------------------------|
-| **[chain-of-thought](#chain-of-thought)** | Get step-by-step reasoning |
-| **[self-consistency](#self-consistency)** | Verify through multiple approaches |
-| **[few-shot](#few-shot)** | Teach by example |
-| **[json-output](#json-output)** | Get structured data |
-| **[senior-reviewer](#senior-reviewer)** | Critical code review |
-| **[tree-of-thought](#tree-of-thought)** | Complex problem solving |
-| **[step-back](#step-back)** | Find underlying principles |
-| **[decomposition](#decomposition)** | Break down complex problems |
-| **[reflection](#reflection)** | Self-correction |
-| **[role-play](#role-play)** | Domain-specific perspective |
+| Category | Pattern | Use When You Need To... |
+|----------|---------|-------------------------|
+| **Reasoning** | `chain-of-thought` | Get step-by-step reasoning |
+| **Reasoning** | `self-consistency` | Verify through multiple approaches |
+| **Reasoning** | `tree-of-thought` | Complex problem solving with multiple perspectives |
+| **Reasoning** | `step-back` | Find underlying principles first |
+| **Reasoning** | `decomposition` | Break down complex problems |
+| **Reasoning** | `reflection` | Self-correction and improvement |
+| **Agentic** | `react` | Interleave thought, action, observation |
+| **Agentic** | `prompt-chaining` | Multi-stage task decomposition |
+| **Agentic** | `meta-prompting` | Let model choose optimal approach |
+| **Context** | `few-shot` | Teach by example |
+| **Context** | `few-shot-negatives` | Teach by example (including what NOT to do) |
+| **Context** | `role-play` | Domain-specific perspective |
+| **Output** | `json-output` | Get structured JSON data |
+| **Output** | `json-enforcer` | Strictly enforce valid JSON |
+| **Code** | `tdd-prompting` | Generate tests first, then implementation |
+| **Code** | `stack-trace-decoder` | Debug errors from stack traces |
+| **Review** | `senior-reviewer` | Critical code review |
+| **Defensive** | `hallucination-reducer` | Reduce confident nonsense |
 
 ---
 
-## chain-of-thought
+## Reasoning Patterns
+
+### chain-of-thought
 
 Forces explicit step-by-step reasoning.
 
@@ -41,7 +51,7 @@ Show your reasoning at each step.
 
 ---
 
-## self-consistency
+### self-consistency
 
 Solves the problem multiple ways and picks the best answer.
 
@@ -51,68 +61,9 @@ builder.pattern("self-consistency")
 
 **When to use:** High-stakes decisions, verification needed.
 
-**The prompt:**
-```
-Solve this problem three different ways, then compare your 
-answers and give the most likely correct one.
-```
-
 ---
 
-## few-shot
-
-Teaches through examples (including what NOT to do).
-
-```python
-builder.pattern("few-shot")
-builder.example("input", "expected output")
-```
-
-**When to use:** Classification, formatting, style transfer.
-
----
-
-## json-output
-
-Enforces valid JSON output.
-
-```python
-builder.pattern("json-output")
-builder.output_format("json", schema={"key": "type"})
-```
-
-**When to use:** API responses, structured data extraction.
-
-**The prompt:**
-```
-Return ONLY valid JSON matching this schema:
-{schema}
-
-No explanation, no markdown, no code blocks.
-```
-
----
-
-## senior-reviewer
-
-Strict, critical code review persona.
-
-```python
-builder.pattern("senior-reviewer")
-```
-
-**When to use:** Code review, catching edge cases.
-
-**The prompt:**
-```
-You are a senior engineer with 15 years of experience. 
-You are known for thorough, critical reviews. 
-Never say 'looks good' unless it's genuinely excellent.
-```
-
----
-
-## tree-of-thought
+### tree-of-thought
 
 Multiple experts deliberate together.
 
@@ -124,7 +75,7 @@ builder.pattern("tree-of-thought")
 
 ---
 
-## step-back
+### step-back
 
 Identifies core principles before solving.
 
@@ -136,7 +87,7 @@ builder.pattern("step-back")
 
 ---
 
-## decomposition
+### decomposition
 
 Breaks complex problems into sub-problems.
 
@@ -148,7 +99,7 @@ builder.pattern("decomposition")
 
 ---
 
-## reflection
+### reflection
 
 Self-reviews and improves the answer.
 
@@ -160,7 +111,72 @@ builder.pattern("reflection")
 
 ---
 
-## role-play
+## Agentic Patterns
+
+### react
+
+Interleave thinking, acting, and observing.
+
+```python
+builder.pattern("react")
+```
+
+**When to use:** Tool use, multi-step actions, iterative problem solving.
+
+---
+
+### prompt-chaining
+
+Break a task into sequential stages.
+
+```python
+builder.pattern("prompt-chaining")
+```
+
+**When to use:** Complex workflows, multi-step pipelines.
+
+---
+
+### meta-prompting
+
+Let the model choose the best approach.
+
+```python
+builder.pattern("meta-prompting")
+```
+
+**When to use:** Uncertain which technique to apply.
+
+---
+
+## Context Patterns
+
+### few-shot
+
+Teaches through examples.
+
+```python
+builder.pattern("few-shot")
+builder.example("input", "expected output")
+```
+
+**When to use:** Classification, formatting, style transfer.
+
+---
+
+### few-shot-negatives
+
+Teaches through both positive and negative examples.
+
+```python
+builder.pattern("few-shot-negatives")
+```
+
+**When to use:** When boundary cases matter, need to show what NOT to do.
+
+---
+
+### role-play
 
 Adopts a specific professional perspective.
 
@@ -168,13 +184,94 @@ Adopts a specific professional perspective.
 builder.pattern("role-play")
 ```
 
-**When to use:** Domain expertise needed.
+**When to use:** Domain expertise needed, perspective-specific tasks.
+
+---
+
+## Output Patterns
+
+### json-output
+
+Enforces structured JSON output.
+
+```python
+builder.pattern("json-output")
+builder.output_format("json", schema={"key": "type"})
+```
+
+**When to use:** API responses, structured data extraction.
+
+---
+
+### json-enforcer
+
+Strictly enforces valid JSON, no markdown.
+
+```python
+builder.pattern("json-enforcer")
+```
+
+**When to use:** Strict JSON parsing needed, no tolerance for formatting errors.
+
+---
+
+## Code Patterns
+
+### tdd-prompting
+
+Generate tests first, then implementation.
+
+```python
+builder.pattern("tdd-prompting")
+```
+
+**When to use:** Writing new features, ensuring testability.
+
+---
+
+### stack-trace-decoder
+
+Analyze and explain stack traces.
+
+```python
+builder.pattern("stack-trace-decoder")
+```
+
+**When to use:** Debugging errors, understanding crashes.
+
+---
+
+## Review Patterns
+
+### senior-reviewer
+
+Strict, critical code review persona.
+
+```python
+builder.pattern("senior-reviewer")
+```
+
+**When to use:** Code review, catching edge cases.
+
+---
+
+## Defensive Patterns
+
+### hallucination-reducer
+
+Reduces confident but incorrect responses.
+
+```python
+builder.pattern("hallucination-reducer")
+```
+
+**When to use:** Fact-checking, knowledge extraction, reducing made-up facts.
 
 ---
 
 ## Combining Patterns
 
-Patterns stack:
+Patterns stack. Put reasoning patterns first, output format patterns last:
 
 ```python
 prompt = (PromptBuilder()
@@ -184,7 +281,3 @@ prompt = (PromptBuilder()
     .task("Analyze this data")
     .build())
 ```
-
-!!! tip "Order matters"
-    Patterns are added in order. Put reasoning patterns first,
-    output format patterns last.

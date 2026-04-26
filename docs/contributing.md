@@ -7,41 +7,51 @@ We welcome contributions! Here's how to help.
 ```bash
 git clone https://github.com/Petsku01/promptkit.git
 cd promptkit
-python -m venv .venv
-source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
 ## Running Tests
 
 ```bash
-pytest -v
-```
+# Run all tests
+python -m pytest tests/ -v
 
-## Code Style
+# With coverage
+python -m pytest tests/ --cov=llm_promptkit --cov-report=term-missing
 
-We use `ruff` for linting:
-
-```bash
+# Lint
 ruff check src/ tests/
-ruff check --fix src/ tests/  # Auto-fix
+ruff format src/ tests/
+
+# Type check
+mypy src/llm_promptkit
 ```
 
 ## Adding a Pattern
 
-1. Add to `PromptBuilder.PATTERNS` in `src/llm_promptkit/builder.py`
-2. Add tests in `tests/test_builder.py`
-3. Document in `docs/patterns/`
-4. Submit PR
+Patterns are `.md` files in `src/llm_promptkit/patterns/<category>/`.
 
-## Documentation
+1. **Copy the template:** `templates/pattern-template.md`
+2. **Place in the correct category directory:**
+   - `reasoning/` — Logic, step-by-step, self-correction
+   - `agentic/` — ReAct, prompt chaining, meta-prompting
+   - `context/` — Few-shot, role-play, long-context
+   - `output/` — JSON, structured lists, extraction
+   - `code/` — Generation, refactoring, debugging
+   - `review/` — Code review, security, performance
+   - `defensive/` — Hallucination reduction, constraints
+3. **Use kebab-case naming:** e.g., `chain-of-thought.md`
+4. **Add tests** in `tests/`
+5. **Update README.md** pattern table
+6. **Submit PR**
 
-Build docs locally:
+## Code Style
+
+We use `ruff` for linting and formatting:
 
 ```bash
-pip install mkdocs mkdocs-material
-mkdocs serve
-# Visit http://localhost:8000
+ruff check src/ tests/
+ruff format src/ tests/
 ```
 
 ## Pull Request Guidelines

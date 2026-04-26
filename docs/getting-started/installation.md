@@ -1,9 +1,9 @@
 # Installation
 
-## From GitHub
+## From PyPI
 
 ```bash
-pip install git+https://github.com/Petsku01/promptkit.git
+pip install llm-promptkit
 ```
 
 ## With Token Counting
@@ -11,7 +11,15 @@ pip install git+https://github.com/Petsku01/promptkit.git
 To enable accurate token estimation:
 
 ```bash
-pip install "llm-promptkit[tokens] @ git+https://github.com/Petsku01/promptkit.git"
+pip install "llm-promptkit[tokens]"
+```
+
+## From Source
+
+```bash
+git clone https://github.com/Petsku01/promptkit.git
+cd promptkit
+pip install -e .
 ```
 
 ## For Development
@@ -25,7 +33,7 @@ pip install -e ".[dev]"
 ## Requirements
 
 - Python 3.9+
-- Required: `rich` for CLI and formatted output
+- Required: `rich`, `typer` (installed automatically)
 - Optional: `tiktoken` for accurate token counting
 
 ## Verify Installation
@@ -33,13 +41,14 @@ pip install -e ".[dev]"
 ```python
 from llm_promptkit import PromptBuilder
 
-print(PromptBuilder.PATTERNS.keys())
-# dict_keys(['chain-of-thought', 'few-shot', 'json-output', ...])
+builder = PromptBuilder()
+print(builder.get_available_patterns())
+# ('chain-of-thought', 'self-consistency', 'few-shot', ...)
 ```
 
 Or from CLI:
 
 ```bash
 promptkit list
-# Shows all available patterns
+# Shows all 18 available patterns
 ```

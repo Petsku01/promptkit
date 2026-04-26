@@ -213,19 +213,25 @@ class TestDoctorDeep:
 
     def test_doctor_output_format(self):
         """Prompt mentioning output format should not trigger format warning."""
-        result = runner.invoke(app, [
-            "doctor",
-            "You are an expert. Output as JSON. Translate this text to Finnish.",
-        ])
+        result = runner.invoke(
+            app,
+            [
+                "doctor",
+                "You are an expert. Output as JSON. Translate this text to Finnish.",
+            ],
+        )
         assert result.exit_code == 0
         assert "Analysis" in result.output or "analysis" in result.output.lower()
 
     def test_doctor_verbose_phrase(self):
         """Prompt with verbose phrase should trigger suggestion."""
-        result = runner.invoke(app, [
-            "doctor",
-            "You are an expert. Please think about this carefully and give a thorough analysis.",
-        ])
+        result = runner.invoke(
+            app,
+            [
+                "doctor",
+                "You are an expert. Please think about this carefully and give a thorough analysis.",
+            ],
+        )
         assert result.exit_code == 0
         assert "Analysis" in result.output or "analysis" in result.output.lower()
 

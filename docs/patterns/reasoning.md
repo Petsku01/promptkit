@@ -15,42 +15,37 @@ prompt = (PromptBuilder()
     .build())
 ```
 
-**Best for:** Math, logic, debugging, any multi-step problem.
-
-**Research:** [Wei et al., 2022](https://arxiv.org/abs/2201.11903)
+**When to use:** Math, logic puzzles, debugging, any multi-step problem.
 
 ---
 
 ## Self-Consistency
 
-Solves the problem multiple ways, compares answers.
+Solves the problem multiple ways and picks the best answer.
 
 ```python
 prompt = (PromptBuilder()
     .pattern("self-consistency")
-    .task("Is this code thread-safe?")
-    .context(code)
+    .task("What is the capital of Australia?")
     .build())
 ```
 
-**Best for:** High-stakes decisions, verification.
+**When to use:** High-stakes decisions, verification needed.
 
 ---
 
 ## Tree of Thought
 
-Multiple experts deliberate step-by-step.
+Multiple experts deliberate together.
 
 ```python
 prompt = (PromptBuilder()
     .pattern("tree-of-thought")
-    .task("Design a caching strategy")
+    .task("Design a scalable microservices architecture")
     .build())
 ```
 
-**Best for:** Complex problems with many possible approaches.
-
-**Research:** [Yao et al., 2023](https://arxiv.org/abs/2305.10601)
+**When to use:** Complex reasoning, exploring solution space.
 
 ---
 
@@ -61,14 +56,11 @@ Identifies core principles before solving.
 ```python
 prompt = (PromptBuilder()
     .pattern("step-back")
-    .task("Why is my Docker container crashing?")
-    .context(error_logs)
+    .task("Why does this algorithm fail on edge cases?")
     .build())
 ```
 
-**Best for:** When direct approach fails.
-
-**Research:** [Zheng et al., 2024](https://arxiv.org/abs/2310.06117)
+**When to use:** When direct approach fails, need fresh perspective.
 
 ---
 
@@ -79,11 +71,11 @@ Breaks complex problems into sub-problems.
 ```python
 prompt = (PromptBuilder()
     .pattern("decomposition")
-    .task("Design a URL shortener service")
+    .task("Build an e-commerce platform")
     .build())
 ```
 
-**Best for:** System design, large tasks.
+**When to use:** Large tasks, system design.
 
 ---
 
@@ -94,8 +86,8 @@ Self-reviews and improves the answer.
 ```python
 prompt = (PromptBuilder()
     .pattern("reflection")
-    .task("Write a product description")
+    .task("Write a summary of this article")
     .build())
 ```
 
-**Best for:** Writing, important outputs that need polish.
+**When to use:** Writing, important outputs, quality improvement.
