@@ -5,17 +5,27 @@ Patterns are stored as .md files under llm_promptkit/patterns/<category>/<name>.
 Each file has a title line (# ...), optional metadata, and the pattern template body.
 """
 
+from functools import lru_cache
 from importlib import resources
 from pathlib import Path
 from typing import List, Tuple
 
 
+class PatternNotFoundError(ValueError):
+    """Raised when a pattern name cannot be found."""
+
+
+class PatternLoadError(RuntimeError):
+    """Raised when a pattern file cannot be loaded."""
+
+
 def _get_patterns_package() -> Path:
     """Resolve the patterns directory using importlib.resources."""
-    # Python 3.9+: use files() API
     ref = resources.files("llm_promptkit") / "patterns"
-    # resources.files returns a Traversable; convert to Path for convenience
-    return Path(str(ref))
+    path = Path(str(ref))
+    if not path.is_dir():
+        raise PatternLoadError(f"Patterns directory not found: {path}")
+    return path
 
 
 def get_patterns_dir() -> Path:
@@ -23,12 +33,11 @@ def get_patterns_dir() -> Path:
     return _get_patterns_package()
 
 
+@lru_cache(maxsize=1)
 def list_pattern_names() -> List[str]:
     """List all available pattern names (slug format, e.g. 'chain-of-thought')."""
     patterns_dir = _get_patterns_package()
     names = []
-    if not patterns_dir.is_dir():
-        return names
     for category_dir in sorted(patterns_dir.iterdir()):
         if category_dir.is_dir() and not category_dir.name.startswith("_"):
             for md_file in sorted(category_dir.iterdir()):
@@ -37,12 +46,16 @@ def list_pattern_names() -> List[str]:
     return names
 
 
+def invalidate_pattern_cache():
+    """Clear the pattern name cache (e.g. after installing new patterns)."""
+    list_pattern_names.cache_clear()
+
+
+@lru_cache(maxsize=32)
 def list_patterns_with_categories() -> List[Tuple[str, str]]:
     """List patterns as (name, category) tuples."""
     patterns_dir = _get_patterns_package()
     result = []
-    if not patterns_dir.is_dir():
-        return result
     for category_dir in sorted(patterns_dir.iterdir()):
         if category_dir.is_dir() and not category_dir.name.startswith("_"):
             for md_file in sorted(category_dir.iterdir()):
@@ -58,18 +71,18 @@ def read_pattern(name: str) -> str:
     with category metadata lines (**Category:** ...) stripped.
     """
     patterns_dir = _get_patterns_package()
-    if not patterns_dir.is_dir():
-        raise ValueError(f"Patterns directory not found: {patterns_dir}")
 
-    # Search for the pattern in any category subdirectory
     for category_dir in patterns_dir.iterdir():
         if category_dir.is_dir() and not category_dir.name.startswith("_"):
             candidate = category_dir / f"{name}.md"
             if candidate.is_file():
-                return _parse_pattern_body(candidate)
+                try:
+                    return _parse_pattern_body(candidate)
+                except Exception as e:
+                    raise PatternLoadError(f"Failed to read pattern '{name}': {e}") from e
 
     available = ", ".join(list_pattern_names())
-    raise ValueError(f"Unknown pattern '{name}'. Available: {available}")
+    raise PatternNotFoundError(f"Unknown pattern '{name}'. Available: {available}")
 
 
 def _parse_pattern_body(path: Path) -> str:
@@ -84,13 +97,10 @@ def _parse_pattern_body(path: Path) -> str:
     body_lines = []
     past_metadata = False
     for line in lines:
-        # Skip title line
         if line.startswith("# ") and not past_metadata:
             continue
-        # Skip category metadata
         if line.startswith("**Category:**") and not past_metadata:
             continue
-        # First non-metadata, non-blank line signals start of body
         if not past_metadata and line.strip():
             past_metadata = True
             body_lines.append(line)

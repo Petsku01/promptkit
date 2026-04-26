@@ -1,10 +1,14 @@
 """Tests for the patterns registry — single source of truth."""
+
 import pytest
+
 from llm_promptkit.patterns._registry import (
+    PatternNotFoundError,
+    get_pattern_description,
+    invalidate_pattern_cache,
     list_pattern_names,
     list_patterns_with_categories,
     read_pattern,
-    get_pattern_description,
 )
 
 
@@ -62,8 +66,8 @@ class TestPatternRegistry:
         assert "three" in content.lower() or "different" in content.lower()
 
     def test_read_pattern_unknown_raises(self):
-        """Reading an unknown pattern should raise ValueError."""
-        with pytest.raises(ValueError, match="Unknown pattern"):
+        """Reading an unknown pattern should raise PatternNotFoundError."""
+        with pytest.raises(PatternNotFoundError, match="Unknown pattern"):
             read_pattern("nonexistent-pattern")
 
     def test_get_pattern_description(self):
@@ -78,9 +82,25 @@ class TestPatternRegistry:
             content = read_pattern(name)
             assert len(content) > 0, f"Pattern {name} has empty content"
 
-    def test_patterns_have_no_dict_fallback(self):
-        """Ensure the PATTERNS dict is gone from builder."""
+    def test_available_patterns_is_list(self):
+        """AVAILABLE_PATTERNS should be a list of names from the registry."""
         from llm_promptkit.builder import PromptBuilder
-        # AVAILABLE_PATTERNS should be a list of names
+
         assert isinstance(PromptBuilder.AVAILABLE_PATTERNS, list)
         assert len(PromptBuilder.AVAILABLE_PATTERNS) >= 13
+
+    def test_pattern_not_found_error_type(self):
+        """PatternNotFoundError should be a ValueError subclass."""
+        assert issubclass(PatternNotFoundError, ValueError)
+
+    def test_invalidate_cache(self):
+        """Cache invalidation should allow re-fetching pattern names."""
+        names1 = list_pattern_names()
+        invalidate_pattern_cache()
+        names2 = list_pattern_names()
+        assert names1 == names2
+
+    def test_list_pattern_names_returns_list(self):
+        """list_pattern_names should return a list, not tuple."""
+        names = list_pattern_names()
+        assert isinstance(names, list)

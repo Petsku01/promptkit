@@ -78,9 +78,9 @@ def _interactive_build():
         builder.persona(persona)
 
     # Patterns
-    console.print(
-        f"\n[bold cyan]Available patterns:[/bold cyan] {', '.join(PromptBuilder.PATTERNS.keys())}"
-    )
+    from llm_promptkit.patterns._registry import list_pattern_names
+
+    console.print(f"\n[bold cyan]Available patterns:[/bold cyan] {', '.join(list_pattern_names())}")
     patterns_input = Prompt.ask("Patterns (comma-separated)", default="")
     if patterns_input:
         for p in patterns_input.split(","):

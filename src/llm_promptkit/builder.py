@@ -22,8 +22,13 @@ class PromptBuilder:
             .build())
     """
 
-    # Available pattern names (loaded from .md files at import time)
-    AVAILABLE_PATTERNS = list_pattern_names()
+    @classmethod
+    @property
+    def AVAILABLE_PATTERNS(cls):  # type: ignore
+        """Available pattern names (loaded lazily from .md files)."""
+        if not hasattr(cls, "_patterns_cache"):
+            cls._patterns_cache = list_pattern_names()  # type: ignore
+        return cls._patterns_cache
 
     def __init__(self):
         self._system: Optional[str] = None
@@ -48,9 +53,9 @@ class PromptBuilder:
 
     def pattern(self, pattern_name: str) -> "PromptBuilder":
         """Add a prompt pattern by name."""
-        if pattern_name not in self.AVAILABLE_PATTERNS:
-            available = ", ".join(self.AVAILABLE_PATTERNS)
-            raise ValueError(f"Unknown pattern '{pattern_name}'. Available: {available}")
+        available = list_pattern_names()
+        if pattern_name not in available:
+            raise ValueError(f"Unknown pattern '{pattern_name}'. Available: {', '.join(available)}")
         self._patterns.append(pattern_name)
         return self
 
@@ -121,7 +126,8 @@ class PromptBuilder:
         if self._output_format and "json-output" not in self._patterns:
             if self._output_format == "json" and self._output_schema:
                 parts.append(
-                    f"Return valid JSON matching this schema:\n{json.dumps(self._output_schema, indent=2)}"
+                    f"Return valid JSON matching this schema:\n"
+                    f"{json.dumps(self._output_schema, indent=2)}"
                 )
             else:
                 parts.append(f"Format your response as: {self._output_format}")
@@ -139,7 +145,7 @@ class PromptBuilder:
     def estimate_tokens(self, model: str = "gpt-4") -> int:
         """
         Estimate token count for the built prompt.
-        Requires tiktoken: pip install tiktoken
+        Requires tiktoken: pip install llm-promptkit[tokens]
         """
         try:
             import tiktoken
@@ -147,7 +153,7 @@ class PromptBuilder:
             encoding = tiktoken.encoding_for_model(model)
             return len(encoding.encode(self.build()))
         except ImportError:
-            # Rough estimate: ~4 chars per token
+            # Rough estimate: ~4 chars per token (English text)
             return len(self.build()) // 4
 
     def __str__(self) -> str:
@@ -155,17 +161,3 @@ class PromptBuilder:
 
     def __repr__(self) -> str:
         return f"PromptBuilder(patterns={self._patterns}, task={self._task!r})"
-
-    # Backward compatibility: PATTERNS dict-like access
-    @classmethod
-    @property
-    def PATTERNS(cls):  # type: ignore
-        """Deprecated: Use AVAILABLE_PATTERNS for names, pattern() to use them."""
-        import warnings
-
-        warnings.warn(
-            "PromptBuilder.PATTERNS is deprecated. Use PromptBuilder.AVAILABLE_PATTERNS.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        return {name: read_pattern(name) for name in cls.AVAILABLE_PATTERNS}

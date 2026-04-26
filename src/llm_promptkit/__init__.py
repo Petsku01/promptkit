@@ -1,5 +1,4 @@
-"""
-prompt-patterns: A toolkit for building effective LLM prompts.
+"""llm-promptkit: A toolkit for building effective LLM prompts from patterns.
 
 Usage:
     from llm_promptkit import PromptBuilder
@@ -11,7 +10,9 @@ Usage:
         .build())
 """
 
+from importlib.metadata import version as _version
+
 from .builder import PromptBuilder
 
-__version__ = "0.1.0"
+__version__ = _version("llm-promptkit")
 __all__ = ["PromptBuilder"]
