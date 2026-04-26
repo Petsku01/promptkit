@@ -5,6 +5,8 @@ PromptBuilder - Fluent API for composing prompts from patterns.
 import json
 from typing import Dict, List, Optional
 
+from llm_promptkit.patterns._registry import list_pattern_names, read_pattern
+
 
 class PromptBuilder:
     """
@@ -20,26 +22,8 @@ class PromptBuilder:
             .build())
     """
 
-    PATTERNS = {
-        # Reasoning patterns
-        "chain-of-thought": "Think through this step-by-step:\n1. First, analyze the problem\n2. Then, consider possible approaches\n3. Finally, provide your solution\n\nShow your reasoning at each step.",
-        "self-consistency": "Solve this problem three different ways, then compare your answers and give the most likely correct one.",
-        "tree-of-thought": "Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realizes they are wrong at any point then they leave. The question is...",
-        "step-back": "First, take a step back and identify the core principles or concepts that underlying this specific problem. Then, use those principles to solve the original problem.",
-        "decomposition": "Break this complex problem down into 3-5 smaller, manageable sub-problems. Solve each sub-problem independently, then combine them to form the final solution.",
-        "reflection": "After writing your initial response, review it critically. Identify any flaws, assumptions, or areas for improvement, and then provide a revised and improved final answer.",
-        # Agentic patterns
-        "react": "Task: {task}\n\nThought 1: [what I need to find out or do first]\nAction 1: [action to take]\nObservation 1: [result of the action]\n\nThought 2: [what I learned and what to do next]\nAction 2: [next action]\nObservation 2: [result]\n\nThought 3: [synthesizing and concluding]\nAction 3: Finish[final answer]",
-        "prompt-chaining": "This task will be completed in stages:\n\nStage 1: {stage1}\n-> Output: [result]\n\nStage 2: {stage2}\n-> Input: Output from Stage 1\n-> Output: [result]\n\nStage 3: {stage3}\n-> Input: Output from Stage 2\n-> Output: [final result]",
-        "meta-prompting": "Before responding, consider:\n1. What type of task is this? (analysis, generation, transformation, etc.)\n2. What format would be most effective for the output?\n3. What context or constraints are important?\n4. What could go wrong?\n\nThen proceed with the optimal approach for this specific task.",
-        # Context patterns
-        "few-shot": "Here are some examples:\n{examples}\n\nNow apply the same approach to:",
-        "role-play": "Act as a {role}. Write your response from this perspective, using appropriate tone, vocabulary, and addressing the specific concerns of someone in this position.",
-        # Output patterns
-        "json-output": "Return ONLY valid JSON matching this schema:\n{schema}\n\nNo explanation, no markdown, no code blocks.",
-        # Review patterns
-        "senior-reviewer": "You are a senior engineer with 15 years of experience. You are known for thorough, critical reviews. Never say 'looks good' unless it's genuinely excellent.",
-    }
+    # Available pattern names (loaded from .md files at import time)
+    AVAILABLE_PATTERNS = list_pattern_names()
 
     def __init__(self):
         self._system: Optional[str] = None
@@ -64,8 +48,8 @@ class PromptBuilder:
 
     def pattern(self, pattern_name: str) -> "PromptBuilder":
         """Add a prompt pattern by name."""
-        if pattern_name not in self.PATTERNS:
-            available = ", ".join(self.PATTERNS.keys())
+        if pattern_name not in self.AVAILABLE_PATTERNS:
+            available = ", ".join(self.AVAILABLE_PATTERNS)
             raise ValueError(f"Unknown pattern '{pattern_name}'. Available: {available}")
         self._patterns.append(pattern_name)
         return self
@@ -111,9 +95,9 @@ class PromptBuilder:
         elif self._persona:
             parts.append(f"You are a {self._persona}.")
 
-        # Patterns
+        # Patterns — loaded from .md files via registry
         for pattern_name in self._patterns:
-            pattern_text = self.PATTERNS[pattern_name]
+            pattern_text = read_pattern(pattern_name)
 
             # Handle few-shot pattern specially
             if pattern_name == "few-shot" and self._examples:
@@ -171,3 +155,17 @@ class PromptBuilder:
 
     def __repr__(self) -> str:
         return f"PromptBuilder(patterns={self._patterns}, task={self._task!r})"
+
+    # Backward compatibility: PATTERNS dict-like access
+    @classmethod
+    @property
+    def PATTERNS(cls):  # type: ignore
+        """Deprecated: Use AVAILABLE_PATTERNS for names, pattern() to use them."""
+        import warnings
+
+        warnings.warn(
+            "PromptBuilder.PATTERNS is deprecated. Use PromptBuilder.AVAILABLE_PATTERNS.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return {name: read_pattern(name) for name in cls.AVAILABLE_PATTERNS}

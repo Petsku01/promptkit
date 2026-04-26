@@ -1,14 +1,12 @@
-# Few-Shot Negatives Pattern
+# Few-Shot Negatives
 
-## Description
-This pattern provides examples of both what the model SHOULD do and what it SHOULD NOT do, helping it better define the boundaries of acceptable output.
+**Category:** context
 
-## Usage
-Include pairs of positive and negative examples in the prompt.
+Learn from both positive and negative examples:
 
-```text
 Example 1 (Good): The system correctly identified the issue and logged a warning.
 Example 2 (Bad - Too informal): The system saw a problem and yelled about it.
 Example 3 (Good): Process completed with 0 errors.
 Example 4 (Bad - Contains emojis): Process completed!
-```
+
+Now apply the same approach, following the good examples and avoiding the bad ones:
