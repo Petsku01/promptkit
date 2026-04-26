@@ -156,14 +156,15 @@ class PromptBuilder:
         Uses tiktoken for accurate counts when available (pip install llm-promptkit[tokens]).
         Falls back to a rough heuristic of ~4 chars per token for English text.
         """
+        text = self.build()
         try:
             import tiktoken
 
             encoding = tiktoken.encoding_for_model(model)
-            return len(encoding.encode(self.build()))
+            return len(encoding.encode(text))
         except ImportError:
             # Rough estimate: ~4 chars per token (English text)
-            return len(self.build()) // 4
+            return len(text) // 4
 
     def __str__(self) -> str:
         return self.build()
