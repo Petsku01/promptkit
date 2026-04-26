@@ -97,7 +97,9 @@ def search_prompts(query: str, limit: int = 10, category: Optional[str] = None) 
                 )
 
     # Sort by score descending
-    results.sort(key=lambda x: x["score"], reverse=True)
+    results.sort(
+        key=lambda x: x["score"] if isinstance(x["score"], (int, float)) else 0, reverse=True
+    )
     return results[:limit]
 
 

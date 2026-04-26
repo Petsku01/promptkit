@@ -32,6 +32,7 @@ class TestDoctorEdgeCases:
     def test_empty_prompt(self):
         result = runner.invoke(app, ["doctor", "   "])
         assert result.exit_code == 0 or result.exit_code == 1
+        assert "empty" in result.output.lower() or "error" in result.output.lower()
 
     def test_long_prompt(self):
         result = runner.invoke(app, ["doctor", "You are a helpful assistant. " * 100])
@@ -61,3 +62,31 @@ class TestDoctorEdgeCases:
     def test_doctor_negative_phrase(self):
         result = runner.invoke(app, ["doctor", "Do not give wrong answers"])
         assert result.exit_code == 0
+
+    def test_doctor_no_args_shows_error(self):
+        result = runner.invoke(app, ["doctor"])
+        assert result.exit_code == 1
+        assert "provide" in result.output.lower() or "error" in result.output.lower()
+
+    def test_doctor_file_flag_reads_file(self, tmp_path):
+        f = tmp_path / "prompt.md"
+        f.write_text("You are a helpful assistant. Format your output as JSON. Here is an example.")
+        result = runner.invoke(app, ["doctor", "--file", str(f)])
+        assert result.exit_code == 0
+        assert "Analyzing file" in result.output
+
+    def test_doctor_file_flag_nonexistent_file(self):
+        result = runner.invoke(app, ["doctor", "--file", "/nonexistent/file.md"])
+        assert result.exit_code == 1
+        assert "not found" in result.output.lower() or "error" in result.output.lower()
+
+    def test_doctor_file_flag_directory_rejected(self, tmp_path):
+        result = runner.invoke(app, ["doctor", "--file", str(tmp_path)])
+        assert result.exit_code == 1
+
+    def test_doctor_both_text_and_file(self, tmp_path):
+        f = tmp_path / "prompt.md"
+        f.write_text("You are a helpful assistant. Format output as JSON.")
+        result = runner.invoke(app, ["doctor", "some text", "--file", str(f)])
+        assert result.exit_code == 0
+        assert "both" in result.output.lower() or "--file" in result.output

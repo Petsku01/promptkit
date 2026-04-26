@@ -101,11 +101,17 @@ class TestListCommand:
         result = runner.invoke(app, ["list"])
         assert result.exit_code == 0
 
+    def test_list_command_shows_patterns(self):
+        result = runner.invoke(app, ["list"])
+        assert "chain-of-thought" in result.output
+
 
 class TestBuildCommand:
     def test_build_with_persona_and_task(self):
         result = runner.invoke(app, ["build", "--persona", "Developer", "--task", "Review code"])
         assert result.exit_code == 0
+        assert "Developer" in result.output
+        assert "Review code" in result.output
 
     def test_build_with_pattern(self):
         result = runner.invoke(
@@ -113,12 +119,14 @@ class TestBuildCommand:
             ["build", "--persona", "Developer", "--pattern", "chain-of-thought", "--task", "Test"],
         )
         assert result.exit_code == 0
+        assert "step-by-step" in result.output.lower() or "step" in result.output.lower()
 
     def test_build_with_tokens(self):
         result = runner.invoke(
             app, ["build", "--persona", "Developer", "--task", "Test", "--tokens"]
         )
         assert result.exit_code == 0
+        assert "token" in result.output.lower()
 
     def test_build_output_to_file(self, tmp_path):
         output_file = tmp_path / "output.txt"
@@ -127,6 +135,8 @@ class TestBuildCommand:
         )
         assert result.exit_code == 0
         assert output_file.exists()
+        content = output_file.read_text()
+        assert "Developer" in content
 
     def test_build_invalid_pattern(self):
         result = runner.invoke(
@@ -143,6 +153,20 @@ class TestBuildCommand:
         )
         assert result.exit_code == 1
 
+    def test_build_with_context(self):
+        result = runner.invoke(
+            app, ["build", "--persona", "Dev", "--task", "Review", "--context", "def foo(): pass"]
+        )
+        assert result.exit_code == 0
+        assert "foo" in result.output
+
+    def test_build_with_constraint(self):
+        result = runner.invoke(
+            app, ["build", "--persona", "Dev", "--task", "Test", "--constraint", "Max 100 words"]
+        )
+        assert result.exit_code == 0
+        assert "Max 100 words" in result.output
+
 
 class TestDoctorCommand:
     def test_doctor_with_text(self):
@@ -154,6 +178,11 @@ class TestDoctorCommand:
         f.write_text("You are a helpful assistant. Format your output as JSON.")
         result = runner.invoke(app, ["doctor", str(f)])
         assert result.exit_code == 0
+
+    def test_doctor_shows_suggestions(self):
+        result = runner.invoke(app, ["doctor", "Write something nice about whatever you want"])
+        assert result.exit_code == 0
+        assert "ambiguous" in result.output.lower() or "missing" in result.output.lower()
 
 
 class TestPromptsCommand:
@@ -169,6 +198,14 @@ class TestSearchCommand:
 
     def test_search_empty_query(self):
         result = runner.invoke(app, ["search", "xyznonexistent"])
+        assert result.exit_code == 0
+
+    def test_search_with_category(self):
+        result = runner.invoke(app, ["search", "step", "--category", "reasoning"])
+        assert result.exit_code == 0
+
+    def test_search_limit_one(self):
+        result = runner.invoke(app, ["search", "prompt", "--limit", "1"])
         assert result.exit_code == 0
 
 
