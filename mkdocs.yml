@@ -75,7 +75,27 @@ nav:
     - Output: prompts/output/index.md
     - System: prompts/system/index.md
     - Context: prompts/context/index.md
-    - Model-Optimized: prompts/model-optimized/index.md
+    - Model-Optimized:
+      - Overview: prompts/model-optimized/index.md
+      - Anthropic: prompts/model-optimized/anthropic/index.md
+      - OpenAI: prompts/model-optimized/openai/index.md
+      - Google: prompts/model-optimized/google/index.md
+      - DeepSeek: prompts/model-optimized/deepseek/index.md
+      - Meta: prompts/model-optimized/meta/index.md
+      - Mistral: prompts/model-optimized/mistral/index.md
+      - Qwen: prompts/model-optimized/qwen/index.md
+      - Cohere: prompts/model-optimized/cohere/index.md
+      - xAI: prompts/model-optimized/xai/index.md
+      - Small Models: prompts/model-optimized/small-models/index.md
+      - Advanced Techniques: prompts/model-optimized/advanced-techniques/index.md
+      - Agentic: prompts/model-optimized/agentic/index.md
+      - Few-Shot: prompts/model-optimized/few-shot/index.md
+      - Roles: prompts/model-optimized/roles/index.md
+      - System Prompts: prompts/model-optimized/system-prompts/index.md
+      - Safety: prompts/model-optimized/safety/index.md
+      - Benchmarks: prompts/model-optimized/benchmarks/index.md
+      - Evaluation: prompts/model-optimized/evaluation/index.md
+      - Use Cases: prompts/model-optimized/use-cases/index.md
   - API Reference:
     - PromptBuilder: api/builder.md
     - CLI: api/cli.md
