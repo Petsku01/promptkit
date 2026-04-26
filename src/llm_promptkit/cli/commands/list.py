@@ -3,7 +3,7 @@
 import typer
 
 from llm_promptkit.helpers import console
-from llm_promptkit.patterns._registry import list_patterns_with_categories, read_pattern
+from llm_promptkit.patterns._registry import get_pattern_description, list_patterns_with_categories
 
 
 def list_command():
@@ -12,5 +12,5 @@ def list_command():
     console.print(f"\n{header}\n")
 
     for name, category in list_patterns_with_categories():
-        description = read_pattern(name).split("\n")[0][:60]
+        description = get_pattern_description(name)
         console.print(f"  [cyan]{name}[/cyan]  [green]{description}[/green]")

@@ -27,11 +27,6 @@ def _resolve_patterns_dir() -> Path:
     return path
 
 
-def get_patterns_dir() -> Path:
-    """Get the patterns directory path."""
-    return _resolve_patterns_dir()
-
-
 @lru_cache(maxsize=1)
 def list_pattern_names() -> Tuple[str, ...]:
     """List available pattern names as an immutable tuple."""
@@ -49,6 +44,7 @@ def invalidate_pattern_cache():
     """Clear pattern registry caches."""
     list_pattern_names.cache_clear()
     list_patterns_with_categories.cache_clear()
+    read_pattern.cache_clear()
 
 
 @lru_cache(maxsize=32)
@@ -64,6 +60,7 @@ def list_patterns_with_categories() -> Tuple[Tuple[str, str], ...]:
     return tuple(result)
 
 
+@lru_cache(maxsize=32)
 def read_pattern(name: str) -> str:
     """Read a pattern's template text by name.
 
