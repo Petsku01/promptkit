@@ -1,6 +1,4 @@
-"""
-PromptBuilder - Fluent API for composing prompts from patterns.
-"""
+"""PromptBuilder — fluent API for composing prompts from patterns."""
 
 import json
 from typing import Dict, List, Optional

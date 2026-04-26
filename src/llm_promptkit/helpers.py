@@ -7,11 +7,9 @@ from typing import List, Tuple
 
 from rich.console import Console
 
-from llm_promptkit.patterns._registry import get_patterns_dir as _registry_get_patterns_dir
-
 console = Console()
 
-CHARS_PER_TOKEN = 4  # Rough estimate: ~4 chars per token for English text
+CHARS_PER_TOKEN = 4  # ~4 chars per token for English text
 
 
 def get_prompts_dir() -> Path:
@@ -25,14 +23,6 @@ def get_prompts_dir() -> Path:
     if cwd_prompts.exists():
         return cwd_prompts
     return package_prompts
-
-
-def get_patterns_dir() -> Path:
-    """Get the patterns directory path.
-
-    Delegates to _registry.get_patterns_dir() which is the single source of truth.
-    """
-    return _registry_get_patterns_dir()
 
 
 def is_prompt_file(path: Path) -> bool:
