@@ -1,15 +1,25 @@
 # Creative Prompts
 
-Prompts for writing, storytelling, and creative ideation.
+Prompts for writing, storytelling, and creative tasks.
+
+## Browsing Prompts
+
+```bash
+promptkit search "creative"
+promptkit prompts
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [novelist](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/novelist.md) | Fiction writing |
-| [essay-writer](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/essay-writer.md) | Essay composition |
-| [advertiser](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/advertiser.md) | Ad copywriting |
-| [artist-advisor](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/artist-advisor.md) | Art guidance |
-| [ascii-artist](https://github.com/Petsku01/promptkit/blob/master/prompts/creative/ascii-artist.md) | ASCII art generation |
-
-[View all creative prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/creative)
+| Prompt | Description |
+|--------|-------------|
+| novelist | Fiction writing |
+| essay-writer | Essay composition |
+| advertiser | Ad copywriting |
+| artist-advisor | Art guidance |
+| ascii-artist | ASCII art generation |
+| screenwriter | Screenplay writing |
+| storyteller | Narrative storytelling |
+| tech-writer | Technical writing |
+| scamper | Creative ideation technique |
+| stand-up-comedian | Comedy writing |

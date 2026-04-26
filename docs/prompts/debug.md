@@ -1,15 +1,39 @@
 # Debug Prompts
 
-Prompts for error analysis and troubleshooting.
+Prompts for error analysis, troubleshooting, and security.
+
+## Browsing Prompts
+
+```bash
+promptkit search "debug"
+promptkit search "security"
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [rubber-duck](https://github.com/Petsku01/promptkit/blob/master/prompts/debug/rubber-duck.md) | Rubber duck debugging |
-| [debugger-extended](https://github.com/Petsku01/promptkit/blob/master/prompts/debug/debugger-extended.md) | Comprehensive debugging |
-| [bug-risk-analysis](https://github.com/Petsku01/promptkit/blob/master/prompts/debug/bug-risk-analysis.md) | Bug risk assessment |
-| [security-fixes-cves](https://github.com/Petsku01/promptkit/blob/master/prompts/debug/security-fixes-cves.md) | Security vulnerability fixes |
-| [comprehensive-repository-analysis](https://github.com/Petsku01/promptkit/blob/master/prompts/debug/comprehensive-repository-analysis-and-bug-fixing-f.md) | Full repo bug analysis |
+| Prompt | Description |
+|--------|-------------|
+| rubber-duck | Rubber duck debugging |
+| debugger-extended | Comprehensive debugging |
+| bug-risk-analysis | Bug risk assessment |
+| security-fixes-cves | Security vulnerability fixes |
+| comprehensive-repository-analysis | Full repo bug analysis |
+| security-fixes | General security fixes |
+| sentry-bug-fixer | Sentry error resolution |
+| stack-trace-analyzer | Stack trace analysis |
+| stackoverflow-post | Stack Overflow question formatting |
+| tech-troubleshooter | General troubleshooting |
+| test-first-bug-fixing-approach | Test-driven bug fixing |
+| want-to-analyze-security-issues | Security analysis |
 
-[View all debug prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/debug)
+## Example Usage
+
+```python
+from llm_promptkit import PromptBuilder
+
+builder = PromptBuilder()
+builder.pattern("stack-trace-decoder")
+builder.task("Debug this error")
+builder.context(traceback_text)
+prompt = builder.build()
+```

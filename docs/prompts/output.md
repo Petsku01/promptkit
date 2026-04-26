@@ -1,15 +1,40 @@
 # Output Prompts
 
-Prompts for structured output, JSON, and formatting.
+Prompts for controlling output format, structure, and presentation.
+
+## Browsing Prompts
+
+```bash
+promptkit search "output"
+promptkit search "format"
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [diagram-generator](https://github.com/Petsku01/promptkit/blob/master/prompts/output/diagram-generator.md) | Diagram creation |
-| [excel-sheet](https://github.com/Petsku01/promptkit/blob/master/prompts/output/excel-sheet.md) | Spreadsheet formatting |
-| [journalist](https://github.com/Petsku01/promptkit/blob/master/prompts/output/journalist.md) | News-style writing |
-| [cyber-security-specialist](https://github.com/Petsku01/promptkit/blob/master/prompts/output/cyber-security-specialist.md) | Security reports |
-| [ai-agent-security-evaluation](https://github.com/Petsku01/promptkit/blob/master/prompts/output/ai-agent-security-evaluation-checklist.md) | AI security checklist |
+| Prompt | Description |
+|--------|-------------|
+| diagram-generator | Diagram and chart creation |
+| excel-sheet | Spreadsheet formatting |
+| journalist | News-style writing |
+| cyber-security-specialist | Cybersecurity analysis |
+| ai-agent-security-evaluation | AI security evaluation |
+| csv-converter | CSV and tabular formatting |
+| json-formatter | JSON output formatting |
+| markdown-formatter | Markdown output formatting |
+| report-writer | Structured report generation |
+| summary-generator | Summarization |
+| table-generator | Table formatting |
 
-[View all output prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/output)
+## Built-in Patterns
+
+The `json-output` and `json-enforcer` patterns provide structured output control:
+
+```python
+from llm_promptkit import PromptBuilder
+
+builder = PromptBuilder()
+builder.pattern("json-output")
+builder.output_format("json", schema={"answer": "str", "confidence": "float"})
+builder.task("Analyze this text")
+prompt = builder.build()
+```

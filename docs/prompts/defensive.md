@@ -1,15 +1,42 @@
 # Defensive Prompts
 
-Prompts for reducing hallucinations and improving safety.
+Prompts for reducing hallucinations, enforcing safety, and improving accuracy.
+
+## Browsing Prompts
+
+```bash
+promptkit search "defensive"
+promptkit search "security"
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [contrarian](https://github.com/Petsku01/promptkit/blob/master/prompts/defensive/contrarian.md) | Challenge assumptions |
-| [accessibility-auditor](https://github.com/Petsku01/promptkit/blob/master/prompts/defensive/accessibility-auditor.md) | Accessibility review |
-| [resume-reviewer](https://github.com/Petsku01/promptkit/blob/master/prompts/defensive/act-as-a-resume-reviewer.md) | Resume review |
-| [content-review-plan](https://github.com/Petsku01/promptkit/blob/master/prompts/defensive/comprehensive-content-review-plan.md) | Content review planning |
-| [secure-web-development](https://github.com/Petsku01/promptkit/blob/master/prompts/defensive/comprehensive-web-application-development-with-sec.md) | Secure development |
+| Prompt | Description |
+|--------|-------------|
+| contrarian | Challenge assumptions |
+| accessibility-auditor | Accessibility review |
+| resume-reviewer | Resume review |
+| content-review-plan | Content review planning |
+| secure-web-development | Secure development |
+| hallucination-reducer | Reduce confident nonsense |
+| journal-reviewer | Journal/paper review |
+| plagiarism-checker | Plagiarism detection |
+| pull-request-review-assistant | PR review |
+| refactoring-expert | Code refactoring |
+| tech-reviewer | Technical review |
+| update-checker | Check for outdated info |
+| website-security-vulnerability-checker | Web security audit |
 
-[View all defensive prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/defensive)
+## Built-in Pattern
+
+The `hallucination-reducer` pattern is also available as a built-in pattern:
+
+```python
+from llm_promptkit import PromptBuilder
+
+builder = PromptBuilder()
+builder.pattern("hallucination-reducer")
+builder.task("Answer this question based on the provided context")
+builder.context(source_text)
+prompt = builder.build()
+```

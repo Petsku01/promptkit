@@ -1,27 +1,29 @@
 # System Prompts
 
-Base system prompts for AI assistants.
+Core system prompts for setting AI behavior and identity.
+
+## Browsing Prompts
+
+```bash
+promptkit search "system"
+promptkit prompts --model system
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [coding-assistant](https://github.com/Petsku01/promptkit/blob/master/prompts/system/coding-assistant.md) | General coding assistant |
-| [claude-soul-principles](https://github.com/Petsku01/promptkit/blob/master/prompts/system/claude-soul-principles.md) | Claude-style principles |
+| Prompt | Description |
+|--------|-------------|
+| coding-assistant | General coding assistant |
+| claude-soul-principles | Claude ethical principles |
 
-## Usage
-
-System prompts define the base behavior of your AI. Use them as the foundation:
+## Example Usage
 
 ```python
 from llm_promptkit import PromptBuilder
 
-with open("prompts/system/coding-assistant.md") as f:
-    system = f.read()
-
-prompt = (PromptBuilder()
-    .system(system)
-    .task("Help me refactor this function")
-    .context(code)
-    .build())
+builder = PromptBuilder()
+builder.system("You are an expert Python developer.")
+builder.pattern("chain-of-thought")
+builder.task("Debug this function")
+prompt = builder.build()
 ```

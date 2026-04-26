@@ -1,43 +1,51 @@
 # Model-Optimized Prompts
 
-Provider-specific prompts optimized for each model's strengths.
+Prompts tuned for specific LLM providers and models.
+
+## How It Works
+
+Model-optimized prompts are located in the `model-optimized/` subdirectory, organized by provider. Each prompt is tuned for a specific model's strengths and conventions.
 
 ## Supported Providers
 
-| Provider | Models | Specialty |
-|----------|--------|-----------|
-| [OpenAI](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/openai) | GPT-4o, o1, o3 | General, reasoning |
-| [Anthropic](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/anthropic) | Claude 3.5/4, Opus | Analysis, coding |
-| [Google](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/google) | Gemini 2, Flash | Multimodal, long-context |
-| [DeepSeek](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/deepseek) | V3, Coder | Math, code |
-| [Cohere](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/cohere) | Command R/R+ | RAG, citations |
-| [xAI](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/xai) | Grok 2 | Real-time, creative |
-| [Qwen](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/qwen) | 2.5, 3, 3.5 | Multilingual |
-| [Small Models](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized/small-models) | Phi, Gemma | Resource-constrained |
+| Provider | Models | Best For |
+|----------|--------|----------|
+| OpenAI | GPT-4o, o1, o3 | General, reasoning |
+| Anthropic | Claude 3.5/4, Opus | Analysis, coding |
+| Google | Gemini 2, Flash | Multimodal |
+| DeepSeek | V3, Coder | Math, code |
+| Cohere | Command R/R+ | RAG, citations |
+| xAI | Grok 2 | Real-time, creative |
+| Qwen | 2.5, 3, 3.5 | Multilingual |
+| Small Models | Phi, Gemma | Lightweight tasks |
+
+## Browsing
+
+```bash
+# List all models
+promptkit prompts --model model-optimized
+
+# Search for a provider
+promptkit search "openai"
+```
 
 ## Why Model-Specific?
 
-Different models respond better to different prompt styles:
+Different models interpret instructions differently. A prompt optimized for Claude's XML structure may not work well with GPT's markdown preferences. Model-optimized prompts account for:
 
-- **OpenAI o1/o3**: Minimal prompts, let the model reason
-- **Claude**: Detailed XML structure, explicit constraints  
-- **Gemini**: Good with multimodal, long context windows
-- **Small models**: Simple prompts, one task at a time
+- Token efficiency per model
+- Instruction following conventions
+- Output format preferences
+- Known strengths and weaknesses
 
-## Structure
+## Example Usage
 
-Each provider folder contains themed prompt files:
+```python
+from llm_promptkit import PromptBuilder
 
+builder = PromptBuilder()
+builder.persona("Expert Python developer")
+builder.pattern("chain-of-thought")
+builder.task("Refactor this code")
+prompt = builder.build()
 ```
-model-optimized/
-├── openai/
-│   ├── analysis.md
-│   ├── coding.md
-│   ├── json-output.md
-│   └── writing.md
-├── anthropic/
-│   ├── analysis.md
-│   └── ...
-```
-
-[Browse all model-optimized prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/model-optimized)

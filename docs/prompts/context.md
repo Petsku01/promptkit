@@ -1,24 +1,31 @@
 # Context Prompts
 
-Prompts for few-shot learning and RAG patterns.
+Prompts for managing context, examples, and information retrieval.
+
+## Browsing Prompts
+
+```bash
+promptkit prompts --model context
+promptkit search "few-shot"
+```
 
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [few-shot-negatives](https://github.com/Petsku01/promptkit/blob/master/prompts/context/few-shot-negatives.md) | Few-shot with negative examples |
+| Prompt | Description |
+|--------|-------------|
+| few-shot-negatives | Few-shot with positive and negative examples |
 
 ## About Few-Shot with Negatives
 
-The most effective few-shot prompts include both positive AND negative examples. This helps the model understand not just what to do, but what to avoid.
+The `few-shot-negatives` pattern teaches the model by showing both what to do and what NOT to do, which improves boundary understanding.
 
 ```python
 from llm_promptkit import PromptBuilder
 
-prompt = (PromptBuilder()
-    .pattern("few-shot")
-    .example("Good input", "Good output")
-    .example("Bad input", "Why this is wrong: ...")
-    .task("Classify this input")
-    .build())
+builder = PromptBuilder()
+builder.pattern("few-shot-negatives")
+builder.example("correct input", "correct output")
+builder.example("wrong input", "wrong output")
+builder.task("Classify this text")
+prompt = builder.build()
 ```

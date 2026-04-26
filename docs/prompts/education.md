@@ -2,14 +2,37 @@
 
 Prompts for teaching, explaining, and tutoring.
 
+## Browsing Prompts
+
+```bash
+promptkit search "education"
+promptkit search "teacher"
+```
+
 ## Available Prompts
 
-| Prompt | Use Case |
-|--------|----------|
-| [math-teacher](https://github.com/Petsku01/promptkit/blob/master/prompts/education/math-teacher.md) | Math tutoring |
-| [ai-writing-tutor](https://github.com/Petsku01/promptkit/blob/master/prompts/education/ai-writing-tutor.md) | Writing improvement |
-| [debate-coach](https://github.com/Petsku01/promptkit/blob/master/prompts/education/debate-coach.md) | Debate training |
-| [instructor-in-a-school](https://github.com/Petsku01/promptkit/blob/master/prompts/education/instructor-in-a-school.md) | General instruction |
-| [life-coach](https://github.com/Petsku01/promptkit/blob/master/prompts/education/life-coach.md) | Life coaching |
+| Prompt | Description |
+|--------|-------------|
+| math-teacher | Math tutoring |
+| ai-writing-tutor | Writing improvement |
+| debate-coach | Debate training |
+| instructor-in-a-school | General instruction |
+| life-coach | Life coaching |
+| mathematical-history-teacher | Math history |
+| philosopher | Philosophical discussion |
+| public-speaking-coach | Speaking skills |
+| spoken-english-teacher-and-improver | English practice |
+| teacher-of-react-js | React.js instruction |
+| motivational-coach | Motivation and goals |
 
-[View all education prompts →](https://github.com/Petsku01/promptkit/tree/master/prompts/education)
+## Example Usage
+
+```python
+from llm_promptkit import PromptBuilder
+
+builder = PromptBuilder()
+builder.persona("Experienced math teacher")
+builder.pattern("chain-of-thought")
+builder.task("Explain why negative times negative equals positive")
+prompt = builder.build()
+```
