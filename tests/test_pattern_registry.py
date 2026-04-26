@@ -94,12 +94,12 @@ class TestPatternRegistry:
             content = read_pattern(name)
             assert len(content) > 0, f"Pattern {name} has empty content"
 
-    def test_available_patterns_returns_list(self):
-        """PromptBuilder.get_available_patterns() should return a list."""
+    def test_available_patterns_returns_tuple(self):
+        """PromptBuilder.get_available_patterns() should return an immutable tuple."""
         from llm_promptkit.builder import PromptBuilder
 
         patterns = PromptBuilder.get_available_patterns()
-        assert isinstance(patterns, list)
+        assert isinstance(patterns, tuple)
         assert len(patterns) >= 13
 
     def test_invalidate_cache(self):

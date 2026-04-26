@@ -23,21 +23,13 @@ class PromptBuilder:
     """
 
     @classmethod
-    def get_available_patterns(cls) -> List[str]:
-        """Return a copy of available pattern names.
+    def get_available_patterns(cls) -> tuple:
+        """Return available pattern names as an immutable tuple.
 
-        Use this instead of AVAILABLE_PATTERNS for forward compatibility.
-        The return value is a fresh list — mutations do not affect the cache.
+        The return value is safe to use for membership checks and iteration.
+        For a mutable list, use ``list(PromptBuilder.get_available_patterns())``.
         """
-        return list(list_pattern_names())
-
-    # Backward-compatible attribute access via classproperty descriptor
-    # Deprecated: use get_available_patterns() or list_pattern_names() instead
-    AVAILABLE_PATTERNS: List[str] = []  # populated lazily via __init_subclass__ is not needed
-
-    def __init_subclass__(cls, **kwargs):
-        """Ensure subclasses don't inherit stale class-level state."""
-        super().__init_subclass__(**kwargs)
+        return list_pattern_names()
 
     def __init__(self):
         self._system: Optional[str] = None

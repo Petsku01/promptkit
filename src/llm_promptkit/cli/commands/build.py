@@ -8,7 +8,7 @@ from rich.prompt import Prompt
 
 from llm_promptkit.builder import PromptBuilder
 from llm_promptkit.helpers import console
-from llm_promptkit.patterns._registry import PatternNotFoundError, list_pattern_names
+from llm_promptkit.patterns._registry import PromptKitError, list_pattern_names
 
 
 def build_command(
@@ -39,7 +39,7 @@ def build_command(
         for p in pattern:
             try:
                 builder.pattern(p)
-            except (ValueError, PatternNotFoundError) as e:
+            except PromptKitError as e:
                 console.print(f"[red]Error: {e}[/red]")
                 raise typer.Exit(code=1)
 
@@ -87,7 +87,7 @@ def _interactive_build():
             if p:
                 try:
                     builder.pattern(p)
-                except (ValueError, PatternNotFoundError) as e:
+                except PromptKitError as e:
                     console.print(f"[bold red]Warning:[/bold red] {e}")
 
     # Task
