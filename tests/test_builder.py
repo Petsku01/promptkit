@@ -74,9 +74,16 @@ class TestPatterns:
     def test_all_patterns_exist(self):
         """All documented patterns are valid."""
         expected_patterns = [
-            "chain-of-thought", "few-shot", "json-output",
-            "senior-reviewer", "self-consistency", "tree-of-thought",
-            "role-play", "step-back", "decomposition", "reflection"
+            "chain-of-thought",
+            "few-shot",
+            "json-output",
+            "senior-reviewer",
+            "self-consistency",
+            "tree-of-thought",
+            "role-play",
+            "step-back",
+            "decomposition",
+            "reflection",
         ]
         for pattern in expected_patterns:
             builder = PromptBuilder()
@@ -121,10 +128,7 @@ class TestExamples:
     def test_examples_bulk(self):
         """Examples can be added in bulk."""
         builder = PromptBuilder()
-        examples = [
-            {"input": "a", "output": "b"},
-            {"input": "c", "output": "d"}
-        ]
+        examples = [{"input": "a", "output": "b"}, {"input": "c", "output": "d"}]
         builder.examples(examples)
         assert len(builder._examples) == 2
 
@@ -219,14 +223,15 @@ class TestFluentInterface:
     def test_chaining(self):
         """All methods return self for chaining."""
         builder = PromptBuilder()
-        result = (builder
-            .persona("Dev")
+        result = (
+            builder.persona("Dev")
             .pattern("chain-of-thought")
             .task("Do thing")
             .context("code")
             .example("in", "out")
             .output_format("json")
-            .constraint("limit"))
+            .constraint("limit")
+        )
         assert result is builder
 
     def test_str(self):

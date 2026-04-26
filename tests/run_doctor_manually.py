@@ -1,13 +1,16 @@
 from unittest.mock import patch
+
 from llm_promptkit.cli import doctor_command
+
 
 class DummyArgs:
     def __init__(self, target=None, file=None):
         self.target = target
         self.file = file
 
+
 def print_issues(args):
-    with patch('llm_promptkit.cli.console.print') as mock_print:
+    with patch("llm_promptkit.cli.console.print") as mock_print:
         doctor_command(args)
         for call in mock_print.call_args_list:
             arg = call[0][0]
@@ -17,6 +20,7 @@ def print_issues(args):
                     print(f"Col {col.header}:", list(col.cells))
             else:
                 print(arg)
+
 
 print("=== EMPTY PROMPT ===")
 print_issues(DummyArgs(target=""))
@@ -31,4 +35,8 @@ print("=== DIFFERENT LANGUAGE ===")
 print_issues(DummyArgs(target="Eres un asistente de IA. Formatea como JSON. Ejemplo: [1]"))
 
 print("=== MIXED PATTERNS ===")
-print_issues(DummyArgs(target="You are a helpful assistant. Make it good ASAP. Format as JSON. Do not fail. Here is an example: X"))
+print_issues(
+    DummyArgs(
+        target="You are a helpful assistant. Make it good ASAP. Format as JSON. Do not fail. Here is an example: X"
+    )
+)

@@ -117,10 +117,9 @@ class PromptBuilder:
 
             # Handle few-shot pattern specially
             if pattern_name == "few-shot" and self._examples:
-                examples_text = "\n".join([
-                    f"Input: {ex['input']}\nOutput: {ex['output']}"
-                    for ex in self._examples
-                ])
+                examples_text = "\n".join(
+                    [f"Input: {ex['input']}\nOutput: {ex['output']}" for ex in self._examples]
+                )
                 pattern_text = pattern_text.format(examples=examples_text)
 
             # Handle json-output pattern specially
@@ -137,7 +136,9 @@ class PromptBuilder:
         # Output format (if not using json-output pattern)
         if self._output_format and "json-output" not in self._patterns:
             if self._output_format == "json" and self._output_schema:
-                parts.append(f"Return valid JSON matching this schema:\n{json.dumps(self._output_schema, indent=2)}")
+                parts.append(
+                    f"Return valid JSON matching this schema:\n{json.dumps(self._output_schema, indent=2)}"
+                )
             else:
                 parts.append(f"Format your response as: {self._output_format}")
 
@@ -158,6 +159,7 @@ class PromptBuilder:
         """
         try:
             import tiktoken
+
             encoding = tiktoken.encoding_for_model(model)
             return len(encoding.encode(self.build()))
         except ImportError:
