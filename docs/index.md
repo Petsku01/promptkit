@@ -28,7 +28,7 @@ prompt = (PromptBuilder()
 |---------|-------------|
 | **18 Patterns** | Chain-of-Thought, Self-Consistency, ReAct, and more |
 | **Prompt Doctor** | Analyze prompts for common issues |
-| **275+ Curated Prompts** | Model-optimized, role-based, and technique prompts |
+| **289+ Curated Prompts** | Model-optimized, role-based, and technique prompts |
 | **Python API** | Fluent builder for composing prompts |
 | **CLI Tool** | Quick prompt generation from terminal |
 | **Token Estimation** | Know your token count before sending |

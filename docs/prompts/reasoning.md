@@ -19,6 +19,8 @@ promptkit search "analysis"
 | data-analyst | Data analysis tasks |
 | financial-analyst | Financial analysis |
 | readability-logic-simulator | Logic and readability analysis |
+| data-scientist | Data analysis and statistical modeling |
+| llm-researcher | LLM architecture and evaluation research |
 | red-team | Adversarial testing |
 | scenario-planner | Scenario planning |
 | socratic-questioning | Socratic method |

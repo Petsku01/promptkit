@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 92% test coverage
 - `mypy` clean (0 errors)
 - `ruff check + format` clean
-- Wheel includes both prompts (275) and patterns (18) correctly
+- Wheel includes both prompts (289) and patterns (18) correctly
 - CLI branding unified: `promptkit` everywhere
 - `examples()` validates keys — raises `ValueError` on missing `input`/`output`
 

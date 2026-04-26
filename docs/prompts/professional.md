@@ -24,6 +24,7 @@ promptkit search "business"
 | startup-idea-generator | Startup ideation |
 | startup-tech-lawyer | Startup legal advice |
 | web-design-consultant | Web design consulting |
+| seo-consultant | Search engine optimization |
 
 ## Example Usage
 

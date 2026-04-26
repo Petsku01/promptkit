@@ -26,6 +26,7 @@ promptkit search "security"
 | tech-reviewer | Technical review |
 | update-checker | Check for outdated info |
 | website-security-vulnerability-checker | Web security audit |
+| llm-security-specialist | LLM application security auditing |
 
 ## Built-in Pattern
 

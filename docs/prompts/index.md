@@ -1,20 +1,20 @@
 # Prompts Library
 
-Ready-to-use prompts organized by category. Over 200 prompts across 9 categories.
+Ready-to-use prompts organized by category. Over 289 prompts across 11 categories.
 
 ## Categories
 
 | Category | Description | Count |
 |----------|-------------|-------|
-| [Code](code.md) | Software development prompts | 18 |
+| [Code](code.md) | Software development prompts | 28 |
 | [Context](context.md) | Context and example management | 1 |
 | [Creative](creative.md) | Writing and storytelling | 10 |
 | [Debug](debug.md) | Error analysis and troubleshooting | 12 |
-| [Defensive](defensive.md) | Safety, accuracy, hallucination reduction | 13 |
-| [Education](education.md) | Teaching and tutoring | 10 |
-| [Output](output.md) | Format control and presentation | 11 |
-| [Professional](professional.md) | Business and consulting | 10 |
-| [Reasoning](reasoning.md) | Analysis and problem-solving | 10 |
+| [Defensive](defensive.md) | Safety, accuracy, hallucination reduction | 14 |
+| [Education](education.md) | Teaching and tutoring | 11 |
+| [Output](output.md) | Format control and presentation | 9 |
+| [Professional](professional.md) | Business and consulting | 12 |
+| [Reasoning](reasoning.md) | Analysis and problem-solving | 17 |
 | [System](system.md) | Core system prompts | 2 |
 | [Model-Optimized](model-optimized.md) | Provider-specific tuning | 8 providers |
 

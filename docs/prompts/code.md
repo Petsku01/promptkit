@@ -37,6 +37,16 @@ promptkit search "code review"
 | ux-ui-developer | UX/UI development |
 | software-quality-assurance-tester | QA testing |
 | developer-relations-consultant | DevRel consulting |
+| r-interpreter | R statistical computing |
+| php-interpreter | PHP execution and debugging |
+| svg-designer | SVG graphics generation |
+| github-expert | Git workflows and repository management |
+| commit-message-generator | Conventional commit messages |
+| unit-tester | Unit test generation |
+| password-generator | Secure password generation |
+| web-browser | Web browsing simulation |
+| dax-terminal | Power BI DAX queries |
+| devops-engineer | CI/CD and infrastructure |
 
 ## Example Usage
 
