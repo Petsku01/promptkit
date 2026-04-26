@@ -101,9 +101,11 @@ def doctor_command(
     file: Optional[str] = typer.Option(None, "--file", "-f", help="Read prompt from file"),
 ):
     """Analyze a prompt for common issues."""
+    if file and target:
+        console.print("[yellow]Both text and --file provided; using --file.[/yellow]")
     if file:
-        path = Path(file)
-        if not path.exists():
+        path = Path(file).resolve()
+        if not path.is_file():
             console.print(f"[red]Error: File not found: {file}[/red]")
             raise typer.Exit(code=1)
         text = path.read_text().lower()

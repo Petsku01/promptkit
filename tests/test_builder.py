@@ -103,6 +103,11 @@ class TestExamples:
         builder.examples([{"input": "a", "output": "b"}, {"input": "c", "output": "d"}])
         assert len(builder._examples) == 2
 
+    def test_examples_invalid_keys_raises(self):
+        builder = PromptBuilder()
+        with pytest.raises(ValueError, match="input.*output"):
+            builder.examples([{"question": "what?", "answer": "42"}])
+
     def test_few_shot_pattern_uses_examples(self):
         builder = PromptBuilder()
         builder.pattern("few-shot").example("2+2", "4")

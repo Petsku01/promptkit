@@ -58,7 +58,12 @@ class PromptBuilder:
         return self
 
     def examples(self, examples_list: List[Dict[str, str]]) -> "PromptBuilder":
-        """Add multiple few-shot examples."""
+        """Add multiple few-shot examples. Each dict must have 'input' and 'output' keys."""
+        for ex in examples_list:
+            if "input" not in ex or "output" not in ex:
+                raise ValueError(
+                    f"Each example must have 'input' and 'output' keys, got: {list(ex.keys())}"
+                )
         self._examples.extend(examples_list)
         return self
 
@@ -87,12 +92,17 @@ class PromptBuilder:
 
             if pattern_name == "few-shot" and self._examples:
                 examples_text = "\n".join(
-                    [f"Input: {ex['input']}\nOutput: {ex['output']}" for ex in self._examples]
+                    [
+                        f"Input: {ex.get('input', '')}\nOutput: {ex.get('output', '')}"
+                        for ex in self._examples
+                    ]
                 )
-                pattern_text = pattern_text.format(examples=examples_text)
+                pattern_text = pattern_text.replace("{examples}", examples_text)
 
             if pattern_name == "json-output" and self._output_schema:
-                pattern_text = pattern_text.format(schema=json.dumps(self._output_schema, indent=2))
+                pattern_text = pattern_text.replace(
+                    "{schema}", json.dumps(self._output_schema, indent=2)
+                )
 
             parts.append(pattern_text)
 
