@@ -6,17 +6,17 @@ Ready-to-use prompts organized by category. Over 257 prompts across 11 categorie
 
 | Category | Description | Count |
 |----------|-------------|-------|
-| [Code](code.md) | Software development prompts | 32 |
-| [Context](context.md) | Context and example management | 1 |
-| [Creative](creative.md) | Writing and storytelling | 11 |
-| [Debug](debug.md) | Error analysis and troubleshooting | 12 |
-| [Defensive](defensive.md) | Safety, accuracy, hallucination reduction | 19 |
-| [Education](education.md) | Teaching and tutoring | 11 |
-| [Output](output.md) | Format control and presentation | 12 |
-| [Professional](professional.md) | Business and consulting | 14 |
-| [Reasoning](reasoning.md) | Analysis and problem-solving | 19 |
-| [System](system.md) | Core system prompts | 3 |
-| [Model-Optimized](model-optimized.md) | Provider-specific tuning | 8 providers |
+| [Code](code/index.md) | Software development prompts | 32 |
+| [Context](context/index.md) | Context and example management | 1 |
+| [Creative](creative/index.md) | Writing and storytelling | 11 |
+| [Debug](debug/index.md) | Error analysis and troubleshooting | 12 |
+| [Defensive](defensive/index.md) | Safety, accuracy, hallucination reduction | 19 |
+| [Education](education/index.md) | Teaching and tutoring | 11 |
+| [Output](output/index.md) | Format control and presentation | 12 |
+| [Professional](professional/index.md) | Business and consulting | 14 |
+| [Reasoning](reasoning/index.md) | Analysis and problem-solving | 19 |
+| [System](system/index.md) | Core system prompts | 3 |
+| [Model-Optimized](model-optimized/index.md) | Provider-specific tuning | 8 providers |
 
 ## Quick vs Extended
 

@@ -65,17 +65,17 @@ nav:
     - Defensive: patterns/defensive.md
   - Prompts:
     - Overview: prompts/index.md
-    - Code: prompts/code.md
-    - Reasoning: prompts/reasoning.md
-    - Debug: prompts/debug.md
-    - Defensive: prompts/defensive.md
-    - Education: prompts/education.md
-    - Professional: prompts/professional.md
-    - Creative: prompts/creative.md
-    - Output: prompts/output.md
-    - System: prompts/system.md
-    - Context: prompts/context.md
-    - Model-Optimized: prompts/model-optimized.md
+    - Code: prompts/code/index.md
+    - Reasoning: prompts/reasoning/index.md
+    - Debug: prompts/debug/index.md
+    - Defensive: prompts/defensive/index.md
+    - Education: prompts/education/index.md
+    - Professional: prompts/professional/index.md
+    - Creative: prompts/creative/index.md
+    - Output: prompts/output/index.md
+    - System: prompts/system/index.md
+    - Context: prompts/context/index.md
+    - Model-Optimized: prompts/model-optimized/index.md
   - API Reference:
     - PromptBuilder: api/builder.md
     - CLI: api/cli.md
