@@ -5,7 +5,7 @@ PromptBuilder - Fluent API for composing prompts from patterns.
 import json
 from typing import Dict, List, Optional
 
-from llm_promptkit.patterns._registry import PatternNotFoundError, list_pattern_names, read_pattern
+from llm_promptkit.patterns._registry import list_pattern_names, read_pattern
 
 
 class PromptBuilder:
@@ -39,11 +39,8 @@ class PromptBuilder:
 
     def pattern(self, pattern_name: str) -> "PromptBuilder":
         """Add a prompt pattern by name. Raises PatternNotFoundError if unknown."""
-        available = list_pattern_names()
-        if pattern_name not in available:
-            raise PatternNotFoundError(
-                f"Unknown pattern '{pattern_name}'. Available: {', '.join(available)}"
-            )
+        # Validate early — read_pattern raises PatternNotFoundError if missing
+        read_pattern(pattern_name)
         self._patterns.append(pattern_name)
         return self
 
