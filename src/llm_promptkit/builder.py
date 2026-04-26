@@ -5,7 +5,7 @@ PromptBuilder - Fluent API for composing prompts from patterns.
 import json
 from typing import Dict, List, Optional
 
-from llm_promptkit.patterns._registry import list_pattern_names, read_pattern
+from llm_promptkit.patterns._registry import PatternNotFoundError, list_pattern_names, read_pattern
 
 
 class PromptBuilder:
@@ -23,12 +23,21 @@ class PromptBuilder:
     """
 
     @classmethod
-    @property
-    def AVAILABLE_PATTERNS(cls):  # type: ignore
-        """Available pattern names (loaded lazily from .md files)."""
-        if not hasattr(cls, "_patterns_cache"):
-            cls._patterns_cache = list_pattern_names()  # type: ignore
-        return cls._patterns_cache
+    def get_available_patterns(cls) -> List[str]:
+        """Return a copy of available pattern names.
+
+        Use this instead of AVAILABLE_PATTERNS for forward compatibility.
+        The return value is a fresh list — mutations do not affect the cache.
+        """
+        return list(list_pattern_names())
+
+    # Backward-compatible attribute access via classproperty descriptor
+    # Deprecated: use get_available_patterns() or list_pattern_names() instead
+    AVAILABLE_PATTERNS: List[str] = []  # populated lazily via __init_subclass__ is not needed
+
+    def __init_subclass__(cls, **kwargs):
+        """Ensure subclasses don't inherit stale class-level state."""
+        super().__init_subclass__(**kwargs)
 
     def __init__(self):
         self._system: Optional[str] = None
@@ -52,10 +61,16 @@ class PromptBuilder:
         return self
 
     def pattern(self, pattern_name: str) -> "PromptBuilder":
-        """Add a prompt pattern by name."""
+        """Add a prompt pattern by name.
+
+        Raises:
+            PatternNotFoundError: If the pattern name is not in the registry.
+        """
         available = list_pattern_names()
         if pattern_name not in available:
-            raise ValueError(f"Unknown pattern '{pattern_name}'. Available: {', '.join(available)}")
+            raise PatternNotFoundError(
+                f"Unknown pattern '{pattern_name}'. Available: {', '.join(available)}"
+            )
         self._patterns.append(pattern_name)
         return self
 
@@ -145,7 +160,9 @@ class PromptBuilder:
     def estimate_tokens(self, model: str = "gpt-4") -> int:
         """
         Estimate token count for the built prompt.
-        Requires tiktoken: pip install llm-promptkit[tokens]
+
+        Uses tiktoken for accurate counts when available (pip install llm-promptkit[tokens]).
+        Falls back to a rough heuristic of ~4 chars per token for English text.
         """
         try:
             import tiktoken

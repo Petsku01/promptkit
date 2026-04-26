@@ -8,19 +8,27 @@ Each file has a title line (# ...), optional metadata, and the pattern template 
 from functools import lru_cache
 from importlib import resources
 from pathlib import Path
-from typing import List, Tuple
+from typing import Tuple
 
 
-class PatternNotFoundError(ValueError):
-    """Raised when a pattern name cannot be found."""
+class PromptKitError(Exception):
+    """Base exception for llm-promptkit."""
 
 
-class PatternLoadError(RuntimeError):
-    """Raised when a pattern file cannot be loaded."""
+class PatternNotFoundError(PromptKitError, LookupError):
+    """Raised when a pattern name cannot be found in the registry."""
 
 
-def _get_patterns_package() -> Path:
-    """Resolve the patterns directory using importlib.resources."""
+class PatternLoadError(PromptKitError):
+    """Raised when a pattern file cannot be loaded or parsed."""
+
+
+def _resolve_patterns_dir() -> Path:
+    """Resolve the patterns directory using importlib.resources.
+
+    Uses importlib.resources which is zip-safe and works with
+    installed packages, not just development layouts.
+    """
     ref = resources.files("llm_promptkit") / "patterns"
     path = Path(str(ref))
     if not path.is_dir():
@@ -30,38 +38,49 @@ def _get_patterns_package() -> Path:
 
 def get_patterns_dir() -> Path:
     """Get the patterns directory path."""
-    return _get_patterns_package()
+    return _resolve_patterns_dir()
 
 
 @lru_cache(maxsize=1)
-def list_pattern_names() -> List[str]:
-    """List all available pattern names (slug format, e.g. 'chain-of-thought')."""
-    patterns_dir = _get_patterns_package()
+def list_pattern_names() -> Tuple[str, ...]:
+    """List all available pattern names (slug format, e.g. 'chain-of-thought').
+
+    Returns a tuple to prevent accidental mutation of the cached result.
+    """
+    patterns_dir = _resolve_patterns_dir()
     names = []
     for category_dir in sorted(patterns_dir.iterdir()):
         if category_dir.is_dir() and not category_dir.name.startswith("_"):
             for md_file in sorted(category_dir.iterdir()):
                 if md_file.suffix == ".md" and not md_file.name.startswith("README"):
                     names.append(md_file.stem)
-    return names
+    return tuple(names)
 
 
 def invalidate_pattern_cache():
-    """Clear the pattern name cache (e.g. after installing new patterns)."""
+    """Clear the pattern registry caches.
+
+    Call this after installing or removing pattern files,
+    e.g. during plugin setup or testing.
+    """
     list_pattern_names.cache_clear()
+    list_patterns_with_categories.cache_clear()
 
 
 @lru_cache(maxsize=32)
-def list_patterns_with_categories() -> List[Tuple[str, str]]:
-    """List patterns as (name, category) tuples."""
-    patterns_dir = _get_patterns_package()
+def list_patterns_with_categories() -> Tuple[Tuple[str, str], ...]:
+    """List patterns as (name, category) tuples.
+
+    Returns a tuple to prevent accidental mutation of the cached result.
+    """
+    patterns_dir = _resolve_patterns_dir()
     result = []
     for category_dir in sorted(patterns_dir.iterdir()):
         if category_dir.is_dir() and not category_dir.name.startswith("_"):
             for md_file in sorted(category_dir.iterdir()):
                 if md_file.suffix == ".md" and not md_file.name.startswith("README"):
                     result.append((md_file.stem, category_dir.name))
-    return result
+    return tuple(result)
 
 
 def read_pattern(name: str) -> str:
@@ -69,8 +88,12 @@ def read_pattern(name: str) -> str:
 
     The template is the body of the .md file after the title line (# ...),
     with category metadata lines (**Category:** ...) stripped.
+
+    Raises:
+        PatternNotFoundError: If the pattern name is not in the registry.
+        PatternLoadError: If the pattern file cannot be read or parsed.
     """
-    patterns_dir = _get_patterns_package()
+    patterns_dir = _resolve_patterns_dir()
 
     for category_dir in patterns_dir.iterdir():
         if category_dir.is_dir() and not category_dir.name.startswith("_"):

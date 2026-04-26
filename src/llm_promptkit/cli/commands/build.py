@@ -8,6 +8,7 @@ from rich.prompt import Prompt
 
 from llm_promptkit.builder import PromptBuilder
 from llm_promptkit.helpers import console
+from llm_promptkit.patterns._registry import PatternNotFoundError, list_pattern_names
 
 
 def build_command(
@@ -38,7 +39,7 @@ def build_command(
         for p in pattern:
             try:
                 builder.pattern(p)
-            except ValueError as e:
+            except (ValueError, PatternNotFoundError) as e:
                 console.print(f"[red]Error: {e}[/red]")
                 raise typer.Exit(code=1)
 
@@ -78,8 +79,6 @@ def _interactive_build():
         builder.persona(persona)
 
     # Patterns
-    from llm_promptkit.patterns._registry import list_pattern_names
-
     console.print(f"\n[bold cyan]Available patterns:[/bold cyan] {', '.join(list_pattern_names())}")
     patterns_input = Prompt.ask("Patterns (comma-separated)", default="")
     if patterns_input:
@@ -88,7 +87,7 @@ def _interactive_build():
             if p:
                 try:
                     builder.pattern(p)
-                except ValueError as e:
+                except (ValueError, PatternNotFoundError) as e:
                     console.print(f"[bold red]Warning:[/bold red] {e}")
 
     # Task

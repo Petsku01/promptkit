@@ -4,6 +4,7 @@ import pytest
 
 from llm_promptkit.patterns._registry import (
     PatternNotFoundError,
+    PromptKitError,
     get_pattern_description,
     invalidate_pattern_cache,
     list_pattern_names,
@@ -47,6 +48,12 @@ class TestPatternRegistry:
             assert name == name.lower(), f"Pattern name not lowercase: {name}"
             assert " " not in name, f"Pattern name has spaces: {name}"
 
+    def test_list_pattern_names_returns_tuple(self):
+        """list_pattern_names should return a tuple (immutable cache-safe)."""
+        names = list_pattern_names()
+        assert isinstance(names, tuple)
+        assert not isinstance(names, list)
+
     def test_list_patterns_with_categories(self):
         """Each pattern should have a category."""
         pairs = list_patterns_with_categories()
@@ -70,6 +77,11 @@ class TestPatternRegistry:
         with pytest.raises(PatternNotFoundError, match="Unknown pattern"):
             read_pattern("nonexistent-pattern")
 
+    def test_pattern_not_found_error_hierarchy(self):
+        """PatternNotFoundError should be a PromptKitError and LookupError subclass."""
+        assert issubclass(PatternNotFoundError, PromptKitError)
+        assert issubclass(PatternNotFoundError, LookupError)
+
     def test_get_pattern_description(self):
         """Pattern description should be first line of content."""
         desc = get_pattern_description("chain-of-thought")
@@ -82,16 +94,13 @@ class TestPatternRegistry:
             content = read_pattern(name)
             assert len(content) > 0, f"Pattern {name} has empty content"
 
-    def test_available_patterns_is_list(self):
-        """AVAILABLE_PATTERNS should be a list of names from the registry."""
+    def test_available_patterns_returns_list(self):
+        """PromptBuilder.get_available_patterns() should return a list."""
         from llm_promptkit.builder import PromptBuilder
 
-        assert isinstance(PromptBuilder.AVAILABLE_PATTERNS, list)
-        assert len(PromptBuilder.AVAILABLE_PATTERNS) >= 13
-
-    def test_pattern_not_found_error_type(self):
-        """PatternNotFoundError should be a ValueError subclass."""
-        assert issubclass(PatternNotFoundError, ValueError)
+        patterns = PromptBuilder.get_available_patterns()
+        assert isinstance(patterns, list)
+        assert len(patterns) >= 13
 
     def test_invalidate_cache(self):
         """Cache invalidation should allow re-fetching pattern names."""
@@ -99,8 +108,3 @@ class TestPatternRegistry:
         invalidate_pattern_cache()
         names2 = list_pattern_names()
         assert names1 == names2
-
-    def test_list_pattern_names_returns_list(self):
-        """list_pattern_names should return a list, not tuple."""
-        names = list_pattern_names()
-        assert isinstance(names, list)

@@ -56,9 +56,11 @@ class TestPatterns:
         assert "senior engineer" in prompt
 
     def test_invalid_pattern_raises(self):
-        """Invalid pattern raises ValueError."""
+        """Invalid pattern raises PatternNotFoundError."""
+        from llm_promptkit.patterns._registry import PatternNotFoundError
+
         builder = PromptBuilder()
-        with pytest.raises(ValueError) as exc_info:
+        with pytest.raises(PatternNotFoundError) as exc_info:
             builder.pattern("non-existent-pattern")
         assert "Unknown pattern" in str(exc_info.value)
         assert "non-existent-pattern" in str(exc_info.value)
