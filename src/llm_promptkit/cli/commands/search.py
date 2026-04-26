@@ -35,7 +35,7 @@ def search_prompts(query: str, limit: int = 10, category: Optional[str] = None) 
 
             try:
                 content = prompt_file.read_text()
-            except Exception:
+            except (OSError, UnicodeDecodeError):
                 continue
 
             content_lower = content.lower()

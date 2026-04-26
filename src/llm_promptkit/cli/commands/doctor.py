@@ -9,8 +9,8 @@ from rich.table import Table
 
 from llm_promptkit.helpers import console
 
-# Doctor Command Constants
-VAGUE_PHRASES = [
+# Doctor phrase lists — private to this module
+_VAGUE_PHRASES = [
     "make it good",
     "do it well",
     "as best as you can",
@@ -22,7 +22,7 @@ VAGUE_PHRASES = [
     "and so on",
     "whatever you think",
 ]
-ROLE_PHRASES = [
+_ROLE_PHRASES = [
     "you are a",
     "you are an",
     "role:",
@@ -33,7 +33,7 @@ ROLE_PHRASES = [
     "<system_prompt>",
     "<persona>",
 ]
-VERBOSE_PHRASES = [
+_VERBOSE_PHRASES = [
     "please could you",
     "i would like you to",
     "if you don't mind",
@@ -43,7 +43,7 @@ VERBOSE_PHRASES = [
     "thanks",
     "kindly",
 ]
-FORMAT_PHRASES = [
+_FORMAT_PHRASES = [
     "format",
     "json",
     "markdown",
@@ -51,7 +51,7 @@ FORMAT_PHRASES = [
     "structure",
     "return as",
 ]
-EXAMPLE_PHRASES = [
+_EXAMPLE_PHRASES = [
     "example:",
     "example",
     "e.g.",
@@ -59,7 +59,7 @@ EXAMPLE_PHRASES = [
     "few-shot",
     "here is an example",
 ]
-NEGATIVE_PHRASES = [
+_NEGATIVE_PHRASES = [
     "don't",
     "do not",
     "never",
@@ -138,7 +138,7 @@ def doctor_command(
 
     if text_no_code:
         # Vague phrases
-        for phrase in VAGUE_PHRASES:
+        for phrase in _VAGUE_PHRASES:
             if _match_phrase(text_no_code, phrase):
                 issues.append(
                     (
@@ -149,7 +149,7 @@ def doctor_command(
                 )
 
         # Missing role
-        if not _has_any_phrase(text_no_code, ROLE_PHRASES):
+        if not _has_any_phrase(text_no_code, _ROLE_PHRASES):
             issues.append(
                 (
                     "Suggestion",
@@ -159,7 +159,7 @@ def doctor_command(
             )
 
         # Verbose phrasing
-        for phrase in VERBOSE_PHRASES:
+        for phrase in _VERBOSE_PHRASES:
             if _match_phrase(text_no_code, phrase):
                 issues.append(
                     (
@@ -170,7 +170,7 @@ def doctor_command(
                 )
 
         # Missing format
-        if not _has_any_phrase(text_no_code, FORMAT_PHRASES):
+        if not _has_any_phrase(text_no_code, _FORMAT_PHRASES):
             issues.append(
                 (
                     "Warning",
@@ -180,7 +180,7 @@ def doctor_command(
             )
 
         # Missing examples
-        if not _has_any_phrase(text_no_code, EXAMPLE_PHRASES):
+        if not _has_any_phrase(text_no_code, _EXAMPLE_PHRASES):
             issues.append(
                 (
                     "Info",
@@ -190,7 +190,7 @@ def doctor_command(
             )
 
         # Negative phrasing
-        for phrase in NEGATIVE_PHRASES:
+        for phrase in _NEGATIVE_PHRASES:
             if _match_phrase(text_no_code, phrase):
                 issues.append(
                     (

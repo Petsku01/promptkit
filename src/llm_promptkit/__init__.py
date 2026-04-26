@@ -1,14 +1,4 @@
-"""llm-promptkit: A toolkit for building effective LLM prompts from patterns.
-
-Usage:
-    from llm_promptkit import PromptBuilder
-
-    prompt = (PromptBuilder()
-        .persona("Senior Developer")
-        .pattern("chain-of-thought")
-        .task("Review this code")
-        .build())
-"""
+"""llm-promptkit: A toolkit for building effective LLM prompts from patterns."""
 
 from importlib.metadata import version as _version
 

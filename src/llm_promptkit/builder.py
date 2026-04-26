@@ -9,26 +9,11 @@ from llm_promptkit.patterns._registry import PatternNotFoundError, list_pattern_
 
 
 class PromptBuilder:
-    """
-    Fluent builder for composing prompts from patterns.
-
-    Example:
-        prompt = (PromptBuilder()
-            .persona("Senior Developer")
-            .pattern("chain-of-thought")
-            .task("Review this code for bugs")
-            .context(code_snippet)
-            .output_format("json")
-            .build())
-    """
+    """Fluent builder for composing prompts from patterns."""
 
     @classmethod
     def get_available_patterns(cls) -> tuple:
-        """Return available pattern names as an immutable tuple.
-
-        The return value is safe to use for membership checks and iteration.
-        For a mutable list, use ``list(PromptBuilder.get_available_patterns())``.
-        """
+        """Return available pattern names as an immutable tuple."""
         return list_pattern_names()
 
     def __init__(self):
@@ -53,11 +38,7 @@ class PromptBuilder:
         return self
 
     def pattern(self, pattern_name: str) -> "PromptBuilder":
-        """Add a prompt pattern by name.
-
-        Raises:
-            PatternNotFoundError: If the pattern name is not in the registry.
-        """
+        """Add a prompt pattern by name. Raises PatternNotFoundError if unknown."""
         available = list_pattern_names()
         if pattern_name not in available:
             raise PatternNotFoundError(
@@ -101,35 +82,29 @@ class PromptBuilder:
         """Build the final prompt string."""
         parts = []
 
-        # System/Persona
         if self._system:
             parts.append(self._system)
         elif self._persona:
             parts.append(f"You are a {self._persona}.")
 
-        # Patterns — loaded from .md files via registry
         for pattern_name in self._patterns:
             pattern_text = read_pattern(pattern_name)
 
-            # Handle few-shot pattern specially
             if pattern_name == "few-shot" and self._examples:
                 examples_text = "\n".join(
                     [f"Input: {ex['input']}\nOutput: {ex['output']}" for ex in self._examples]
                 )
                 pattern_text = pattern_text.format(examples=examples_text)
 
-            # Handle json-output pattern specially
             if pattern_name == "json-output" and self._output_schema:
                 pattern_text = pattern_text.format(schema=json.dumps(self._output_schema, indent=2))
 
             parts.append(pattern_text)
 
-        # Constraints
         if self._constraints:
             constraints_text = "Constraints:\n" + "\n".join(f"- {c}" for c in self._constraints)
             parts.append(constraints_text)
 
-        # Output format (if not using json-output pattern)
         if self._output_format and "json-output" not in self._patterns:
             if self._output_format == "json" and self._output_schema:
                 parts.append(
@@ -139,23 +114,16 @@ class PromptBuilder:
             else:
                 parts.append(f"Format your response as: {self._output_format}")
 
-        # Task
         if self._task:
             parts.append(f"Task: {self._task}")
 
-        # Context
         if self._context:
             parts.append(f"Context:\n```\n{self._context}\n```")
 
         return "\n\n".join(parts)
 
     def estimate_tokens(self, model: str = "gpt-4") -> int:
-        """
-        Estimate token count for the built prompt.
-
-        Uses tiktoken for accurate counts when available (pip install llm-promptkit[tokens]).
-        Falls back to a rough heuristic of ~4 chars per token for English text.
-        """
+        """Estimate token count. Uses tiktoken when available, else chars/4 heuristic."""
         text = self.build()
         try:
             import tiktoken
