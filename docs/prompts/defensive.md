@@ -27,6 +27,11 @@ promptkit search "security"
 | update-checker | Check for outdated info |
 | website-security-vulnerability-checker | Web security audit |
 | llm-security-specialist | LLM application security auditing |
+| malware-analyst | Malware analysis with IoC and MITRE ATT&CK |
+| stride-threat-modeler | STRIDE threat modeling for system designs |
+| threat-report-analyst | Threat intelligence report analysis |
+| hackerone-reporter | Professional bug bounty reports |
+| secure-prompt-engineer | Security-focused prompt engineering |
 
 ## Built-in Pattern
 

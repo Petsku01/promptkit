@@ -24,6 +24,9 @@ promptkit search "format"
 | report-writer | Structured report generation |
 | summary-generator | Summarization |
 | table-generator | Table formatting |
+| mermaid-diagram-creator | Generate Mermaid diagram code |
+| flashcard-generator | Convert content to study flashcards |
+| meeting-minutes-transcriber | Structure meeting notes |
 
 ## Built-in Patterns
 

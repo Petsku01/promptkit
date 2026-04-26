@@ -23,3 +23,4 @@ promptkit prompts
 | tech-writer | Technical writing |
 | scamper | Creative ideation technique |
 | stand-up-comedian | Comedy writing |
+| art-prompt-creator | Generate detailed image/art prompts |

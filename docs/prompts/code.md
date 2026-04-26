@@ -47,6 +47,10 @@ promptkit search "code review"
 | web-browser | Web browsing simulation |
 | dax-terminal | Power BI DAX queries |
 | devops-engineer | CI/CD and infrastructure |
+| code-reviewer-pro | Comprehensive code review with structured output |
+| code-explainer | Detailed code explanation with context |
+| code-rules-generator | Coding standards and best practice rules |
+| git-commit-writer | Conventional commit messages from diffs |
 
 ## Example Usage
 

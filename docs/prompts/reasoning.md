@@ -21,6 +21,8 @@ promptkit search "analysis"
 | readability-logic-simulator | Logic and readability analysis |
 | data-scientist | Data analysis and statistical modeling |
 | llm-researcher | LLM architecture and evaluation research |
+| falsifiability-checker | Evaluate scientific falsifiability of claims |
+| logical-fallacy-detector | Detect and classify logical fallacies |
 | red-team | Adversarial testing |
 | scenario-planner | Scenario planning |
 | socratic-questioning | Socratic method |

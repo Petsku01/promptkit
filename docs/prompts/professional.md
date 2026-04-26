@@ -25,6 +25,8 @@ promptkit search "business"
 | startup-tech-lawyer | Startup legal advice |
 | web-design-consultant | Web design consulting |
 | seo-consultant | Search engine optimization |
+| candidate-analyzer | Analyze job candidates and interviews |
+| prd-writer | Product requirement documents |
 
 ## Example Usage
 

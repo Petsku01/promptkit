@@ -15,6 +15,7 @@ promptkit prompts --model system
 |--------|-------------|
 | coding-assistant | General coding assistant |
 | claude-soul-principles | Claude ethical principles |
+| prompt-improver | Improve and optimize any LLM prompt |
 
 ## Example Usage
 
