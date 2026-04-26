@@ -58,7 +58,7 @@ promptkit build --interactive
 promptkit doctor "Write something good"
 
 # Analyze from file
-promptkit doctor --file my-prompt.md
+promptkit doctor my-prompt.md
 
 # Browse included prompts
 promptkit prompts                              # List all providers
@@ -121,11 +121,21 @@ Extended prompts include:
 |----------|---------|-------------------------|
 | **Reasoning** | [Chain-of-Thought](patterns/reasoning/chain-of-thought.md) | Get step-by-step logical reasoning |
 | **Reasoning** | [Self-Consistency](patterns/reasoning/self-consistency.md) | Verify answers through multiple paths |
-| **Output** | [JSON Enforcer](patterns/output/json-enforcer.md) | Get clean, valid JSON output |
+| **Reasoning** | [Tree-of-Thought](patterns/reasoning/tree-of-thought.md) | Explore multiple expert perspectives |
+| **Reasoning** | [Step-Back](patterns/reasoning/step-back.md) | Identify core principles first |
+| **Reasoning** | [Decomposition](patterns/reasoning/decomposition.md) | Break complex problems into sub-problems |
+| **Reasoning** | [Reflection](patterns/reasoning/reflection.md) | Self-critique and improve initial response |
+| **Agentic** | [ReAct](patterns/agentic/react.md) | Interleave thought, action, observation |
+| **Agentic** | [Prompt Chaining](patterns/agentic/prompt-chaining.md) | Multi-stage task decomposition |
+| **Agentic** | [Meta-Prompting](patterns/agentic/meta-prompting.md) | Let model choose optimal approach |
+| **Context** | [Few-Shot](patterns/context/few-shot.md) | Learn from examples |
+| **Context** | [Role-Play](patterns/context/role-play.md) | Adopt a specific persona |
+| **Context** | [Few-Shot with Negatives](patterns/context/few-shot-negatives.md) | Teach by example (including what NOT to do) |
+| **Output** | [JSON Output](patterns/output/json-output.md) | Get structured JSON responses |
+| **Output** | [JSON Enforcer](patterns/output/json-enforcer.md) | Strictly enforce valid JSON |
 | **Code** | [TDD Prompting](patterns/code/tdd-prompting.md) | Generate tests first, then implementation |
 | **Code** | [Stack Trace Decoder](patterns/code/stack-trace-decoder.md) | Debug errors from stack traces |
 | **Review** | [Senior Reviewer](patterns/review/senior-reviewer.md) | Get strict code review feedback |
-| **Context** | [Few-Shot with Negatives](patterns/context/few-shot-negatives.md) | Teach by example (including what NOT to do) |
 | **Defensive** | [Hallucination Reducer](patterns/defensive/hallucination-reducer.md) | Reduce confident nonsense |
 
 ## Available Patterns (Builder API)
@@ -214,10 +224,11 @@ The underlying mechanics of WHY the LLM responds well to this.
 ## Categories
 
 - **reasoning/** - Logic, step-by-step, self-correction
+- **agentic/** - ReAct, prompt chaining, meta-prompting
 - **output/** - JSON, structured lists, schema extraction
 - **code/** - Generation, refactoring, debugging
 - **review/** - Code review, security, performance
-- **context/** - RAG, few-shot, long-context management
+- **context/** - RAG, few-shot, role-play, long-context management
 - **defensive/** - Hallucination reduction, constraint enforcement
 
 ## Contributing
