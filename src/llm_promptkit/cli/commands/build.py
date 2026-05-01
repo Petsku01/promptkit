@@ -7,6 +7,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 from llm_promptkit.builder import PromptBuilder
+from llm_promptkit.config import get_config
 from llm_promptkit.helpers import console
 from llm_promptkit.patterns._registry import PromptKitError, list_pattern_names
 
@@ -30,10 +31,13 @@ def build_command(
         _interactive_build()
         return
 
+    config = get_config()
     builder = PromptBuilder()
 
-    if persona:
-        builder.persona(persona)
+    # Persona: CLI flag > config default
+    effective_persona = persona or config.default_persona
+    if effective_persona:
+        builder.persona(effective_persona)
 
     if pattern:
         for p in pattern:
@@ -69,12 +73,17 @@ def build_command(
 
 def _interactive_build():
     """Interactive prompt builder."""
+    config = get_config()
     console.print(Panel.fit("Prompt Builder - Interactive Mode", style="bold magenta"))
 
     builder = PromptBuilder()
 
-    # Persona
-    persona = Prompt.ask("Persona (e.g., 'Senior Developer')", default="")
+    # Persona (with config default)
+    default_persona_hint = f" (default: {config.default_persona})" if config.default_persona else ""
+    persona = Prompt.ask(
+        f"Persona{default_persona_hint}",
+        default=config.default_persona or "",
+    )
     if persona:
         builder.persona(persona)
 

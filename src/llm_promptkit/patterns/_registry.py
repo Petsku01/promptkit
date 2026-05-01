@@ -3,7 +3,9 @@
 from functools import lru_cache
 from importlib import resources
 from pathlib import Path
-from typing import Tuple
+from typing import Dict, List, Optional, Tuple
+
+from llm_promptkit.config import get_config
 
 
 class PromptKitError(Exception):
@@ -27,37 +29,98 @@ def _resolve_patterns_dir() -> Path:
     return path
 
 
+def _get_pattern_dirs() -> List[Path]:
+    """Get all pattern directories: user dirs first, then built-in."""
+    dirs = []
+    config = get_config()
+    # User dirs first (higher priority)
+    for d in config.extra_pattern_dirs:
+        if d.is_dir():
+            dirs.append(d)
+    # Built-in last
+    builtin = _resolve_patterns_dir()
+    if builtin not in dirs:
+        dirs.append(builtin)
+    return dirs
+
+
+def _scan_pattern(name: str, dirs: List[Path]) -> Optional[Tuple[Path, str]]:
+    """Scan directories for a pattern by name.
+
+    Returns (path, source_tag) if found, None otherwise.
+    User dirs are scanned first, giving them priority.
+    """
+    for pattern_dir in dirs:
+        for category_dir in sorted(pattern_dir.iterdir()):
+            if category_dir.is_dir() and not category_dir.name.startswith("_"):
+                candidate = category_dir / f"{name}.md"
+                if candidate.is_file():
+                    source = "custom" if pattern_dir != dirs[-1] else "built-in"
+                    return (candidate, source)
+        # Also check flat files (no category subdirectory)
+        for md_file in sorted(pattern_dir.glob("*.md")):
+            if md_file.stem == name and not md_file.name.startswith("README"):
+                source = "custom" if pattern_dir != dirs[-1] else "built-in"
+                return (md_file, source)
+    return None
+
+
 @lru_cache(maxsize=1)
 def list_pattern_names() -> Tuple[str, ...]:
     """List available pattern names as an immutable tuple."""
-    patterns_dir = _resolve_patterns_dir()
-    names = []
-    for category_dir in sorted(patterns_dir.iterdir()):
-        if category_dir.is_dir() and not category_dir.name.startswith("_"):
-            for md_file in sorted(category_dir.iterdir()):
-                if md_file.suffix == ".md" and not md_file.name.startswith("README"):
-                    names.append(md_file.stem)
-    return tuple(names)
+    names = set()
+    for pattern_dir in _get_pattern_dirs():
+        for category_dir in sorted(pattern_dir.iterdir()):
+            if category_dir.is_dir() and not category_dir.name.startswith("_"):
+                for md_file in sorted(category_dir.iterdir()):
+                    if md_file.suffix == ".md" and not md_file.name.startswith("README"):
+                        names.add(md_file.stem)
+        for md_file in sorted(pattern_dir.glob("*.md")):
+            if not md_file.name.startswith("README"):
+                names.add(md_file.stem)
+    return tuple(sorted(names))
 
 
-def invalidate_pattern_cache():
+def invalidate_pattern_cache() -> None:
     """Clear pattern registry caches."""
-    list_pattern_names.cache_clear()
-    list_patterns_with_categories.cache_clear()
-    read_pattern.cache_clear()
+    if hasattr(list_pattern_names, 'cache_clear'):
+        list_pattern_names.cache_clear()
+    if hasattr(list_patterns_with_categories, 'cache_clear'):
+        list_patterns_with_categories.cache_clear()
+    if hasattr(read_pattern, 'cache_clear'):
+        read_pattern.cache_clear()
 
 
 @lru_cache(maxsize=32)
 def list_patterns_with_categories() -> Tuple[Tuple[str, str], ...]:
-    """List patterns as (name, category) tuples."""
-    patterns_dir = _resolve_patterns_dir()
-    result = []
-    for category_dir in sorted(patterns_dir.iterdir()):
-        if category_dir.is_dir() and not category_dir.name.startswith("_"):
-            for md_file in sorted(category_dir.iterdir()):
-                if md_file.suffix == ".md" and not md_file.name.startswith("README"):
-                    result.append((md_file.stem, category_dir.name))
-    return tuple(result)
+    """List patterns as (name, category) tuples.
+
+    Custom patterns that override built-ins show their custom category.
+    Custom patterns in flat files show 'custom' as category.
+    Built-in patterns show their directory category.
+    """
+    seen: Dict[str, Tuple[str, str]] = {}
+    for pattern_dir in _get_pattern_dirs():
+        for category_dir in sorted(pattern_dir.iterdir()):
+            if category_dir.is_dir() and not category_dir.name.startswith("_"):
+                for md_file in sorted(category_dir.iterdir()):
+                    if md_file.suffix == ".md" and not md_file.name.startswith("README"):
+                        # Only add if not already seen (user dirs come first)
+                        if md_file.stem not in seen:
+                            seen[md_file.stem] = (md_file.stem, category_dir.name)
+        for md_file in sorted(pattern_dir.glob("*.md")):
+            if not md_file.name.startswith("README"):
+                if md_file.stem not in seen:
+                    seen[md_file.stem] = (md_file.stem, "custom")
+    return tuple(sorted(seen.values()))
+
+
+def get_pattern_source(name: str) -> str:
+    """Return 'custom' or 'built-in' for a pattern."""
+    result = _scan_pattern(name, _get_pattern_dirs())
+    if result is None:
+        return "unknown"
+    return result[1]
 
 
 @lru_cache(maxsize=32)
@@ -66,20 +129,21 @@ def read_pattern(name: str) -> str:
 
     Raises PatternNotFoundError if name not found,
     PatternLoadError if file cannot be read.
+
+    Custom patterns take priority over built-in patterns.
     """
-    patterns_dir = _resolve_patterns_dir()
+    dirs = _get_pattern_dirs()
+    result = _scan_pattern(name, dirs)
 
-    for category_dir in patterns_dir.iterdir():
-        if category_dir.is_dir() and not category_dir.name.startswith("_"):
-            candidate = category_dir / f"{name}.md"
-            if candidate.is_file():
-                try:
-                    return _parse_pattern_body(candidate)
-                except (OSError, UnicodeDecodeError) as e:
-                    raise PatternLoadError(f"Failed to read pattern '{name}': {e}") from e
+    if result is None:
+        available = ", ".join(list_pattern_names())
+        raise PatternNotFoundError(f"Unknown pattern '{name}'. Available: {available}")
 
-    available = ", ".join(list_pattern_names())
-    raise PatternNotFoundError(f"Unknown pattern '{name}'. Available: {available}")
+    path, _source = result
+    try:
+        return _parse_pattern_body(path)
+    except (OSError, UnicodeDecodeError) as e:
+        raise PatternLoadError(f"Failed to read pattern '{name}': {e}") from e
 
 
 def _parse_pattern_body(path: Path) -> str:

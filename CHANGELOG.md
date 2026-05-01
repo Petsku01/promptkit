@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-05-01
+
+### Added
+
+- **XDG configuration system** (`config.toml`) — opt-in configuration via `$XDG_CONFIG_HOME/promptkit/config.toml`
+  - `extra_prompt_dirs` and `extra_pattern_dirs` for custom content (absolute paths only)
+  - `default_persona` for default persona in `promptkit build`
+  - Missing config = old behavior preserved (zero breaking changes)
+- **Doctor v2** — 3 new heuristics + fix capabilities
+  - Bigram duplication detection (identifies repeated phrases like "code review ... code review")
+  - Context boundary validation (detects empty sections like `Task:` with no content)
+  - Ambiguous language detection (`maybe`, `possibly`, `somewhat`)
+  - `--fix` flag: applies safe automatic fixes (removes standalone "please", collapses double whitespace, strips trailing whitespace, removes empty boundary lines)
+  - `--fix --dry-run`: shows what would be fixed without modifying files
+  - `--fix --file FILE.md`: modifies the file in-place, creates `.md.bak` backup
+  - `--format json`: machine-readable JSON output
+- **Builder v2** — `string.Template` variable substitution
+  - `PromptBuilder().variables(role=..., task=..., ...)` substitutes `$variable` placeholders
+  - Uses `safe_substitute` — undefined variables are left as-is (no KeyError)
+  - Fully backward compatible — no `.variables()` call = old behavior
+- **Custom content with source tags** — `promptkit list` shows `[custom]` / `[built-in]` tags for patterns
+- **`tomli` dependency** — conditional for Python <3.11 (stdlib `tomllib` on 3.11+)
+
+### Changed
+
+- Doctor command: empty prompt text now returns exit code 1 (was system error)
+- Pattern registry: respects `extra_pattern_dirs` from config (custom dirs searched first)
+- `list_pattern_names` and `list_patterns_with_categories` now include custom patterns
+
+### Fixed
+
+- Doctor `_match_phrase` regex bug (negative lookahead `(?!\w)` was `(!\w)`)
+- Doctor `--fix` with `--format json` now outputs single combined JSON (was double output)
+- Pattern cache invalidation now graceful (`hasattr` guard on `cache_clear`)
+- `pyproject.toml` mypy config: `ignore_missing_imports = true` for ehdoll dependencies
+
 ## [0.2.0] - 2026-04-26
 
 ### Changed

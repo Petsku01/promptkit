@@ -1,6 +1,9 @@
 """PromptBuilder — fluent API for composing prompts from patterns."""
 
 import json
+import re as _re
+import warnings
+from string import Template
 from typing import Dict, List, Optional
 
 from llm_promptkit.patterns._registry import list_pattern_names, read_pattern
@@ -24,6 +27,7 @@ class PromptBuilder:
         self._output_format: Optional[str] = None
         self._output_schema: Optional[Dict] = None
         self._constraints: List[str] = []
+        self._variables: Dict[str, str] = {}
 
     def system(self, system_prompt: str) -> "PromptBuilder":
         """Set a custom system prompt."""
@@ -78,6 +82,19 @@ class PromptBuilder:
         self._constraints.append(constraint)
         return self
 
+    def variable(self, name: str, value: str) -> "PromptBuilder":
+        """Set a template variable for pattern expansion.
+
+        Variables are substituted in patterns using $name or ${name} syntax
+        (Python's string.Template). Unset variables remain as-is.
+
+        Example:
+            builder.variable("domain", "cybersecurity")
+            builder.variable("language", "Finnish")
+        """
+        self._variables[name] = value
+        return self
+
     def build(self) -> str:
         """Build the final prompt string."""
         parts = []
@@ -89,6 +106,10 @@ class PromptBuilder:
 
         for pattern_name in self._patterns:
             pattern_text = read_pattern(pattern_name)
+
+            # Apply template variable substitution (v0.3.0)
+            if self._variables:
+                pattern_text = self._substitute_variables(pattern_text)
 
             if pattern_name == "few-shot" and self._examples:
                 examples_text = "\n".join(
@@ -127,6 +148,26 @@ class PromptBuilder:
 
         return "\n\n".join(parts)
 
+    def _substitute_variables(self, text: str) -> str:
+        """Substitute template variables using string.Template.safe_substitute.
+
+        Uses safe_substitute so undefined variables remain as-is instead of
+        raising KeyError. Warns about leftover $-prefixed tokens.
+        """
+        template = Template(text)
+        result = template.safe_substitute(self._variables)
+
+        # Warn about unresolved variables (remaining $-prefixed tokens)
+        unresolved = re_find_template_vars(result)
+        if unresolved:
+            warnings.warn(
+                f"Unresolved template variables: {', '.join(unresolved)}. "
+                f"Set them with builder.variable().",
+                stacklevel=3,
+            )
+
+        return result
+
     def estimate_tokens(self, model: str = "gpt-4") -> int:
         """Estimate token count. Uses tiktoken when available, else chars/4 heuristic."""
         text = self.build()
@@ -144,3 +185,20 @@ class PromptBuilder:
 
     def __repr__(self) -> str:
         return f"PromptBuilder(patterns={self._patterns}, task={self._task!r})"
+
+
+# ---------------------------------------------------------------------------
+# Helper for detecting unresolved template variables
+# ---------------------------------------------------------------------------
+_TEMPLATE_VAR_RE = _re.compile(r"\$(?:([a-zA-Z_][a-zA-Z0-9_]*)|\{([^}]+)\})")
+
+
+def re_find_template_vars(text: str) -> list:
+    """Find $variable or ${variable} tokens remaining in text."""
+    found = set()
+    for match in _TEMPLATE_VAR_RE.finditer(text):
+        var_name = match.group(1) or match.group(2)
+        # Skip common false positives: $HOME, $PATH, etc. (env-like)
+        if var_name and var_name not in ("HOME", "PATH", "USER", "SHELL", "PWD"):
+            found.add(var_name)
+    return sorted(found)

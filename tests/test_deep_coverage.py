@@ -46,7 +46,8 @@ class TestPromptsShow:
     def test_show_prompt_invalid_format(self):
         result = runner.invoke(app, ["prompts", "--show", "too/few/parts/extra"])
         assert result.exit_code == 0
-        assert "Invalid" in result.output or "invalid" in result.output.lower()
+        # v0.3.0: _find_prompt_file searches all dirs — result is "not found" not "invalid format"
+        assert "not found" in result.output.lower() or "invalid" in result.output.lower()
 
     def test_show_prompt_not_found(self):
         result = runner.invoke(app, ["prompts", "--show", "nonexist/model/prompt"])

@@ -7,6 +7,8 @@ from typing import List, Tuple
 
 from rich.console import Console
 
+from llm_promptkit.config import get_config
+
 console = Console()
 
 CHARS_PER_TOKEN = 4  # ~4 chars per token for English text
@@ -17,12 +19,29 @@ def get_prompts_dir() -> Path:
     package_prompts = Path(str(resources.files("llm_promptkit").joinpath("prompts")))
     if package_prompts.exists():
         return package_prompts
-
     # Local repo fallback
     cwd_prompts = Path.cwd() / "prompts"
     if cwd_prompts.exists():
         return cwd_prompts
     return package_prompts
+
+
+def get_all_prompt_dirs() -> List[Path]:
+    """Get all prompt directories: user dirs first, then built-in.
+
+    User dirs take priority over built-in (same-name files override).
+    """
+    dirs = []
+    config = get_config()
+    # User dirs first (higher priority)
+    for d in config.extra_prompt_dirs:
+        if d.is_dir():
+            dirs.append(d)
+    # Built-in last
+    builtin = get_prompts_dir()
+    if builtin not in dirs:
+        dirs.append(builtin)
+    return dirs
 
 
 def is_prompt_file(path: Path) -> bool:

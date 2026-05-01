@@ -1,6 +1,6 @@
 """Prompts command - browse and view model-optimized prompts."""
 
-from typing import Optional
+from typing import List, Optional
 
 import typer
 from rich.panel import Panel
@@ -12,6 +12,7 @@ from llm_promptkit.helpers import (
     CHARS_PER_TOKEN,
     console,
     copy_to_clipboard,
+    get_all_prompt_dirs,
     get_models_with_prompts,
     get_prompt_files,
     get_prompts_dir,
@@ -40,8 +41,28 @@ def prompts_command(
         _list_providers()
 
 
+def _find_prompt_file(parts: List[str]) -> Optional[tuple]:
+    """Find a prompt file across all prompt directories.
+
+    Returns (filepath, source) or None.
+    User directories are checked first.
+    """
+    all_dirs = get_all_prompt_dirs()
+    filename = f"{parts[-1]}.md"
+    subpath = "/".join(parts[:-1])
+
+    for prompt_dir in all_dirs:
+        source = "custom" if prompt_dir != all_dirs[-1] else "built-in"
+        target_dir = prompt_dir / subpath if subpath else prompt_dir
+        candidate = target_dir / filename
+        if candidate.is_file():
+            return (candidate, source)
+    return None
+
+
 def _list_providers():
     """List available model providers (only those with prompts)."""
+    # Use built-in for provider listing (user dirs typically don't have model-optimized structure)
     prompts_dir = get_prompts_dir()
     model_dir = prompts_dir / "model-optimized"
 
@@ -118,28 +139,27 @@ def _list_model_prompts(model_path: str):
 
 def _show_prompt(prompt_path: str):
     """Show a specific prompt."""
-    prompts_dir = get_prompts_dir()
     parts = prompt_path.split("/")
 
-    if len(parts) != 3:
-        console.print("[red]Invalid format. Use: provider/model/prompt[/red]")
+    if len(parts) < 2:
+        console.print("[red]Invalid format. Use: provider/model/prompt or category/prompt[/red]")
         console.print("[dim]Example: openai/gpt-4o/coding[/dim]")
         return
 
-    provider, model, prompt_name = parts
-    prompt_file = prompts_dir / "model-optimized" / provider / model / f"{prompt_name}.md"
-
-    if not prompt_file.exists():
+    result = _find_prompt_file(parts)
+    if result is None:
         console.print(f"[red]Prompt '{prompt_path}' not found.[/red]")
-        console.print(f"[dim]Looking for: {prompt_file}[/dim]")
+        console.print("[dim]Searched in built-in and custom prompt directories.[/dim]")
         return
 
+    prompt_file, source = result
     content = prompt_file.read_text()
+    source_tag = f" [{source}]" if source == "custom" else ""
 
     console.print(
         Panel(
             Syntax(content, "markdown", theme="monokai", word_wrap=True),
-            title=f"{provider}/{model}/{prompt_name}",
+            title=f"{prompt_path}{source_tag}",
             border_style="blue",
         )
     )
