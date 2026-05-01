@@ -14,3 +14,9 @@ Model-optimized prompts for deepseek.
 | [deepseek-v3 coding](deepseek-v3-coding.md) | `deepseek-v3-coding.md` |
 | [deepseek-v3 json-output](deepseek-v3-json-output.md) | `deepseek-v3-json-output.md` |
 | [deepseek-v3 math](deepseek-v3-math.md) | `deepseek-v3-math.md` |
+| [deepseek-v3.1 analysis](deepseek-v3.1-analysis.md) | `deepseek-v3.1-analysis.md` |
+| [deepseek-v3.1 coding](deepseek-v3.1-coding.md) | `deepseek-v3.1-coding.md` |
+| [deepseek-v4-flash analysis](deepseek-v4-flash-analysis.md) | `deepseek-v4-flash-analysis.md` |
+| [deepseek-v4-flash coding](deepseek-v4-flash-coding.md) | `deepseek-v4-flash-coding.md` |
+| [deepseek-v4-pro coding](deepseek-v4-pro-coding.md) | `deepseek-v4-pro-coding.md` |
+| [deepseek-v4-pro reasoning](deepseek-v4-pro-reasoning.md) | `deepseek-v4-pro-reasoning.md` |

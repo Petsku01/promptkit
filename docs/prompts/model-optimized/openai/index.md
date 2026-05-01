@@ -10,6 +10,11 @@ Model-optimized prompts for openai.
 | [gpt-4 coding](gpt-4-coding.md) | `gpt-4-coding.md` |
 | [gpt-4-turbo analysis](gpt-4-turbo-analysis.md) | `gpt-4-turbo-analysis.md` |
 | [gpt-4-turbo coding](gpt-4-turbo-coding.md) | `gpt-4-turbo-coding.md` |
+| [gpt-4.1 analysis](gpt-4.1-analysis.md) | `gpt-4.1-analysis.md` |
+| [gpt-4.1 coding](gpt-4.1-coding.md) | `gpt-4.1-coding.md` |
+| [gpt-4.1 instruction-following](gpt-4.1-instruction-following.md) | `gpt-4.1-instruction-following.md` |
+| [gpt-4.1 json-output](gpt-4.1-json-output.md) | `gpt-4.1-json-output.md` |
+| [gpt-4.1 writing](gpt-4.1-writing.md) | `gpt-4.1-writing.md` |
 | [gpt-4o analysis](gpt-4o-analysis.md) | `gpt-4o-analysis.md` |
 | [gpt-4o coding](gpt-4o-coding.md) | `gpt-4o-coding.md` |
 | [gpt-4o json-output](gpt-4o-json-output.md) | `gpt-4o-json-output.md` |
@@ -17,5 +22,11 @@ Model-optimized prompts for openai.
 | [gpt-4o writing](gpt-4o-writing.md) | `gpt-4o-writing.md` |
 | [gpt-5 coding](gpt-5-coding.md) | `gpt-5-coding.md` |
 | [gpt-5 reasoning](gpt-5-reasoning.md) | `gpt-5-reasoning.md` |
+| [gpt-5.4 analysis](gpt-5.4-analysis.md) | `gpt-5.4-analysis.md` |
+| [gpt-5.4 coding](gpt-5.4-coding.md) | `gpt-5.4-coding.md` |
+| [gpt-5.4 reasoning](gpt-5.4-reasoning.md) | `gpt-5.4-reasoning.md` |
+| [gpt-5.4 thinking](gpt-5.4-thinking.md) | `gpt-5.4-thinking.md` |
 | [o1 reasoning](o1-reasoning.md) | `o1-reasoning.md` |
+| [o3 coding](o3-coding.md) | `o3-coding.md` |
+| [o3 reasoning](o3-reasoning.md) | `o3-reasoning.md` |
 | [o3-mini reasoning](o3-mini-reasoning.md) | `o3-mini-reasoning.md` |
