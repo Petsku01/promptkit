@@ -2,27 +2,10 @@
 
 Model-optimized prompts for mistral.
 
-### Codestral
-
-| Prompt | Description |
-|--------|-------------|
-| [coding](codestral-coding.md) | Codestral: Specialized Coding |
-
-### Mistral Large
-
-| Prompt | Description |
-|--------|-------------|
-| [coding](mistral-large-coding.md) | Mistral Large: Coding |
-
-### Mistral Nemo
-
-| Prompt | Description |
-|--------|-------------|
-| [general](mistral-nemo-general.md) | Mistral Nemo: Efficient General Tasks |
-
-### Mixtral
-
-| Prompt | Description |
-|--------|-------------|
-| [analysis](mixtral-analysis.md) | Mixtral: Analysis (MoE) |
-| [coding](mixtral-coding.md) | Mixtral: Coding (MoE) |
+| Prompt | File |
+|--------|------|
+| [codestral coding](codestral-coding.md) | `codestral-coding.md` |
+| [mistral-large coding](mistral-large-coding.md) | `mistral-large-coding.md` |
+| [mistral-nemo general](mistral-nemo-general.md) | `mistral-nemo-general.md` |
+| [mixtral analysis](mixtral-analysis.md) | `mixtral-analysis.md` |
+| [mixtral coding](mixtral-coding.md) | `mixtral-coding.md` |

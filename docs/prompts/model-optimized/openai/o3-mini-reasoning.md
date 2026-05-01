@@ -1,4 +1,4 @@
-[← Back to OpenAI](./index.md)
+[← Back to Model-Optimized Openai](../index.md)
 
 # O3-mini: Efficient Reasoning
 

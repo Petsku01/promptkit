@@ -2,9 +2,9 @@
 
 Model-optimized prompts for use cases.
 
-| Prompt | Description |
-|--------|-------------|
-| [customer-support](customer-support.md) | Use Case: Customer Support |
-| [data-processing](data-processing.md) | Use Case: Data Processing |
-| [hr-recruiting](hr-recruiting.md) | Use Case: HR & Recruiting |
-| [sales-marketing](sales-marketing.md) | Use Case: Sales & Marketing |
+| Prompt | File |
+|--------|------|
+| [customer-support](customer-support.md) | `customer-support.md` |
+| [data-processing](data-processing.md) | `data-processing.md` |
+| [hr-recruiting](hr-recruiting.md) | `hr-recruiting.md` |
+| [sales-marketing](sales-marketing.md) | `sales-marketing.md` |

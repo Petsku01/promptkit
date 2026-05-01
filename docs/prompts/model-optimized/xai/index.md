@@ -1,19 +1,12 @@
-# xAI
+# Xai
 
 Model-optimized prompts for xai.
 
-### Grok 2
-
-| Prompt | Description |
-|--------|-------------|
-| [analysis](grok-2-analysis.md) | Grok 2: Analysis |
-| [coding](grok-2-coding.md) | Grok 2: Coding |
-| [creative](grok-2-creative.md) | Grok 2: Luova |
-| [realtime](grok-2-realtime.md) | Grok 2: Real-time information |
-
-### Grok 3
-
-| Prompt | Description |
-|--------|-------------|
-| [coding](grok-3-coding.md) | Grok 3: Coding |
-| [reasoning](grok-3-reasoning.md) | Grok 3: Reasoning |
+| Prompt | File |
+|--------|------|
+| [grok-2 analysis](grok-2-analysis.md) | `grok-2-analysis.md` |
+| [grok-2 coding](grok-2-coding.md) | `grok-2-coding.md` |
+| [grok-2 creative](grok-2-creative.md) | `grok-2-creative.md` |
+| [grok-2 realtime](grok-2-realtime.md) | `grok-2-realtime.md` |
+| [grok-3 coding](grok-3-coding.md) | `grok-3-coding.md` |
+| [grok-3 reasoning](grok-3-reasoning.md) | `grok-3-reasoning.md` |

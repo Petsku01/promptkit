@@ -1,4 +1,4 @@
-[← Back to Mistral](./index.md)
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Mistral Nemo: Efficient General Tasks
 

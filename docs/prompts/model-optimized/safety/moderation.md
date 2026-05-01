@@ -1,4 +1,4 @@
-[← Back to Safety](./index.md)
+[← Back to Model-Optimized Safety](../index.md)
 
 # Safety: Content Moderation
 

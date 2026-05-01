@@ -1,4 +1,4 @@
-[← Back to Qwen](./index.md)
+[← Back to Model-Optimized Qwen](../index.md)
 
 # Qwen 3.5: Coding (simplified)
 

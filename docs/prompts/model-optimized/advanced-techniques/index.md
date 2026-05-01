@@ -2,11 +2,11 @@
 
 Model-optimized prompts for advanced techniques.
 
-| Prompt | Description |
-|--------|-------------|
-| [chain-of-thought](chain-of-thought.md) | Chain-of-Thought (CoT) |
-| [meta-prompting](meta-prompting.md) | Meta-Prompting |
-| [prompt-chaining](prompt-chaining.md) | Prompt Chaining |
-| [react](react.md) | ReAct (Reasoning + Acting) |
-| [self-consistency](self-consistency.md) | Self-Consistency |
-| [tree-of-thoughts](tree-of-thoughts.md) | Tree-of-Thoughts (ToT) |
+| Prompt | File |
+|--------|------|
+| [chain-of-thought](chain-of-thought.md) | `chain-of-thought.md` |
+| [meta-prompting](meta-prompting.md) | `meta-prompting.md` |
+| [prompt-chaining](prompt-chaining.md) | `prompt-chaining.md` |
+| [react](react.md) | `react.md` |
+| [self-consistency](self-consistency.md) | `self-consistency.md` |
+| [tree-of-thoughts](tree-of-thoughts.md) | `tree-of-thoughts.md` |

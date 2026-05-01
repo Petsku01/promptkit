@@ -1,4 +1,4 @@
-[← Back to Few-Shot](./index.md)
+[← Back to Model-Optimized Few-Shot](../index.md)
 
 # Few-Shot: Muunnos
 

@@ -1,4 +1,4 @@
-[← Back to Anthropic](./index.md)
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude 3.7 Sonnet: Hybrid Reasoning
 

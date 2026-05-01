@@ -1,4 +1,4 @@
-[← Back to DeepSeek](./index.md)
+[← Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek-R1: Zero-Shot Reasoning
 

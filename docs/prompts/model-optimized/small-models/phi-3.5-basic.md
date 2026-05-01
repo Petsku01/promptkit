@@ -1,4 +1,4 @@
-[← Back to Small Models](./index.md)
+[← Back to Model-Optimized Small-Models](../index.md)
 
 # Phi 3.5: Basic Tasks
 

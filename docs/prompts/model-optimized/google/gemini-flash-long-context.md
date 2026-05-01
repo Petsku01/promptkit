@@ -1,4 +1,4 @@
-[← Back to Google](./index.md)
+[← Back to Model-Optimized Google](../index.md)
 
 # Gemini Flash: Long context
 

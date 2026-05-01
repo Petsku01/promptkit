@@ -1,4 +1,4 @@
-[← Back to Qwen](./index.md)
+[← Back to Model-Optimized Qwen](../index.md)
 
 # Qwen 2.5: Analysis
 

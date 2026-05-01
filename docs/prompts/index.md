@@ -1,55 +1,19 @@
-# Prompts Library
+# Prompts
 
-Ready-to-use prompts organized by category. Over 257 prompts across 11 categories.
+Browse ready-to-use prompts organized by category.
 
 ## Categories
 
-| Category | Description | Count |
-|----------|-------------|-------|
-| [Code](code/index.md) | Software development prompts | 32 |
-| [Context](context/index.md) | Context and example management | 1 |
-| [Creative](creative/index.md) | Writing and storytelling | 11 |
-| [Debug](debug/index.md) | Error analysis and troubleshooting | 12 |
-| [Defensive](defensive/index.md) | Safety, accuracy, hallucination reduction | 19 |
-| [Education](education/index.md) | Teaching and tutoring | 11 |
-| [Output](output/index.md) | Format control and presentation | 12 |
-| [Professional](professional/index.md) | Business and consulting | 14 |
-| [Reasoning](reasoning/index.md) | Analysis and problem-solving | 19 |
-| [System](system/index.md) | Core system prompts | 3 |
-| [Model-Optimized](model-optimized/index.md) | Provider-specific tuning | 8 providers |
-
-## Quick vs Extended
-
-Most categories include both quick prompts (200-500 tokens) and extended prompts (1000+ tokens). Quick prompts for simple tasks, extended for complex reasoning.
-
-## Usage
-
-### Direct Copy-Paste
-
-```bash
-# Browse all prompts interactively
-promptkit prompts
-
-# Search by keyword
-promptkit search "code review"
-```
-
-### With PromptBuilder API
-
-```python
-from llm_promptkit import PromptBuilder
-
-# Combine prompts with patterns
-builder = PromptBuilder()
-builder.pattern("chain-of-thought")
-builder.persona("Senior developer")
-builder.task("Review this code")
-prompt = builder.build()
-```
-
-### With CLI
-
-```bash
-# Build with a base prompt file
-promptkit build --pattern chain-of-thought --persona "Expert analyst"
-```
+| Category | Prompts |
+|----------|--------|
+| [Code](code/index.md) | 32 |
+| [Context](context/index.md) | 1 |
+| [Creative](creative/index.md) | 11 |
+| [Debug](debug/index.md) | 12 |
+| [Defensive](defensive/index.md) | 19 |
+| [Education](education/index.md) | 11 |
+| [Output](output/index.md) | 12 |
+| [Professional](professional/index.md) | 14 |
+| [Reasoning](reasoning/index.md) | 19 |
+| [System](system/index.md) | 3 |
+| [Model-Optimized](model-optimized/index.md) | 123 |

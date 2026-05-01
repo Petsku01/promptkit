@@ -1,4 +1,4 @@
-[← Back to Advanced Techniques](./index.md)
+[← Back to Model-Optimized Advanced-Techniques](../index.md)
 
 # ReAct (Reasoning + Acting)
 

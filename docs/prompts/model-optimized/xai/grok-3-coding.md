@@ -1,4 +1,4 @@
-[← Back to xAI](./index.md)
+[← Back to Model-Optimized Xai](../index.md)
 
 # Grok 3: Coding
 

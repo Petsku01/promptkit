@@ -1,4 +1,4 @@
-[← Back to Use Cases](./index.md)
+[← Back to Model-Optimized Use-Cases](../index.md)
 
 # Use Case: HR & Recruiting
 

@@ -1,4 +1,4 @@
-[← Back to Benchmarks](./index.md)
+[← Back to Model-Optimized Benchmarks](../index.md)
 
 # Benchmark: Coding
 

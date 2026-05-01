@@ -2,18 +2,11 @@
 
 Model-optimized prompts for cohere.
 
-### Command R
-
-| Prompt | Description |
-|--------|-------------|
-| [analysis](command-r-analysis.md) | Command R: Analysis |
-| [grounding](command-r-grounding.md) | Command R: Grounded Generation |
-| [rag](command-r-rag.md) | Command R: RAG (Retrieval Augmented Generation) |
-
-### Command R+
-
-| Prompt | Description |
-|--------|-------------|
-| [analysis](command-r-plus-analysis.md) | Command R+: Analysis |
-| [grounding](command-r-plus-grounding.md) | Command R+: Grounded Generation |
-| [rag](command-r-plus-rag.md) | Command R+: RAG (Retrieval Augmented Generation) |
+| Prompt | File |
+|--------|------|
+| [command-r analysis](command-r-analysis.md) | `command-r-analysis.md` |
+| [command-r grounding](command-r-grounding.md) | `command-r-grounding.md` |
+| [command-r rag](command-r-rag.md) | `command-r-rag.md` |
+| [command-r-plus analysis](command-r-plus-analysis.md) | `command-r-plus-analysis.md` |
+| [command-r-plus grounding](command-r-plus-grounding.md) | `command-r-plus-grounding.md` |
+| [command-r-plus rag](command-r-plus-rag.md) | `command-r-plus-rag.md` |

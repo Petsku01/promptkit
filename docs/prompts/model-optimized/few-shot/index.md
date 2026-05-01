@@ -1,10 +1,10 @@
-# Few-Shot
+# Few Shot
 
-Model-optimized prompts for few-shot.
+Model-optimized prompts for few shot.
 
-| Prompt | Description |
-|--------|-------------|
-| [analysis](analysis.md) | Few-Shot: Analysis |
-| [classification](classification.md) | Few-Shot: Luokittelu |
-| [generation](generation.md) | Few-Shot: Generointi |
-| [transformation](transformation.md) | Few-Shot: Muunnos |
+| Prompt | File |
+|--------|------|
+| [analysis](analysis.md) | `analysis.md` |
+| [classification](classification.md) | `classification.md` |
+| [generation](generation.md) | `generation.md` |
+| [transformation](transformation.md) | `transformation.md` |

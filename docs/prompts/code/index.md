@@ -1,53 +1,47 @@
 # Code Prompts
 
-Ready-to-use prompts for software development tasks.
+Ready-to-use prompts for code tasks.
 
 ## Browsing Prompts
 
 ```bash
-# List all providers and models
-promptkit prompts
-
-# List code prompts
 promptkit prompts --model code
-
-# Search for a specific prompt
-promptkit search "code review"
+promptkit search "code"
 ```
 
 ## Available Prompts
 
-| Prompt | Description |
-|--------|-------------|
-| [brutal-reviewer](brutal-reviewer.md) | hidden bugs, anti-patterns, or security flaws in a pull request. |
-| [code-reviewer-extended](code-reviewer-extended.md) | Code Reviewer (Extended) |
-| [code-reviewer](code-reviewer.md) | you need an AI to act as a code reviewer. |
-| [commit-message-generator](commit-message-generator.md) | Commit Message Generator |
-| [create-git-diff-commit](create-git-diff-commit.md) | Git Commit Writer |
-| [dax-terminal](dax-terminal.md) | DAX Terminal |
-| [debugger-interactive](debugger-interactive.md) | Interactive Debugger |
-| [developer-relations-consultant](developer-relations-consultant.md) | you need an AI to act as a developer relations consultant. |
-| [devops-engineer](devops-engineer.md) | DevOps Engineer |
-| [ethereum-developer](ethereum-developer.md) | you need an AI to act as a ethereum developer. |
-| [explain-code](explain-code.md) | Code Explainer |
-| [fullstack-software-developer](fullstack-software-developer.md) | you need an AI to act as a fullstack software developer. |
-| [generate-code-rules](generate-code-rules.md) | Code Rules Generator |
-| [github-expert](github-expert.md) | GitHub Expert |
-| [it-architect](it-architect.md) | you need an AI to act as a it architect. |
-| [javascript-console](javascript-console.md) | you need an AI to act as a javascript console. |
-| [linux-terminal](linux-terminal.md) | you need an AI to act as a linux terminal. |
-| [machine-learning-engineer](machine-learning-engineer.md) | you need an AI to act as a machine learning engineer. |
-| [password-generator](password-generator.md) | Password Generator |
-| [php-interpreter](php-interpreter.md) | PHP Interpreter |
-| [python-interpreter](python-interpreter.md) | you need an AI to act as a python interpreter. |
-| [r-interpreter](r-interpreter.md) | R Interpreter |
-| [review-code](review-code.md) | brief, high-level summary of the code's quality. Mention its strengths and the p |
-| [senior-engineer](senior-engineer.md) | Senior Software Engineer |
-| [senior-frontend-developer](senior-frontend-developer.md) | you need an AI to act as a senior frontend developer. |
-| [software-quality-assurance-tester](software-quality-assurance-tester.md) | you need an AI to act as a software quality assurance tester. |
-| [sql-terminal](sql-terminal.md) | you need an AI to act as a sql terminal. |
-| [svg-designer](svg-designer.md) | SVG Designer |
-| [tdd-generator](tdd-generator.md) | Test-Driven Development (TDD) Generator |
-| [unit-tester](unit-tester.md) | Unit Tester |
-| [ux-ui-developer](ux-ui-developer.md) | you need an AI to act as a ux/ui developer. |
-| [web-browser](web-browser.md) | Web Browser |
+| Prompt | File |
+|--------|------|
+| [brutal-reviewer](brutal-reviewer.md) | `brutal-reviewer.md` |
+| [code-reviewer-extended](code-reviewer-extended.md) | `code-reviewer-extended.md` |
+| [code-reviewer](code-reviewer.md) | `code-reviewer.md` |
+| [commit-message-generator](commit-message-generator.md) | `commit-message-generator.md` |
+| [create-git-diff-commit](create-git-diff-commit.md) | `create-git-diff-commit.md` |
+| [dax-terminal](dax-terminal.md) | `dax-terminal.md` |
+| [debugger-interactive](debugger-interactive.md) | `debugger-interactive.md` |
+| [developer-relations-consultant](developer-relations-consultant.md) | `developer-relations-consultant.md` |
+| [devops-engineer](devops-engineer.md) | `devops-engineer.md` |
+| [ethereum-developer](ethereum-developer.md) | `ethereum-developer.md` |
+| [explain-code](explain-code.md) | `explain-code.md` |
+| [fullstack-software-developer](fullstack-software-developer.md) | `fullstack-software-developer.md` |
+| [generate-code-rules](generate-code-rules.md) | `generate-code-rules.md` |
+| [github-expert](github-expert.md) | `github-expert.md` |
+| [it-architect](it-architect.md) | `it-architect.md` |
+| [javascript-console](javascript-console.md) | `javascript-console.md` |
+| [linux-terminal](linux-terminal.md) | `linux-terminal.md` |
+| [machine-learning-engineer](machine-learning-engineer.md) | `machine-learning-engineer.md` |
+| [password-generator](password-generator.md) | `password-generator.md` |
+| [php-interpreter](php-interpreter.md) | `php-interpreter.md` |
+| [python-interpreter](python-interpreter.md) | `python-interpreter.md` |
+| [r-interpreter](r-interpreter.md) | `r-interpreter.md` |
+| [review-code](review-code.md) | `review-code.md` |
+| [senior-engineer](senior-engineer.md) | `senior-engineer.md` |
+| [senior-frontend-developer](senior-frontend-developer.md) | `senior-frontend-developer.md` |
+| [software-quality-assurance-tester](software-quality-assurance-tester.md) | `software-quality-assurance-tester.md` |
+| [sql-terminal](sql-terminal.md) | `sql-terminal.md` |
+| [svg-designer](svg-designer.md) | `svg-designer.md` |
+| [tdd-generator](tdd-generator.md) | `tdd-generator.md` |
+| [unit-tester](unit-tester.md) | `unit-tester.md` |
+| [ux-ui-developer](ux-ui-developer.md) | `ux-ui-developer.md` |
+| [web-browser](web-browser.md) | `web-browser.md` |

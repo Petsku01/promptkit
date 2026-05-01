@@ -2,10 +2,10 @@
 
 Model-optimized prompts for roles.
 
-| Prompt | Description |
-|--------|-------------|
-| [business](business.md) | Bisnesroolit |
-| [creative](creative.md) | Luovat roolit |
-| [education](education.md) | Opetusroolit |
-| [simulators](simulators.md) | Simulaattorit |
-| [technical](technical.md) | Technical Roles |
+| Prompt | File |
+|--------|------|
+| [business](business.md) | `business.md` |
+| [creative](creative.md) | `creative.md` |
+| [education](education.md) | `education.md` |
+| [simulators](simulators.md) | `simulators.md` |
+| [technical](technical.md) | `technical.md` |
