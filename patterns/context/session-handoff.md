@@ -25,6 +25,11 @@ Create a structured handoff document that captures the current state of a conver
 3. **Failures matter** — What didn't work saves more time than what did.
 4. **Confidence flags** — Mark what's verified vs. assumed.
 5. **Next step is mandatory** — Always give the next AI a clear starting point.
+6. **Momentum > data** — Preserve direction (where were we going?) not just position (where were we?). The Aspy project discovered that stats that reset after compaction are useless; guidance that persists is what matters.
+7. **Reference, don't duplicate** — Link to files by path instead of inlining them. The sidorovanthon/handoff-prompt approach keeps output ~300 tokens by referencing CLAUDE.md/AGENTS.md paths.
+8. **Two-prompt transfer** — Export state with Prompt A, import with Prompt B. The LLM--Checkpoint-Prompt approach: A extracts operational state, B tells the new model "don't restart, continue from ACTIVE TASK STATE".
+9. **Milestone accumulation** — For extended projects, handoffs accumulate into milestones. RooCode pattern: 3-5 handoffs → 1 milestone with summary + lessons-learned.
+10. **Multi-machine awareness** — Use absolute paths so handoffs work across SSH sessions and different machines (ormus-handoff pattern).
 
 ## Template Variants
 

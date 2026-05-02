@@ -166,11 +166,295 @@ We need to wrap up this session soon — context is running low. Please draft a 
 
 ---
 
+## Checkpoint Prompt (LLM-A → LLM-B transfer)
+
+*Two-prompt system: first extracts state from the ending model, second instructs the receiving model.*
+
+**Prompt A (export state):**
+
+```
+You are preparing a structured transfer of this conversation so another LLM can continue the task without losing context.
+Your job is to export the COMPLETE working state of this conversation.
+Do NOT summarize loosely. Extract the operational state precisely.
+
+Output must follow the structure below.
+
+TASK OVERVIEW
+The original goal of the conversation
+What the user ultimately wants to achieve
+
+CURRENT PROGRESS
+What has already been completed
+Decisions made
+Results generated so far
+
+KEY CONTEXT
+Important facts provided by the user
+Constraints or requirements
+Environment details (tools, frameworks, languages, location if relevant)
+
+USER PREFERENCES
+Writing style
+Response format preferences
+Any behavioral instructions given to the assistant
+
+IMPORTANT INSIGHTS
+Reasoning conclusions already reached
+Assumptions that were validated or rejected
+Tradeoffs already discussed
+
+ACTIVE TASK STATE
+The exact step where the process stopped
+What the assistant was about to do next
+
+NEXT ACTION PLAN
+Provide a clear step-by-step continuation plan so the next LLM can resume immediately.
+
+ARTIFACTS
+Include any generated content that is necessary to continue the task:
+prompts, code, outlines, drafts, structured data
+
+POTENTIAL RISKS
+List areas where hallucination could occur if context is lost.
+
+INSTRUCTIONS FOR THE NEXT LLM
+Write a short directive addressed to the next AI explaining:
+how to interpret this context, what to continue doing, what to avoid repeating.
+
+IMPORTANT RULES
+Preserve technical details exactly. Do not omit decisions already made.
+Avoid narrative explanations. Be concise but information-complete.
+Format cleanly so another LLM can ingest this directly.
+
+Return everything inside ONE code block so the user can copy it.
+This export must allow another AI to continue the conversation with minimal deviation.
+```
+
+**Prompt B (import state, for the receiving model):**
+
+```
+You are continuing an existing task. Below is a structured conversation state exported from another LLM.
+Treat it as the full context of the project.
+Do not restart the task.
+Do not repeat completed steps.
+Continue from the "ACTIVE TASK STATE".
+```
+
+---
+
+## Compaction Handoff (OpenAI Codex CLI style)
+
+*Used when context compacts mid-session and a new LLM takes over internally.*
+
+```
+You are performing a CONTEXT CHECKPOINT COMPACTION.
+Create a handoff summary for another LLM that will resume the task.
+
+Include:
+- Current progress and key decisions made
+- Important context, constraints, or user preferences
+- What remains to be done (clear next steps)
+- Any critical data, examples, or references needed to continue
+
+Be concise, structured, and focused on helping the next LLM seamlessly continue the work.
+```
+
+**Summary prefix (prepended for the receiving model):**
+
+```
+Another language model started to solve this problem and produced a summary of its thinking process.
+You also have access to the state of the tools that were used by that language model.
+Use this to build on the work that has already been done and avoid duplicating work.
+Here is the summary produced by the other language model, use the information in this summary to assist with your own analysis:
+```
+
+---
+
+## Session Handoff with Artifact Validation (little-loops style)
+
+*Deep mode: includes git status, todos, discrepancy detection.*
+
+```
+Generate a session handoff with these sections:
+
+## Conversation Summary
+
+### Primary Intent
+[What was the user trying to accomplish]
+
+### What Happened
+1. [Chronological list of major events]
+
+### User Feedback
+- [Key user corrections or preferences stated]
+
+### Errors and Resolutions
+| Error | How Fixed | User Feedback |
+|-------|-----------|---------------|
+
+### Code Changes
+| File | Changes Made | Discussion Context |
+|------|-------------|-------------------|
+
+## Resume Point
+
+### What Was Being Worked On
+[Precise description]
+
+### Direct Quote
+> "Exact last relevant user/assistant message about the task"
+
+### Next Step
+[The single next action]
+
+## Important Context
+
+### Decisions Made
+- **Decision**: Reasoning
+
+### Gotchas Discovered
+- Non-obvious traps found
+
+### User-Specified Constraints
+- [Hard requirements]
+
+### Patterns Being Followed
+- [Code/approach patterns]
+
+## Artifact Validation (Deep mode)
+
+### Current Git Status
+[git status --short output]
+
+### Discrepancies
+[Any mismatch between conversation claims and actual file state]
+
+### Todo List State
+| Status | Task |
+|--------|------|
+
+### Plan Files
+- Active plan: [path]
+```
+
+---
+
+## Ormus Handoff (multi-machine / multi-project)
+
+*Handles the hard cases: SSH across machines, edits in multiple repos.*
+
+```
+Create a HANDOFF.md document at an appropriate location. Use this structure:
+
+## Session Type
+[Single-project / Multi-machine / Multi-project / Orchestration]
+
+## Scope
+- Machines touched: [list]
+- Repos edited: [list with absolute paths]
+- Primary working directory: [path]
+
+## What We Were Doing
+[2-3 sentence summary]
+
+## State
+| What | Status | Notes |
+|------|--------|-------|
+| [task] | done / in-progress / blocked | [context] |
+
+## Next Steps
+1. [Most important action first]
+
+## Key Files
+- [absolute paths to files that matter]
+
+## Context to Know
+- [Non-obvious facts, gotchas, constraints]
+
+## Resume Prompt
+[Copy-pasteable one-liner that bootstraps the next session.
+Always uses absolute paths so it works on any machine.]
+```
+
+---
+
+## RooCode Handoff System (milestone-based)
+
+*For extended projects: handoffs accumulate into milestones.*
+
+**Handoff trigger prompt:**
+
+```
+I need to create a handoff document for our current work. Please:
+
+1. Read the handoff instructions
+2. Determine the next sequential handoff number
+3. Create a properly structured handoff file with that number
+```
+
+**Milestone trigger (after 3-5 handoffs):**
+
+```
+I need to create a milestone for our completed work. Please:
+
+1. Read the milestone instructions
+2. Determine the next sequential milestone number
+3. Create the milestone directory with that number
+4. Move all numbered handoff documents into this milestone directory
+5. Create the milestone summary and lessons-learned files
+```
+
+**When to create handoffs:**
+- ~30% irrelevant context accumulated
+- After 10+ conversation exchanges
+- During debugging sessions exceeding 5 exchanges
+- After completing significant work
+
+**When to create milestones:**
+- 3-5 handoffs accumulated
+- Major project phase completed
+- Critical problems solved with valuable lessons
+
+---
+
+## Aspy Continuity Enhancement (compaction injection)
+
+*Inject into the compaction prompt to preserve momentum, not just data.*
+
+```
+## Continuity Enhancement
+
+For the summary: To help the continuing AI maintain flow, please include:
+- **Active Work Tracks:** What features/bugs/tasks are in progress
+- **Key Decisions Made:** Important choices that shouldn't be revisited
+- **Current Mental Model:** The user's goals and approach being taken
+
+Post-compaction recovery: Include 3-5 searchable keywords so the next AI
+can find relevant conversation history if needed.
+```
+
+---
+
 ## Sources & Further Reading
 
-- **Don't Sleep On AI** — "AI Handoff Prompt: The Best 8-Section Continuation Template" (2026) — The most comprehensive structured handoff template
-- **JD Hodges** — "Claude Session Handoffs: How to Keep Context Across Conversations" (2026) — Two-file system (CLAUDE.md + HANDOVER.md) + handoff prompts
-- **Nova Elvaris (DEV Community)** — "The Prompt Handoff Pattern" (2025) — Clean 6-section handoff structure
-- **yWian** — "Automate Claude Chat Summaries for Seamless Conversation Continuity" (2026) — Auto-summary + new chat automation
-- **little-loops** — Session Handoff tool for Claude Code (2026) — `/ll:handoff` and `/ll:resume` commands
-- **Claude Code `/compact`** — Anthropic's built-in context compaction system (source: GitHub Gist by sxalexander)
+### Templates & Blogs
+- **Don't Sleep On AI** — "AI Handoff Prompt: The Best 8-Section Continuation Template" (2026) — [dontsleeponai.com/handoff-prompt](https://www.dontsleeponai.com/handoff-prompt) — The most comprehensive structured handoff template
+- **JD Hodges** — "Claude Session Handoffs: How to Keep Context Across Conversations" (2026) — [jdhodges.com](https://www.jdhodges.com/blog/ai-session-handoffs-keep-context-across-conversations/) — Two-file system + one-liner handoff
+- **Nova Elvaris (DEV Community)** — "The Prompt Handoff Pattern" (2025) — [dev.to](https://dev.to/novaelvaris/the-prompt-handoff-pattern-make-ai-work-survive-session-resets-and-team-handoffs-5bf0) — Clean 6-section handoff
+- **yWian** — "Automate Claude Chat Summaries" (2026) — [ywian.com](https://www.ywian.com/blog/automate-claude-chat-summaries) — Auto-summary + automation
+
+### GitHub Repos & Skills
+- **sidorovanthon/handoff-prompt** — [github.com](https://github.com/sidorovanthon/handoff-prompt) — ~300 token compact handoff skill for Claude Code, Cursor, Aider, Copilot CLI, Gemini CLI
+- **simply-Rahul8/LLM--Checkpoint-Prompt** — [github.com](https://github.com/simply-Rahul8/LLM--Checkpoint-Prompt) — Two-prompt A→B transfer system with ARTIFACTS and POTENTIAL RISKS sections
+- **HermeticOrmus/ormus-handoff** — [github.com](https://github.com/HermeticOrmus/ormus-handoff) — Multi-machine/multi-project handoff with 4-path classification (A/B/C/D)
+- **robertguss/claude-code-toolkit** — [github.com](https://github.com/robertguss/claude-code-toolkit/tree/main/skills/handoff) — Structured handoff skill with compaction hook companion
+- **Michaelzag/RooCode-Tips-Tricks** — [github.com](https://github.com/Michaelzag/RooCode-Tips-Tricks) — Milestone-based handoff system with custom modes
+- **badlogic/Context Compaction Research** — [gist.github.com](https://gist.github.com/badlogic/cd2ef65b0697c4dbe2d13fbecb0a0a5f) — Cross-tool compaction research (Claude Code, Codex CLI, OpenCode, Amp)
+
+### Tools & Platforms
+- **little-loops** — Session Handoff tool for Claude Code (2026) — [docs.little-loops.ai](https://docs.little-loops.ai/guides/SESSION_HANDOFF/) — `/ll:handoff` and `/ll:resume` commands with deep mode
+- **Aspy** — Compaction enhancement proxy — [omgpointless.github.io](https://omgpointless.github.io/aspy/blog/2025/12/the-handoff/) — Injects continuity guidance into Anthropic's compaction prompt
+- **Claude Code `/compact`** — Anthropic's built-in context compaction (extracted prompt: [gist by sxalexander](https://gist.github.com/sxalexander/8915f30f8bc97a272620a1a6c67a7148))
+- **OpenAI Codex CLI `/compact`** — Codex's compaction with summary prefix ([codex-rs/core/templates/compact/prompt.md](https://github.com/openai/codex/blob/main/codex-rs/core/templates/compact/prompt.md))
+- **OpenCode `/compact`** — SST's open-source compaction with prune mechanism ([opencode/src/session/compaction.ts](https://github.com/sst/opencode/blob/main/packages/opencode/src/session/compaction.ts))
+- **Amp Handoff** — Sourcegraph's manual handoff + thread references approach ([ampcode.com](https://ampcode.com/guides/context-management))
