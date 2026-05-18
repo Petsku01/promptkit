@@ -1,4 +1,4 @@
-[← Back to Defensive Prompts](../index.md)
+[<- Back to Defensive Prompts](../index.md)
 
 # Comprehensive Web Application Development with Security and Performance Optimization
 

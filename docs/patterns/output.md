@@ -26,7 +26,7 @@ prompt = (PromptBuilder()
 
 ## JSON Enforcer
 
-Strictly enforces valid JSON — no markdown, no explanation.
+Strictly enforces valid JSON -- no markdown, no explanation.
 
 ```python
 prompt = (PromptBuilder()

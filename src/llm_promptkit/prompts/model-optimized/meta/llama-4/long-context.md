@@ -4,7 +4,7 @@
 ```
 I'm providing my entire codebase. Analyze it holistically.
 
-[paste all source files — 10M context can hold large codebases]
+[paste all source files -- 10M context can hold large codebases]
 
 Questions:
 1. [what you need to understand]
@@ -25,7 +25,7 @@ Questions:
 2. [question about overall theme]
 3. [question about something near the end]
 
-Important: Pay attention to details throughout — don't just focus on the beginning.
+Important: Pay attention to details throughout -- don't just focus on the beginning.
 ```
 
 ## Multi-Source Research
@@ -42,7 +42,7 @@ Research question: [what I'm investigating]
 Tasks:
 1. Extract key claims from each source
 2. Identify areas of consensus
-3. Flag contradictions — explain possible reasons
+3. Flag contradictions -- explain possible reasons
 4. Assess source reliability where possible
 5. Synthesize a unified understanding
 6. Rate overall evidence strength
@@ -52,7 +52,7 @@ Tasks:
 ```
 Extract structured information from this large dataset.
 
-[paste data — can be very large]
+[paste data -- can be very large]
 
 Extraction schema:
 {
@@ -73,7 +73,7 @@ Output as [JSON / CSV / table format].
 ---
 
 **Llama 4 Long Context Tips:**
-- 10M token window — can hold entire codebases, book-length documents, or massive datasets
+- 10M token window -- can hold entire codebases, book-length documents, or massive datasets
 - Llama 4's MoE architecture means only relevant experts activate per token, keeping inference efficient
 - Place your instructions at both the beginning AND end of long prompts for best results
 - For retrieval tasks, explicitly say "search the entire document" to prevent lazy reading

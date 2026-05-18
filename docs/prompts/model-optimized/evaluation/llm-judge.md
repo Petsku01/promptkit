@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Evaluation](../index.md)
+[<- Back to Model-Optimized Evaluation](../index.md)
 
 # Evaluation: LLM as Judge
 

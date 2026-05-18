@@ -1,4 +1,4 @@
-[← Back to Education Prompts](../index.md)
+[<- Back to Education Prompts](../index.md)
 
 # Spoken English Teacher and Improver
 

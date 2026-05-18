@@ -1,6 +1,6 @@
 # Model-Optimized Prompts
 
-Select company → model → theme → copy.
+Select company -> model -> theme -> copy.
 
 ## Model-specific
 

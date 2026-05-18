@@ -1,4 +1,4 @@
-[← Back to Debug Prompts](../index.md)
+[<- Back to Debug Prompts](../index.md)
 
 # Comprehensive Repository Analysis and Bug Fixing Framework
 

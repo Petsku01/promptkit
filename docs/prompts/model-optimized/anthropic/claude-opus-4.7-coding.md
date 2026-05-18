@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Anthropic](../index.md)
+[<- Back to Model-Optimized Anthropic](../index.md)
 
 # Claude Opus 4.7: Coding
 
@@ -24,7 +24,7 @@ Constraints:
 - Document any non-obvious decisions
 
 If you encounter ambiguity, make the simplest reasonable choice and note it.
-Do NOT stop to ask questions — solve problems independently.
+Do NOT stop to ask questions -- solve problems independently.
 ```
 
 ## Complex Multi-File Refactoring
@@ -115,9 +115,9 @@ If you need more information, state exactly what logs/metrics to check.
 ---
 **Claude Opus 4.7 Coding Tips:**
 - Excels at autonomous, long-running coding tasks with minimal supervision
-- Takes instructions literally — be precise, not vague
-- Can verify its own output before reporting back — ask it to self-test
+- Takes instructions literally -- be precise, not vague
+- Can verify its own output before reporting back -- ask it to self-test
 - Exceptional at complex multi-file refactoring with consistency
 - High-resolution vision: can read dense code screenshots (up to 3.75 MP)
 - Use extended thinking for complex architectural decisions
-- Re-tune prompts from older Claude models — it follows instructions more strictly
+- Re-tune prompts from older Claude models -- it follows instructions more strictly

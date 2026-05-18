@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Xai](../index.md)
+[<- Back to Model-Optimized Xai](../index.md)
 
 # Grok 2: Real-time information
 

@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Google](../index.md)
+[<- Back to Model-Optimized Google](../index.md)
 
 # Gemini 2.5 Flash: Coding
 
@@ -81,7 +81,7 @@ Summary per file + overall assessment:
 ---
 
 **Gemini 2.5 Flash Coding Tips:**
-- Keep coding prompts focused — one task per request
+- Keep coding prompts focused -- one task per request
 - Flash generates clean code fast, but for complex architecture use Pro
 - Batch file reviews leverage the 1M context window well
 - Specify language, framework, and style upfront

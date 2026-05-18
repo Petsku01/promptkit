@@ -26,9 +26,9 @@
 ## General Tips
 
 - XML tags work well: `<task>`, `<thinking>`, `<answer>`
-- 200K context — long documents OK
+- 200K context -- long documents OK
 - Extended thinking for complex problems
 - Very precise at following formatting instructions
-- Opus 4.7 takes instructions literally — be precise, not vague
-- Opus 4.7 self-verifies before responding — ask it to double-check
+- Opus 4.7 takes instructions literally -- be precise, not vague
+- Opus 4.7 self-verifies before responding -- ask it to double-check
 - Price: Opus 4.7 same as Opus 4.6 ($5/M input, $25/M output)

@@ -1,4 +1,4 @@
-[← Back to System Prompts](../index.md)
+[<- Back to System Prompts](../index.md)
 
 # Coding Assistant System Prompt
 

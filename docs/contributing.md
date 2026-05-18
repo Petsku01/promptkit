@@ -33,13 +33,13 @@ Patterns are `.md` files in `src/llm_promptkit/patterns/<category>/`.
 
 1. **Copy the template:** `templates/pattern-template.md`
 2. **Place in the correct category directory:**
-   - `reasoning/` — Logic, step-by-step, self-correction
-   - `agentic/` — ReAct, prompt chaining, meta-prompting
-   - `context/` — Few-shot, role-play, long-context
-   - `output/` — JSON, structured lists, extraction
-   - `code/` — Generation, refactoring, debugging
-   - `review/` — Code review, security, performance
-   - `defensive/` — Hallucination reduction, constraints
+   - `reasoning/` -- Logic, step-by-step, self-correction
+   - `agentic/` -- ReAct, prompt chaining, meta-prompting
+   - `context/` -- Few-shot, role-play, long-context
+   - `output/` -- JSON, structured lists, extraction
+   - `code/` -- Generation, refactoring, debugging
+   - `review/` -- Code review, security, performance
+   - `defensive/` -- Hallucination reduction, constraints
 3. **Use kebab-case naming:** e.g., `chain-of-thought.md`
 4. **Add tests** in `tests/`
 5. **Update README.md** pattern table

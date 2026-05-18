@@ -111,5 +111,5 @@ Provide:
 - Pro can reason across multiple modalities in a single request
 - Be explicit about what to focus on in images/videos
 - For documents, specify extraction format (markdown tables, structured data)
-- Cross-modal reasoning is a Pro strength — combine text + images for richer analysis
+- Cross-modal reasoning is a Pro strength -- combine text + images for richer analysis
 - Reference specific parts of images: "the chart on the left", "the footnote at the bottom"

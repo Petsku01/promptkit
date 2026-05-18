@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Cohere](../index.md)
+[<- Back to Model-Optimized Cohere](../index.md)
 
 # Command R+: Analysis
 

@@ -57,11 +57,11 @@ Generate comprehensive documentation for: [codebase/API/system]
 Source materials: [paste code, specs, or describe what to document]
 
 Generate:
-1. **README.md** — Quick start, installation, basic usage
-2. **API Reference** — All endpoints/methods with types and examples
-3. **Architecture Guide** — System overview, design decisions, data flow
-4. **Contributing Guide** — Setup, coding standards, PR process
-5. **Changelog** — Recent changes with migration notes
+1. **README.md** -- Quick start, installation, basic usage
+2. **API Reference** -- All endpoints/methods with types and examples
+3. **Architecture Guide** -- System overview, design decisions, data flow
+4. **Contributing Guide** -- Setup, coding standards, PR process
+5. **Changelog** -- Recent changes with migration notes
 
 Style:
 - Concise but complete
@@ -96,8 +96,8 @@ Run the full suite after writing. Fix any failures.
 ---
 **Claude Opus 4.7 Long-Horizon Tips:**
 - Designed for tasks that run for extended periods without supervision
-- Self-verifies at checkpoints — it will test before reporting
-- Takes instructions literally — provide complete specifications
+- Self-verifies at checkpoints -- it will test before reporting
+- Takes instructions literally -- provide complete specifications
 - Excellent at maintaining consistency across large changesets
 - Handles complex multi-step migrations with automatic rollback awareness
 - Use for: feature development, migrations, documentation, test campaigns

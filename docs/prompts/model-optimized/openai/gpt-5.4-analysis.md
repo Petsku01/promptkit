@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-5.4: Analysis
 
@@ -91,7 +91,7 @@ Action items must be SMART: Specific, Measurable, Achievable, Relevant, Time-bou
 
 ---
 **GPT-5.4 Analysis Tips:**
-- Provide raw data when possible — it handles quantitative analysis well
+- Provide raw data when possible -- it handles quantitative analysis well
 - Ask for explicit confidence levels on conclusions
 - Can process and cross-reference multiple document sources
 - Benefits from comparison frameworks and rubrics

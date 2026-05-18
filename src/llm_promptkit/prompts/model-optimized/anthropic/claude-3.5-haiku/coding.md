@@ -43,7 +43,7 @@ Language: [language]
 Include:
 - [standard elements]
 
-Keep it minimal — I'll fill in the details.
+Keep it minimal -- I'll fill in the details.
 ```
 
 ## Test Generation
@@ -84,7 +84,7 @@ Don't change functionality. Just make it cleaner.
 **Claude 3.5 Haiku Coding Tips:**
 - Great for quick boilerplate, simple functions, and basic tests
 - Fast and cheap enough for generating many files in one session
-- Don't ask for complex architecture or multi-file refactoring — use Sonnet/Opus for that
+- Don't ask for complex architecture or multi-file refactoring -- use Sonnet/Opus for that
 - XML tags help it stay focused on the specific task
 - Keep instructions direct: "Write X, include Y, skip Z"
 - Perfect for generating repetitive code patterns (CRUD endpoints, DTOs, migrations)

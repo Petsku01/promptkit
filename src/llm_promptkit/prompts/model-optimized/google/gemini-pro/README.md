@@ -1,11 +1,11 @@
-# Chain of Thought — Google (Gemini Pro, Flash, Ultra)
+# Chain of Thought -- Google (Gemini Pro, Flash, Ultra)
 
 ## Optimizations
 
-- **Structured format** — Gemini excels with clear structure
-- **Bullet points** — Use bullets for multi-part instructions
-- **Grounding** — Reference source material explicitly
-- **Multimodal aware** — Gemini can reason about images/video
+- **Structured format** -- Gemini excels with clear structure
+- **Bullet points** -- Use bullets for multi-part instructions
+- **Grounding** -- Reference source material explicitly
+- **Multimodal aware** -- Gemini can reason about images/video
 
 ## The Prompt
 

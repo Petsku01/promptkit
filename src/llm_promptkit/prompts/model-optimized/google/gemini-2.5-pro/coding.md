@@ -42,11 +42,11 @@ Review this code thoroughly:
 [paste code]
 
 Analyze:
-1. Correctness — does it do what it claims?
-2. Security — any vulnerabilities?
-3. Performance — bottlenecks or inefficiencies?
-4. Maintainability — readability and structure
-5. Best practices — language/framework conventions
+1. Correctness -- does it do what it claims?
+2. Security -- any vulnerabilities?
+3. Performance -- bottlenecks or inefficiencies?
+4. Maintainability -- readability and structure
+5. Best practices -- language/framework conventions
 6. Suggestions ranked by priority
 ```
 
@@ -118,7 +118,7 @@ Converted:
 ```
 Optimize this code:
 
-Goals: [speed/memory/readability — rank by priority]
+Goals: [speed/memory/readability -- rank by priority]
 Current performance: [measurements if available]
 
 Original:
@@ -137,6 +137,6 @@ Provide:
 - Pro handles complex architecture and design tasks well
 - Specify language, framework, and style expectations upfront
 - For reviews, ask for prioritized suggestions (Pro will organize deeply)
-- Pro can reason about edge cases — ask it to identify them explicitly
+- Pro can reason about edge cases -- ask it to identify them explicitly
 - Use 1M context to include multiple related files for cross-file analysis
 - "Include error handling" and "add types" produce better production code

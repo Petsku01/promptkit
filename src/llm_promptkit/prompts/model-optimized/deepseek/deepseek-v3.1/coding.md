@@ -95,6 +95,6 @@ Show before/after for each change with explanation.
 - Strong coding model, competitive with GPT-4o class
 - Excellent at following structured instructions
 - Use markdown code blocks for input/output specification
-- MIT licensed — can self-host for privacy/compliance
-- Good at Python, JavaScript, TypeScript — strongest languages
+- MIT licensed -- can self-host for privacy/compliance
+- Good at Python, JavaScript, TypeScript -- strongest languages
 - Cost-efficient for high-volume coding tasks

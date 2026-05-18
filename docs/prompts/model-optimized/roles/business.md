@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Roles](../index.md)
+[<- Back to Model-Optimized Roles](../index.md)
 
 # Bisnesroolit
 

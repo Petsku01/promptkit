@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Deepseek](../index.md)
+[<- Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek-R1: Coding
 

@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **XDG configuration system** (`config.toml`) — opt-in configuration via `$XDG_CONFIG_HOME/promptkit/config.toml`
+- **XDG configuration system** (`config.toml`) -- opt-in configuration via `$XDG_CONFIG_HOME/promptkit/config.toml`
   - `extra_prompt_dirs` and `extra_pattern_dirs` for custom content (absolute paths only)
   - `default_persona` for default persona in `promptkit build`
   - Missing config = old behavior preserved (zero breaking changes)
-- **Doctor v2** — 3 new heuristics + fix capabilities
+- **Doctor v2** -- 3 new heuristics + fix capabilities
   - Bigram duplication detection (identifies repeated phrases like "code review ... code review")
   - Context boundary validation (detects empty sections like `Task:` with no content)
   - Ambiguous language detection (`maybe`, `possibly`, `somewhat`)
@@ -21,12 +21,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `--fix --dry-run`: shows what would be fixed without modifying files
   - `--fix --file FILE.md`: modifies the file in-place, creates `.md.bak` backup
   - `--format json`: machine-readable JSON output
-- **Builder v2** — `string.Template` variable substitution
+- **Builder v2** -- `string.Template` variable substitution
   - `PromptBuilder().variables(role=..., task=..., ...)` substitutes `$variable` placeholders
-  - Uses `safe_substitute` — undefined variables are left as-is (no KeyError)
-  - Fully backward compatible — no `.variables()` call = old behavior
-- **Custom content with source tags** — `promptkit list` shows `[custom]` / `[built-in]` tags for patterns
-- **`tomli` dependency** — conditional for Python <3.11 (stdlib `tomllib` on 3.11+)
+  - Uses `safe_substitute` -- undefined variables are left as-is (no KeyError)
+  - Fully backward compatible -- no `.variables()` call = old behavior
+- **Custom content with source tags** -- `promptkit list` shows `[custom]` / `[built-in]` tags for patterns
+- **`tomli` dependency** -- conditional for Python <3.11 (stdlib `tomllib` on 3.11+)
 
 ### Changed
 
@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `promptkit build --interactive` replaces bare `promptkit build`
 - **BREAKING:** Patterns are now loaded from `.md` files, not a hard-coded dict
   - `PromptBuilder.PATTERNS` dict removed; use `PromptBuilder().get_available_patterns()` for names
-  - Patterns read via `importlib.resources` — single source of truth
+  - Patterns read via `importlib.resources` -- single source of truth
   - 18 patterns across 7 categories (reasoning, agentic, context, output, code, review, defensive)
 - CLI monolith (`cli.py`, 719 lines) split into modular package (`cli/commands/`)
 - Extracted shared helpers to `llm_promptkit/helpers.py`
@@ -60,11 +60,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `read_pattern()` cached with `@lru_cache` to avoid redundant I/O
 - `except Exception` narrowed to `except (OSError, UnicodeDecodeError)` in search
 - Doctor command validates file paths (rejects directories, nonexistent files, path traversal)
-- Private constants in `doctor.py` (`_VAGUE_PHRASES`, etc.) — not exported
+- Private constants in `doctor.py` (`_VAGUE_PHRASES`, etc.) -- not exported
 
 ### Added
 
-- `patterns/_registry.py` — pattern loading from packaged `.md` files
+- `patterns/_registry.py` -- pattern loading from packaged `.md` files
 - `PromptKitError(Exception)` base exception with `PatternNotFoundError` and `PatternLoadError` subclasses
 - `get_pattern_description()` and `list_patterns_with_categories()` in registry
 - `llm-promptkit` as alternative CLI entry point (in addition to `promptkit`)
@@ -89,7 +89,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ruff check + format` clean
 - Wheel includes both prompts (289) and patterns (18) correctly
 - CLI branding unified: `promptkit` everywhere
-- `examples()` validates keys — raises `ValueError` on missing `input`/`output`
+- `examples()` validates keys -- raises `ValueError` on missing `input`/`output`
 
 ## [0.1.0] - 2026-03-10
 

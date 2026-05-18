@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Qwen](../index.md)
+[<- Back to Model-Optimized Qwen](../index.md)
 
 # Qwen 2.5: Multilingual
 
@@ -16,7 +16,7 @@ Text:
 Translation:
 ```
 
-## Chinese ↔ English
+## Chinese <-> English
 
 ```
 Translate to English:

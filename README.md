@@ -5,11 +5,11 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 A toolkit for building effective LLM prompts. Includes:
-- **Prompt Doctor** — Analyze prompts for common issues
+- **Prompt Doctor** -- Analyze prompts for common issues
 - **18 prompt patterns** across 7 categories (reasoning, agentic, context, output, code, review, defensive)
-- **257+ curated prompts** — Model-optimized, role-based, and technique prompts
-- **Python API** — Fluent builder for composing prompts
-- **CLI** — Quick prompt generation and browsing from the terminal
+- **257+ curated prompts** -- Model-optimized, role-based, and technique prompts
+- **Python API** -- Fluent builder for composing prompts
+- **CLI** -- Quick prompt generation and browsing from the terminal
 
 ## Installation
 
@@ -78,16 +78,16 @@ Analyze prompts for common issues without API calls:
 ```bash
 $ promptkit doctor "Make it good please"
 
-┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Severity ┃ Issue                      ┃ Suggestion                   ┃
-┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ Warning  │ Vague or ambiguous         │ Found 'make it good'. Be    │
-│          │ instructions.              │ more specific.              │
-│ Info     │ Token inefficiency.        │ Found 'please'. Use direct  │
-│          │                            │ commands.                   │
-│ Sugges.  │ Missing context or role.   │ Add a persona.              │
-│ Warning  │ Missing output format.     │ Specify format (JSON, etc). │
-└──────────┴────────────────────────────┴──────────────────────────────┘
+┏==========┳============================┳==============================┓
+| Severity | Issue                      | Suggestion                   |
+┡==========╇============================╇==============================┩
+| Warning  | Vague or ambiguous         | Found 'make it good'. Be    |
+|          | instructions.              | more specific.              |
+| Info     | Token inefficiency.        | Found 'please'. Use direct  |
+|          |                            | commands.                   |
+| Sugges.  | Missing context or role.   | Add a persona.              |
+| Warning  | Missing output format.     | Specify format (JSON, etc). |
+`----------+----------------------------+------------------------------+
 ```
 
 **Checks:**
@@ -96,7 +96,7 @@ $ promptkit doctor "Make it good please"
 - Token inefficiency (verbose phrasing)
 - Missing output format
 - Lack of examples (few-shot)
-- Negative constraints ("don't" → use positive)
+- Negative constraints ("don't" -> use positive)
 - Structural formatting (long prompts need headers/lists)
 - Code block handling (skips NLP checks inside code)
 

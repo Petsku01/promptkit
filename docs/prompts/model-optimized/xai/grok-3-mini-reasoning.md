@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Xai](../index.md)
+[<- Back to Model-Optimized Xai](../index.md)
 
 # Grok 3 Mini: Reasoning
 
@@ -41,7 +41,7 @@ Use your real-time data to give me:
 3. Emerging trends
 4. Unpopular takes worth considering
 
-Don't just summarize — tell me what matters.
+Don't just summarize -- tell me what matters.
 ```
 
 ## Contrarian Analysis
@@ -72,9 +72,9 @@ Skip the basics I can find on Wikipedia. Get to the interesting parts.
 ---
 
 **Grok 3 Mini Reasoning Tips:**
-- Much cheaper than full Grok 3 — use for volume reasoning tasks
+- Much cheaper than full Grok 3 -- use for volume reasoning tasks
 - Enable thinking mode for harder problems (still very cost-efficient)
-- Real-time X/Twitter data available — leverage for current events
-- Direct style works best — no need for elaborate system prompts
-- Good for quick iterations — run many queries cheaply
+- Real-time X/Twitter data available -- leverage for current events
+- Direct style works best -- no need for elaborate system prompts
+- Good for quick iterations -- run many queries cheaply
 - Not meant for deeply complex reasoning (use full Grok 3 for that)

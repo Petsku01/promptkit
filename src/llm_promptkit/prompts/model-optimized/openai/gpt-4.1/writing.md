@@ -66,7 +66,7 @@ Length: [short/medium/long]
 Tone: [informative / opinionated / tutorial]
 
 Structure:
-1. Hook — why this matters
+1. Hook -- why this matters
 2. Problem or context
 3. Solution or approach
 4. Code examples
@@ -77,7 +77,7 @@ Include working code examples.
 
 ---
 **GPT-4.1 Writing Tips:**
-- Follows formatting instructions precisely — specify tone, length, structure
+- Follows formatting instructions precisely -- specify tone, length, structure
 - Better at maintaining consistent voice over long documents than GPT-4o
 - Use explicit constraints ("no filler", "under 200 words") for best results
-- Specify audience explicitly — it adapts language level well
+- Specify audience explicitly -- it adapts language level well

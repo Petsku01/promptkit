@@ -117,4 +117,4 @@ Provide complete, runnable test file.
 - Better at maintaining consistency across multi-file changes than GPT-4o
 - Specify formatting preferences explicitly (type hints, docstrings, etc.)
 - Use `developer` role with explicit constraints for best results
-- Supports Structured Outputs — use `response_format` with Pydantic schemas for guaranteed output types
+- Supports Structured Outputs -- use `response_format` with Pydantic schemas for guaranteed output types

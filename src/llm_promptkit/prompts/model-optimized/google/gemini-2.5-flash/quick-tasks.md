@@ -74,4 +74,4 @@ Format results as: [format]
 - Keep prompts short and direct
 - Flash responds best with clear, simple instructions
 - Use batch patterns to process multiple items in one 1M-context call
-- Avoid multi-step reasoning — Flash is optimized for speed over depth
+- Avoid multi-step reasoning -- Flash is optimized for speed over depth

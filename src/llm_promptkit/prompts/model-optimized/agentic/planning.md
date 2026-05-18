@@ -50,20 +50,20 @@ How will I measure progress?
 Main goal: [goal]
 
 Level 1 - Major phases:
-├── Phase A: [description]
-├── Phase B: [description]
-└── Phase C: [description]
+|-- Phase A: [description]
+|-- Phase B: [description]
+`-- Phase C: [description]
 
 Level 2 - Tasks per phase:
 Phase A:
-├── Task A.1: [description]
-├── Task A.2: [description]
+|-- Task A.1: [description]
+|-- Task A.2: [description]
 ...
 
 Level 3 - Subtasks:
 Task A.1:
-├── A.1.1: [action]
-├── A.1.2: [action]
+|-- A.1.1: [action]
+|-- A.1.2: [action]
 ...
 
 Start with Phase A, Task A.1.
@@ -117,8 +117,8 @@ For each critical step, define:
 
 Plan:
 Step 1: [action]
-  └─ If fails: [backup]
+  `- If fails: [backup]
 Step 2: [action]
-  └─ If fails: [backup]
+  `- If fails: [backup]
 ...
 ```

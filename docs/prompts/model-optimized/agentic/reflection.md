@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Agentic](../index.md)
+[<- Back to Model-Optimized Agentic](../index.md)
 
 # Agentic: Reflection
 

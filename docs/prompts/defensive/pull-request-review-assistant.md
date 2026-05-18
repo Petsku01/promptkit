@@ -1,4 +1,4 @@
-[← Back to Defensive Prompts](../index.md)
+[<- Back to Defensive Prompts](../index.md)
 
 # Pull Request Review Assistant
 

@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Mistral](../index.md)
+[<- Back to Model-Optimized Mistral](../index.md)
 
 # Mixtral: Analysis (MoE)
 

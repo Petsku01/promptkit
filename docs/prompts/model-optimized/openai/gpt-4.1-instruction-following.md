@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-4.1: Instruction Following
 
@@ -48,7 +48,7 @@ Execute each item in this checklist. Mark each as done.
 - [ ] [task 4]: [requirements]
 
 After completing all items, provide a summary confirming each was done.
-If any item cannot be completed, explain why — do not skip silently.
+If any item cannot be completed, explain why -- do not skip silently.
 ```
 
 ## Role + Constraint Prompt
@@ -70,9 +70,9 @@ Output: [exact format specification]
 
 ---
 **GPT-4.1 Instruction Following Tips:**
-- GPT-4.1's standout improvement over GPT-4o — excels at precise instruction adherence
+- GPT-4.1's standout improvement over GPT-4o -- excels at precise instruction adherence
 - Use explicit "MUST" and "MUST NOT" constraints for best results
 - Number steps and ask it to complete each in order
-- Specify negative constraints ("do not add X") — it respects these well
+- Specify negative constraints ("do not add X") -- it respects these well
 - Use `developer` role for system-level behavioral rules
 - Give an example of desired output format for complex formatting requirements

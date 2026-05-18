@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Meta](../index.md)
+[<- Back to Model-Optimized Meta](../index.md)
 
 # Llama 4: Analysis
 
@@ -6,7 +6,7 @@
 ```
 Analyze this document in detail.
 
-[paste document — leverage up to 10M context]
+[paste document -- leverage up to 10M context]
 
 Provide:
 1. Executive summary (3-5 sentences)
@@ -15,7 +15,7 @@ Provide:
 4. Implications and recommendations
 5. Open questions
 
-Be thorough — identify patterns that might not be obvious from a partial read.
+Be thorough -- identify patterns that might not be obvious from a partial read.
 ```
 
 ## Multi-Document Synthesis
@@ -23,11 +23,11 @@ Be thorough — identify patterns that might not be obvious from a partial read.
 I have multiple documents to cross-reference.
 
 Documents:
-1. [Document A] — [brief description]
-2. [Document B] — [brief description]
-3. [Document C] — [brief description]
+1. [Document A] -- [brief description]
+2. [Document B] -- [brief description]
+3. [Document C] -- [brief description]
 
-[Paste all documents — fits in 10M context]
+[Paste all documents -- fits in 10M context]
 
 Analyze:
 1. Key themes across all documents
@@ -41,12 +41,12 @@ Analyze:
 ```
 Analyze this codebase.
 
-[Paste full source — leverage 10M context window]
+[Paste full source -- leverage 10M context window]
 
 Provide:
-1. Architecture overview — how components connect
+1. Architecture overview -- how components connect
 2. Code quality assessment
-3. Dependency analysis — what depends on what
+3. Dependency analysis -- what depends on what
 4. Potential bugs or inconsistencies
 5. Performance bottlenecks
 6. Security concerns
@@ -74,7 +74,7 @@ Distinguish between what you know, what you infer, and what you assume.
 ---
 
 **Llama 4 Analysis Tips:**
-- 10M token context is the key differentiator — load entire document collections
+- 10M token context is the key differentiator -- load entire document collections
 - For best long-context results, place instructions at both start and end of prompt
 - Scout is sufficient for straightforward summarization and extraction
 - Maverick is better for complex reasoning across many documents

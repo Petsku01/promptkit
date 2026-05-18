@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-5.4: Coding
 
@@ -110,4 +110,4 @@ Provide:
 - Can autonomously run test-verify-fix cycles
 - Strong at maintaining architectural consistency across changes
 - Use `developer` role with explicit constraints for best results
-- Supports tool use — provide function schemas when applicable
+- Supports tool use -- provide function schemas when applicable

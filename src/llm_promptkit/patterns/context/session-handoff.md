@@ -2,7 +2,7 @@
 
 ## Description
 
-Create a structured handoff document that captures the current state of a conversation or project so a fresh AI instance (same or different model) can resume exactly where you left off — no guessing, no hallucinating, no re-discovery.
+Create a structured handoff document that captures the current state of a conversation or project so a fresh AI instance (same or different model) can resume exactly where you left off -- no guessing, no hallucinating, no re-discovery.
 
 ## When to use
 
@@ -20,11 +20,11 @@ Create a structured handoff document that captures the current state of a conver
 
 ## Core Principles
 
-1. **State, not prose** — Structure beats paragraphs. Bullet lists over narrative.
-2. **Decisions lock** — Record *what* was decided and *why*. Prevent re-litigation.
-3. **Failures matter** — What didn't work saves more time than what did.
-4. **Confidence flags** — Mark what's verified vs. assumed.
-5. **Next step is mandatory** — Always give the next AI a clear starting point.
+1. **State, not prose** -- Structure beats paragraphs. Bullet lists over narrative.
+2. **Decisions lock** -- Record *what* was decided and *why*. Prevent re-litigation.
+3. **Failures matter** -- What didn't work saves more time than what did.
+4. **Confidence flags** -- Mark what's verified vs. assumed.
+5. **Next step is mandatory** -- Always give the next AI a clear starting point.
 
 ## Template Variants
 
@@ -55,7 +55,7 @@ Write as if briefing a competent colleague who has never seen this project. Be p
 Generate a Project Continuation Document for session handoff.
 
 PURPOSE: Create a handoff package so a fresh AI instance with zero prior context
-can resume this project exactly where we are leaving off — no guessing,
+can resume this project exactly where we are leaving off -- no guessing,
 no hallucinating, and no re-discovery.
 
 Write as if briefing a senior technical colleague who is sharp but has
@@ -82,7 +82,7 @@ Use this structure:
 - How the system works end-to-end (numbered steps)
 - External dependencies
 
-## 4. RECENT WORK — WHAT JUST HAPPENED
+## 4. RECENT WORK -- WHAT JUST HAPPENED
 - What was worked on this session
 - Decisions made and WHY (prevent undoing work)
 - What changed in the system
@@ -116,7 +116,7 @@ Flag each section: ✅ HIGH (verified this session) ⚠️ MEDIUM (carried forwa
 Summarize this chat in 80 words: goal, decisions, open tasks, and one sentence on how to continue. Format as bullet points.
 ```
 
-## Example — Bug Fix Handoff
+## Example -- Bug Fix Handoff
 
 ```
 ## GOAL
@@ -128,7 +128,7 @@ Prevent duplicate email sends in retry processing.
 - Existing tests don't cover concurrent processing
 
 ## DECISIONS MADE
-- Keep fix small — no Redis or queue redesign
+- Keep fix small -- no Redis or queue redesign
 - Prefer DB-level locking or atomic update
 
 ## WHAT TO AVOID
@@ -143,7 +143,7 @@ Prevent duplicate email sends in retry processing.
 Prototype atomic claim logic in retry.ts and add one concurrency-focused test.
 ```
 
-## Example — Writing/Research Handoff
+## Example -- Writing/Research Handoff
 
 ```
 ## GOAL

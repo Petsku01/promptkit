@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Deepseek](../index.md)
+[<- Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek V4 Pro: Reasoning
 
@@ -48,7 +48,7 @@ What would change your mind?
 ```
 Analyze this document/corpus and reason about its contents.
 
-Document(s): [paste or describe — up to 1M tokens]
+Document(s): [paste or describe -- up to 1M tokens]
 Question: [what you need to understand]
 
 Tasks:
@@ -60,7 +60,7 @@ Tasks:
 6. Draw evidence-based conclusions
 7. Flag remaining uncertainties
 
-Leverage the full 1M context — no need to summarize first.
+Leverage the full 1M context -- no need to summarize first.
 ```
 
 ## Mathematical & Scientific Reasoning

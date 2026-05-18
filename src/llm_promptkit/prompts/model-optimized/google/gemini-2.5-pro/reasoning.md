@@ -100,7 +100,7 @@ Then recommend with justification.
 ---
 
 **Gemini 2.5 Pro Reasoning Tips:**
-- Pro excels at multi-step reasoning — don't oversimplify
+- Pro excels at multi-step reasoning -- don't oversimplify
 - Use "show your reasoning" or "think step by step" for deeper analysis
 - Structured output sections help Pro organize complex responses
 - 1M context allows analyzing multiple long documents simultaneously

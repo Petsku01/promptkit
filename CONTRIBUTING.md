@@ -6,13 +6,13 @@ Thanks for contributing! This guide will help you add new patterns and improve e
 
 1. **Use the template:** Copy `templates/pattern-template.md`
 2. **Place in correct category directory** under `src/llm_promptkit/patterns/`:
-   - `reasoning/` — Logic, step-by-step, self-correction
-   - `agentic/` — ReAct, prompt chaining, meta-prompting
-   - `context/` — Few-shot, role-play, long-context
-   - `output/` — JSON, structured lists, extraction
-   - `code/` — Generation, refactoring, debugging
-   - `review/` — Code review, security, performance
-   - `defensive/` — Hallucination reduction, constraints
+   - `reasoning/` -- Logic, step-by-step, self-correction
+   - `agentic/` -- ReAct, prompt chaining, meta-prompting
+   - `context/` -- Few-shot, role-play, long-context
+   - `output/` -- JSON, structured lists, extraction
+   - `code/` -- Generation, refactoring, debugging
+   - `review/` -- Code review, security, performance
+   - `defensive/` -- Hallucination reduction, constraints
 3. **Follow the naming convention:** Use kebab-case (e.g., `chain-of-thought.md`)
 4. **Test on multiple models:** At minimum GPT-4 and Claude
 5. **Include real examples:** Show actual input/output
@@ -30,10 +30,10 @@ Thanks for contributing! This guide will help you add new patterns and improve e
 
 ## What Makes a Good Pattern?
 
-Yes **Practical** — Solves a real problem developers have
-Yes **Tested** — Actually verified on multiple models
-Yes **Documented** — Explains the mechanics, not just the prompt
-Yes **Copyable** — Ready to paste and use immediately
+Yes **Practical** -- Solves a real problem developers have
+Yes **Tested** -- Actually verified on multiple models
+Yes **Documented** -- Explains the mechanics, not just the prompt
+Yes **Copyable** -- Ready to paste and use immediately
 
 No: Theoretical patterns without real testing
 No: Single-model tricks that don't generalize

@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-4.1: Analysis
 
@@ -86,7 +86,7 @@ Present findings with supporting evidence from the data.
 
 ---
 **GPT-4.1 Analysis Tips:**
-- Better instruction following than GPT-4o — specify exact output format
+- Better instruction following than GPT-4o -- specify exact output format
 - Can handle very long analysis prompts without quality degradation
 - Specify "show each step" to prevent skipping
 - Works well with structured prompts and explicit numbering

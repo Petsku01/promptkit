@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Anthropic](../index.md)
+[<- Back to Model-Optimized Anthropic](../index.md)
 
 # Claude 3.5 Haiku: Simple Tasks
 
@@ -7,9 +7,9 @@
 <task>Classify the following text.</task>
 
 <categories>
-1. [Category A] — [brief description]
-2. [Category B] — [brief description]
-3. [Category C] — [brief description]
+1. [Category A] -- [brief description]
+2. [Category B] -- [brief description]
+3. [Category C] -- [brief description]
 </categories>
 
 <data>
@@ -125,7 +125,7 @@ Format per item:
 **Claude 3.5 Haiku Simple Task Tips:**
 - Best value model for classification, extraction, and formatting
 - XML tags (`<task>`, `<data>`, `<output_format>`) keep it structured and reliable
-- One task per prompt — don't combine multiple operations
-- Keep instructions minimal — Haiku follows direct instructions well
+- One task per prompt -- don't combine multiple operations
+- Keep instructions minimal -- Haiku follows direct instructions well
 - 200K context means you can process long documents, but keep the task simple
 - For batch work, list items explicitly rather than describing them abstractly

@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Google](../index.md)
+[<- Back to Model-Optimized Google](../index.md)
 
 # Gemini 2.5 Flash: Long Context
 
@@ -41,7 +41,7 @@ Process each document and extract:
 2. Key entities
 3. Sentiment
 
-[b Documents pasted inline — Flash can handle many in 1M context]
+[b Documents pasted inline -- Flash can handle many in 1M context]
 
 Results:
 ```
@@ -86,7 +86,7 @@ List each occurrence with:
 ---
 
 **Gemini 2.5 Flash Long Context Tips:**
-- 1M token context — pack multiple documents into a single call
+- 1M token context -- pack multiple documents into a single call
 - Great for batch processing: classify/extract from many items at once
 - Separate documents with clear delimiters (---, Document N:)
 - For Q&A, ask Flash to reference where it found the answer

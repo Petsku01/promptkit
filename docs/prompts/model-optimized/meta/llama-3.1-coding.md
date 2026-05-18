@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Meta](../index.md)
+[<- Back to Model-Optimized Meta](../index.md)
 
 # Llama 3.1: Coding
 

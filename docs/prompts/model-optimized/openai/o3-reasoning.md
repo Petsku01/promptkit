@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # o3: Reasoning
 
@@ -71,9 +71,9 @@ For each option, evaluate expected outcomes. Recommend the best option with just
 
 ---
 **o3 Reasoning Tips:**
-- Keep prompts short and clear — the model does the reasoning internally
+- Keep prompts short and clear -- the model does the reasoning internally
 - Don't over-explain or add excessive structure
 - State the problem, provide constraints, let it work
-- Harder problems produce better results — save o3 for genuinely difficult tasks
-- Provide all necessary information upfront — it won't ask clarifying questions mid-reasoning
+- Harder problems produce better results -- save o3 for genuinely difficult tasks
+- Provide all necessary information upfront -- it won't ask clarifying questions mid-reasoning
 - Specify desired output format if you need structured responses

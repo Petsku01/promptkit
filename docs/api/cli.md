@@ -85,7 +85,7 @@ promptkit doctor --file my-prompt.md
 - Token inefficiency (verbose phrasing)
 - Missing output format
 - Lack of examples (few-shot)
-- Negative constraints ("don't" → use positive)
+- Negative constraints ("don't" -> use positive)
 - Structural formatting
 - Code block handling
 

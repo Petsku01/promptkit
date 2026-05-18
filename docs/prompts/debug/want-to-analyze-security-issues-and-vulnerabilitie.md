@@ -1,4 +1,4 @@
-[← Back to Debug Prompts](../index.md)
+[<- Back to Debug Prompts](../index.md)
 
 # want to analyze security issues and vulnerabilities and fixes
 

@@ -1,4 +1,4 @@
-[← Back to Output Prompts](../index.md)
+[<- Back to Output Prompts](../index.md)
 
 # XML Tag Framing
 

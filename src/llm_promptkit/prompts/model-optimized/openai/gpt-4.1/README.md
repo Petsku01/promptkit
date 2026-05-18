@@ -17,7 +17,7 @@
 
 ## Important to remember
 
-- GPT-4.1 follows instructions more precisely than GPT-4o — be explicit about what you want
+- GPT-4.1 follows instructions more precisely than GPT-4o -- be explicit about what you want
 - Use `developer` role for system-level instructions (preferred over `system`)
 - Specify output format upfront for best results
 - Handles long, detailed prompts without degrading quality

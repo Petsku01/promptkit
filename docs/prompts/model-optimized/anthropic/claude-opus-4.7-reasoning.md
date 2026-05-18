@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Anthropic](../index.md)
+[<- Back to Model-Optimized Anthropic](../index.md)
 
 # Claude Opus 4.7: Reasoning
 
@@ -18,7 +18,7 @@ Investigation approach:
 6. Identify the root cause with confidence level
 7. Propose verification steps
 
-Be rigorous — distinguish between what you know, what you infer, and what you assume.
+Be rigorous -- distinguish between what you know, what you infer, and what you assume.
 ```
 
 ## Architecture Decision with Trade-Off Analysis
@@ -96,14 +96,14 @@ Compliance check: [ GDPR / SOC2 / HIPAA / PCI-DSS ]
 Synthesize evidence on: [topic/question]
 
 Sources:
-1. [source] — [key finding]
-2. [source] — [key finding]
-3. [source] — [key finding]
+1. [source] -- [key finding]
+2. [source] -- [key finding]
+3. [source] -- [key finding]
 
 Tasks:
 1. Extract core claims from each source
 2. Identify areas of consensus
-3. Identify contradictions — explain possible reasons
+3. Identify contradictions -- explain possible reasons
 4. Evaluate source quality (methodology, sample size, recency)
 5. Assess overall evidence strength
 6. Present reconciled understanding with confidence levels
@@ -114,10 +114,10 @@ Flag any motivated reasoning or confirmation bias in the sources.
 
 ---
 **Claude Opus 4.7 Reasoning Tips:**
-- Use extended thinking for complex multi-step reasoning — it excels here
+- Use extended thinking for complex multi-step reasoning -- it excels here
 - Benefits from structured frameworks (5 Whys, STRIDE, SWOT)
-- Takes instructions very literally — be precise about what you want
+- Takes instructions very literally -- be precise about what you want
 - Can handle very long reasoning chains without losing context
-- Self-verifies before responding — ask it to double-check its work
+- Self-verifies before responding -- ask it to double-check its work
 - Distinguishes carefully between knowledge, inference, and assumption
-- Ask for confidence levels explicitly — it will calibrate well
+- Ask for confidence levels explicitly -- it will calibrate well

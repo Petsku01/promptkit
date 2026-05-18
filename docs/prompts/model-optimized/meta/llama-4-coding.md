@@ -1,8 +1,8 @@
-[← Back to Model-Optimized Meta](../index.md)
+[<- Back to Model-Optimized Meta](../index.md)
 
 # Llama 4: Coding
 
-## Code Generation (Scout — Fast & Efficient)
+## Code Generation (Scout -- Fast & Efficient)
 ```
 Write [language] code for: [task]
 
@@ -14,7 +14,7 @@ Include type hints and basic error handling.
 Keep it clean and straightforward.
 ```
 
-## Code Generation (Maverick — High Quality)
+## Code Generation (Maverick -- High Quality)
 ```
 Implement [feature description] in [language].
 
@@ -41,11 +41,11 @@ Review this code thoroughly.
 [paste code]
 
 Evaluate:
-1. **Correctness** — does it do what's intended?
-2. **Performance** — any unnecessary allocations or O() issues?
-3. **Security** — injection, auth, or data exposure risks?
-4. **Readability** — clear naming, proper structure?
-5. **Edge cases** — what inputs break it?
+1. **Correctness** -- does it do what's intended?
+2. **Performance** -- any unnecessary allocations or O() issues?
+3. **Security** -- injection, auth, or data exposure risks?
+4. **Readability** -- clear naming, proper structure?
+5. **Edge cases** -- what inputs break it?
 
 Prioritize: [correctness / performance / readability]
 ```
@@ -74,9 +74,9 @@ Feature: [description]
 Tech stack: [language / framework]
 
 Files to modify:
-1. [file1] — [what changes]
-2. [file2] — [what changes]
-3. [file3] — [what changes]
+1. [file1] -- [what changes]
+2. [file2] -- [what changes]
+3. [file3] -- [what changes]
 
 Working approach:
 1. Read existing code patterns
@@ -93,7 +93,7 @@ Constraints:
 ---
 
 **Llama 4 Coding Tips:**
-- Scout (17B active) is great for quick code generation and reviews — fast and cheap
+- Scout (17B active) is great for quick code generation and reviews -- fast and cheap
 - Maverick (400B total) excels at complex multi-file implementations
 - Both variants support tool use for agentic coding workflows
 - Explicit format requirements lead to better results

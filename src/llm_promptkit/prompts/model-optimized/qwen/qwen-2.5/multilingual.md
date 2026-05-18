@@ -14,7 +14,7 @@ Text:
 Translation:
 ```
 
-## Chinese ↔ English
+## Chinese <-> English
 
 ```
 Translate to English:

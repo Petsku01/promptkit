@@ -25,6 +25,6 @@
 - V4 Pro is ~1/7th the cost of Claude Opus for similar coding quality
 - V4 Flash is ~35× cheaper on input than Claude Opus
 - Use `deepseek-chat` for standard, `deepseek-reasoner` for thinking mode
-- MIT license — can self-host
+- MIT license -- can self-host
 - 1M context window (V4) can hold entire codebases
 - V4 Pro replaces R1 for most use cases

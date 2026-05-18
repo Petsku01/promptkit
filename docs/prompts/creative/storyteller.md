@@ -1,4 +1,4 @@
-[← Back to Creative Prompts](../index.md)
+[<- Back to Creative Prompts](../index.md)
 
 # Storyteller
 

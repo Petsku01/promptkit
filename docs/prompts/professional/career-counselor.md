@@ -1,4 +1,4 @@
-[← Back to Professional Prompts](../index.md)
+[<- Back to Professional Prompts](../index.md)
 
 # Career Counselor
 

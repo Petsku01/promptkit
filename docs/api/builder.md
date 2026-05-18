@@ -16,7 +16,7 @@ Set the AI persona/role.
 
 ```python
 builder.persona("Senior Developer")
-# → "You are a Senior Developer."
+# -> "You are a Senior Developer."
 ```
 
 ---
@@ -62,7 +62,7 @@ Set the main task/question.
 
 ```python
 builder.task("Review this code for bugs")
-# → "Task: Review this code for bugs"
+# -> "Task: Review this code for bugs"
 ```
 
 ---
@@ -73,7 +73,7 @@ Add context (code, document, data).
 
 ```python
 builder.context("def hello(): pass")
-# → "Context:\n```\ndef hello(): pass\n```"
+# -> "Context:\n```\ndef hello(): pass\n```"
 ```
 
 ---

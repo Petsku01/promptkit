@@ -1,4 +1,4 @@
-[← Back to Reasoning Prompts](../index.md)
+[<- Back to Reasoning Prompts](../index.md)
 
 # root-cause-analyst
 

@@ -4,7 +4,7 @@
 ```
 Analyze these documents for: [what you're looking for]
 
-Documents: [paste or list — leverage 1M context]
+Documents: [paste or list -- leverage 1M context]
 Focus: [key questions to answer]
 
 For each document:
@@ -21,7 +21,7 @@ Flag anything that needs deeper investigation.
 ```
 Answer questions about this codebase:
 
-Source: [paste relevant files — fits in 1M context]
+Source: [paste relevant files -- fits in 1M context]
 
 Questions:
 1. [question]
@@ -73,8 +73,8 @@ Process all texts consistently.
 ---
 **DeepSeek V4 Flash Analysis Tips:**
 - Best for high-throughput analysis tasks where speed matters
-- 1M context window — can process entire document sets at once
-- ~35× cheaper input than Claude Opus — use for volume
+- 1M context window -- can process entire document sets at once
+- ~35× cheaper input than Claude Opus -- use for volume
 - Good for: batch classification, extraction, summarization, Q&A
 - Switch to V4 Pro for tasks requiring deeper reasoning
 - API: `deepseek-chat` for Flash, use temperature=0 for extraction tasks

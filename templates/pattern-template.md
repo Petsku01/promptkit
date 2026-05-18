@@ -53,7 +53,7 @@
 
 ## Related Patterns
 
-- [Other Pattern](../category/other-pattern.md) — When to use this instead
+- [Other Pattern](../category/other-pattern.md) -- When to use this instead
 
 ---
 

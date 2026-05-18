@@ -1,4 +1,4 @@
-[← Back to Context Prompts](../index.md)
+[<- Back to Context Prompts](../index.md)
 
 # Few-Shot with Negatives
 

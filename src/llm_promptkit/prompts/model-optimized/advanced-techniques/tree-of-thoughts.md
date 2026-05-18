@@ -82,14 +82,14 @@ Bug: [bug description]
 Hypothesis tree:
 
 H1: [first hypothesis]
-├── Evidence for: [evidence]
-├── Evidence against: [evidence]
-└── Test: [how to verify]
+|-- Evidence for: [evidence]
+|-- Evidence against: [evidence]
+`-- Test: [how to verify]
 
 H2: [second hypothesis]
-├── Evidence for: [evidence]
-├── Evidence against: [evidence]
-└── Test: [how to verify]
+|-- Evidence for: [evidence]
+|-- Evidence against: [evidence]
+`-- Test: [how to verify]
 
 H3: [third hypothesis]
 ...

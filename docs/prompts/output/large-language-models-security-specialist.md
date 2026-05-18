@@ -1,4 +1,4 @@
-[← Back to Output Prompts](../index.md)
+[<- Back to Output Prompts](../index.md)
 
 # Large Language Models Security Specialist
 

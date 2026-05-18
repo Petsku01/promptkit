@@ -1,4 +1,4 @@
-[← Back to Debug Prompts](../index.md)
+[<- Back to Debug Prompts](../index.md)
 
 # security fixes
 

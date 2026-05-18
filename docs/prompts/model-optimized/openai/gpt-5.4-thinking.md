@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-5.4: Thinking Mode
 
@@ -94,6 +94,6 @@ Provide a confidence score (0-100%) and explain what would increase it.
 - Benefits from explicit "think step by step" instructions
 - Can maintain reasoning across very long chains
 - Ask it to generate and evaluate multiple hypotheses
-- It will naturally show its work — no need to force structured output
+- It will naturally show its work -- no need to force structured output
 - Best results when you provide context and constraints explicitly
-- Avoid rushing — give it room to explore dead ends and backtrack
+- Avoid rushing -- give it room to explore dead ends and backtrack

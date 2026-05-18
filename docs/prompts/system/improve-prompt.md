@@ -1,4 +1,4 @@
-[← Back to System Prompts](../index.md)
+[<- Back to System Prompts](../index.md)
 
 # Prompt Improver
 
@@ -233,9 +233,7 @@ You will be provided with customer service inquiries that require troubleshootin
 
 - Ask them to check that all cables to/from the router are connected. Note that it is common for cables to come loose over time.
 - If all cables are connected and the issue persists, ask them which router model they are using
-- Now you will advise them how to restart their device:
-  -- If the model number is MTD-327J, advise them to push the red button and hold it for 5 seconds, then wait 5 minutes before testing the connection.
-  -- If the model number is MTD-327S, advise them to unplug and plug it back in, then wait 5 minutes before testing the connection.
+- Now you will advise them how to restart their device: -- If the model number is MTD-327J, advise them to push the red button and hold it for 5 seconds, then wait 5 minutes before testing the connection. -- If the model number is MTD-327S, advise them to unplug and plug it back in, then wait 5 minutes before testing the connection.
 - If the customer's issue persists after restarting the device and waiting 5 minutes, connect them to IT support by outputting {"IT support requested"}.
 - If the user starts asking questions that are unrelated to this topic then confirm if they would like to end the current chat about troubleshooting and classify their request according to the following scheme:
 
@@ -410,7 +408,7 @@ Tactic: Give the model access to specific functions
 The Chat Completions API allows passing a list of function descriptions in requests. This enables models to generate function arguments according to the provided schemas. Generated function arguments are returned by the API in JSON format and can be used to execute function calls. Output provided by function calls can then be fed back into a model in the following request to close the loop. This is the recommended way of using OpenAI models to call external functions. To learn more see the function calling section in our introductory text generation guide and more function calling examples in the OpenAI Cookbook.
 
 Strategy: Test changes systematically
-Sometimes it can be hard to tell whether a change — e.g., a new instruction or a new design — makes your system better or worse. Looking at a few examples may hint at which is better, but with small sample sizes it can be hard to distinguish between a true improvement or random luck. Maybe the change helps performance on some inputs, but hurts performance on others.
+Sometimes it can be hard to tell whether a change -- e.g., a new instruction or a new design -- makes your system better or worse. Looking at a few examples may hint at which is better, but with small sample sizes it can be hard to distinguish between a true improvement or random luck. Maybe the change helps performance on some inputs, but hurts performance on others.
 
 Evaluation procedures (or "evals") are useful for optimizing system designs. Good evals are:
 

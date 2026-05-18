@@ -52,8 +52,8 @@ PR description: [paste]
 Files changed: [count or list key files]
 
 Review strategy:
-1. Start with the architecture — does the change make sense?
-2. Check public API changes — are they backward compatible?
+1. Start with the architecture -- does the change make sense?
+2. Check public API changes -- are they backward compatible?
 3. Review security-critical code paths
 4. Check error handling and edge cases
 5. Verify test coverage for new code
@@ -64,7 +64,7 @@ Prioritize findings:
 - 🟡 Should fix soon
 - 🟢 Nice to have
 
-Be thorough but efficient — focus on correctness over style.
+Be thorough but efficient -- focus on correctness over style.
 ```
 
 ## Long-Context Codebase Analysis
@@ -86,9 +86,9 @@ Provide the full source if possible for best results.
 
 ---
 **DeepSeek V4 Pro Coding Tips:**
-- Excellent at LiveCodeBench (93.7) — one of the strongest coding models
-- 1M token context — can hold entire codebases for analysis
-- 1/7th the cost of Claude Opus — run long agentic loops cheaply
+- Excellent at LiveCodeBench (93.7) -- one of the strongest coding models
+- 1M token context -- can hold entire codebases for analysis
+- 1/7th the cost of Claude Opus -- run long agentic loops cheaply
 - Strong at autonomous multi-step coding workflows
 - Use `deepseek-chat` for standard, `deepseek-reasoner` for thinking mode
 - MIT licensed for self-hosting if needed

@@ -1,4 +1,4 @@
-[← Back to Code Prompts](../index.md)
+[<- Back to Code Prompts](../index.md)
 
 # The Brutal Code Reviewer
 

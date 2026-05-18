@@ -48,8 +48,8 @@ o3 thinks **internally** before responding. It does deep reasoning on its own.
 
 ## Key Tips
 
-- **Don't prompt for reasoning** — it's automatic and internal
-- **Be direct** — just state what you want
-- **Harder = better** — o3 shines on difficult problems
-- **Simpler prompts** — less instruction, more problem
+- **Don't prompt for reasoning** -- it's automatic and internal
+- **Be direct** -- just state what you want
+- **Harder = better** -- o3 shines on difficult problems
+- **Simpler prompts** -- less instruction, more problem
 - **o3-mini** exists for medium-difficulty reasoning at lower cost

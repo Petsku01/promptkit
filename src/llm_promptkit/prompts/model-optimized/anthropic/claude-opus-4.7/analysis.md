@@ -92,9 +92,9 @@ Strategic analysis:
 
 ---
 **Claude Opus 4.7 Analysis Tips:**
-- Unmatched vision capabilities — can analyze images up to 3.75 megapixels
+- Unmatched vision capabilities -- can analyze images up to 3.75 megapixels
 - Excellent at extracting details from dense screenshots and diagrams
-- Takes instructions literally — provide exact output format you want
+- Takes instructions literally -- provide exact output format you want
 - Self-verifies analysis before responding
 - Produces higher-quality professional output: docs, slides, interfaces
 - Use structured rubrics and scoring for reproducible analysis

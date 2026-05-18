@@ -60,10 +60,10 @@ Output the transformed code only.
 
 ---
 **DeepSeek V4 Flash Coding Tips:**
-- Optimized for speed and throughput — best for high-volume generation
-- 284B total params, 13B active (MoE) — fast inference
+- Optimized for speed and throughput -- best for high-volume generation
+- 284B total params, 13B active (MoE) -- fast inference
 - 1M context window available when needed
 - Great for batch operations: bulk transformations, test generation, scaffolding
 - API: `deepseek-chat` (non-thinking) for speed, `deepseek-reasoner` for accuracy
-- ~35× cheaper on input than Claude Opus — use for tasks that don't need Pro
+- ~35× cheaper on input than Claude Opus -- use for tasks that don't need Pro
 - Perfect for CI/CD integration and automated code generation pipelines

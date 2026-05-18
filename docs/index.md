@@ -4,10 +4,10 @@ A toolkit for building effective LLM prompts from proven patterns.
 
 ## Why Promptkit?
 
-- **Proven patterns** — 18 battle-tested prompt techniques from research and practice
-- **Composable** — Mix and match patterns with a fluent Python API
-- **Copy-paste ready** — Each pattern documented with examples
-- **Framework agnostic** — Works with any LLM (GPT, Claude, Llama, etc.)
+- **Proven patterns** -- 18 battle-tested prompt techniques from research and practice
+- **Composable** -- Mix and match patterns with a fluent Python API
+- **Copy-paste ready** -- Each pattern documented with examples
+- **Framework agnostic** -- Works with any LLM (GPT, Claude, Llama, etc.)
 
 ## Quick Example
 

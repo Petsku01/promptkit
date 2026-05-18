@@ -1,4 +1,4 @@
-[← Back to Model-Optimized System-Prompts](../index.md)
+[<- Back to Model-Optimized System-Prompts](../index.md)
 
 # System Prompts: Coding
 

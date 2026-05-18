@@ -22,7 +22,7 @@
 
 ## Tips
 
-- Keep prompts concise — Flash works best with shorter instructions
+- Keep prompts concise -- Flash works best with shorter instructions
 - Use numbered lists over bullet points for structured output
 - Leverage 1M context for batch processing multiple items in one request
 - Prefer direct instructions over multi-step reasoning chains

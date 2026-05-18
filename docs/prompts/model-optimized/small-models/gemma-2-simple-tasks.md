@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Small-Models](../index.md)
+[<- Back to Model-Optimized Small-Models](../index.md)
 
 # Gemma 2: Simple Tasks
 

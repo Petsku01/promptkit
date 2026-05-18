@@ -23,7 +23,7 @@
 
 ## Tips
 
-- Use structured sections — Pro excels with clear organization
+- Use structured sections -- Pro excels with clear organization
 - Allow extended thinking for complex problems
 - Leverage multimodal inputs for richer analysis
 - Specify output format explicitly for best results

@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Xai](../index.md)
+[<- Back to Model-Optimized Xai](../index.md)
 
 # Grok 3 Mini: Coding
 
@@ -52,9 +52,9 @@ What does it do? What are the edge cases?
 ---
 
 **Grok 3 Mini Coding Tips:**
-- Great for quick code generation and simple debugging — fast and cheap
+- Great for quick code generation and simple debugging -- fast and cheap
 - Direct style: tell it what you want, it'll give it to you straight
 - For complex multi-file work or deep architectural decisions, use full Grok 3 instead
-- Thinking mode can help with harder bugs — adds reasoning depth at still-low cost
-- Handles real-world messy code well — no need to sanitize inputs
+- Thinking mode can help with harder bugs -- adds reasoning depth at still-low cost
+- Handles real-world messy code well -- no need to sanitize inputs
 - Perfect for CI/CD pipelines and automated code review at scale

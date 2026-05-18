@@ -1,4 +1,4 @@
-[← Back to Model-Optimized Openai](../index.md)
+[<- Back to Model-Optimized Openai](../index.md)
 
 # GPT-4.1: JSON Output
 
@@ -84,4 +84,4 @@ Document:
 - Better schema adherence than GPT-4o for complex outputs
 - Use Structured Outputs (Pydantic) for guaranteed type-safe responses
 - Specify "Return ONLY valid JSON" to avoid explanatory text
-- Handles nested schemas well — provide the full example schema
+- Handles nested schemas well -- provide the full example schema
