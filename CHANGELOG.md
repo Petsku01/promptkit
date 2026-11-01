@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-11-01
+
+### Added
+- NOTICE.md — third-party attribution manifest (Fabric MIT notice verbatim, CC0 markings for prompts.chat and Awesome ChatGPT Prompts), backed by a full repository content audit
+- YAML frontmatter metadata for all 290 prompts and 19 patterns (category, subcategory, source, license, model) with registry getters: get_pattern_metadata / get_pattern_category / get_pattern_attribution / get_pattern_license
+- generate_docs.py --check — drift lint that exits 1 when the docs mirror does not match regenerated output
+- py.typed + mypy check_untyped_defs; separate CI typing job
+- CI: wheel-smoke job (fresh venv, non-editable install), tiktoken extra job (verified exact token counting), Python 3.13/3.14 in the test matrix
+- CONTRIBUTING.md attribution guidelines
+
+### Changed
+- CLI contract: prompts --show resolves model-optimized/* paths (the README example now works); every "not found" path exits 1 instead of 0
+- Doctor: empty prompt exits 2 with a clear message ({"error":"empty"} in JSON mode); providing text AND --file exits 2 ("either/or"); positional FILE treated as --file
+- Doctor analyze split into doctor_heuristics.py + doctor_reports.py (behavior verified identical against a 850-prompt baseline)
+- Doctor --fix: fenced code blocks preserved byte-exact, rotating backups (.bak.1/.bak.2 — never overwrite), atomic writes (tempfile + os.replace), removes empty headings and stray "PLEASE"
+- config: TOML type validation (ConfigError with the exact field path; CLI exits 2)
+- Builder: variables(**values) implemented to match the long-standing CHANGELOG promise
+- Housekeeping: removed an uninstallable dependency pin from requirements.txt; removed uv.lock (library-lock policy; regenerate with uv sync if wanted); README/GitHub metadata corrected (19 patterns / 290 prompts)
+
+### Fixed
+- phi-3 prompt set removed — byte-identical duplicates of the phi-3.5 content (alias row kept in place)
+- Provenance: source frontmatter completed for 8 content-verified Fabric-derived prompts; 160 prompts without a known origin are documented for review instead of silently guessed
+
 ## [0.3.0] - 2026-05-01
 
 ### Added
