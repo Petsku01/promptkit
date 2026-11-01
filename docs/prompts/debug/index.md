@@ -13,12 +13,14 @@ promptkit search "debug"
 
 | Prompt | File |
 |--------|------|
+| [backend-performance-profiling](backend-performance-profiling.md) | `backend-performance-profiling.md` |
 | [bug-risk-analysis](bug-risk-analysis.md) | `bug-risk-analysis.md` |
 | [comprehensive-repository-analysis-and-bug-fixing-f](comprehensive-repository-analysis-and-bug-fixing-f.md) | `comprehensive-repository-analysis-and-bug-fixing-f.md` |
 | [debugger-extended](debugger-extended.md) | `debugger-extended.md` |
 | [four-phase-root-cause-debugging](four-phase-root-cause-debugging.md) | `four-phase-root-cause-debugging.md` |
 | [frontend-performance-investigation](frontend-performance-investigation.md) | `frontend-performance-investigation.md` |
 | [mcp-server-release-qa](mcp-server-release-qa.md) | `mcp-server-release-qa.md` |
+| [production-incident-command](production-incident-command.md) | `production-incident-command.md` |
 | [rubber-duck](rubber-duck.md) | `rubber-duck.md` |
 | [security-fixes-cves](security-fixes-cves.md) | `security-fixes-cves.md` |
 | [security-fixes](security-fixes.md) | `security-fixes.md` |

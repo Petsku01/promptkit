@@ -13,6 +13,8 @@ promptkit search "code"
 
 | Prompt | File |
 |--------|------|
+| [api-design-from-requirements](api-design-from-requirements.md) | `api-design-from-requirements.md` |
+| [api-mock-generation](api-mock-generation.md) | `api-mock-generation.md` |
 | [browser-exploration-to-verified-playwright-tests](browser-exploration-to-verified-playwright-tests.md) | `browser-exploration-to-verified-playwright-tests.md` |
 | [brutal-reviewer](brutal-reviewer.md) | `brutal-reviewer.md` |
 | [clojure-repl-pair-programming](clojure-repl-pair-programming.md) | `clojure-repl-pair-programming.md` |
@@ -21,8 +23,10 @@ promptkit search "code"
 | [code-reviewer](code-reviewer.md) | `code-reviewer.md` |
 | [commit-message-generator](commit-message-generator.md) | `commit-message-generator.md` |
 | [create-git-diff-commit](create-git-diff-commit.md) | `create-git-diff-commit.md` |
+| [data-pipeline-architecture](data-pipeline-architecture.md) | `data-pipeline-architecture.md` |
 | [dax-terminal](dax-terminal.md) | `dax-terminal.md` |
 | [debugger-interactive](debugger-interactive.md) | `debugger-interactive.md` |
+| [dependency-framework-upgrade-workflow](dependency-framework-upgrade-workflow.md) | `dependency-framework-upgrade-workflow.md` |
 | [developer-relations-consultant](developer-relations-consultant.md) | `developer-relations-consultant.md` |
 | [devops-engineer](devops-engineer.md) | `devops-engineer.md` |
 | [embedded-c-misra-deviations](embedded-c-misra-deviations.md) | `embedded-c-misra-deviations.md` |
@@ -43,19 +47,25 @@ promptkit search "code"
 | [machine-learning-engineer](machine-learning-engineer.md) | `machine-learning-engineer.md` |
 | [mongodb-query-performance-advisor](mongodb-query-performance-advisor.md) | `mongodb-query-performance-advisor.md` |
 | [multi-stage-dockerfile-builder](multi-stage-dockerfile-builder.md) | `multi-stage-dockerfile-builder.md` |
+| [notebook-sample-builder](notebook-sample-builder.md) | `notebook-sample-builder.md` |
 | [password-generator](password-generator.md) | `password-generator.md` |
 | [php-interpreter](php-interpreter.md) | `php-interpreter.md` |
+| [pyspark-performance-reviewer](pyspark-performance-reviewer.md) | `pyspark-performance-reviewer.md` |
 | [python-interpreter](python-interpreter.md) | `python-interpreter.md` |
 | [r-interpreter](r-interpreter.md) | `r-interpreter.md` |
 | [read-only-test-gap-audit](read-only-test-gap-audit.md) | `read-only-test-gap-audit.md` |
+| [refactoring-safety-net](refactoring-safety-net.md) | `refactoring-safety-net.md` |
 | [review-code](review-code.md) | `review-code.md` |
+| [salesforce-ui-dev-aura-lwc](salesforce-ui-dev-aura-lwc.md) | `salesforce-ui-dev-aura-lwc.md` |
 | [senior-engineer](senior-engineer.md) | `senior-engineer.md` |
 | [senior-frontend-developer](senior-frontend-developer.md) | `senior-frontend-developer.md` |
 | [software-quality-assurance-tester](software-quality-assurance-tester.md) | `software-quality-assurance-tester.md` |
 | [sql-change-blast-radius-analysis](sql-change-blast-radius-analysis.md) | `sql-change-blast-radius-analysis.md` |
 | [sql-terminal](sql-terminal.md) | `sql-terminal.md` |
 | [svg-designer](svg-designer.md) | `svg-designer.md` |
+| [tdd-full-cycle](tdd-full-cycle.md) | `tdd-full-cycle.md` |
 | [tdd-generator](tdd-generator.md) | `tdd-generator.md` |
+| [terraform-iac-reviewer](terraform-iac-reviewer.md) | `terraform-iac-reviewer.md` |
 | [unit-tester](unit-tester.md) | `unit-tester.md` |
 | [ux-ui-developer](ux-ui-developer.md) | `ux-ui-developer.md` |
 | [web-browser](web-browser.md) | `web-browser.md` |

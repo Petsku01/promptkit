@@ -30,6 +30,7 @@ promptkit search "defensive"
 | [plagiarism-checker](plagiarism-checker.md) | `plagiarism-checker.md` |
 | [pull-request-review-assistant](pull-request-review-assistant.md) | `pull-request-review-assistant.md` |
 | [refactoring-expert](refactoring-expert.md) | `refactoring-expert.md` |
+| [security-code-audit](security-code-audit.md) | `security-code-audit.md` |
 | [spec-plan-task-consistency-audit](spec-plan-task-consistency-audit.md) | `spec-plan-task-consistency-audit.md` |
 | [task-reviewer-compliance-quality](task-reviewer-compliance-quality.md) | `task-reviewer-compliance-quality.md` |
 | [tech-reviewer](tech-reviewer.md) | `tech-reviewer.md` |
