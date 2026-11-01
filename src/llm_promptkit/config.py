@@ -69,6 +69,10 @@ def _load_toml(path: Path) -> Dict[str, Any]:
         return {}
 
 
+class ConfigError(ValueError):
+    """A known configuration field has an invalid type."""
+
+
 class PromptKitConfig:
     """Configuration for llm-promptkit.
 
@@ -94,9 +98,29 @@ class PromptKitConfig:
         self._validate()
 
     def _validate(self) -> None:
-        """Validate configuration values and warn about issues."""
-        # Validation warnings are emitted by _resolve_dirs for better locality
-        pass
+        """Validate all supported fields before any property accesses them.
+
+        Unknown fields remain forward-compatible. There are currently no known
+        integer or boolean options; in particular bool must not pass as a string
+        or as a directory-list member.
+        """
+        section = self._raw.get("promptkit", {})
+        if not isinstance(section, dict):
+            raise ConfigError("promptkit: expected table")
+        for key in ("default_persona", "default_model"):
+            if key in section and not isinstance(section[key], str):
+                raise ConfigError(f"promptkit.{key}: expected str")
+        paths = section.get("paths", {})
+        if not isinstance(paths, dict):
+            raise ConfigError("promptkit.paths: expected table")
+        for key in ("extra_prompt_dirs", "extra_pattern_dirs"):
+            if key not in paths:
+                continue
+            if not isinstance(paths[key], list):
+                raise ConfigError(f"promptkit.paths.{key}: expected list[str]")
+            for index, value in enumerate(paths[key]):
+                if not isinstance(value, str):
+                    raise ConfigError(f"promptkit.paths.{key}[{index}]: expected str")
 
     @property
     def promptkit(self) -> Dict[str, Any]:

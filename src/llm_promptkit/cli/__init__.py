@@ -14,6 +14,18 @@ app = typer.Typer(
     no_args_is_help=True,
 )
 
+@app.callback()
+def validate_config() -> None:
+    """Report configuration errors consistently for every CLI command."""
+    from llm_promptkit.config import ConfigError, get_config
+
+    try:
+        get_config()
+    except ConfigError as exc:
+        typer.echo(f"ConfigError: {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+
+
 # Register commands
 app.command(name="list")(list_command)
 app.command(name="build")(build_command)

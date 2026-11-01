@@ -50,7 +50,7 @@ class TestPromptsNonInteractive:
 
     def test_prompts_show_invalid_format(self):
         result = runner.invoke(app, ["prompts", "--show", "invalid"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         assert "invalid" in result.output.lower() or "format" in result.output.lower()
 
     def test_prompts_model_invalid_format(self):
@@ -60,9 +60,9 @@ class TestPromptsNonInteractive:
 
     def test_prompts_show_not_found(self):
         result = runner.invoke(app, ["prompts", "--show", "fake/model/prompt"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         assert "not found" in result.output.lower()
 
     def test_prompts_model_not_found(self):
         result = runner.invoke(app, ["prompts", "--model", "nonexistent_provider"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1

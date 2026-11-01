@@ -95,6 +95,12 @@ class PromptBuilder:
         self._variables[name] = value
         return self
 
+    def variables(self, **values: str) -> "PromptBuilder":
+        """Set multiple template variables; later assignments override earlier ones."""
+        for name, value in values.items():
+            self.variable(name, value)
+        return self
+
     def build(self) -> str:
         """Build the final prompt string."""
         parts = []

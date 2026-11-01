@@ -26,7 +26,6 @@ paginate==0.5.7
 pathspec==1.0.4
 platformdirs==4.9.4
 pluggy==1.6.0
-prompt-patterns==0.1.0
 Pygments==2.19.2
 pymdown-extensions==10.21
 pyproject_hooks==1.2.0

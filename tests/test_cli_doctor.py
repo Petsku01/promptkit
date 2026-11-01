@@ -88,5 +88,5 @@ class TestDoctorEdgeCases:
         f = tmp_path / "prompt.md"
         f.write_text("You are a helpful assistant. Format output as JSON.")
         result = runner.invoke(app, ["doctor", "some text", "--file", str(f)])
-        assert result.exit_code == 0
+        assert result.exit_code == 2
         assert "both" in result.output.lower() or "--file" in result.output

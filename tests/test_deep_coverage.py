@@ -35,23 +35,23 @@ class TestPromptsShow:
 
     def test_show_model_invalid_format_single(self):
         result = runner.invoke(app, ["prompts", "--model", "just-one-part"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         assert "Provider" in result.output or "not found" in result.output
 
     def test_show_model_provider_not_found(self):
         result = runner.invoke(app, ["prompts", "--model", "nonexistent_provider/some_model"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         assert "not found" in result.output.lower()
 
     def test_show_prompt_invalid_format(self):
         result = runner.invoke(app, ["prompts", "--show", "too/few/parts/extra"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         # v0.3.0: _find_prompt_file searches all dirs — result is "not found" not "invalid format"
         assert "not found" in result.output.lower() or "invalid" in result.output.lower()
 
     def test_show_prompt_not_found(self):
         result = runner.invoke(app, ["prompts", "--show", "nonexist/model/prompt"])
-        assert result.exit_code == 0
+        assert result.exit_code == 1
         assert "not found" in result.output.lower()
 
 
@@ -131,7 +131,7 @@ class TestPromptsInteractiveDeep:
             fake_dir = Path("/tmp/nonexistent_promptkit_test")
             mock_dir.return_value = fake_dir
             result = runner.invoke(app, ["prompts", "--interactive"])
-            assert result.exit_code == 0
+            assert result.exit_code == 1
             assert "not found" in result.output.lower()
 
     @patch("llm_promptkit.cli.commands.prompts.copy_to_clipboard", return_value=True)

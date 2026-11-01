@@ -31,14 +31,18 @@ def prompts_command(
     ),
 ):
     """Browse model-optimized prompts."""
-    if interactive:
-        _interactive_prompts()
-    elif show:
-        _show_prompt(show)
-    elif model:
-        _list_model_prompts(model)
-    else:
-        _list_providers()
+    try:
+        if interactive:
+            _interactive_prompts()
+        elif show:
+            _show_prompt(show)
+        elif model:
+            _list_model_prompts(model)
+        else:
+            _list_providers()
+    except (OSError, UnicodeError) as exc:
+        typer.echo(f"Error reading prompts: {exc}", err=True)
+        raise typer.Exit(code=2) from exc
 
 
 def _find_prompt_file(parts: List[str]) -> Optional[tuple]:
@@ -47,16 +51,36 @@ def _find_prompt_file(parts: List[str]) -> Optional[tuple]:
     Returns (filepath, source) or None.
     User directories are checked first.
     """
-    all_dirs = get_all_prompt_dirs()
-    filename = f"{parts[-1]}.md"
-    subpath = "/".join(parts[:-1])
+    from difflib import SequenceMatcher
+    from pathlib import Path
 
+    all_dirs = get_all_prompt_dirs()
+    requested = Path(*parts)
+    if requested.suffix != ".md":
+        requested = requested.with_name(requested.name + ".md")
+    # Resolution tier precedes directory priority; custom wins within each tier.
+    for relative in (requested, Path("model-optimized") / requested):
+        for prompt_dir in all_dirs:
+            source = "custom" if prompt_dir != all_dirs[-1] else "built-in"
+            candidate = prompt_dir / relative
+            if candidate.is_file():
+                return candidate, source
+    # Conservative path/name fuzzy search; no content reads before selection.
+    query = requested.with_suffix("").as_posix().lower()
+    matches = []
     for prompt_dir in all_dirs:
         source = "custom" if prompt_dir != all_dirs[-1] else "built-in"
-        target_dir = prompt_dir / subpath if subpath else prompt_dir
-        candidate = target_dir / filename
-        if candidate.is_file():
-            return (candidate, source)
+        for candidate in sorted(prompt_dir.rglob("*.md")):
+            if candidate.stem.lower() in ("readme", "index"):
+                continue
+            name = candidate.relative_to(prompt_dir).with_suffix("").as_posix().lower()
+            score = max(SequenceMatcher(None, query, name).ratio(),
+                        SequenceMatcher(None, query, candidate.stem.lower()).ratio())
+            if score >= 0.7:
+                matches.append((score, candidate, source))
+    if matches:
+        _, candidate, source = max(matches, key=lambda item: item[0])
+        return candidate, source
     return None
 
 
@@ -69,7 +93,7 @@ def _list_providers():
     if not model_dir.exists():
         console.print("[red]Model-optimized prompts directory not found.[/red]")
         console.print(f"[dim]Looking in: {model_dir}[/dim]")
-        return
+        raise typer.Exit(code=1)
 
     table = Table(title="Available Providers", show_header=True, header_style="bold magenta")
     table.add_column("Provider", style="cyan")
@@ -100,7 +124,7 @@ def _list_model_prompts(model_path: str):
         provider_dir = prompts_dir / "model-optimized" / parts[0]
         if not provider_dir.exists():
             console.print(f"[red]Provider '{parts[0]}' not found.[/red]")
-            return
+            raise typer.Exit(code=1)
 
         table = Table(title=f"Models for {parts[0]}", show_header=True, header_style="bold magenta")
         table.add_column("Model", style="cyan")
@@ -120,7 +144,7 @@ def _list_model_prompts(model_path: str):
         full_model_dir = prompts_dir / "model-optimized" / parts[0] / parts[1]
         if not full_model_dir.exists():
             console.print(f"[red]Model '{model_path}' not found.[/red]")
-            return
+            raise typer.Exit(code=1)
 
         table = Table(
             title=f"Prompts for {model_path}", show_header=True, header_style="bold magenta"
@@ -141,16 +165,11 @@ def _show_prompt(prompt_path: str):
     """Show a specific prompt."""
     parts = prompt_path.split("/")
 
-    if len(parts) < 2:
-        console.print("[red]Invalid format. Use: provider/model/prompt or category/prompt[/red]")
-        console.print("[dim]Example: openai/gpt-4o/coding[/dim]")
-        return
-
     result = _find_prompt_file(parts)
     if result is None:
         console.print(f"[red]Prompt '{prompt_path}' not found.[/red]")
         console.print("[dim]Searched in built-in and custom prompt directories.[/dim]")
-        return
+        raise typer.Exit(code=1)
 
     prompt_file, source = result
     content = prompt_file.read_text()
@@ -173,7 +192,7 @@ def _interactive_prompts():
 
     if not model_dir.exists():
         console.print("[red]Model-optimized prompts directory not found.[/red]")
-        return
+        raise typer.Exit(code=1)
 
     console.print(Panel.fit("Prompt Selector", style="bold magenta"))
     console.print("[dim]Enter number to select, 'b' to go back, 'q' to quit[/dim]")
