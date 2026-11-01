@@ -4,8 +4,7 @@
 
 | Model | Sizes | Strengths |
 |-------|------|-----------|
-| [Phi 3](phi-3/) | 3.8B | Microsoft, reasoning |
-| [Phi 3.5](phi-3.5/) | 3.8B | Improved, vision |
+| [Phi 3 / 3.5](phi-3.5/) | 3.8B | Microsoft; yhteinen setti molemmille (phi-3-kopiot poistettu duplikaattina) |
 | [Gemma 2](gemma-2/) | 2B, 9B | Google, tehokas |
 
 ##  General rules for small models

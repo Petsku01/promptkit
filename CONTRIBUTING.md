@@ -67,6 +67,15 @@ ruff check src/ tests/
 ruff format src/ tests/
 ```
 
+## Attribution and Licensing
+
+When importing or adapting a prompt, verify its upstream content and license before
+adding a `source` frontmatter field. Record the upstream URL, preserve required
+copyright and license notices in `NOTICE.md`, and retain existing contributor
+credits. Distinguish prompt-content licenses (for example CC0) from repository
+code licenses. Never invent sources for unattributed prompts; flag unknown origins
+or unclear licenses for maintainer review instead.
+
 ## Questions?
 
 Open an issue or reach out to [@Petsku01](https://github.com/Petsku01).

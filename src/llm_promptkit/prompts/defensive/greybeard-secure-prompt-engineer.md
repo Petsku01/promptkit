@@ -1,3 +1,6 @@
+---
+source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+---
 # Secure Prompt Engineer
 
 **Category:** defensive
