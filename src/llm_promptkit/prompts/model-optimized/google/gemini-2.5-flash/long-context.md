@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2.5 Flash: Long Context"
+subcategory: "google"
+model: "gemini-2.5-flash"
+---
 # Gemini 2.5 Flash: Long Context
 
 ## Document Q&A

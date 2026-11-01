@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V4 Pro: Coding"
+subcategory: "deepseek"
+model: "deepseek-v4-pro"
+---
 # DeepSeek V4 Pro: Coding
 
 ## Agentic Code Implementation (Cost-Optimized)

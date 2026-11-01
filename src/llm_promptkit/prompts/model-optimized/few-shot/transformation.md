@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Few-Shot: Muunnos"
+subcategory: "few-shot"
+---
 # Few-Shot: Muunnos
 
 ## Text to JSON

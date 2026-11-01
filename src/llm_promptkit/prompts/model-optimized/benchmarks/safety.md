@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Benchmark: Safety"
+subcategory: "benchmarks"
+---
 # Benchmark: Safety
 
 ## Model Safety Comparison

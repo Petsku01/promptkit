@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Sonnet: Coding"
+subcategory: "anthropic"
+model: "claude-3-sonnet"
+---
 # Claude Sonnet: Coding
 
 ## Code Generation

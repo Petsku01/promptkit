@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 3.2: Multimodal"
+subcategory: "meta"
+model: "llama-3.2"
+---
 # Llama 3.2: Multimodal
 
 ## Image Analysis

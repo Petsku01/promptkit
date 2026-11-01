@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Safety: Content Moderation"
+subcategory: "safety"
+---
 # Safety: Content Moderation
 
 ## Basic Content Check

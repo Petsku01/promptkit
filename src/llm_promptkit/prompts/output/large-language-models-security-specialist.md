@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Large Language Models Security Specialist"
+source: "prompts.chat"
+license: "CC0"
+---
 # Large Language Models Security Specialist
 
 **Category:** output

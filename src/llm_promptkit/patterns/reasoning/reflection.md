@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Reflection"
+---
 # Reflection
 
 **Category:** reasoning

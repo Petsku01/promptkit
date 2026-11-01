@@ -1,4 +1,8 @@
-[<- Back to Context Prompts](../index.md)
+---
+category: "context"
+title: "Few-Shot with Negatives"
+---
+[← Back to Context Prompts](../index.md)
 
 # Few-Shot with Negatives
 

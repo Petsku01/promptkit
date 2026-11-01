@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "output"
+title: "Mermaid Diagram Creator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # Mermaid Diagram Creator
 

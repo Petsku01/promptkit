@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Art Prompt Creator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Art Prompt Creator
 
 **Category:** creative

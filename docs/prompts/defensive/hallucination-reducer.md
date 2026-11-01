@@ -1,4 +1,8 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Hallucination Reducer"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Hallucination Reducer
 

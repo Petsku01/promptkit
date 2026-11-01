@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Small-Models](../index.md)
+---
+category: "model-optimized"
+title: "Gemma 2: Simple Tasks"
+subcategory: "small-models"
+model: "gemma-2"
+---
+[← Back to Model-Optimized Small-Models](../index.md)
 
 # Gemma 2: Simple Tasks
 

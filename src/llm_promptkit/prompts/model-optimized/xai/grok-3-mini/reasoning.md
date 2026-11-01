@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 3 Mini: Reasoning"
+subcategory: "xai"
+model: "grok-3-mini"
+---
 # Grok 3 Mini: Reasoning
 
 ## Quick Analysis (Fast Mode)

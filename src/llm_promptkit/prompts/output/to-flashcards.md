@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Flashcard Generator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Flashcard Generator
 
 **Category:** output

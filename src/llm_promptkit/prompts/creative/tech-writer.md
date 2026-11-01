@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Tech Writer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Tech Writer
 
 **Category:** creative

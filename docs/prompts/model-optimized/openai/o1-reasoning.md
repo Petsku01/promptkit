@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "O1: Deep Reasoning"
+subcategory: "openai"
+model: "o1"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # O1: Deep Reasoning
 

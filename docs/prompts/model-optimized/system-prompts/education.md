@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized System-Prompts](../index.md)
+---
+category: "model-optimized"
+title: "System Prompts: Opetus"
+subcategory: "system-prompts"
+---
+[← Back to Model-Optimized System-Prompts](../index.md)
 
 # System Prompts: Opetus
 

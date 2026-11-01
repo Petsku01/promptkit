@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 3.2: General Tasks"
+subcategory: "meta"
+model: "llama-3.2"
+---
 # Llama 3.2: General Tasks
 
 ## Conversation

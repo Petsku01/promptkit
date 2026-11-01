@@ -1,4 +1,8 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Rubber Duck Debugging"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Rubber Duck Debugging
 

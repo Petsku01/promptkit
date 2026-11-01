@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 2: Coding"
+subcategory: "xai"
+model: "grok-2"
+---
 # Grok 2: Coding
 
 ## Quick Code

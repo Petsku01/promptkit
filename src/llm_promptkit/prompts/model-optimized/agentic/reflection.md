@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Agentic: Reflection"
+subcategory: "agentic"
+---
 # Agentic: Reflection
 
 ## Self-Critique

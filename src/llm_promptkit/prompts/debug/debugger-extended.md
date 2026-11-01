@@ -1,3 +1,7 @@
+---
+category: "debug"
+title: "Debugger (Extended)"
+---
 # Debugger (Extended)
 
 **Category:** debug

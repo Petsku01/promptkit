@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Startup Tech Lawyer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Startup Tech Lawyer
 
 **Category:** professional

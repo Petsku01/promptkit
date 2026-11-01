@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Anthropic](../index.md)
+---
+category: "model-optimized"
+title: "Claude 3.7 Sonnet: Coding"
+subcategory: "anthropic"
+model: "claude-3.7-sonnet"
+---
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude 3.7 Sonnet: Coding
 

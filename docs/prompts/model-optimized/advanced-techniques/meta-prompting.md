@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Advanced-Techniques](../index.md)
+---
+category: "model-optimized"
+title: "Meta-Prompting"
+subcategory: "advanced-techniques"
+---
+[← Back to Model-Optimized Advanced-Techniques](../index.md)
 
 # Meta-Prompting
 

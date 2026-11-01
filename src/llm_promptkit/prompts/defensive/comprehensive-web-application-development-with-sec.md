@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Comprehensive Web Application Development with Security and Performance Optimization"
+source: "prompts.chat"
+license: "CC0"
+---
 # Comprehensive Web Application Development with Security and Performance Optimization
 
 **Category:** defensive

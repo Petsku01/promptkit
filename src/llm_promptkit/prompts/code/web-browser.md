@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Web Browser"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # Web Browser
 
 **Category:** code

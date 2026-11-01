@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini Pro: Coding"
+subcategory: "google"
+model: "gemini-pro"
+---
 # Gemini Pro: Coding
 
 ## Code Generation

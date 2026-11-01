@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Mathematical History Teacher"
+source: "prompts.chat"
+license: "CC0"
+---
 # Mathematical History Teacher
 
 **Category:** education

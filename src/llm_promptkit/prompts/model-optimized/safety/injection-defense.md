@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Safety: Prompt Injection Defense"
+subcategory: "safety"
+---
 # Safety: Prompt Injection Defense
 
 >  **Reality Check**: Text-based defenses alone are NOT sufficient for production.

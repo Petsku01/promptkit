@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Self-Refinement"
+---
 # Self-Refinement
 
 **Category:** reasoning

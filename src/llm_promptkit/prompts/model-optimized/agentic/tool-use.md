@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Agentic: Tool Use"
+subcategory: "agentic"
+---
 # Agentic: Tool Use
 
 >  **Modern Best Practice**: Use native function calling APIs (OpenAI, Anthropic, etc.)

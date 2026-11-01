@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "Startup Tech Lawyer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # Startup Tech Lawyer
 

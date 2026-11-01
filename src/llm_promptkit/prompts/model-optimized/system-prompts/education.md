@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "System Prompts: Opetus"
+subcategory: "system-prompts"
+---
 # System Prompts: Opetus
 
 ## Mr. Ranedeer (AI Tutor)

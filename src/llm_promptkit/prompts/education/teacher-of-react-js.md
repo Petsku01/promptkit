@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Teacher of React.js"
+source: "prompts.chat"
+license: "CC0"
+---
 # Teacher of React.js
 
 **Category:** education

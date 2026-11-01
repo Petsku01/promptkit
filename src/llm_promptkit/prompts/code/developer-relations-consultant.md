@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Developer Relations Consultant"
+source: "prompts.chat"
+license: "CC0"
+---
 # Developer Relations Consultant
 
 **Category:** code

@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Commit Message Generator"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # Commit Message Generator
 
 **Category:** code

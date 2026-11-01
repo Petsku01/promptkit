@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Self-Refinement"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Self-Refinement
 

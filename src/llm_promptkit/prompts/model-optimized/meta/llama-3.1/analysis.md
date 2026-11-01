@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 3.1: Analysis"
+subcategory: "meta"
+model: "llama-3.1"
+---
 # Llama 3.1: Analysis
 
 ## Chain-of-Thought Reasoning

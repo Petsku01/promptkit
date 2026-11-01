@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Qwen 2.5: Coding"
+subcategory: "qwen"
+model: "qwen-2.5"
+---
 # Qwen 2.5: Coding
 
 ## Code Generation

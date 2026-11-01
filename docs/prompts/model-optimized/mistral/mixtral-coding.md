@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Mistral](../index.md)
+---
+category: "model-optimized"
+title: "Mixtral: Coding (MoE)"
+subcategory: "mistral"
+model: "mixtral"
+---
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Mixtral: Coding (MoE)
 

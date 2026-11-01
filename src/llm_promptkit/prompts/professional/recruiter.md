@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Recruiter"
+source: "prompts.chat"
+license: "CC0"
+---
 # Recruiter
 
 **Category:** professional

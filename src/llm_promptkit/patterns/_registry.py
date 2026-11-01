@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from llm_promptkit.config import get_config
+from llm_promptkit.metadata import split_frontmatter
 
 
 class PromptKitError(Exception):
@@ -107,7 +108,7 @@ def list_patterns_with_categories() -> Tuple[Tuple[str, str], ...]:
                     if md_file.suffix == ".md" and not md_file.name.startswith("README"):
                         # Only add if not already seen (user dirs come first)
                         if md_file.stem not in seen:
-                            seen[md_file.stem] = (md_file.stem, category_dir.name)
+                            seen[md_file.stem] = (md_file.stem, get_pattern_category(md_file.stem))
         for md_file in sorted(pattern_dir.glob("*.md")):
             if not md_file.name.startswith("README"):
                 if md_file.stem not in seen:
@@ -146,9 +147,46 @@ def read_pattern(name: str) -> str:
         raise PatternLoadError(f"Failed to read pattern '{name}': {e}") from e
 
 
+def get_pattern_metadata(name: str) -> Dict[str, str]:
+    """Read attribution metadata (distinct from custom/built-in origin).
+
+    A fresh dict is returned; absent optional fields remain absent. Legacy files
+    without frontmatter use the directory category, not invented attribution.
+    """
+    result = _scan_pattern(name, _get_pattern_dirs())
+    if result is None:
+        raise PatternNotFoundError(f"Unknown pattern '{name}'")
+    path, _origin = result
+    try:
+        metadata, _, _ = split_frontmatter(path.read_bytes())
+    except (OSError, ValueError) as exc:
+        raise PatternLoadError(f"Failed to read pattern '{name}': {exc}") from exc
+    metadata.setdefault("category", path.parent.name)
+    return metadata
+
+
+def get_pattern_category(name: str) -> str:
+    """Return the frontmatter category, with a legacy directory fallback."""
+    return get_pattern_metadata(name)["category"]
+
+
+def get_pattern_attribution(name: str) -> Optional[str]:
+    """Return the frontmatter source, or None when not documented."""
+    return get_pattern_metadata(name).get("source")
+
+
+def get_pattern_license(name: str) -> Optional[str]:
+    """Return the documented license, or None when unknown."""
+    return get_pattern_metadata(name).get("license")
+
+
 def _parse_pattern_body(path: Path) -> str:
-    """Extract pattern template from .md, stripping title and category metadata."""
-    lines = path.read_text(encoding="utf-8").splitlines()
+    """Extract template, stripping YAML frontmatter and legacy title/category."""
+    try:
+        _, _, body = split_frontmatter(path.read_bytes())
+    except ValueError as exc:
+        raise PatternLoadError(f"Invalid frontmatter in '{path}': {exc}") from exc
+    lines = body.decode("utf-8").splitlines()
     body_lines = []
     past_metadata = False
     for line in lines:

@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Comprehensive Content Review Plan"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Comprehensive Content Review Plan
 

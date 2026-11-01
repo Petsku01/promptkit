@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "output"
+title: "Meeting Minutes Transcriber"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # Meeting Minutes Transcriber
 

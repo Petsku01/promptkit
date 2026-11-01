@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Mistral](../index.md)
+---
+category: "model-optimized"
+title: "Codestral: Specialized Coding"
+subcategory: "mistral"
+model: "codestral"
+---
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Codestral: Specialized Coding
 

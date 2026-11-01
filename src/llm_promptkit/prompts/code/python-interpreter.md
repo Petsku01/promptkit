@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Python Interpreter"
+source: "prompts.chat"
+license: "CC0"
+---
 # Python Interpreter
 
 **Category:** code

@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Mistral](../index.md)
+---
+category: "model-optimized"
+title: "Mistral Nemo: Efficient General Tasks"
+subcategory: "mistral"
+model: "mistral-nemo"
+---
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Mistral Nemo: Efficient General Tasks
 

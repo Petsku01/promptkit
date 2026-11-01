@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4o: Writing"
+subcategory: "openai"
+model: "gpt-4o"
+---
 # GPT-4o: Writing
 
 ## Tekstin parannus

@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "IT Architect"
+source: "prompts.chat"
+license: "CC0"
+---
 # IT Architect
 
 **Category:** code

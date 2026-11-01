@@ -1,3 +1,7 @@
+---
+category: "system"
+title: "Claude Soul Principles (Condensed)"
+---
 # Claude Soul Principles (Condensed)
 
 **Category:** system

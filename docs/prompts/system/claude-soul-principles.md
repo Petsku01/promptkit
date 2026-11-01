@@ -1,4 +1,8 @@
-[<- Back to System Prompts](../index.md)
+---
+category: "system"
+title: "Claude Soul Principles (Condensed)"
+---
+[← Back to System Prompts](../index.md)
 
 # Claude Soul Principles (Condensed)
 

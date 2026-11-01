@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "defensive"
+title: "HackerOne Reporter"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # HackerOne Reporter
 

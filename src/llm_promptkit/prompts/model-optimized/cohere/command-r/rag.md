@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Command R: RAG (Retrieval Augmented Generation)"
+subcategory: "cohere"
+model: "command-r"
+---
 # Command R: RAG (Retrieval Augmented Generation)
 
 ## Basic RAG

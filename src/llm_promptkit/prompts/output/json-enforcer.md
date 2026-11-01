@@ -1,3 +1,7 @@
+---
+category: "output"
+title: "Strict JSON Enforcer"
+---
 # Strict JSON Enforcer
 
 **Category:** output

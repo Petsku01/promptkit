@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Google](../index.md)
+---
+category: "model-optimized"
+title: "Gemini 2.5 Pro: Coding"
+subcategory: "google"
+model: "gemini-2.5-pro"
+---
+[← Back to Model-Optimized Google](../index.md)
 
 # Gemini 2.5 Pro: Coding
 

@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Few-Shot: Analysis"
+subcategory: "few-shot"
+---
 # Few-Shot: Analysis
 
 ## Entity Extraction

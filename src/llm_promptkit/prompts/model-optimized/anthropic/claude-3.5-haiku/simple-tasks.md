@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude 3.5 Haiku: Simple Tasks"
+subcategory: "anthropic"
+model: "claude-3.5-haiku"
+---
 # Claude 3.5 Haiku: Simple Tasks
 
 ## Classification

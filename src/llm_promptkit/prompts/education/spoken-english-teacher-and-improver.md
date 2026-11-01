@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Spoken English Teacher and Improver"
+source: "prompts.chat"
+license: "CC0"
+---
 # Spoken English Teacher and Improver
 
 **Category:** education

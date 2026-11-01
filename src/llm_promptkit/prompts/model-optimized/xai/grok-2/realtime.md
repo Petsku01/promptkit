@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 2: Real-time information"
+subcategory: "xai"
+model: "grok-2"
+---
 # Grok 2: Real-time information
 
 ## Current Events

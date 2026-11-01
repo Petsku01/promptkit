@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "GPT-4o: Coding"
+subcategory: "openai"
+model: "gpt-4o"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # GPT-4o: Coding
 

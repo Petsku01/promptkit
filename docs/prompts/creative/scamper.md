@@ -1,4 +1,8 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "SCAMPER Brainstorming"
+---
+[← Back to Creative Prompts](../index.md)
 
 # SCAMPER Brainstorming
 

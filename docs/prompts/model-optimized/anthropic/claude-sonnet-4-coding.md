@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Anthropic](../index.md)
+---
+category: "model-optimized"
+title: "Claude Sonnet 4: Coding"
+subcategory: "anthropic"
+model: "claude-sonnet-4"
+---
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude Sonnet 4: Coding
 

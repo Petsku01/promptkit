@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Few-Shot](../index.md)
+---
+category: "model-optimized"
+title: "Few-Shot: Analysis"
+subcategory: "few-shot"
+---
+[← Back to Model-Optimized Few-Shot](../index.md)
 
 # Few-Shot: Analysis
 

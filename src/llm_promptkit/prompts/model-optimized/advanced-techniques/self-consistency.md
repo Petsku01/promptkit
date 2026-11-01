@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Self-Consistency"
+subcategory: "advanced-techniques"
+---
 # Self-Consistency
 
 Generate multiple responses and select the most common -> more reliable result.

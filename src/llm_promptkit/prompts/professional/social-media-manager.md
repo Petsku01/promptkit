@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Social Media Manager"
+source: "prompts.chat"
+license: "CC0"
+---
 # Social Media Manager
 
 **Category:** professional

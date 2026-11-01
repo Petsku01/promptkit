@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Xai](../index.md)
+---
+category: "model-optimized"
+title: "Grok 3 Mini: Coding"
+subcategory: "xai"
+model: "grok-3-mini"
+---
+[← Back to Model-Optimized Xai](../index.md)
 
 # Grok 3 Mini: Coding
 

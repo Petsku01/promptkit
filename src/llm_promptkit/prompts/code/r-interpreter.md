@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "R Interpreter"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # R Interpreter
 
 **Category:** code

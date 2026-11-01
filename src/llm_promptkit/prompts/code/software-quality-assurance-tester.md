@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Software Quality Assurance Tester"
+source: "prompts.chat"
+license: "CC0"
+---
 # Software Quality Assurance Tester
 
 **Category:** code

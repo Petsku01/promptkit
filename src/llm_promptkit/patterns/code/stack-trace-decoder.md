@@ -1,3 +1,7 @@
+---
+category: "code"
+title: "Stack Trace Decoder"
+---
 # Stack Trace Decoder
 
 **Category:** code

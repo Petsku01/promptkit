@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "Career Counselor"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # Career Counselor
 

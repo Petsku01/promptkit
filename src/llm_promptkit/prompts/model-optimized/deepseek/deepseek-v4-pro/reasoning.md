@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V4 Pro: Reasoning"
+subcategory: "deepseek"
+model: "deepseek-v4-pro"
+---
 # DeepSeek V4 Pro: Reasoning
 
 ## Complex Multi-Step Problem Solving

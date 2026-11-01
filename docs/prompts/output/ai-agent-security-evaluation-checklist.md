@@ -1,4 +1,10 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "AI Agent Security Evaluation Checklist"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Output Prompts](../index.md)
 
 # AI Agent Security Evaluation Checklist
 

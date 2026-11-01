@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Career Counselor"
+source: "prompts.chat"
+license: "CC0"
+---
 # Career Counselor
 
 **Category:** professional

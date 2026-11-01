@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Benchmarks](../index.md)
+---
+category: "model-optimized"
+title: "Benchmark: Instruction Following"
+subcategory: "benchmarks"
+---
+[← Back to Model-Optimized Benchmarks](../index.md)
 
 # Benchmark: Instruction Following
 

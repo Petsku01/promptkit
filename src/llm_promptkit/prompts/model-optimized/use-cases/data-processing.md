@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Use Case: Data Processing"
+subcategory: "use-cases"
+---
 # Use Case: Data Processing
 
 ## Data Extraction

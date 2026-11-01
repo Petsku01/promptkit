@@ -1,3 +1,9 @@
+---
+category: "context"
+title: "Session Handoff Prompts"
+---
+[← Back to Context Prompts](../index.md)
+
 # Session Handoff Prompts
 
 **Use case:** Continue a conversation or project in a new AI session -- same model, different model, or different person.

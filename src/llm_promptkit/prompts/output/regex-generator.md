@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "RegEx Generator"
+source: "prompts.chat"
+license: "CC0"
+---
 # RegEx Generator
 
 **Category:** output

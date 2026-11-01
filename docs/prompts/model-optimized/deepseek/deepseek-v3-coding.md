@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Deepseek](../index.md)
+---
+category: "model-optimized"
+title: "DeepSeek V3: Coding"
+subcategory: "deepseek"
+model: "deepseek-v3"
+---
+[← Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek V3: Coding
 

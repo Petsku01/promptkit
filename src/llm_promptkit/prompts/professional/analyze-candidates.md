@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Candidate Analyzer"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Candidate Analyzer
 
 **Category:** professional

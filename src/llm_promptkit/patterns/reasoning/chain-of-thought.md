@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Chain-of-Thought"
+---
 # Chain-of-Thought
 
 **Category:** reasoning

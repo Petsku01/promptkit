@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Tree-of-Thoughts (ToT)"
+subcategory: "advanced-techniques"
+---
 # Tree-of-Thoughts (ToT)
 
 Explore multiple thought paths, evaluate and select the best.

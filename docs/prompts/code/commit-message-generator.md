@@ -1,4 +1,10 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Commit Message Generator"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
+[← Back to Code Prompts](../index.md)
 
 # Commit Message Generator
 

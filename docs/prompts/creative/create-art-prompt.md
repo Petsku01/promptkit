@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Art Prompt Creator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Art Prompt Creator
 

@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2: Multimodal"
+subcategory: "google"
+model: "gemini-2"
+---
 # Gemini 2: Multimodal
 
 ## Image Analysis

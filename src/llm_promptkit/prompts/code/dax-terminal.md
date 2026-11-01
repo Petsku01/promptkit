@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "DAX Terminal"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # DAX Terminal
 
 **Category:** code

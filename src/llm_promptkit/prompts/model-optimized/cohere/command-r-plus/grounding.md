@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Command R+: Grounded Generation"
+subcategory: "cohere"
+model: "command-r-plus"
+---
 # Command R+: Grounded Generation
 
 ## Grounded Answer

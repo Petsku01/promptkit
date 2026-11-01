@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-5.4: Thinking Mode"
+subcategory: "openai"
+model: "gpt-5.4"
+---
 # GPT-5.4: Thinking Mode
 
 ## Deep Problem Solving

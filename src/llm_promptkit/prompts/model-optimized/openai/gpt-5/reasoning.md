@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-5: Advanced Reasoning"
+subcategory: "openai"
+model: "gpt-5"
+---
 # GPT-5: Advanced Reasoning
 
 ## Complex Problem Solving

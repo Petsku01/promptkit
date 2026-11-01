@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek Coder: Debugging"
+subcategory: "deepseek"
+model: "deepseek-coder"
+---
 # DeepSeek Coder: Debugging
 
 ## Fix Error

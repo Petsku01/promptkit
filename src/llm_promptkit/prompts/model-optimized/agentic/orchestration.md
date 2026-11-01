@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Agentic: Orchestration"
+subcategory: "agentic"
+---
 # Agentic: Orchestration
 
 ## Multi-Agent Coordination

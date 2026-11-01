@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Qwen](../index.md)
+---
+category: "model-optimized"
+title: "Qwen 2.5: Coding"
+subcategory: "qwen"
+model: "qwen-2.5"
+---
+[← Back to Model-Optimized Qwen](../index.md)
 
 # Qwen 2.5: Coding
 

@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Use Case: HR & Recruiting"
+subcategory: "use-cases"
+---
 # Use Case: HR & Recruiting
 
 ## Resume Screener

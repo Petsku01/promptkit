@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2.5 Flash: Coding"
+subcategory: "google"
+model: "gemini-2.5-flash"
+---
 # Gemini 2.5 Flash: Coding
 
 ## Quick Code Generation

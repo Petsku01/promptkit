@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Benchmark: Coding"
+subcategory: "benchmarks"
+---
 # Benchmark: Coding
 
 ## Model Comparison (Code Generation)

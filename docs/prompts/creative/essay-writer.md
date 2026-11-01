@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Essay Writer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Essay Writer
 

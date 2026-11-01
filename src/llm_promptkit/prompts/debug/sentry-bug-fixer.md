@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "Sentry Bug Fixer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Sentry Bug Fixer
 
 **Category:** debug

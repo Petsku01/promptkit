@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Use-Cases](../index.md)
+---
+category: "model-optimized"
+title: "Use Case: HR & Recruiting"
+subcategory: "use-cases"
+---
+[← Back to Model-Optimized Use-Cases](../index.md)
 
 # Use Case: HR & Recruiting
 

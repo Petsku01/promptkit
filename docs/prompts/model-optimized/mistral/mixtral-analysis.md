@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Mistral](../index.md)
+---
+category: "model-optimized"
+title: "Mixtral: Analysis (MoE)"
+subcategory: "mistral"
+model: "mixtral"
+---
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Mixtral: Analysis (MoE)
 

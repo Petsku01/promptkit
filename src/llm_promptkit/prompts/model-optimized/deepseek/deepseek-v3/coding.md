@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V3: Coding"
+subcategory: "deepseek"
+model: "deepseek-v3"
+---
 # DeepSeek V3: Coding
 
 ## Code Generation

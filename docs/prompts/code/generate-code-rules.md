@@ -1,4 +1,10 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Code Rules Generator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to Code Prompts](../index.md)
 
 # Code Rules Generator
 

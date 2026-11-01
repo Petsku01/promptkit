@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Prompt Chaining"
+subcategory: "advanced-techniques"
+---
 # Prompt Chaining
 
 Split complex task into chained prompts.

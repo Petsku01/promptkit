@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "PRD Writer"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # PRD Writer
 
 **Category:** professional

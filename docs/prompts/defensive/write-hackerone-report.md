@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "HackerOne Reporter"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # HackerOne Reporter
 

@@ -1,4 +1,10 @@
-[<- Back to Education Prompts](../index.md)
+---
+category: "education"
+title: "Spoken English Teacher and Improver"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Education Prompts](../index.md)
 
 # Spoken English Teacher and Improver
 

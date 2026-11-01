@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "code"
+title: "Git Commit Writer"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # Git Commit Writer
 

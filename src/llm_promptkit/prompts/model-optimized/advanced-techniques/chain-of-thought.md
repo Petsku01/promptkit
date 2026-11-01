@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Chain-of-Thought (CoT)"
+subcategory: "advanced-techniques"
+---
 # Chain-of-Thought (CoT)
 
 > **Research**: Wei et al. 2022 - "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"

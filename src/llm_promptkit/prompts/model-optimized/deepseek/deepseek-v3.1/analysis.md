@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V3.1: Analysis"
+subcategory: "deepseek"
+model: "deepseek-v3.1"
+---
 # DeepSeek V3.1: Analysis
 
 ## Data Analysis

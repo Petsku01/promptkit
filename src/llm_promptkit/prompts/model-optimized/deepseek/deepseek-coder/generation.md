@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek Coder: Generointi"
+subcategory: "deepseek"
+model: "deepseek-coder"
+---
 # DeepSeek Coder: Generointi
 
 ## Function

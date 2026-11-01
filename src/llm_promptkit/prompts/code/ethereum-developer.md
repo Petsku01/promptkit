@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Ethereum Developer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Ethereum Developer
 
 **Category:** code

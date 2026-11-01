@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Excel Sheet"
+source: "prompts.chat"
+license: "CC0"
+---
 # Excel Sheet
 
 **Category:** output

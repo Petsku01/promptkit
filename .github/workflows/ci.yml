@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
 
     steps:
       - uses: actions/checkout@v4
@@ -42,9 +42,51 @@ jobs:
           files: coverage.xml
           fail_ci_if_error: false
 
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install typing dependencies
+        run: python -m pip install . mypy
+      - name: Check types including untyped bodies
+        run: python -m mypy src/
+
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install optional tokenizer
+        run: python -m pip install ".[tokens]"
+      - name: Check exact tiktoken count
+        run: python tests/smoke_tokens.py
+
+  wheel-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build wheel
+        run: |
+          python -m pip install build
+          python -m build --wheel
+      - name: Install wheel in fresh venv and smoke test
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/wheel-smoke"
+          "$RUNNER_TEMP/wheel-smoke/bin/python" -m pip install dist/*.whl
+          "$RUNNER_TEMP/wheel-smoke/bin/python" -I "$GITHUB_WORKSPACE/tests/smoke_wheel.py"
+
   build:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [test, mypy, tokens, wheel-smoke]
 
     steps:
       - uses: actions/checkout@v4

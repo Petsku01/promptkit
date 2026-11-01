@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Accessibility Auditor"
+source: "prompts.chat"
+license: "CC0"
+---
 # Accessibility Auditor
 
 **Category:** defensive

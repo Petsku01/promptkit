@@ -1,4 +1,10 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "Meeting Minutes Transcriber"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to Output Prompts](../index.md)
 
 # Meeting Minutes Transcriber
 

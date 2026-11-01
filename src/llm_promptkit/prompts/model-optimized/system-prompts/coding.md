@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "System Prompts: Coding"
+subcategory: "system-prompts"
+---
 # System Prompts: Coding
 
 >  **Reality Check**: No AI writes "bug-free" code. Set realistic expectations.

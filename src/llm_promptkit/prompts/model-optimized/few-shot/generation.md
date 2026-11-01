@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Few-Shot: Generointi"
+subcategory: "few-shot"
+---
 # Few-Shot: Generointi
 
 ## Product Description

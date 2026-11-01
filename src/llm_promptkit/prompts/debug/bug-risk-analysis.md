@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "bug-risk-analysis"
+source: "prompts.chat"
+license: "CC0"
+---
 # bug-risk-analysis
 
 **Category:** debug

@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Agentic](../index.md)
+---
+category: "model-optimized"
+title: "Agentic: Reflection"
+subcategory: "agentic"
+---
+[← Back to Model-Optimized Agentic](../index.md)
 
 # Agentic: Reflection
 

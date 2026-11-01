@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Anthropic](../index.md)
+---
+category: "model-optimized"
+title: "Claude Opus: Deep Analysis"
+subcategory: "anthropic"
+model: "claude-3-opus"
+---
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude Opus: Deep Analysis
 

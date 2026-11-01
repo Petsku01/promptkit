@@ -1,4 +1,10 @@
-[<- Back to Education Prompts](../index.md)
+---
+category: "education"
+title: "Life Coach"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Education Prompts](../index.md)
 
 # Life Coach
 

@@ -1,4 +1,10 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Fullstack Software Developer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Code Prompts](../index.md)
 
 # Fullstack Software Developer
 

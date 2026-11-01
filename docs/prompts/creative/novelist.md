@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Novelist"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Novelist
 

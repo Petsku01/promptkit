@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "GPT-4 Turbo: Analysis (Long Context)"
+subcategory: "openai"
+model: "gpt-4-turbo"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # GPT-4 Turbo: Analysis (Long Context)
 

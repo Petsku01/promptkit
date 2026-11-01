@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Code Explainer"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Code Explainer
 
 **Category:** code

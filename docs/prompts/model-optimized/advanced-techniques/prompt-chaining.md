@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Advanced-Techniques](../index.md)
+---
+category: "model-optimized"
+title: "Prompt Chaining"
+subcategory: "advanced-techniques"
+---
+[← Back to Model-Optimized Advanced-Techniques](../index.md)
 
 # Prompt Chaining
 

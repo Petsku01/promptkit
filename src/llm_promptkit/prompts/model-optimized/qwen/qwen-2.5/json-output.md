@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Qwen 2.5: JSON Output"
+subcategory: "qwen"
+model: "qwen-2.5"
+---
 # Qwen 2.5: JSON Output
 
 ## Basic JSON

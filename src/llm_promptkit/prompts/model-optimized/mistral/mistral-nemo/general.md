@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Mistral Nemo: Efficient General Tasks"
+subcategory: "mistral"
+model: "mistral-nemo"
+---
 # Mistral Nemo: Efficient General Tasks
 
 ## Quick Task

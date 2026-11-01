@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Technical Roles"
+subcategory: "roles"
+---
 # Technical Roles
 
 > **Note**: "Act as X" is a weak prompt pattern.

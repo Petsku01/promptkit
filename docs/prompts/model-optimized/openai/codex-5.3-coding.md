@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "Codex 5.3: Agentic Coding"
+subcategory: "openai"
+model: "codex-5.3"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # Codex 5.3: Agentic Coding
 

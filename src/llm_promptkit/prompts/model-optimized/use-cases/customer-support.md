@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Use Case: Customer Support"
+subcategory: "use-cases"
+---
 # Use Case: Customer Support
 
 ## Support Ticket Classifier

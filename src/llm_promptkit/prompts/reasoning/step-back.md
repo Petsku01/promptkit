@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Step-Back Prompting"
+---
 # Step-Back Prompting
 
 **Category:** reasoning

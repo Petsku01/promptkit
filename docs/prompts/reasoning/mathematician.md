@@ -1,4 +1,10 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Mathematician"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Mathematician
 

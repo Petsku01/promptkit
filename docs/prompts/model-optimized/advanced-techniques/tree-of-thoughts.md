@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Advanced-Techniques](../index.md)
+---
+category: "model-optimized"
+title: "Tree-of-Thoughts (ToT)"
+subcategory: "advanced-techniques"
+---
+[← Back to Model-Optimized Advanced-Techniques](../index.md)
 
 # Tree-of-Thoughts (ToT)
 

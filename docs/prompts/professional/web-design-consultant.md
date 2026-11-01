@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "Web Design Consultant"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # Web Design Consultant
 

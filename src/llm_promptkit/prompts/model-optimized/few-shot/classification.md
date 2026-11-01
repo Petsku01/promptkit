@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Few-Shot: Luokittelu"
+subcategory: "few-shot"
+---
 # Few-Shot: Luokittelu
 
 ## Sentiment Analysis

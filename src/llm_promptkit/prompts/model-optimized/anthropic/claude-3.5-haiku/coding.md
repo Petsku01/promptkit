@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude 3.5 Haiku: Coding"
+subcategory: "anthropic"
+model: "claude-3.5-haiku"
+---
 # Claude 3.5 Haiku: Coding
 
 ## Quick Function Generation

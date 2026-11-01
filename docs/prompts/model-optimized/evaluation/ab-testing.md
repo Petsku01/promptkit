@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Evaluation](../index.md)
+---
+category: "model-optimized"
+title: "Evaluation: A/B Testing"
+subcategory: "evaluation"
+---
+[← Back to Model-Optimized Evaluation](../index.md)
 
 # Evaluation: A/B Testing
 

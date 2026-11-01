@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini Pro: Analysis"
+subcategory: "google"
+model: "gemini-pro"
+---
 # Gemini Pro: Analysis
 
 ## General Analysis

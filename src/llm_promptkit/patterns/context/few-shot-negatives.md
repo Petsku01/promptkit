@@ -1,3 +1,7 @@
+---
+category: "context"
+title: "Few-Shot Negatives"
+---
 # Few-Shot Negatives
 
 **Category:** context

@@ -1,3 +1,7 @@
+---
+category: "creative"
+title: "SCAMPER Brainstorming"
+---
 # SCAMPER Brainstorming
 
 **Category:** creative

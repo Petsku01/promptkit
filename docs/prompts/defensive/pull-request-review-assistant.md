@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Pull Request Review Assistant"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Pull Request Review Assistant
 

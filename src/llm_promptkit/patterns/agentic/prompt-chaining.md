@@ -1,3 +1,7 @@
+---
+category: "agentic"
+title: "Prompt Chaining"
+---
 # Prompt Chaining
 
 **Category:** agentic

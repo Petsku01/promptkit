@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Journal Reviewer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Journal Reviewer
 
 **Category:** defensive

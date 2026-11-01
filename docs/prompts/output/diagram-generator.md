@@ -1,4 +1,10 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "Diagram Generator"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Output Prompts](../index.md)
 
 # Diagram Generator
 

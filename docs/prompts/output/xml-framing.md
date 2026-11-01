@@ -1,4 +1,8 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "XML Tag Framing"
+---
+[← Back to Output Prompts](../index.md)
 
 # XML Tag Framing
 

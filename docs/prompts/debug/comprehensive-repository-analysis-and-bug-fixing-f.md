@@ -1,4 +1,10 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Comprehensive Repository Analysis and Bug Fixing Framework"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Comprehensive Repository Analysis and Bug Fixing Framework
 

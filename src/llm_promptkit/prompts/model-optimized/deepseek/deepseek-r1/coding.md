@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek-R1: Coding"
+subcategory: "deepseek"
+model: "deepseek-r1"
+---
 # DeepSeek-R1: Coding
 
 ## Algorithm Design

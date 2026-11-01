@@ -1,4 +1,8 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Debugger (Extended)"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Debugger (Extended)
 

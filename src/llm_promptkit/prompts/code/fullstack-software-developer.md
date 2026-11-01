@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Fullstack Software Developer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Fullstack Software Developer
 
 **Category:** code

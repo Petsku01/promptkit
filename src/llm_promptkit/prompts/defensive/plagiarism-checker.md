@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Plagiarism Checker"
+source: "prompts.chat"
+license: "CC0"
+---
 # Plagiarism Checker
 
 **Category:** defensive

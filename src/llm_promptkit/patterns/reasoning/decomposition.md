@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Decomposition"
+---
 # Decomposition
 
 **Category:** reasoning

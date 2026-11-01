@@ -1,4 +1,10 @@
-[<- Back to System Prompts](../index.md)
+---
+category: "system"
+title: "Prompt Improver"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to System Prompts](../index.md)
 
 # Prompt Improver
 

@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Diagram Generator"
+source: "prompts.chat"
+license: "CC0"
+---
 # Diagram Generator
 
 **Category:** output

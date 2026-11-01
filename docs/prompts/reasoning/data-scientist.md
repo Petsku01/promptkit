@@ -1,4 +1,10 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Data Scientist"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Data Scientist
 

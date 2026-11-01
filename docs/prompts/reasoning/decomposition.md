@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Decomposition (Least-to-Most)"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Decomposition (Least-to-Most)
 

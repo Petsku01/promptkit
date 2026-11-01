@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "defensive"
+title: "Threat Report Analyst"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # Threat Report Analyst
 

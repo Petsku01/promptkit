@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Mistral Large: Coding"
+subcategory: "mistral"
+model: "mistral-large"
+---
 # Mistral Large: Coding
 
 ## Code Generation

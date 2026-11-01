@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "Social Media Manager"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # Social Media Manager
 

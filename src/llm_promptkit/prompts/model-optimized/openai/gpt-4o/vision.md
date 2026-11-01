@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4o: Visionn (Image Analysis)"
+subcategory: "openai"
+model: "gpt-4o"
+---
 # GPT-4o: Visionn (Image Analysis)
 
 ## General Image Analysis

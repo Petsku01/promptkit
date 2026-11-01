@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "o3: Coding"
+subcategory: "openai"
+model: "o3"
+---
 # o3: Coding
 
 ## Complex Algorithm

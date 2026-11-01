@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Mathematician"
+source: "prompts.chat"
+license: "CC0"
+---
 # Mathematician
 
 **Category:** reasoning

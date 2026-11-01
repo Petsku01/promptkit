@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Evaluation](../index.md)
+---
+category: "model-optimized"
+title: "Evaluation: LLM as Judge"
+subcategory: "evaluation"
+---
+[← Back to Model-Optimized Evaluation](../index.md)
 
 # Evaluation: LLM as Judge
 

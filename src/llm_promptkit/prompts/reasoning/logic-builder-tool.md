@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Logic Builder Tool"
+source: "prompts.chat"
+license: "CC0"
+---
 # Logic Builder Tool
 
 **Category:** reasoning

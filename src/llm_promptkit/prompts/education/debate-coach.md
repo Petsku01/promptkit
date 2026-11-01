@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Debate Coach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Debate Coach
 
 **Category:** education

@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Self-Consistency"
+---
 # Self-Consistency
 
 **Category:** reasoning

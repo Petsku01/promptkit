@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Zero-Shot Chain of Thought (CoT)"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Zero-Shot Chain of Thought (CoT)
 

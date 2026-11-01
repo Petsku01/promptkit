@@ -1,4 +1,8 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Interactive Debugger"
+---
+[← Back to Code Prompts](../index.md)
 
 # Interactive Debugger
 

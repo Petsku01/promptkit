@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Ascii Artist"
+source: "prompts.chat"
+license: "CC0"
+---
 # Ascii Artist
 
 **Category:** creative

@@ -1,4 +1,10 @@
-[<- Back to Education Prompts](../index.md)
+---
+category: "education"
+title: "Debate Coach"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Education Prompts](../index.md)
 
 # Debate Coach
 

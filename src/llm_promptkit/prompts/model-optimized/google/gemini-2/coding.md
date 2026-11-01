@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2: Coding"
+subcategory: "google"
+model: "gemini-2"
+---
 # Gemini 2: Coding
 
 ## Code Generation

@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 2: Luova"
+subcategory: "xai"
+model: "grok-2"
+---
 # Grok 2: Luova
 
 ## Witty Response

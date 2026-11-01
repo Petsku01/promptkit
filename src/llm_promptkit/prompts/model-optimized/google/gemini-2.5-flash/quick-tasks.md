@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2.5 Flash: Quick Tasks"
+subcategory: "google"
+model: "gemini-2.5-flash"
+---
 # Gemini 2.5 Flash: Quick Tasks
 
 ## Quick Answer

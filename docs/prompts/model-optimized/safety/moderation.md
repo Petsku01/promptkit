@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Safety](../index.md)
+---
+category: "model-optimized"
+title: "Safety: Content Moderation"
+subcategory: "safety"
+---
+[← Back to Model-Optimized Safety](../index.md)
 
 # Safety: Content Moderation
 

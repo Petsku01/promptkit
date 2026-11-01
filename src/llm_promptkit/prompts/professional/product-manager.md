@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Product Manager"
+source: "prompts.chat"
+license: "CC0"
+---
 # Product Manager
 
 **Category:** professional

@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Journal Reviewer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Journal Reviewer
 

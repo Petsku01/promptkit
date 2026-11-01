@@ -7,7 +7,7 @@ Browse ready-to-use prompts organized by category.
 | Category | Prompts |
 |----------|--------|
 | [Code](code/index.md) | 32 |
-| [Context](context/index.md) | 1 |
+| [Context](context/index.md) | 2 |
 | [Creative](creative/index.md) | 11 |
 | [Debug](debug/index.md) | 12 |
 | [Defensive](defensive/index.md) | 19 |
@@ -16,4 +16,4 @@ Browse ready-to-use prompts organized by category.
 | [Professional](professional/index.md) | 14 |
 | [Reasoning](reasoning/index.md) | 19 |
 | [System](system/index.md) | 3 |
-| [Model-Optimized](model-optimized/index.md) | 157 |
+| [Model-Optimized](model-optimized/index.md) | 155 |

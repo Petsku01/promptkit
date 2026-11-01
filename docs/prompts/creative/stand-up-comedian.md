@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Stand-up Comedian"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Stand-up Comedian
 

@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Deepseek](../index.md)
+---
+category: "model-optimized"
+title: "DeepSeek Coder: Debugging"
+subcategory: "deepseek"
+model: "deepseek-coder"
+---
+[← Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek Coder: Debugging
 

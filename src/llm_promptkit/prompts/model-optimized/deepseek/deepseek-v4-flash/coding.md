@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V4 Flash: Coding"
+subcategory: "deepseek"
+model: "deepseek-v4-flash"
+---
 # DeepSeek V4 Flash: Coding
 
 ## Fast Code Generation

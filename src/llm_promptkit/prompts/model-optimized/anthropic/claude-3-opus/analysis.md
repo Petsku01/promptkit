@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Opus: Deep Analysis"
+subcategory: "anthropic"
+model: "claude-3-opus"
+---
 # Claude Opus: Deep Analysis
 
 ## Comprehensive Analysis

@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "StackOverflow Post"
+source: "prompts.chat"
+license: "CC0"
+---
 # StackOverflow Post
 
 **Category:** debug

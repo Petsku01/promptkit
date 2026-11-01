@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Legal Advisor"
+source: "prompts.chat"
+license: "CC0"
+---
 # Legal Advisor
 
 **Category:** professional

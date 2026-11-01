@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Haiku: Quick Coding"
+subcategory: "anthropic"
+model: "claude-3-haiku"
+---
 # Claude Haiku: Quick Coding
 
 ## Syntax Fix

@@ -1,4 +1,10 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Test-First Bug Fixing Approach"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Test-First Bug Fixing Approach
 

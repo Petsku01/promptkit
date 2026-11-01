@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "security fixes cves"
+source: "prompts.chat"
+license: "CC0"
+---
 # security fixes cves
 
 **Category:** debug

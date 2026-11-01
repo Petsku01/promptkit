@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Accessibility Auditor"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Accessibility Auditor
 

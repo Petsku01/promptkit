@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Ascii Artist"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Ascii Artist
 

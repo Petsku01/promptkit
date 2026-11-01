@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "O1: Deep Reasoning"
+subcategory: "openai"
+model: "o1"
+---
 # O1: Deep Reasoning
 
 ## Complex Problem (Let O1 Think)

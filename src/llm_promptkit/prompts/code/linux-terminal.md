@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Linux Terminal"
+source: "prompts.chat"
+license: "CC0"
+---
 # Linux Terminal
 
 **Category:** code

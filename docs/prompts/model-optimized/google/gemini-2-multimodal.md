@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Google](../index.md)
+---
+category: "model-optimized"
+title: "Gemini 2: Multimodal"
+subcategory: "google"
+model: "gemini-2"
+---
+[← Back to Model-Optimized Google](../index.md)
 
 # Gemini 2: Multimodal
 

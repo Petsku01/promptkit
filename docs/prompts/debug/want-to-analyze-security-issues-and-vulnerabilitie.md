@@ -1,4 +1,10 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "want to analyze security issues and vulnerabilities and fixes"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Debug Prompts](../index.md)
 
 # want to analyze security issues and vulnerabilities and fixes
 

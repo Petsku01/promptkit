@@ -1,4 +1,10 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "Excel Sheet"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Output Prompts](../index.md)
 
 # Excel Sheet
 

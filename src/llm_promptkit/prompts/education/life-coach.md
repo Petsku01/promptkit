@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Life Coach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Life Coach
 
 **Category:** education

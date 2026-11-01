@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek Coder: Refactoring"
+subcategory: "deepseek"
+model: "deepseek-coder"
+---
 # DeepSeek Coder: Refactoring
 
 ## Clean Up

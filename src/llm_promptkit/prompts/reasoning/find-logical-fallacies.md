@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Logical Fallacy Detector"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Logical Fallacy Detector
 
 **Category:** reasoning

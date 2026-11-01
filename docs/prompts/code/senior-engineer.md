@@ -1,4 +1,8 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Senior Software Engineer"
+---
+[← Back to Code Prompts](../index.md)
 
 # Senior Software Engineer
 

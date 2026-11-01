@@ -1,3 +1,7 @@
+---
+category: "context"
+title: "Few Shot"
+---
 # Few Shot
 
 **Category:** context

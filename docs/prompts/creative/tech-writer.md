@@ -1,4 +1,10 @@
-[<- Back to Creative Prompts](../index.md)
+---
+category: "creative"
+title: "Tech Writer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Creative Prompts](../index.md)
 
 # Tech Writer
 

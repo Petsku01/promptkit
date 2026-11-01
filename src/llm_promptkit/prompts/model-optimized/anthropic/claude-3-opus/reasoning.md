@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Opus: Complex Reasoning"
+subcategory: "anthropic"
+model: "claude-3-opus"
+---
 # Claude Opus: Complex Reasoning
 
 ## Multi-Step Problem Solving

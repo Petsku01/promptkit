@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Small-Models](../index.md)
+---
+category: "model-optimized"
+title: "Phi 3.5: Basic Tasks"
+subcategory: "small-models"
+model: "phi-3.5"
+---
+[← Back to Model-Optimized Small-Models](../index.md)
 
 # Phi 3.5: Basic Tasks
 

@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Public Speaking Coach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Public Speaking Coach
 
 **Category:** education

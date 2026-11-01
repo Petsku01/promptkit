@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "JavaScript Console"
+source: "prompts.chat"
+license: "CC0"
+---
 # JavaScript Console
 
 **Category:** code

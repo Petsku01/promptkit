@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "ReAct (Reasoning + Acting)"
+subcategory: "advanced-techniques"
+---
 # ReAct (Reasoning + Acting)
 
 Combines reasoning and action iteratively.

@@ -1,3 +1,7 @@
+---
+category: "output"
+title: "Json Output"
+---
 # Json Output
 
 **Category:** output

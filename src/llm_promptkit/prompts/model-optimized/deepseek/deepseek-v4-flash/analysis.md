@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek V4 Flash: Analysis"
+subcategory: "deepseek"
+model: "deepseek-v4-flash"
+---
 # DeepSeek V4 Flash: Analysis
 
 ## High-Volume Document Analysis

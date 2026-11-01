@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Mistral](../index.md)
+---
+category: "model-optimized"
+title: "Mistral Large: Coding"
+subcategory: "mistral"
+model: "mistral-large"
+---
+[← Back to Model-Optimized Mistral](../index.md)
 
 # Mistral Large: Coding
 

@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "DevOps Engineer"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # DevOps Engineer
 
 **Category:** code

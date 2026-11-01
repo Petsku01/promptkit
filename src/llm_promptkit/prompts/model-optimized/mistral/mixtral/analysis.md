@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Mixtral: Analysis (MoE)"
+subcategory: "mistral"
+model: "mixtral"
+---
 # Mixtral: Analysis (MoE)
 
 ## General Analysis

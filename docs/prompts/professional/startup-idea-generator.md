@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "Startup Idea Generator"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # Startup Idea Generator
 

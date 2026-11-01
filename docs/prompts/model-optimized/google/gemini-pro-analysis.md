@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Google](../index.md)
+---
+category: "model-optimized"
+title: "Gemini Pro: Analysis"
+subcategory: "google"
+model: "gemini-pro"
+---
+[← Back to Model-Optimized Google](../index.md)
 
 # Gemini Pro: Analysis
 

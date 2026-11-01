@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Evaluation: LLM as Judge"
+subcategory: "evaluation"
+---
 # Evaluation: LLM as Judge
 
 >  **Best Practice**: Always require REASONING BEFORE SCORE.

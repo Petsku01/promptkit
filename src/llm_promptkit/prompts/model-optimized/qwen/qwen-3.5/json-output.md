@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Qwen 3.5: JSON (simplified)"
+subcategory: "qwen"
+model: "qwen-3.5"
+---
 # Qwen 3.5: JSON (simplified)
 
 ## Perus JSON

@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "System Prompts: Tuottavuus"
+subcategory: "system-prompts"
+---
 # System Prompts: Tuottavuus
 
 ## Executive Assistant

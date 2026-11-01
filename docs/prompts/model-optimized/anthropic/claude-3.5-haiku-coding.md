@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Anthropic](../index.md)
+---
+category: "model-optimized"
+title: "Claude 3.5 Haiku: Coding"
+subcategory: "anthropic"
+model: "claude-3.5-haiku"
+---
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude 3.5 Haiku: Coding
 

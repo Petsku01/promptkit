@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "LLM Security Specialist"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # LLM Security Specialist
 

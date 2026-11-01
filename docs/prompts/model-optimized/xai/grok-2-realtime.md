@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Xai](../index.md)
+---
+category: "model-optimized"
+title: "Grok 2: Real-time information"
+subcategory: "xai"
+model: "grok-2"
+---
+[← Back to Model-Optimized Xai](../index.md)
 
 # Grok 2: Real-time information
 

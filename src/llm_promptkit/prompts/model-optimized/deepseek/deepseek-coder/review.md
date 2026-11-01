@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "DeepSeek Coder: Code Review"
+subcategory: "deepseek"
+model: "deepseek-coder"
+---
 # DeepSeek Coder: Code Review
 
 ## General Review

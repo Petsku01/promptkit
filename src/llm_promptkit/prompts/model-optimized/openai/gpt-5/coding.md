@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-5: Coding"
+subcategory: "openai"
+model: "gpt-5"
+---
 # GPT-5: Coding
 
 ## Full Stack Implementation

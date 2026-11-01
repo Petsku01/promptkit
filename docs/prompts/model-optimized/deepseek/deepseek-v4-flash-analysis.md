@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Deepseek](../index.md)
+---
+category: "model-optimized"
+title: "DeepSeek V4 Flash: Analysis"
+subcategory: "deepseek"
+model: "deepseek-v4-flash"
+---
+[← Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek V4 Flash: Analysis
 

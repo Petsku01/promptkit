@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Opetusroolit"
+subcategory: "roles"
+---
 # Opetusroolit
 
 ## Socratic Teacher

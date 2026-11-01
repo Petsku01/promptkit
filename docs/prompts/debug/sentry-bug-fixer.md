@@ -1,4 +1,10 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Sentry Bug Fixer"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Sentry Bug Fixer
 

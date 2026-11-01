@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Falsifiability Checker"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Falsifiability Checker
 
 **Category:** reasoning

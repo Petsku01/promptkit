@@ -1,4 +1,10 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Software Quality Assurance Tester"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Code Prompts](../index.md)
 
 # Software Quality Assurance Tester
 

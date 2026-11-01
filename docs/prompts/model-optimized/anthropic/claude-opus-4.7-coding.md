@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Anthropic](../index.md)
+---
+category: "model-optimized"
+title: "Claude Opus 4.7: Coding"
+subcategory: "anthropic"
+model: "claude-opus-4.7"
+---
+[← Back to Model-Optimized Anthropic](../index.md)
 
 # Claude Opus 4.7: Coding
 

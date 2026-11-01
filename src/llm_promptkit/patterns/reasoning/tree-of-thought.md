@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Tree Of Thought"
+---
 # Tree Of Thought
 
 **Category:** reasoning

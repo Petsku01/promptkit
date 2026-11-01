@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Opus 4.7: Long-Horizon Tasks"
+subcategory: "anthropic"
+model: "claude-opus-4.7"
+---
 # Claude Opus 4.7: Long-Horizon Tasks
 
 ## Autonomous Feature Development

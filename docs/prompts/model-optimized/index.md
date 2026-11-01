@@ -21,7 +21,7 @@ Prompts optimized for specific LLM providers and models.
 | [Qwen](qwen/index.md) | 9 |
 | [Roles](roles/index.md) | 5 |
 | [Safety](safety/index.md) | 2 |
-| [Small Models](small-models/index.md) | 5 |
+| [Small Models](small-models/index.md) | 3 |
 | [System Prompts](system-prompts/index.md) | 5 |
 | [Use Cases](use-cases/index.md) | 4 |
 | [Xai](xai/index.md) | 8 |

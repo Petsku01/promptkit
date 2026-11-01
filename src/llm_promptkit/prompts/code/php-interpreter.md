@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "PHP Interpreter"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # PHP Interpreter
 
 **Category:** code

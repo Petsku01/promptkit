@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Meta](../index.md)
+---
+category: "model-optimized"
+title: "Llama 4: Long Context (10M Tokens)"
+subcategory: "meta"
+model: "llama-4"
+---
+[← Back to Model-Optimized Meta](../index.md)
 
 # Llama 4: Long Context (10M Tokens)
 

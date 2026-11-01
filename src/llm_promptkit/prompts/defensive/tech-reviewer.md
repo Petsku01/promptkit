@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Tech Reviewer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Tech Reviewer
 
 **Category:** defensive

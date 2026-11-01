@@ -1,3 +1,7 @@
+---
+category: "defensive"
+title: "Hallucination Reducer"
+---
 # Hallucination Reducer
 
 **Category:** defensive

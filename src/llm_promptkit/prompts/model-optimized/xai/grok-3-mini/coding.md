@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 3 Mini: Coding"
+subcategory: "xai"
+model: "grok-3-mini"
+---
 # Grok 3 Mini: Coding
 
 ## Quick Code Generation

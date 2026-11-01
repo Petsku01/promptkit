@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Expert Persona / Role Prompting"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Expert Persona / Role Prompting
 

@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "O3-mini: Efficient Reasoning"
+subcategory: "openai"
+model: "o3-mini"
+---
 # O3-mini: Efficient Reasoning
 
 ## Quick Reasoning Task

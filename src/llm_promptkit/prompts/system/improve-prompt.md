@@ -1,3 +1,9 @@
+---
+category: "system"
+title: "Prompt Improver"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Prompt Improver
 
 **Category:** system

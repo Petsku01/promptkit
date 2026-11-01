@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "O3-mini: Efficient Reasoning"
+subcategory: "openai"
+model: "o3-mini"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # O3-mini: Efficient Reasoning
 

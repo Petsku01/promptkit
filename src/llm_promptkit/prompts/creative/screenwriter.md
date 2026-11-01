@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Screenwriter"
+source: "prompts.chat"
+license: "CC0"
+---
 # Screenwriter
 
 **Category:** creative

@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Password Generator"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # Password Generator
 
 **Category:** code

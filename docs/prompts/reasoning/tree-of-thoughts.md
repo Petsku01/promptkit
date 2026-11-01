@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Tree of Thoughts (ToT)"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Tree of Thoughts (ToT)
 

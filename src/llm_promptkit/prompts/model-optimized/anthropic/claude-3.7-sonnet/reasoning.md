@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude 3.7 Sonnet: Hybrid Reasoning"
+subcategory: "anthropic"
+model: "claude-3.7-sonnet"
+---
 # Claude 3.7 Sonnet: Hybrid Reasoning
 
 ## Extended Thinking Activation

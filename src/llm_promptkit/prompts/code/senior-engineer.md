@@ -1,3 +1,7 @@
+---
+category: "code"
+title: "Senior Software Engineer"
+---
 # Senior Software Engineer
 
 **Category:** code  

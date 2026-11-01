@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Stand-up Comedian"
+source: "prompts.chat"
+license: "CC0"
+---
 # Stand-up Comedian
 
 **Category:** creative

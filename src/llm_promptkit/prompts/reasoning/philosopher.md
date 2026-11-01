@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Philosopher"
+source: "prompts.chat"
+license: "CC0"
+---
 # Philosopher
 
 **Category:** reasoning

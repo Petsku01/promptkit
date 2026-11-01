@@ -1,4 +1,8 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "The Brutal Code Reviewer"
+---
+[← Back to Code Prompts](../index.md)
 
 # The Brutal Code Reviewer
 

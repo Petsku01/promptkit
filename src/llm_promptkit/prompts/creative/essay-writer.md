@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Essay Writer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Essay Writer
 
 **Category:** creative

@@ -1,3 +1,7 @@
+---
+category: "context"
+title: "Session Handoff Pattern"
+---
 # Session Handoff Pattern
 
 ## Description

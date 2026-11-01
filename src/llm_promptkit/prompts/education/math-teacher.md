@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Math Teacher"
+source: "prompts.chat"
+license: "CC0"
+---
 # Math Teacher
 
 **Category:** education

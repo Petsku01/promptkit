@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Use Case: Sales & Marketing"
+subcategory: "use-cases"
+---
 # Use Case: Sales & Marketing
 
 ## Lead Qualification

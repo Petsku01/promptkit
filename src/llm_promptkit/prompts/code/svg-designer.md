@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "SVG Designer"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # SVG Designer
 
 **Category:** code

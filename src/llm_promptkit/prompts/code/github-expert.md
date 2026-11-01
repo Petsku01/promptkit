@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "GitHub Expert"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # GitHub Expert
 
 **Category:** code

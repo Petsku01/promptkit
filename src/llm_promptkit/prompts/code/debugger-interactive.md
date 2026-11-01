@@ -1,3 +1,7 @@
+---
+category: "code"
+title: "Interactive Debugger"
+---
 # Interactive Debugger
 
 **Category:** code/debug

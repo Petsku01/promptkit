@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Startup Idea Generator"
+source: "prompts.chat"
+license: "CC0"
+---
 # Startup Idea Generator
 
 **Category:** professional

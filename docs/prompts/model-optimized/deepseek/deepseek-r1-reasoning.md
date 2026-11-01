@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Deepseek](../index.md)
+---
+category: "model-optimized"
+title: "DeepSeek-R1: Zero-Shot Reasoning"
+subcategory: "deepseek"
+model: "deepseek-r1"
+---
+[← Back to Model-Optimized Deepseek](../index.md)
 
 # DeepSeek-R1: Zero-Shot Reasoning
 

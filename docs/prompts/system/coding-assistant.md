@@ -1,4 +1,8 @@
-[<- Back to System Prompts](../index.md)
+---
+category: "system"
+title: "Coding Assistant System Prompt"
+---
+[← Back to System Prompts](../index.md)
 
 # Coding Assistant System Prompt
 

@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "root-cause-analyst"
+source: "prompts.chat"
+license: "CC0"
+---
 # root-cause-analyst
 
 **Category:** reasoning

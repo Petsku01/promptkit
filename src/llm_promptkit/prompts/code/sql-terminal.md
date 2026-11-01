@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "SQL Terminal"
+source: "prompts.chat"
+license: "CC0"
+---
 # SQL Terminal
 
 **Category:** code

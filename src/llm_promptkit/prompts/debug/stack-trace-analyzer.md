@@ -1,3 +1,7 @@
+---
+category: "debug"
+title: "Stack Trace Analyzer"
+---
 # Stack Trace Analyzer
 
 **Category:** debug

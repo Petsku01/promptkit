@@ -1,3 +1,7 @@
+---
+category: "code"
+title: "The Brutal Code Reviewer"
+---
 # The Brutal Code Reviewer
 
 **Category:** code

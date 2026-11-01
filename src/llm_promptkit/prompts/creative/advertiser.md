@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Advertiser"
+source: "prompts.chat"
+license: "CC0"
+---
 # Advertiser
 
 **Category:** creative

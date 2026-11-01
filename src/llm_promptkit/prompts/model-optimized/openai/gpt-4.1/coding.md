@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4.1: Coding"
+subcategory: "openai"
+model: "gpt-4.1"
+---
 # GPT-4.1: Coding
 
 ## Full Feature Implementation

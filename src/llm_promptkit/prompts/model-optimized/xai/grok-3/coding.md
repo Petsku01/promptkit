@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Grok 3: Coding"
+subcategory: "xai"
+model: "grok-3"
+---
 # Grok 3: Coding
 
 ## Quick Implementation

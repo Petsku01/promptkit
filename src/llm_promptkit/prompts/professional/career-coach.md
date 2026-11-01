@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Career Coach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Career Coach
 
 **Category:** professional

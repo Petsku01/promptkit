@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Act as a Resume Reviewer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Act as a Resume Reviewer
 
 **Category:** defensive

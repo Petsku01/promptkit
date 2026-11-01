@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 4: Coding"
+subcategory: "meta"
+model: "llama-4"
+---
 # Llama 4: Coding
 
 ## Code Generation (Scout -- Fast & Efficient)

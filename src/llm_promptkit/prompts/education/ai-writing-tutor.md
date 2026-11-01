@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "AI Writing Tutor"
+source: "prompts.chat"
+license: "CC0"
+---
 # AI Writing Tutor
 
 **Category:** education

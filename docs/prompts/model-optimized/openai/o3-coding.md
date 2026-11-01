@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "o3: Coding"
+subcategory: "openai"
+model: "o3"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # o3: Coding
 

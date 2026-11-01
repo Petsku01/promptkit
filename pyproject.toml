@@ -29,6 +29,7 @@ keywords = ["llm", "prompt", "ai", "gpt", "claude", "prompt-engineering", "promp
 dependencies = [
     "rich>=13.0",
     "typer>=0.9.0",
+    "PyYAML>=6.0",
     "tomli>=2.0; python_version < '3.11'",
 ]
 
@@ -56,6 +57,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 llm_promptkit = [
+    "py.typed",
     "prompts/**/*.md",
     "patterns/**/*.md",
 ]
@@ -73,4 +75,5 @@ select = ["E", "F", "I", "W"]
 ignore = ["E501"]
 
 [tool.mypy]
+check_untyped_defs = true
 ignore_missing_imports = true

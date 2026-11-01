@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Readability Logic Simulator"
+source: "prompts.chat"
+license: "CC0"
+---
 # Readability Logic Simulator
 
 **Category:** reasoning

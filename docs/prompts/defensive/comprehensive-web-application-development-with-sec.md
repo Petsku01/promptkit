@@ -1,4 +1,10 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "Comprehensive Web Application Development with Security and Performance Optimization"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # Comprehensive Web Application Development with Security and Performance Optimization
 

@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Zero-Shot Chain of Thought (CoT)"
+---
 # Zero-Shot Chain of Thought (CoT)
 
 **Category:** reasoning

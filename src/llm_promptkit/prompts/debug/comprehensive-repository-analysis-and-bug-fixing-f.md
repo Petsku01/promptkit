@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "Comprehensive Repository Analysis and Bug Fixing Framework"
+source: "prompts.chat"
+license: "CC0"
+---
 # Comprehensive Repository Analysis and Bug Fixing Framework
 
 **Category:** debug

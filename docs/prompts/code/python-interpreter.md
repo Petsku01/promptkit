@@ -1,4 +1,10 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Python Interpreter"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Code Prompts](../index.md)
 
 # Python Interpreter
 

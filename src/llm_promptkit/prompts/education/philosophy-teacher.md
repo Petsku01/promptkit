@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Philosophy Teacher"
+source: "prompts.chat"
+license: "CC0"
+---
 # Philosophy Teacher
 
 **Category:** education

@@ -1,4 +1,10 @@
-[<- Back to Professional Prompts](../index.md)
+---
+category: "professional"
+title: "SEO Consultant"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
+[← Back to Professional Prompts](../index.md)
 
 # SEO Consultant
 

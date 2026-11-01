@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Statistician"
+source: "prompts.chat"
+license: "CC0"
+---
 # Statistician
 
 **Category:** reasoning

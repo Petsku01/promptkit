@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4o: JSON Output"
+subcategory: "openai"
+model: "gpt-4o"
+---
 # GPT-4o: JSON Output
 
 ## Basic JSON Extraction

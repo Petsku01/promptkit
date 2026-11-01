@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "SEO Consultant"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # SEO Consultant
 
 **Category:** professional

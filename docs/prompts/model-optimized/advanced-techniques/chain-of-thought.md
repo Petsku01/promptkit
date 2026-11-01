@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Advanced-Techniques](../index.md)
+---
+category: "model-optimized"
+title: "Chain-of-Thought (CoT)"
+subcategory: "advanced-techniques"
+---
+[← Back to Model-Optimized Advanced-Techniques](../index.md)
 
 # Chain-of-Thought (CoT)
 

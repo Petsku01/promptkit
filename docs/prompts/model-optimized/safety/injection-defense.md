@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Safety](../index.md)
+---
+category: "model-optimized"
+title: "Safety: Prompt Injection Defense"
+subcategory: "safety"
+---
+[← Back to Model-Optimized Safety](../index.md)
 
 # Safety: Prompt Injection Defense
 

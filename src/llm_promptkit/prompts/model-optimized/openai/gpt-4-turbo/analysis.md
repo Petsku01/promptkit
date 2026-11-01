@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4 Turbo: Analysis (Long Context)"
+subcategory: "openai"
+model: "gpt-4-turbo"
+---
 # GPT-4 Turbo: Analysis (Long Context)
 
 ## Large Document Analysis

@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "Tech Troubleshooter"
+source: "prompts.chat"
+license: "CC0"
+---
 # Tech Troubleshooter
 
 **Category:** debug

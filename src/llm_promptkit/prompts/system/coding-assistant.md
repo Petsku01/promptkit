@@ -1,3 +1,7 @@
+---
+category: "system"
+title: "Coding Assistant System Prompt"
+---
 # Coding Assistant System Prompt
 
 **Category:** system

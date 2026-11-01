@@ -1,3 +1,7 @@
+---
+category: "defensive"
+title: "The Contrarian Challenger"
+---
 # The Contrarian Challenger
 
 **Category:** defensive

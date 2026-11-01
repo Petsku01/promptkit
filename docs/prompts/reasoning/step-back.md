@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Step-Back Prompting"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Step-Back Prompting
 

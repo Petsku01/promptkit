@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Expert Persona / Role Prompting"
+---
 # Expert Persona / Role Prompting
 
 **Category:** reasoning

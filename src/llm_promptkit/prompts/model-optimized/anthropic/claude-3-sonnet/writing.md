@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Sonnet: Writing"
+subcategory: "anthropic"
+model: "claude-3-sonnet"
+---
 # Claude Sonnet: Writing
 
 ## Text Improvement

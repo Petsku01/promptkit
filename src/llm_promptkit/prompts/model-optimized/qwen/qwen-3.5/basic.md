@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Qwen 3.5: Basic Tasks"
+subcategory: "qwen"
+model: "qwen-3.5"
+---
 # Qwen 3.5: Basic Tasks
 
 ## Luokittelu

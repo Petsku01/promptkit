@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "GPT-5.4: Reasoning"
+subcategory: "openai"
+model: "gpt-5.4"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # GPT-5.4: Reasoning
 

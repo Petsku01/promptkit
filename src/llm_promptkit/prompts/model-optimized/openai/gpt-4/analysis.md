@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4: Analysis"
+subcategory: "openai"
+model: "gpt-4"
+---
 # GPT-4: Analysis
 
 ## Structured Analysis

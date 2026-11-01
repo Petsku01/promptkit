@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "System Prompts: Luova"
+subcategory: "system-prompts"
+---
 # System Prompts: Luova
 
 ## Story Writer

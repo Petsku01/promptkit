@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Meta-Prompting"
+subcategory: "advanced-techniques"
+---
 # Meta-Prompting
 
 Use LLM to create better prompts.

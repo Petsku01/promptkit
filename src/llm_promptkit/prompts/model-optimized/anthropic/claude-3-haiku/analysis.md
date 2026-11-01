@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Haiku: Quick Analysis"
+subcategory: "anthropic"
+model: "claude-3-haiku"
+---
 # Claude Haiku: Quick Analysis
 
 ## Fast Summary

@@ -1,4 +1,10 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "root-cause-analyst"
+source: "prompts.chat"
+license: "CC0"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # root-cause-analyst
 

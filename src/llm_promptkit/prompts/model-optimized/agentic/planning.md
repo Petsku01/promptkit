@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Agentic: Planning"
+subcategory: "agentic"
+---
 # Agentic: Planning
 
 ## Task Decomposition

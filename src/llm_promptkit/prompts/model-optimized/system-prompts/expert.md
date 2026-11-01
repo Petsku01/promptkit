@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "System Prompts: Asiantuntija"
+subcategory: "system-prompts"
+---
 # System Prompts: Asiantuntija
 
 ## Legal Advisor

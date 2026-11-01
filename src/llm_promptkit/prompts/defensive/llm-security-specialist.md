@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "LLM Security Specialist"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # LLM Security Specialist
 
 **Category:** defensive

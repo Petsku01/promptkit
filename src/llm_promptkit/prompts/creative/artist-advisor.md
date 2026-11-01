@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Artist Advisor"
+source: "prompts.chat"
+license: "CC0"
+---
 # Artist Advisor
 
 **Category:** creative

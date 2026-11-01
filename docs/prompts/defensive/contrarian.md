@@ -1,4 +1,8 @@
-[<- Back to Defensive Prompts](../index.md)
+---
+category: "defensive"
+title: "The Contrarian Challenger"
+---
+[← Back to Defensive Prompts](../index.md)
 
 # The Contrarian Challenger
 

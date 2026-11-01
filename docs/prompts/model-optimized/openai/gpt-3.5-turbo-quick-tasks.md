@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Openai](../index.md)
+---
+category: "model-optimized"
+title: "GPT-3.5 Turbo: Quick Tasks"
+subcategory: "openai"
+model: "gpt-3.5-turbo"
+---
+[← Back to Model-Optimized Openai](../index.md)
 
 # GPT-3.5 Turbo: Quick Tasks
 

@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Cohere](../index.md)
+---
+category: "model-optimized"
+title: "Command R: RAG (Retrieval Augmented Generation)"
+subcategory: "cohere"
+model: "command-r"
+---
+[← Back to Model-Optimized Cohere](../index.md)
 
 # Command R: RAG (Retrieval Augmented Generation)
 

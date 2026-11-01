@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Agentic](../index.md)
+---
+category: "model-optimized"
+title: "Agentic: Tool Use"
+subcategory: "agentic"
+---
+[← Back to Model-Optimized Agentic](../index.md)
 
 # Agentic: Tool Use
 

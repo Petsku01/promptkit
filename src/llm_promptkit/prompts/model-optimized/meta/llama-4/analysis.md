@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 4: Analysis"
+subcategory: "meta"
+model: "llama-4"
+---
 # Llama 4: Analysis
 
 ## Long-Document Analysis

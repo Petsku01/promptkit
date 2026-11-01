@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Instructor in a School"
+source: "prompts.chat"
+license: "CC0"
+---
 # Instructor in a School
 
 **Category:** education

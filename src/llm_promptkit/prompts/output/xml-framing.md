@@ -1,3 +1,7 @@
+---
+category: "output"
+title: "XML Tag Framing"
+---
 # XML Tag Framing
 
 **Category:** output

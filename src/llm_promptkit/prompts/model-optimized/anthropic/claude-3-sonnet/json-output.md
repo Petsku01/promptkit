@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Sonnet: JSON Output"
+subcategory: "anthropic"
+model: "claude-3-sonnet"
+---
 # Claude Sonnet: JSON Output
 
 ## JSON Extraction (XML-wrapped)

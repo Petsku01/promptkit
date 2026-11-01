@@ -1,3 +1,9 @@
+---
+category: "education"
+title: "Motivational Coach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Motivational Coach
 
 **Category:** education

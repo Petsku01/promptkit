@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Bisnesroolit"
+subcategory: "roles"
+---
 # Bisnesroolit
 
 ## Management Consultant

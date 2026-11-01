@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Opus 4.7: Analysis"
+subcategory: "anthropic"
+model: "claude-opus-4.7"
+---
 # Claude Opus 4.7: Analysis
 
 ## High-Resolution Visual Analysis

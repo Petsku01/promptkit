@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Code Rules Generator"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
 # Code Rules Generator
 
 **Category:** code

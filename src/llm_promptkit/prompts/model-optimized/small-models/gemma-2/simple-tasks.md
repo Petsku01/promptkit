@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemma 2: Simple Tasks"
+subcategory: "small-models"
+model: "gemma-2"
+---
 # Gemma 2: Simple Tasks
 
 ## Quick Answer

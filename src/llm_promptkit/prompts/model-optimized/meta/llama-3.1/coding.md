@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 3.1: Coding"
+subcategory: "meta"
+model: "llama-3.1"
+---
 # Llama 3.1: Coding
 
 > **Model Sizes**: 8B, 70B, 405B

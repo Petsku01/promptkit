@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Evaluation: A/B Testing"
+subcategory: "evaluation"
+---
 # Evaluation: A/B Testing
 
 ## Prompt Comparison

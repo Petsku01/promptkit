@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2.5 Pro: Coding"
+subcategory: "google"
+model: "gemini-2.5-pro"
+---
 # Gemini 2.5 Pro: Coding
 
 ## Architecture Design

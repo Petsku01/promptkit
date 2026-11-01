@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Benchmark: Instruction Following"
+subcategory: "benchmarks"
+---
 # Benchmark: Instruction Following
 
 ## Model Comparison (Instruction Following)

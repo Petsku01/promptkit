@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Cyber Security Specialist"
+source: "prompts.chat"
+license: "CC0"
+---
 # Cyber Security Specialist
 
 **Category:** output

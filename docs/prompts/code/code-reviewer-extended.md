@@ -1,4 +1,8 @@
-[<- Back to Code Prompts](../index.md)
+---
+category: "code"
+title: "Code Reviewer (Extended)"
+---
+[← Back to Code Prompts](../index.md)
 
 # Code Reviewer (Extended)
 

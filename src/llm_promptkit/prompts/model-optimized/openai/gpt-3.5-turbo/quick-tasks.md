@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-3.5 Turbo: Quick Tasks"
+subcategory: "openai"
+model: "gpt-3.5-turbo"
+---
 # GPT-3.5 Turbo: Quick Tasks
 
 ## Text Transformation

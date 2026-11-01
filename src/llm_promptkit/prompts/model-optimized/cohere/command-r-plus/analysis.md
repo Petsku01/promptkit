@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Command R+: Analysis"
+subcategory: "cohere"
+model: "command-r-plus"
+---
 # Command R+: Analysis
 
 ## Document Analysis

@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Decomposition (Least-to-Most)"
+---
 # Decomposition (Least-to-Most)
 
 **Category:** reasoning

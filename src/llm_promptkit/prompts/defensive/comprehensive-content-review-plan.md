@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Comprehensive Content Review Plan"
+source: "prompts.chat"
+license: "CC0"
+---
 # Comprehensive Content Review Plan
 
 **Category:** defensive

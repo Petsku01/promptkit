@@ -1,4 +1,10 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Falsifiability Checker"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Falsifiability Checker
 

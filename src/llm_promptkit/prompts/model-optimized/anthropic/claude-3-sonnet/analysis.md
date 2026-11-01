@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Sonnet: Analysis"
+subcategory: "anthropic"
+model: "claude-3-sonnet"
+---
 # Claude Sonnet: Analysis
 
 ## Chain of Thought (XML)

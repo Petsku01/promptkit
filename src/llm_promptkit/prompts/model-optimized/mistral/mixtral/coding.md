@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Mixtral: Coding (MoE)"
+subcategory: "mistral"
+model: "mixtral"
+---
 # Mixtral: Coding (MoE)
 
 ## Code Generation

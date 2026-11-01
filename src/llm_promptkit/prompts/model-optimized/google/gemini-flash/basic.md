@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini Flash: Basic Tasks"
+subcategory: "google"
+model: "gemini-flash"
+---
 # Gemini Flash: Basic Tasks
 
 ## Quick Answer

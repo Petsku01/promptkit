@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Storyteller"
+source: "prompts.chat"
+license: "CC0"
+---
 # Storyteller
 
 **Category:** creative

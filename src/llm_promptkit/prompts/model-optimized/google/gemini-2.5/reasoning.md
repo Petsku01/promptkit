@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Gemini 2.5: Reasoning"
+subcategory: "google"
+model: "gemini-2.5"
+---
 # Gemini 2.5: Reasoning
 
 ## Long Document Analysis

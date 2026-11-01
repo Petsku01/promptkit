@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Data Analyst"
+source: "prompts.chat"
+license: "CC0"
+---
 # Data Analyst
 
 **Category:** reasoning

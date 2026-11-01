@@ -1,3 +1,9 @@
+---
+category: "defensive"
+title: "Update checker"
+source: "prompts.chat"
+license: "CC0"
+---
 # Update checker
 
 **Category:** defensive

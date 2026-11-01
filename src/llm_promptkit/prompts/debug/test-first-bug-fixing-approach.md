@@ -1,3 +1,9 @@
+---
+category: "debug"
+title: "Test-First Bug Fixing Approach"
+source: "prompts.chat"
+license: "CC0"
+---
 # Test-First Bug Fixing Approach
 
 **Category:** debug

@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Codex 5.3: Agentic Coding"
+subcategory: "openai"
+model: "codex-5.3"
+---
 # Codex 5.3: Agentic Coding
 
 ## Task with Reasoning Effort

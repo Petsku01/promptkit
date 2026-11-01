@@ -1,3 +1,9 @@
+---
+category: "output"
+title: "Journalist"
+source: "prompts.chat"
+license: "CC0"
+---
 # Journalist
 
 **Category:** output

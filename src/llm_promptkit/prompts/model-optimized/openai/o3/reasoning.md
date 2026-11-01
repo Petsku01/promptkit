@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "o3: Reasoning"
+subcategory: "openai"
+model: "o3"
+---
 # o3: Reasoning
 
 ## Math Problem

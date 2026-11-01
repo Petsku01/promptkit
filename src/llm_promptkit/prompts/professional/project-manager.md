@@ -1,3 +1,9 @@
+---
+category: "professional"
+title: "Project Manager"
+source: "prompts.chat"
+license: "CC0"
+---
 # Project Manager
 
 **Category:** professional

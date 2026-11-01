@@ -1,3 +1,9 @@
+---
+category: "code"
+title: "Senior Frontend Developer"
+source: "prompts.chat"
+license: "CC0"
+---
 # Senior Frontend Developer
 
 **Category:** code

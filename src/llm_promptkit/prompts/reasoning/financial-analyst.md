@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Financial Analyst"
+source: "prompts.chat"
+license: "CC0"
+---
 # Financial Analyst
 
 **Category:** reasoning

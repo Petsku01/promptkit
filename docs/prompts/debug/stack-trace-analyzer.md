@@ -1,4 +1,8 @@
-[<- Back to Debug Prompts](../index.md)
+---
+category: "debug"
+title: "Stack Trace Analyzer"
+---
+[← Back to Debug Prompts](../index.md)
 
 # Stack Trace Analyzer
 

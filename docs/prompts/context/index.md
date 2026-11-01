@@ -14,3 +14,4 @@ promptkit search "context"
 | Prompt | File |
 |--------|------|
 | [few-shot-negatives](few-shot-negatives.md) | `few-shot-negatives.md` |
+| [session-handoff](session-handoff.md) | `session-handoff.md` |

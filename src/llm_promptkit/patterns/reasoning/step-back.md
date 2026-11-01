@@ -1,3 +1,7 @@
+---
+category: "reasoning"
+title: "Step Back"
+---
 # Step Back
 
 **Category:** reasoning

@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Qwen 3: Multilingual"
+subcategory: "qwen"
+model: "qwen-3"
+---
 # Qwen 3: Multilingual
 
 ## Translation Task

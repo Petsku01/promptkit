@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Claude Opus 4.5: Coding"
+subcategory: "anthropic"
+model: "claude-opus-4.5"
+---
 # Claude Opus 4.5: Coding
 
 ## Architecture Design

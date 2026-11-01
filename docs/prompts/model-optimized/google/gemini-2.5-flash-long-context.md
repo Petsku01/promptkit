@@ -1,4 +1,10 @@
-[<- Back to Model-Optimized Google](../index.md)
+---
+category: "model-optimized"
+title: "Gemini 2.5 Flash: Long Context"
+subcategory: "google"
+model: "gemini-2.5-flash"
+---
+[← Back to Model-Optimized Google](../index.md)
 
 # Gemini 2.5 Flash: Long Context
 

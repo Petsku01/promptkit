@@ -1,5 +1,8 @@
 ---
-source: Fabric (danielmiessler/Fabric) — MIT, ks. NOTICE.md
+category: "defensive"
+title: "STRIDE Threat Modeler"
+source: "Fabric (danielmiessler/Fabric), MIT"
+license: "MIT"
 ---
 # STRIDE Threat Modeler
 

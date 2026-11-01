@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 3.3: Coding"
+subcategory: "meta"
+model: "llama-3.3"
+---
 # Llama 3.3: Coding
 
 ## Code Generation

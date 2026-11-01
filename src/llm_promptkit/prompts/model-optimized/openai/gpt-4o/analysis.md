@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-4o: Analysis Analysis & Reasoning Reasoning"
+subcategory: "openai"
+model: "gpt-4o"
+---
 # GPT-4o: Analysis Analysis & Reasoning Reasoning
 
 ## Step-by-Step Analysis

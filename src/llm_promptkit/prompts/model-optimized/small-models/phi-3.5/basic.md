@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Phi 3.5: Basic Tasks"
+subcategory: "small-models"
+model: "phi-3.5"
+---
 # Phi 3.5: Basic Tasks
 
 ## Classification

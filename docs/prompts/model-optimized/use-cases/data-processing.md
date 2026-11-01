@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Use-Cases](../index.md)
+---
+category: "model-optimized"
+title: "Use Case: Data Processing"
+subcategory: "use-cases"
+---
+[← Back to Model-Optimized Use-Cases](../index.md)
 
 # Use Case: Data Processing
 

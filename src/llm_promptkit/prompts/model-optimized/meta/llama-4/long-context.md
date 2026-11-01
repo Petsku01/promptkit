@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Llama 4: Long Context (10M Tokens)"
+subcategory: "meta"
+model: "llama-4"
+---
 # Llama 4: Long Context (10M Tokens)
 
 ## Full-Codebase Understanding

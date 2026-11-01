@@ -1,4 +1,8 @@
-[<- Back to Reasoning Prompts](../index.md)
+---
+category: "reasoning"
+title: "Self-Consistency"
+---
+[← Back to Reasoning Prompts](../index.md)
 
 # Self-Consistency
 

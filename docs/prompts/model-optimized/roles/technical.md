@@ -1,4 +1,9 @@
-[<- Back to Model-Optimized Roles](../index.md)
+---
+category: "model-optimized"
+title: "Technical Roles"
+subcategory: "roles"
+---
+[← Back to Model-Optimized Roles](../index.md)
 
 # Technical Roles
 

@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Evaluation: Quality Metrics"
+subcategory: "evaluation"
+---
 # Evaluation: Quality Metrics
 
 ## BLEU-style Evaluation

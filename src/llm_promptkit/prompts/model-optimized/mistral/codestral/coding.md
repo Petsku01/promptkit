@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "Codestral: Specialized Coding"
+subcategory: "mistral"
+model: "codestral"
+---
 # Codestral: Specialized Coding
 
 ## Code Generation

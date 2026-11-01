@@ -1,3 +1,7 @@
+---
+category: "debug"
+title: "Rubber Duck Debugging"
+---
 # Rubber Duck Debugging
 
 **Category:** debug

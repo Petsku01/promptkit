@@ -1,3 +1,9 @@
+---
+category: "model-optimized"
+title: "GPT-5.4: Reasoning"
+subcategory: "openai"
+model: "gpt-5.4"
+---
 # GPT-5.4: Reasoning
 
 ## Deep Investigation

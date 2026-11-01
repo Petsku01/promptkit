@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Simulaattorit"
+subcategory: "roles"
+---
 # Simulaattorit
 
 ## Linux Terminal

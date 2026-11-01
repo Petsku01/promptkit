@@ -1,3 +1,8 @@
+---
+category: "model-optimized"
+title: "Benchmark: Reasoning"
+subcategory: "benchmarks"
+---
 # Benchmark: Reasoning
 
 ## Model Comparison (Reasoning Tasks)

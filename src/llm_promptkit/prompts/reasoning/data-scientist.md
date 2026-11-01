@@ -1,3 +1,9 @@
+---
+category: "reasoning"
+title: "Data Scientist"
+source: "Awesome ChatGPT Prompts, CC0"
+license: "CC0"
+---
 # Data Scientist
 
 **Category:** reasoning

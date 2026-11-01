@@ -1,4 +1,8 @@
-[<- Back to Output Prompts](../index.md)
+---
+category: "output"
+title: "Strict JSON Enforcer"
+---
+[← Back to Output Prompts](../index.md)
 
 # Strict JSON Enforcer
 

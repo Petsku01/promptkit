@@ -1,3 +1,9 @@
+---
+category: "creative"
+title: "Novelist"
+source: "prompts.chat"
+license: "CC0"
+---
 # Novelist
 
 **Category:** creative

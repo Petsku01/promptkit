@@ -1,3 +1,7 @@
+---
+category: "agentic"
+title: "Meta Prompting"
+---
 # Meta Prompting
 
 **Category:** agentic
