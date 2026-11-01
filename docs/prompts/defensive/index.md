@@ -21,6 +21,8 @@ promptkit search "defensive"
 | [comprehensive-web-application-development-with-sec](comprehensive-web-application-development-with-sec.md) | `comprehensive-web-application-development-with-sec.md` |
 | [contrarian](contrarian.md) | `contrarian.md` |
 | [create-stride-threat-model](create-stride-threat-model.md) | `create-stride-threat-model.md` |
+| [email-authentication-header-analyzer](email-authentication-header-analyzer.md) | `email-authentication-header-analyzer.md` |
+| [evidence-gated-completion-claims](evidence-gated-completion-claims.md) | `evidence-gated-completion-claims.md` |
 | [greybeard-secure-prompt-engineer](greybeard-secure-prompt-engineer.md) | `greybeard-secure-prompt-engineer.md` |
 | [hallucination-reducer](hallucination-reducer.md) | `hallucination-reducer.md` |
 | [journal-reviewer](journal-reviewer.md) | `journal-reviewer.md` |
@@ -28,6 +30,7 @@ promptkit search "defensive"
 | [plagiarism-checker](plagiarism-checker.md) | `plagiarism-checker.md` |
 | [pull-request-review-assistant](pull-request-review-assistant.md) | `pull-request-review-assistant.md` |
 | [refactoring-expert](refactoring-expert.md) | `refactoring-expert.md` |
+| [spec-plan-task-consistency-audit](spec-plan-task-consistency-audit.md) | `spec-plan-task-consistency-audit.md` |
 | [tech-reviewer](tech-reviewer.md) | `tech-reviewer.md` |
 | [update-checker](update-checker.md) | `update-checker.md` |
 | [website-security-vulnerability-checker](website-security-vulnerability-checker.md) | `website-security-vulnerability-checker.md` |

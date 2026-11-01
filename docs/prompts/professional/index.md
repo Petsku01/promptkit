@@ -14,6 +14,7 @@ promptkit search "professional"
 | Prompt | File |
 |--------|------|
 | [analyze-candidates](analyze-candidates.md) | `analyze-candidates.md` |
+| [architecture-decision-record](architecture-decision-record.md) | `architecture-decision-record.md` |
 | [career-coach](career-coach.md) | `career-coach.md` |
 | [career-counselor](career-counselor.md) | `career-counselor.md` |
 | [create-prd](create-prd.md) | `create-prd.md` |
@@ -22,6 +23,7 @@ promptkit search "professional"
 | [product-manager](product-manager.md) | `product-manager.md` |
 | [project-manager](project-manager.md) | `project-manager.md` |
 | [recruiter](recruiter.md) | `recruiter.md` |
+| [requirements-quality-checklist](requirements-quality-checklist.md) | `requirements-quality-checklist.md` |
 | [seo-consultant](seo-consultant.md) | `seo-consultant.md` |
 | [social-media-manager](social-media-manager.md) | `social-media-manager.md` |
 | [startup-idea-generator](startup-idea-generator.md) | `startup-idea-generator.md` |

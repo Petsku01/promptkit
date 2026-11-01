@@ -13,6 +13,7 @@ promptkit search "code"
 
 | Prompt | File |
 |--------|------|
+| [browser-exploration-to-verified-playwright-tests](browser-exploration-to-verified-playwright-tests.md) | `browser-exploration-to-verified-playwright-tests.md` |
 | [brutal-reviewer](brutal-reviewer.md) | `brutal-reviewer.md` |
 | [code-reviewer-extended](code-reviewer-extended.md) | `code-reviewer-extended.md` |
 | [code-reviewer](code-reviewer.md) | `code-reviewer.md` |
@@ -26,19 +27,24 @@ promptkit search "code"
 | [explain-code](explain-code.md) | `explain-code.md` |
 | [fullstack-software-developer](fullstack-software-developer.md) | `fullstack-software-developer.md` |
 | [generate-code-rules](generate-code-rules.md) | `generate-code-rules.md` |
+| [git-worktree-isolation-baseline](git-worktree-isolation-baseline.md) | `git-worktree-isolation-baseline.md` |
 | [github-expert](github-expert.md) | `github-expert.md` |
 | [it-architect](it-architect.md) | `it-architect.md` |
 | [javascript-console](javascript-console.md) | `javascript-console.md` |
+| [javax-to-jakarta-migration](javax-to-jakarta-migration.md) | `javax-to-jakarta-migration.md` |
 | [linux-terminal](linux-terminal.md) | `linux-terminal.md` |
 | [machine-learning-engineer](machine-learning-engineer.md) | `machine-learning-engineer.md` |
+| [multi-stage-dockerfile-builder](multi-stage-dockerfile-builder.md) | `multi-stage-dockerfile-builder.md` |
 | [password-generator](password-generator.md) | `password-generator.md` |
 | [php-interpreter](php-interpreter.md) | `php-interpreter.md` |
 | [python-interpreter](python-interpreter.md) | `python-interpreter.md` |
 | [r-interpreter](r-interpreter.md) | `r-interpreter.md` |
+| [read-only-test-gap-audit](read-only-test-gap-audit.md) | `read-only-test-gap-audit.md` |
 | [review-code](review-code.md) | `review-code.md` |
 | [senior-engineer](senior-engineer.md) | `senior-engineer.md` |
 | [senior-frontend-developer](senior-frontend-developer.md) | `senior-frontend-developer.md` |
 | [software-quality-assurance-tester](software-quality-assurance-tester.md) | `software-quality-assurance-tester.md` |
+| [sql-change-blast-radius-analysis](sql-change-blast-radius-analysis.md) | `sql-change-blast-radius-analysis.md` |
 | [sql-terminal](sql-terminal.md) | `sql-terminal.md` |
 | [svg-designer](svg-designer.md) | `svg-designer.md` |
 | [tdd-generator](tdd-generator.md) | `tdd-generator.md` |

@@ -117,3 +117,85 @@ Suurimmat kategoriat (mallikohtaisten alla valmistajaryhmän mukaan):
 - `model-optimized/google`: 15 tiedostoa.
 - `model-optimized/meta`: 9 tiedostoa.
 - `model-optimized/qwen`: 9 tiedostoa.
+
+## Agentic workflow adaptations — GitHub MIT
+
+The following prompts are adaptations, not verbatim source copies or model-tested
+vendor prompts. Their pinned upstream file URLs are recorded in each prompt.
+The generated `docs/prompts/` mirrors carry the same attribution.
+
+From `github/awesome-copilot` at `5269f7ea2d6c3a9bfda5ed878b6726cf509121fd`:
+
+- `src/llm_promptkit/prompts/debug/mcp-server-release-qa.md`
+- `src/llm_promptkit/prompts/context/codebase-memory-mcp-discovery.md`
+- `src/llm_promptkit/prompts/code/browser-exploration-to-verified-playwright-tests.md`
+  (combines `playwright-explore-website` and `playwright-generate-test`).
+
+From `github/spec-kit` at `7370e592f3cd9c06e5b698983957e227c75b30e2`:
+
+- `src/llm_promptkit/prompts/defensive/spec-plan-task-consistency-audit.md`
+
+License sources (both carry the notice below):
+
+- https://github.com/github/awesome-copilot/blob/5269f7ea2d6c3a9bfda5ed878b6726cf509121fd/LICENSE
+- https://github.com/github/spec-kit/blob/7370e592f3cd9c06e5b698983957e227c75b30e2/LICENSE
+
+```text
+MIT License
+
+Copyright GitHub, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## Agentic workflow adaptations — Superpowers MIT
+
+Adapted from `obra/superpowers` at `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b`;
+the exact upstream skill URL is recorded in each prompt. Applies equally to
+the generated `docs/prompts/` mirrors:
+
+- `src/llm_promptkit/prompts/code/git-worktree-isolation-baseline.md`
+- `src/llm_promptkit/prompts/system/test-driven-agent-skill-authoring.md`
+- `src/llm_promptkit/prompts/defensive/evidence-gated-completion-claims.md`
+
+License source: https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/LICENSE
+
+```text
+MIT License
+
+Copyright (c) 2025 Jesse Vincent
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

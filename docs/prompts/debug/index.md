@@ -16,6 +16,7 @@ promptkit search "debug"
 | [bug-risk-analysis](bug-risk-analysis.md) | `bug-risk-analysis.md` |
 | [comprehensive-repository-analysis-and-bug-fixing-f](comprehensive-repository-analysis-and-bug-fixing-f.md) | `comprehensive-repository-analysis-and-bug-fixing-f.md` |
 | [debugger-extended](debugger-extended.md) | `debugger-extended.md` |
+| [mcp-server-release-qa](mcp-server-release-qa.md) | `mcp-server-release-qa.md` |
 | [rubber-duck](rubber-duck.md) | `rubber-duck.md` |
 | [security-fixes-cves](security-fixes-cves.md) | `security-fixes-cves.md` |
 | [security-fixes](security-fixes.md) | `security-fixes.md` |

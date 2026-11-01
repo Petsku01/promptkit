@@ -13,5 +13,6 @@ promptkit search "context"
 
 | Prompt | File |
 |--------|------|
+| [codebase-memory-mcp-discovery](codebase-memory-mcp-discovery.md) | `codebase-memory-mcp-discovery.md` |
 | [few-shot-negatives](few-shot-negatives.md) | `few-shot-negatives.md` |
 | [session-handoff](session-handoff.md) | `session-handoff.md` |
