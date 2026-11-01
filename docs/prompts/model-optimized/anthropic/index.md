@@ -23,5 +23,8 @@ Model-optimized prompts for anthropic.
 | [claude-opus-4.7 coding](claude-opus-4.7-coding.md) | `claude-opus-4.7-coding.md` |
 | [claude-opus-4.7 long-horizon](claude-opus-4.7-long-horizon.md) | `claude-opus-4.7-long-horizon.md` |
 | [claude-opus-4.7 reasoning](claude-opus-4.7-reasoning.md) | `claude-opus-4.7-reasoning.md` |
+| [claude-opus-4.8 analysis](claude-opus-4.8-analysis.md) | `claude-opus-4.8-analysis.md` |
+| [claude-opus-4.8 coding](claude-opus-4.8-coding.md) | `claude-opus-4.8-coding.md` |
+| [claude-opus-4.8 reasoning](claude-opus-4.8-reasoning.md) | `claude-opus-4.8-reasoning.md` |
 | [claude-sonnet-4 coding](claude-sonnet-4-coding.md) | `claude-sonnet-4-coding.md` |
 | [claude-sonnet-4 reasoning](claude-sonnet-4-reasoning.md) | `claude-sonnet-4-reasoning.md` |

@@ -20,3 +20,6 @@ Model-optimized prompts for deepseek.
 | [deepseek-v4-flash coding](deepseek-v4-flash-coding.md) | `deepseek-v4-flash-coding.md` |
 | [deepseek-v4-pro coding](deepseek-v4-pro-coding.md) | `deepseek-v4-pro-coding.md` |
 | [deepseek-v4-pro reasoning](deepseek-v4-pro-reasoning.md) | `deepseek-v4-pro-reasoning.md` |
+| [deepseek-v4.1-flash-1017 analysis](deepseek-v4.1-flash-1017-analysis.md) | `deepseek-v4.1-flash-1017-analysis.md` |
+| [deepseek-v4.1-flash-1017 coding](deepseek-v4.1-flash-1017-coding.md) | `deepseek-v4.1-flash-1017-coding.md` |
+| [deepseek-v4.1-flash-1017 reasoning](deepseek-v4.1-flash-1017-reasoning.md) | `deepseek-v4.1-flash-1017-reasoning.md` |

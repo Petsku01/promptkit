@@ -26,6 +26,12 @@ Model-optimized prompts for openai.
 | [gpt-5.4 coding](gpt-5.4-coding.md) | `gpt-5.4-coding.md` |
 | [gpt-5.4 reasoning](gpt-5.4-reasoning.md) | `gpt-5.4-reasoning.md` |
 | [gpt-5.4 thinking](gpt-5.4-thinking.md) | `gpt-5.4-thinking.md` |
+| [gpt-5.6-sol analysis](gpt-5.6-sol-analysis.md) | `gpt-5.6-sol-analysis.md` |
+| [gpt-5.6-sol coding](gpt-5.6-sol-coding.md) | `gpt-5.6-sol-coding.md` |
+| [gpt-5.6-sol reasoning](gpt-5.6-sol-reasoning.md) | `gpt-5.6-sol-reasoning.md` |
+| [gpt-6.1-sol analysis](gpt-6.1-sol-analysis.md) | `gpt-6.1-sol-analysis.md` |
+| [gpt-6.1-sol coding](gpt-6.1-sol-coding.md) | `gpt-6.1-sol-coding.md` |
+| [gpt-6.1-sol reasoning](gpt-6.1-sol-reasoning.md) | `gpt-6.1-sol-reasoning.md` |
 | [o1 reasoning](o1-reasoning.md) | `o1-reasoning.md` |
 | [o3 coding](o3-coding.md) | `o3-coding.md` |
 | [o3 reasoning](o3-reasoning.md) | `o3-reasoning.md` |
