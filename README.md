@@ -14,10 +14,14 @@ A toolkit for building effective LLM prompts. Includes:
 ## Installation
 
 ```bash
-pip install llm-promptkit
+# From the GitHub release (PyPI publishing planned — not yet published)
+pip install https://github.com/Petsku01/promptkit/releases/download/v0.4.0/llm_promptkit-0.4.0-py3-none-any.whl
 
-# With token counting support
-pip install llm-promptkit[tokens]
+# From source
+pip install -e .
+
+# With token counting support (optional extra)
+pip install -e .[tokens]
 ```
 
 ## Quick Start
