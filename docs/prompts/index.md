@@ -6,11 +6,11 @@ Browse ready-to-use prompts organized by category.
 
 | Category | Prompts |
 |----------|--------|
-| [Code](code/index.md) | 38 |
+| [Code](code/index.md) | 47 |
 | [Context](context/index.md) | 3 |
 | [Creative](creative/index.md) | 11 |
-| [Debug](debug/index.md) | 13 |
-| [Defensive](defensive/index.md) | 22 |
+| [Debug](debug/index.md) | 15 |
+| [Defensive](defensive/index.md) | 23 |
 | [Education](education/index.md) | 11 |
 | [Output](output/index.md) | 12 |
 | [Professional](professional/index.md) | 16 |

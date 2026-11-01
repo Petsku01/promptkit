@@ -130,6 +130,13 @@ From `github/awesome-copilot` at `5269f7ea2d6c3a9bfda5ed878b6726cf509121fd`:
 - `src/llm_promptkit/prompts/context/codebase-memory-mcp-discovery.md`
 - `src/llm_promptkit/prompts/code/browser-exploration-to-verified-playwright-tests.md`
   (combines `playwright-explore-website` and `playwright-generate-test`).
+- `src/llm_promptkit/prompts/code/launchdarkly-flag-removal.md`
+- `src/llm_promptkit/prompts/code/mongodb-query-performance-advisor.md`
+- `src/llm_promptkit/prompts/code/windows-arm64-python-wheel-ci.md`
+- `src/llm_promptkit/prompts/code/embedded-c-misra-deviations.md`
+- `src/llm_promptkit/prompts/debug/frontend-performance-investigation.md`
+- `src/llm_promptkit/prompts/code/clojure-repl-pair-programming.md`
+- `src/llm_promptkit/prompts/code/gha-node-runtime-upgrade.md`
 
 From `github/spec-kit` at `7370e592f3cd9c06e5b698983957e227c75b30e2`:
 
@@ -164,6 +171,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Agentic workflow adaptations — wshobson/agents MIT
+
+Source: https://github.com/wshobson/agents
+Pinned upstream: `7e2fb559cf4b824b27f1fec49fe88f7511066d26`.
+The exact upstream file URLs appear in the prompts. This notice also covers
+all generated `docs/prompts/` mirrors of these adaptations:
+
+- `src/llm_promptkit/prompts/code/logical-git-revert-confirmation.md`
+- `src/llm_promptkit/prompts/code/executable-implementation-plans.md`
+  (bounded feature/bug intake and separate specification approval only;
+  the primary Superpowers source retains its separate notice above).
+
+License source: https://github.com/wshobson/agents/blob/7e2fb559cf4b824b27f1fec49fe88f7511066d26/LICENSE
+
+```text
+MIT License
+
+Copyright (c) 2024 Seth Hobson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ## Agentic workflow adaptations — Superpowers MIT
 
 Adapted from `obra/superpowers` at `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b`;
@@ -173,6 +218,12 @@ the generated `docs/prompts/` mirrors:
 - `src/llm_promptkit/prompts/code/git-worktree-isolation-baseline.md`
 - `src/llm_promptkit/prompts/system/test-driven-agent-skill-authoring.md`
 - `src/llm_promptkit/prompts/defensive/evidence-gated-completion-claims.md`
+- `src/llm_promptkit/prompts/code/code-review-reception-pushback.md`
+- `src/llm_promptkit/prompts/debug/four-phase-root-cause-debugging.md`
+- `src/llm_promptkit/prompts/code/executable-implementation-plans.md`
+  (also uses bounded intake and separate specification approval from
+  `wshobson/agents`; both MIT notices apply).
+- `src/llm_promptkit/prompts/defensive/task-reviewer-compliance-quality.md`
 
 License source: https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/LICENSE
 

@@ -31,6 +31,7 @@ promptkit search "defensive"
 | [pull-request-review-assistant](pull-request-review-assistant.md) | `pull-request-review-assistant.md` |
 | [refactoring-expert](refactoring-expert.md) | `refactoring-expert.md` |
 | [spec-plan-task-consistency-audit](spec-plan-task-consistency-audit.md) | `spec-plan-task-consistency-audit.md` |
+| [task-reviewer-compliance-quality](task-reviewer-compliance-quality.md) | `task-reviewer-compliance-quality.md` |
 | [tech-reviewer](tech-reviewer.md) | `tech-reviewer.md` |
 | [update-checker](update-checker.md) | `update-checker.md` |
 | [website-security-vulnerability-checker](website-security-vulnerability-checker.md) | `website-security-vulnerability-checker.md` |
