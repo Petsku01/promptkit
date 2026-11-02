@@ -13,11 +13,14 @@ promptkit search "reasoning"
 
 | Prompt | File |
 |--------|------|
+| [adaptive-rag-gates](adaptive-rag-gates.md) | `adaptive-rag-gates.md` |
+| [bull-bear-research-debate](bull-bear-research-debate.md) | `bull-bear-research-debate.md` |
 | [chain-of-thought](chain-of-thought.md) | `chain-of-thought.md` |
 | [check-falsifiability](check-falsifiability.md) | `check-falsifiability.md` |
 | [data-analyst](data-analyst.md) | `data-analyst.md` |
 | [data-scientist](data-scientist.md) | `data-scientist.md` |
 | [decomposition](decomposition.md) | `decomposition.md` |
+| [deep-research-supervisor](deep-research-supervisor.md) | `deep-research-supervisor.md` |
 | [expert-persona](expert-persona.md) | `expert-persona.md` |
 | [financial-analyst](financial-analyst.md) | `financial-analyst.md` |
 | [find-logical-fallacies](find-logical-fallacies.md) | `find-logical-fallacies.md` |
@@ -30,7 +33,9 @@ promptkit search "reasoning"
 | [refinement-loop](refinement-loop.md) | `refinement-loop.md` |
 | [root-cause-analyst](root-cause-analyst.md) | `root-cause-analyst.md` |
 | [self-consistency](self-consistency.md) | `self-consistency.md` |
+| [self-discover-plan](self-discover-plan.md) | `self-discover-plan.md` |
 | [self-refinement](self-refinement.md) | `self-refinement.md` |
 | [statistician](statistician.md) | `statistician.md` |
 | [step-back](step-back.md) | `step-back.md` |
+| [storm-persona-outline-polish](storm-persona-outline-polish.md) | `storm-persona-outline-polish.md` |
 | [tree-of-thoughts](tree-of-thoughts.md) | `tree-of-thoughts.md` |

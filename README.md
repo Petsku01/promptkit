@@ -7,7 +7,7 @@
 A toolkit for building effective LLM prompts. Includes:
 - **Prompt Doctor** -- Analyze prompts for common issues
 - **19 prompt patterns** across 7 categories (reasoning, agentic, context, output, code, review, defensive)
-- **367 curated prompts** -- Model-optimized (incl. the newest model families), role-based, and technique prompts (phi-3 duplicates removed)
+- **374 curated prompts** -- Model-optimized (incl. the newest model families), role-based, and technique prompts (phi-3 duplicates removed)
 - **Python API** -- Fluent builder for composing prompts
 - **CLI** -- Quick prompt generation and browsing from the terminal
 
