@@ -21,11 +21,13 @@ promptkit search "reasoning"
 | [expert-persona](expert-persona.md) | `expert-persona.md` |
 | [financial-analyst](financial-analyst.md) | `financial-analyst.md` |
 | [find-logical-fallacies](find-logical-fallacies.md) | `find-logical-fallacies.md` |
+| [graph-of-thoughts](graph-of-thoughts.md) | `graph-of-thoughts.md` |
 | [llm-researcher](llm-researcher.md) | `llm-researcher.md` |
 | [logic-builder-tool](logic-builder-tool.md) | `logic-builder-tool.md` |
 | [mathematician](mathematician.md) | `mathematician.md` |
 | [philosopher](philosopher.md) | `philosopher.md` |
 | [readability-logic-simulator](readability-logic-simulator.md) | `readability-logic-simulator.md` |
+| [refinement-loop](refinement-loop.md) | `refinement-loop.md` |
 | [root-cause-analyst](root-cause-analyst.md) | `root-cause-analyst.md` |
 | [self-consistency](self-consistency.md) | `self-consistency.md` |
 | [self-refinement](self-refinement.md) | `self-refinement.md` |

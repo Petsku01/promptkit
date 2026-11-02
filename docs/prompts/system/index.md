@@ -13,6 +13,7 @@ promptkit search "system"
 
 | Prompt | File |
 |--------|------|
+| [agent-graph-cycle](agent-graph-cycle.md) | `agent-graph-cycle.md` |
 | [claude-soul-principles](claude-soul-principles.md) | `claude-soul-principles.md` |
 | [coding-assistant](coding-assistant.md) | `coding-assistant.md` |
 | [improve-prompt](improve-prompt.md) | `improve-prompt.md` |

@@ -33,6 +33,7 @@ promptkit search "code"
 | [ethereum-developer](ethereum-developer.md) | `ethereum-developer.md` |
 | [executable-implementation-plans](executable-implementation-plans.md) | `executable-implementation-plans.md` |
 | [explain-code](explain-code.md) | `explain-code.md` |
+| [fixer-loop](fixer-loop.md) | `fixer-loop.md` |
 | [fullstack-software-developer](fullstack-software-developer.md) | `fullstack-software-developer.md` |
 | [generate-code-rules](generate-code-rules.md) | `generate-code-rules.md` |
 | [gha-node-runtime-upgrade](gha-node-runtime-upgrade.md) | `gha-node-runtime-upgrade.md` |
