@@ -124,6 +124,10 @@ execution evidence.
 
 Unlike prompt chaining's linear stages, this graph deliberately revisits a worker through guarded cyclic edges. Unlike reflection or ReAct, it specifies role-owned state and routing rather than one agent's critique or action sequence. Unlike Graph of Thoughts, graph vertices are execution nodes rather than candidate solution artifacts. The workflow can be implemented with LangGraph or another executor; a prompt alone cannot enforce runtime isolation, independent review, or durable checkpoints.
 
+## Related 2026-era extensions
+
+2026-11-02: [CEPO (2026)](https://arxiv.org/abs/2610.34722) suggests a graph-design principle: separate shared coordination instructions from agent-specific execution instructions, optimize the layers separately, and evaluate changes on whole-system outcomes. [Persistent Skill Evolution Loop](persistent-skill-evolution.md) supplies the complementary cross-session state layer for evidence, consolidated knowledge, and validated skills; neither addition replaces runtime routing, reviewer veto, or permission boundaries.
+
 ## Variables
 
 - `[nodes]`: role inventory, tools, inputs/outputs, permissions, acceptance checks, and escalation owner.

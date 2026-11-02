@@ -15,5 +15,5 @@ Browse ready-to-use prompts organized by category.
 | [Output](output/index.md) | 12 |
 | [Professional](professional/index.md) | 16 |
 | [Reasoning](reasoning/index.md) | 21 |
-| [System](system/index.md) | 5 |
+| [System](system/index.md) | 6 |
 | [Model-Optimized](model-optimized/index.md) | 188 |

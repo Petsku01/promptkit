@@ -86,6 +86,10 @@ Unlike the short reflection pattern or existing Self-Refinement prompt, this wor
 
 [Self-Refine (Madaan et al., 2023)](https://arxiv.org/abs/2303.17651) describes generating an initial output, giving feedback, and iteratively refining it; that is the methodological basis of this loop. [OpenAI's agentic guidance](https://developers.openai.com/cookbook/examples/gpt4-1_prompting_guide) grounds incremental changes and verification, while [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) supports explicit criteria, comparisons, and pass/fail thresholds. Numeric defaults and regression rules are authored operational choices, not vendor guarantees or measured self-refinement results.
 
+## Related 2026-era extensions
+
+2026-11-02: [Persistent Skill Evolution Loop](../system/persistent-skill-evolution.md) adds evidence-gated knowledge consolidation and skill promotion across sessions, rather than revising the current draft. [RRSI (2026)](https://arxiv.org/abs/2609.24972) motivates leakage screening for reusable changes; apply the same precaution to critique signals so benchmark-specific answers or scoring shortcuts cannot become apparent improvement evidence.
+
 ## Variables
 
 - `[draft/task]`: existing artifact or task to draft, including audience and constraints.
