@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-11-02
+
+### Added
+- 95 prompt files (0 new patterns); catalog now 374 curated prompts
+- Model-optimized expansion for 11 newest families (gpt-6.1-sol, gpt-5.6-sol, claude-opus-4.8, gemini-3.8-flash, grok-4.6, kimi-k3, kimi-k2.7-code, qwen3.8, qwen3.8-flash-next, deepseek-v4.1-flash-1017, glm-5.3): 66 authored prompts (source: promptkit-authored; bd485f9)
+- Curated coding and agentic/MCP workflows via the two-hunt blind-review + adaptation pipeline (MIT sources: awesome-copilot, superpowers, spec-kit, Fabric, Loopany, wshobson)
+- Loop/graph families: refinement-loop, fixer-loop, graph-of-thoughts, agent-graph-cycle, persistent-skill-evolution (GoT paper + LangGraph + 2026 arXiv grounding ≤3kk)
+- Smoke-test harness (`scripts/prompt_smoke_test.py`) and a full 374×2 two-model structural sweep (FOLLOWED 598 / PARTIAL 150 / FAILED 0). Structural status only — not a quality benchmark
+- NOTICE now covers 5 new upstream notices, including the first Apache-2.0 (TradingAgents)
+
+### Changed
+- generate_docs.py type annotations, surfaced by broadened mypy scope (src+scripts); behavior unchanged
+
 ## [0.4.0] - 2026-11-01
 
 ### Added
