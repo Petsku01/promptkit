@@ -67,9 +67,9 @@ def generate_index(category: str, files: list[Path]) -> str:
 
 def render_docs() -> dict[Path, bytes]:
     """Compute the complete managed output in memory, independent of docs state."""
-    rendered = {}
-    groups = {}
-    display_names = {}
+    rendered: dict[Path, bytes] = {}
+    groups: dict[Path, list] = {}
+    display_names: dict[Path, str] = {}
     for kind in ("prompts", "patterns"):
         for source in content_files(kind):
             parts = source.relative_to(SRC_ROOT / kind).parts
