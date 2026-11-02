@@ -15,7 +15,7 @@ A toolkit for building effective LLM prompts. Includes:
 
 ```bash
 # From the GitHub release (PyPI publishing planned — not yet published)
-pip install https://github.com/Petsku01/promptkit/releases/download/v0.4.0/llm_promptkit-0.4.0-py3-none-any.whl
+pip install https://github.com/Petsku01/promptkit/releases/download/v0.5.0/llm_promptkit-0.5.0-py3-none-any.whl
 
 # From source
 pip install -e .
