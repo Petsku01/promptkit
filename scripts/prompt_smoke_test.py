@@ -507,10 +507,60 @@ def pick_preferred(available: Sequence[str]) -> List[str]:
     return resolve_models(PREFERRED_MODELS, available)
 
 
+def resolve_file_filter(spec: str) -> set[Path]:
+    """Read comma-separated paths and/or text lists; reject invalid prompt paths.
+
+    Prompt paths are relative to PROMPTS_ROOT or REPO_ROOT. Text-list paths
+    are relative to the working directory (absolute paths are also accepted).
+    Lists contain one prompt path per line; blank lines and # comments are ignored.
+    """
+    entries: List[str] = []
+    for token in spec.split(","):
+        token = token.strip()
+        if not token:
+            continue
+        source = Path(token).expanduser()
+        if source.suffix.lower() != ".md" and source.is_file():
+            try:
+                entries.extend(
+                    line.strip()
+                    for line in source.read_text(encoding="utf-8").splitlines()
+                    if line.strip() and not line.lstrip().startswith("#")
+                )
+            except (OSError, UnicodeError) as exc:
+                die(f"cannot read --files list {token}: {exc}")
+        else:
+            entries.append(token)
+    if not entries:
+        die("--files must select at least one prompt")
+    selected: set[Path] = set()
+    for entry in entries:
+        relative = Path(entry)
+        if relative.is_absolute() or ".." in relative.parts:
+            die(f"--files requires relative prompt paths without '..': {entry}")
+        candidates = (PROMPTS_ROOT / relative, REPO_ROOT / relative)
+        matched = False
+        for candidate in candidates:
+            path = candidate.resolve()
+            if (
+                PROMPTS_ROOT.resolve() in path.parents
+                and path.is_file()
+                and path.suffix == ".md"
+                and path.name.lower() != "readme.md"
+            ):
+                selected.add(path)
+                matched = True
+                break
+        if not matched:
+            die(f"unknown prompt in --files: {entry}")
+    return selected
+
+
 def discover_prompts(
     categories: Optional[Sequence[str]],
     limit: Optional[int],
     per_category: Optional[int],
+    files: Optional[str] = None,
 ) -> List[Path]:
     if not PROMPTS_ROOT.is_dir():
         die(f"prompts root missing: {PROMPTS_ROOT}")
@@ -524,14 +574,17 @@ def discover_prompts(
             dirs.append(path)
     else:
         dirs = sorted(p for p in PROMPTS_ROOT.iterdir() if p.is_dir())
+    file_filter = resolve_file_filter(files) if files is not None else None
     selected: List[Path] = []
     for folder in dirs:
-        files = sorted(
-            p for p in folder.rglob("*.md") if p.name.lower() != "readme.md"
+        category_files = sorted(
+            p for p in folder.rglob("*.md")
+            if p.name.lower() != "readme.md"
+            and (file_filter is None or p.resolve() in file_filter)
         )
         if per_category is not None:
-            files = files[:per_category]
-        selected.extend(files)
+            category_files = category_files[:per_category]
+        selected.extend(category_files)
     if limit is not None:
         selected = selected[:limit]
     return selected
@@ -801,6 +854,15 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument("--models", default="", help="Comma-separated model ids")
     parser.add_argument("--limit", type=int, default=None, help="Max prompts (not calls)")
     parser.add_argument(
+        "--files",
+        default=None,
+        help=(
+            "Comma-separated prompt paths (relative to src/llm_promptkit/prompts or repo root) "
+            "and/or text-list paths (one prompt per line); intersects category filters "
+            "before --per-category and --limit"
+        ),
+    )
+    parser.add_argument(
         "--category",
         default="",
         help="Category filter; comma-separated (code,reasoning,...)",
@@ -853,7 +915,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.pilot:
         categories = list(PILOT_CATEGORIES)
         per_category = 2
-        limit = None
+        limit = args.limit if args.files is not None else None
         requested = [m.strip() for m in args.models.split(",") if m.strip()] or list(
             PREFERRED_MODELS
         )
@@ -869,7 +931,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if len(models) < 1:
         die("no models resolved")
 
-    prompts = discover_prompts(categories or None, limit, per_category)
+    prompts = discover_prompts(categories or None, limit, per_category, files=args.files)
     if not prompts:
         die("no prompts selected")
 

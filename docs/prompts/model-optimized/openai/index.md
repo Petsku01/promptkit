@@ -31,3 +31,4 @@ Model-optimized prompts for openai.
 | [gpt-6.1-sol reasoning](gpt-6.1-sol-reasoning.md) | `gpt-6.1-sol-reasoning.md` |
 | [o3 coding](o3-coding.md) | `o3-coding.md` |
 | [o3 reasoning](o3-reasoning.md) | `o3-reasoning.md` |
+| [o3-mini reasoning](o3-mini-reasoning.md) | `o3-mini-reasoning.md` |
