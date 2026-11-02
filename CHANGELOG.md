@@ -5,10 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.6.0] - 2026-11-02
 
 ### Changed
-- Retired 145 low-quality prompt files (overall <=2 in 4-judge eval map — see prompt-quality-eval-20261102.md); stripped unevidenced claims from 62 files
+- **Quality restructure:** retired 145 low-quality prompt files (overall ≤2 in the Sol+Grok 4-judge whole-repo eval; recoverable via `git show 5849f6b:<path>`, manifest `RETIRED-2026-11-02.md`) and stripped unevidenced claims from 62 files; catalog now **262 curated prompts**
+- **Re-authored 33 Tier-1 model-optimized prompt files** (Claude 3.x/4.x, DeepSeek V3/V4/R1, Gemini 2.5 Flash, Codestral, Qwen 3/3.5, Llama 3.2/3.3, Grok 2/3, o3-mini) as long-form vendor-doc-grounded prompts (401–729 words) with per-model README restorations; honest shutdown/supersession wording (o3-mini → gpt-5.6-sol, grok-3 → grok-4.6)
+- Retired-legacy generations (GPT-3.5/4, Qwen 2.5, Mixtral/Nemo, Command R, Gemma 2/Phi-3.5, benchmark stubs) archived by tier-list decision
+- Harness: `--files` filter for targeted smoke sweeps; reauth smoke of the 33 files (FOLLOWED 33 / PARTIAL 33 thinking-cap / FAILED 0)
 
 ## [0.5.0] - 2026-11-02
 
