@@ -81,7 +81,6 @@ Synthesize these sources into a coherent understanding:
 - Extended thinking mode enables deeper reasoning
 - Explicitly request reasoning transparency
 - Higher cost - use for high-value analysis
-- Excellent at nuanced, multi-perspective analysis
 
 ## Tested On
 

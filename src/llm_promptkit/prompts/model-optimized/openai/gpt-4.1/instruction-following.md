@@ -74,7 +74,6 @@ Output: [exact format specification]
 
 ---
 **GPT-4.1 Instruction Following Tips:**
-- GPT-4.1's standout improvement over GPT-4o -- excels at precise instruction adherence
 - Use explicit "MUST" and "MUST NOT" constraints for best results
 - Number steps and ask it to complete each in order
 - Specify negative constraints ("do not add X") -- it respects these well

@@ -106,10 +106,8 @@ Run the full suite after writing. Fix any failures.
 - Designed for tasks that run for extended periods without supervision
 - Self-verifies at checkpoints -- it will test before reporting
 - Takes instructions literally -- provide complete specifications
-- Excellent at maintaining consistency across large changesets
 - Handles complex multi-step migrations with automatic rollback awareness
 - Use for: feature development, migrations, documentation, test campaigns
-- Price: $5/M input, $25/M output (same as Opus 4.6)
 
 ## Tested On
 

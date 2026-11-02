@@ -14,19 +14,11 @@ promptkit search "debug"
 | Prompt | File |
 |--------|------|
 | [backend-performance-profiling](backend-performance-profiling.md) | `backend-performance-profiling.md` |
-| [bug-risk-analysis](bug-risk-analysis.md) | `bug-risk-analysis.md` |
-| [comprehensive-repository-analysis-and-bug-fixing-f](comprehensive-repository-analysis-and-bug-fixing-f.md) | `comprehensive-repository-analysis-and-bug-fixing-f.md` |
 | [debugger-extended](debugger-extended.md) | `debugger-extended.md` |
 | [four-phase-root-cause-debugging](four-phase-root-cause-debugging.md) | `four-phase-root-cause-debugging.md` |
 | [frontend-performance-investigation](frontend-performance-investigation.md) | `frontend-performance-investigation.md` |
 | [mcp-server-release-qa](mcp-server-release-qa.md) | `mcp-server-release-qa.md` |
 | [production-incident-command](production-incident-command.md) | `production-incident-command.md` |
 | [rubber-duck](rubber-duck.md) | `rubber-duck.md` |
-| [security-fixes-cves](security-fixes-cves.md) | `security-fixes-cves.md` |
-| [security-fixes](security-fixes.md) | `security-fixes.md` |
-| [sentry-bug-fixer](sentry-bug-fixer.md) | `sentry-bug-fixer.md` |
 | [stack-trace-analyzer](stack-trace-analyzer.md) | `stack-trace-analyzer.md` |
-| [stackoverflow-post](stackoverflow-post.md) | `stackoverflow-post.md` |
-| [tech-troubleshooter](tech-troubleshooter.md) | `tech-troubleshooter.md` |
 | [test-first-bug-fixing-approach](test-first-bug-fixing-approach.md) | `test-first-bug-fixing-approach.md` |
-| [want-to-analyze-security-issues-and-vulnerabilitie](want-to-analyze-security-issues-and-vulnerabilitie.md) | `want-to-analyze-security-issues-and-vulnerabilitie.md` |

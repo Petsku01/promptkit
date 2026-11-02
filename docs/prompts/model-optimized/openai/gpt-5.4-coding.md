@@ -112,8 +112,6 @@ Provide:
 
 ---
 **GPT-5.4 Coding Tips:**
-- Excels at multi-file coordination and agentic workflows
-- Can autonomously run test-verify-fix cycles
 - Strong at maintaining architectural consistency across changes
 - Use `developer` role with explicit constraints for best results
 - Supports tool use -- provide function schemas when applicable

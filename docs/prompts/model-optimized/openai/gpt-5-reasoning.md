@@ -61,7 +61,6 @@ Provide:
 - Strong at multi-step reasoning
 - Can maintain context over long conversations
 - Good at code and technical tasks
-- Works well with structured prompts
 - Can generate and interpret diagrams (mermaid, ASCII)
 
 ## Tested On

@@ -6,7 +6,6 @@ title: "Senior Software Engineer"
 
 **Category:** code  
 **Version:** 3.0  
-**Source:** Battle-tested in production (Petsku & Kuu)
 
 ## When to Use
 
@@ -141,11 +140,6 @@ Scope investigations narrowly. Choose an approach and commit to it -- avoid revi
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| Claude Opus 4.5 | ✅ Excellent | Primary development model |
-| Claude Sonnet 4 | ✅ Yes | Works well |
-| GPT-4o | ✅ Yes | Good results |
-| Codex GPT-5.3 | ✅ Yes | Primary agentic use case |
-| o3/o4-mini | ⚠️ Partial | Remove planning template for reasoning models |
 | glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
 | deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
 

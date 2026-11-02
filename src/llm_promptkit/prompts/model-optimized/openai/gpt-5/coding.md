@@ -75,7 +75,6 @@ Provide:
 
 ---
 **GPT-5 Coding Tips:**
-- Excellent at full-stack development
 - Can maintain consistency across multiple files
 - Good at explaining code changes
 - Strong at API and system design

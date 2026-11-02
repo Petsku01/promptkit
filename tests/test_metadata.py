@@ -144,4 +144,4 @@ def test_generate_docs_check_cli():
     assert b"drift=0" in result.stdout
     import re as _re
     mirrors = int(_re.search(rb"(\d+) content mirrors checked", result.stdout).group(1))
-    assert mirrors >= 300  # dynamic floor: mirror count grows with the catalog
+    assert mirrors >= 229  # post-2026-11-02 retire: 229 prompts + 19 patterns = 248 mirrors

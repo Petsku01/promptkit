@@ -6,14 +6,14 @@ Browse ready-to-use prompts organized by category.
 
 | Category | Prompts |
 |----------|--------|
-| [Code](code/index.md) | 58 |
+| [Code](code/index.md) | 35 |
 | [Context](context/index.md) | 3 |
-| [Creative](creative/index.md) | 11 |
-| [Debug](debug/index.md) | 17 |
-| [Defensive](defensive/index.md) | 24 |
-| [Education](education/index.md) | 11 |
-| [Output](output/index.md) | 12 |
-| [Professional](professional/index.md) | 16 |
-| [Reasoning](reasoning/index.md) | 26 |
-| [System](system/index.md) | 8 |
-| [Model-Optimized](model-optimized/index.md) | 188 |
+| [Creative](creative/index.md) | 4 |
+| [Debug](debug/index.md) | 9 |
+| [Defensive](defensive/index.md) | 13 |
+| [Education](education/index.md) | 2 |
+| [Output](output/index.md) | 8 |
+| [Professional](professional/index.md) | 5 |
+| [Reasoning](reasoning/index.md) | 17 |
+| [System](system/index.md) | 7 |
+| [Model-Optimized](model-optimized/index.md) | 126 |

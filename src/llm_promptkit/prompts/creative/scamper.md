@@ -34,8 +34,5 @@ Applying a rigid, proven creative framework prevents the LLM from outputting gen
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | Yes | Creative output |
-| Claude | Yes | Thorough |
-| Llama 3 | Yes | Good |
 | glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
 | deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

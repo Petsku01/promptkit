@@ -5,11 +5,8 @@ Model-optimized prompts for openai.
 | Prompt | File |
 |--------|------|
 | [codex-5.3 coding](codex-5.3-coding.md) | `codex-5.3-coding.md` |
-| [gpt-3.5-turbo quick-tasks](gpt-3.5-turbo-quick-tasks.md) | `gpt-3.5-turbo-quick-tasks.md` |
-| [gpt-4 analysis](gpt-4-analysis.md) | `gpt-4-analysis.md` |
 | [gpt-4 coding](gpt-4-coding.md) | `gpt-4-coding.md` |
 | [gpt-4-turbo analysis](gpt-4-turbo-analysis.md) | `gpt-4-turbo-analysis.md` |
-| [gpt-4-turbo coding](gpt-4-turbo-coding.md) | `gpt-4-turbo-coding.md` |
 | [gpt-4.1 analysis](gpt-4.1-analysis.md) | `gpt-4.1-analysis.md` |
 | [gpt-4.1 coding](gpt-4.1-coding.md) | `gpt-4.1-coding.md` |
 | [gpt-4.1 instruction-following](gpt-4.1-instruction-following.md) | `gpt-4.1-instruction-following.md` |
@@ -32,7 +29,5 @@ Model-optimized prompts for openai.
 | [gpt-6.1-sol analysis](gpt-6.1-sol-analysis.md) | `gpt-6.1-sol-analysis.md` |
 | [gpt-6.1-sol coding](gpt-6.1-sol-coding.md) | `gpt-6.1-sol-coding.md` |
 | [gpt-6.1-sol reasoning](gpt-6.1-sol-reasoning.md) | `gpt-6.1-sol-reasoning.md` |
-| [o1 reasoning](o1-reasoning.md) | `o1-reasoning.md` |
 | [o3 coding](o3-coding.md) | `o3-coding.md` |
 | [o3 reasoning](o3-reasoning.md) | `o3-reasoning.md` |
-| [o3-mini reasoning](o3-mini-reasoning.md) | `o3-mini-reasoning.md` |

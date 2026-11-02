@@ -84,9 +84,7 @@ Plan and execute this refactoring:
 
 ---
 **Claude Opus 4.5 Coding Tips:**
-- Excellent for architecture and design decisions
 - Use for thorough code reviews where depth matters
-- Great at explaining complex technical concepts
 - XML structure helps with multi-part coding tasks
 
 ## Tested On

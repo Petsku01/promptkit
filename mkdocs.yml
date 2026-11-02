@@ -93,7 +93,6 @@ nav:
       - Roles: prompts/model-optimized/roles/index.md
       - System Prompts: prompts/model-optimized/system-prompts/index.md
       - Safety: prompts/model-optimized/safety/index.md
-      - Benchmarks: prompts/model-optimized/benchmarks/index.md
       - Evaluation: prompts/model-optimized/evaluation/index.md
       - Use Cases: prompts/model-optimized/use-cases/index.md
   - API Reference:

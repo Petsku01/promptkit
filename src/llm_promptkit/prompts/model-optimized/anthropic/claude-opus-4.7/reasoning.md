@@ -118,7 +118,6 @@ Flag any motivated reasoning or confirmation bias in the sources.
 
 ---
 **Claude Opus 4.7 Reasoning Tips:**
-- Use extended thinking for complex multi-step reasoning -- it excels here
 - Benefits from structured frameworks (5 Whys, STRIDE, SWOT)
 - Takes instructions very literally -- be precise about what you want
 - Can handle very long reasoning chains without losing context

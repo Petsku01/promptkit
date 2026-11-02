@@ -121,8 +121,6 @@ Provide complete, runnable test file.
 
 ---
 **GPT-4.1 Coding Tips:**
-- Excels at following detailed coding instructions precisely
-- Better at maintaining consistency across multi-file changes than GPT-4o
 - Specify formatting preferences explicitly (type hints, docstrings, etc.)
 - Use `developer` role with explicit constraints for best results
 - Supports Structured Outputs -- use `response_format` with Pydantic schemas for guaranteed output types

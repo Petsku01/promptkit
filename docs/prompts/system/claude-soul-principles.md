@@ -67,8 +67,5 @@ The most important principle: "An unhelpful response is never 'safe' from Anthro
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| Claude | Yes | This IS Claude's training |
-| GPT-4 | Yes | Works well as system prompt |
-| Others | Yes | Universal principles |
 | glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
 | deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -6,7 +6,6 @@ subcategory: "advanced-techniques"
 # Chain-of-Thought (CoT)
 
 > **Research**: Wei et al. 2022 - "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
-> **Key Finding**: CoT improves performance on math/reasoning by 10-20% on GPT-3+
 
 ## When to Use CoT
 
@@ -132,18 +131,6 @@ Step 1: Think about it
 Step 2: Consider options
 Step 3: Get answer
 ```
-
-## Model Compatibility
-
-| Model | CoT Benefit | Notes |
-|-------|-------------|-------|
-| GPT-4/4o | High | Works great |
-| GPT-3.5 | Medium | Simpler problems |
-| Claude 3+ | High | XML tags help |
-| o1/o3 | None | Built-in reasoning |
-| Llama 70B+ | High | Needs clear structure |
-| Llama 8B | Low | Limited benefit |
-| Gemini Pro | High | Works well |
 
 ## Tested On
 

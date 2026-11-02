@@ -74,7 +74,6 @@ Create a unified understanding by:
 
 ---
 **Claude Opus 4 Tips:**
-- Opus excels at deep, nuanced analysis
 - Use XML structure for complex multi-part tasks
 - Request explicit uncertainty acknowledgment
 - Best for tasks requiring careful reasoning over quick responses

@@ -118,7 +118,6 @@ Flag any assumptions that need validation.
 - Use extended thinking mode for complex multi-step reasoning
 - Explicitly ask for confidence levels and uncertainty acknowledgment
 - Can maintain reasoning chains across very long contexts
-- Excellent at identifying hidden assumptions and biases
 - Benefits from structured analysis frameworks (5 Whys, SWOT, etc.)
 
 ## Tested On

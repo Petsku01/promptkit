@@ -61,9 +61,6 @@ Help me debug this systematically. Use the available tools to:
 - Use "medium" reasoning effort for interactive coding (balances speed/intelligence)
 - Use "high" or "xhigh" for hardest tasks requiring hours of autonomous work
 - First-class compaction support enables multi-hour reasoning
-- Much better at PowerShell and Windows environments than previous versions
-- Fewer thinking tokens needed - more efficient than earlier Codex
-- Works well with apply_patch tool for incremental changes
 
 ## Tested On
 

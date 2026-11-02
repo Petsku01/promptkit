@@ -40,8 +40,5 @@ It forces the LLM to define the constraints, types, and edge cases BEFORE writin
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | Yes | Excellent |
-| Claude | Yes | Excellent |
-| Codex | Yes | Native strength |
 | glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
 | deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

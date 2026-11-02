@@ -37,8 +37,5 @@ By solving the same problem multiple ways, errors in one approach get caught by 
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| GPT-4 | Yes | Excellent for math |
-| Claude | Yes | Very thorough |
-| Llama 3 | Yes | Good |
 | glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
 | deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

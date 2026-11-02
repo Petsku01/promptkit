@@ -74,7 +74,6 @@ Provide the optimized version with complexity analysis.
 ---
 **o3 Coding Tips:**
 - State the problem and requirements -- don't add excessive commentary
-- o3 excels at algorithm correctness and edge cases
 - For debugging subtle bugs, describe symptoms directly
 - Specify time/space constraints explicitly for best algorithm choice
 - No need to ask for explanations -- it will provide them automatically when relevant
