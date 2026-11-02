@@ -60,3 +60,5 @@ BAD: "This function will return a null value in the case that..." (verbose - avo
 | GPT-4 | Yes | Learns well from contrast |
 | Claude | Yes | Excellent |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

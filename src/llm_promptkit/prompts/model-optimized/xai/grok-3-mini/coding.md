@@ -62,3 +62,10 @@ What does it do? What are the edge cases?
 - Thinking mode can help with harder bugs -- adds reasoning depth at still-low cost
 - Handles real-world messy code well -- no need to sanitize inputs
 - Perfect for CI/CD pipelines and automated code review at scale
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

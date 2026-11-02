@@ -30,3 +30,10 @@ Locate the responsible components and translate the visible failure into an exec
 
 Return the implementation change, regression test, and observed verification result. Avoid unrelated restyling. If only sampled video frames are available, do not infer unobserved interactions.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

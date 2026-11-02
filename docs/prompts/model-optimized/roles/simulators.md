@@ -99,3 +99,10 @@ Act as a debate opponent. I will state a position and you will argue the opposit
 
 My position: {position}
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

@@ -138,4 +138,7 @@ Unlike prompt chaining's linear stages, this graph deliberately revisits a worke
 
 ## Tested On
 
-Not model-tested. Original framework-grounded orchestration prompt; no multi-agent run or reliability benchmark is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: empty after thinking |

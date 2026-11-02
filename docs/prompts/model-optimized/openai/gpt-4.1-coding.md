@@ -126,3 +126,10 @@ Provide complete, runnable test file.
 - Specify formatting preferences explicitly (type hints, docstrings, etc.)
 - Use `developer` role with explicit constraints for best results
 - Supports Structured Outputs -- use `response_format` with Pydantic schemas for guaranteed output types
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

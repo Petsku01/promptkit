@@ -47,3 +47,5 @@ By activating the latent space associated with "Principal Engineer" or "Expert,"
 | GPT-4 | Yes | Excellent |
 | Claude | Yes | Excellent |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

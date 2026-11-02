@@ -110,3 +110,10 @@ Run the full suite after writing. Fix any failures.
 - Handles complex multi-step migrations with automatic rollback awareness
 - Use for: feature development, migrations, documentation, test campaigns
 - Price: $5/M input, $25/M output (same as Opus 4.6)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

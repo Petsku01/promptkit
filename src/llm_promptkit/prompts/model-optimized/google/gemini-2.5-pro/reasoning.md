@@ -111,3 +111,10 @@ Then recommend with justification.
 - Structured output sections help Pro organize complex responses
 - 1M context allows analyzing multiple long documents simultaneously
 - For best results, specify what depth of analysis you expect
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

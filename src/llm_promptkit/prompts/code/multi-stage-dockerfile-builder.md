@@ -83,4 +83,7 @@ The build/runtime split is paired with an explicit context filter and a runnable
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no live model-quality evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: empty after thinking |

@@ -35,3 +35,5 @@ Interactive debugging forces you to think through the problem while the LLM acts
 | GPT-4 | Yes | Great at Socratic method |
 | Claude | Yes | Excellent |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

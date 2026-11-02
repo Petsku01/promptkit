@@ -85,3 +85,10 @@ Distinguish between what you know, what you infer, and what you assume.
 - Scout is sufficient for straightforward summarization and extraction
 - Maverick is better for complex reasoning across many documents
 - Open-source: can be deployed in air-gapped environments for sensitive analysis
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

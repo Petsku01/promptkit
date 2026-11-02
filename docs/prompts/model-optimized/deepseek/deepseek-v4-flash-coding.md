@@ -75,3 +75,10 @@ Output the transformed code only.
 - API: `deepseek-chat` (non-thinking) for speed, `deepseek-reasoner` for accuracy
 - ~35× cheaper on input than Claude Opus -- use for tasks that don't need Pro
 - Perfect for CI/CD integration and automated code generation pipelines
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

@@ -72,3 +72,10 @@ Pienille malleille (< 8B):
 - Simple functions
 - Ei monimutkaista logiikkaa
 - Provide example input/output
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

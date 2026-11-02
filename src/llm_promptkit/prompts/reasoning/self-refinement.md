@@ -52,3 +52,5 @@ Self-critique:
 | GPT-4 | Yes | Excellent |
 | Claude | Yes | Very thorough critique |
 | Llama 3 | Partial | May need explicit guidance |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

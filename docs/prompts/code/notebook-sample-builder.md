@@ -99,4 +99,7 @@ Run-before-write catches SDK errors early; restart-and-run-all catches notebook-
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no live model-quality evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: truncated at max_tokens |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

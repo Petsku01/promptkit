@@ -127,3 +127,10 @@ If you need more information, state exactly what logs/metrics to check.
 - High-resolution vision: can read dense code screenshots (up to 3.75 MP)
 - Use extended thinking for complex architectural decisions
 - Re-tune prompts from older Claude models -- it follows instructions more strictly
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

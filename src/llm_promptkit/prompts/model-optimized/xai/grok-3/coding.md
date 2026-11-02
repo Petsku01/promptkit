@@ -50,3 +50,10 @@ What would you do differently?
 - Won't sugar-coat feedback
 - Good for quick iterations
 - Handles real-world messy code well
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

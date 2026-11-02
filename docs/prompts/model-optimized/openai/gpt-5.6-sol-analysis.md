@@ -49,3 +49,10 @@ Output a reconciliation table containing reported value, recomputed value,
 variance, tolerance, and source. Explain only material variances and recommend
 the smallest data correction or definition clarification for each one.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: refusal |

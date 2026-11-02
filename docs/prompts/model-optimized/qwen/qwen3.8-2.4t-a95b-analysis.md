@@ -32,3 +32,10 @@ Identify the stages where environment feedback invalidates the original plan. Ch
 
 Produce a feasibility verdict, a dependency table, and a revised execution sequence. List assumptions that still require a real tool query or stakeholder confirmation.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: truncated at max_tokens |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

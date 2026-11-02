@@ -77,3 +77,10 @@ Think through this carefully:
 3. **Explicit verification helps**
    - "Verify your answer" catches ~5% more errors
    - "Work backwards to check" even better
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

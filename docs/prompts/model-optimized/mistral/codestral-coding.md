@@ -58,3 +58,10 @@ Use [pytest/jest/etc].
 - Great at fill-in-the-middle tasks
 - Fast code completion
 - Best for pure coding tasks, not conversation
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

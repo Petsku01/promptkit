@@ -36,3 +36,5 @@ It forces the model to explore multiple reasoning paths concurrently, evaluate t
 | GPT-4 | Yes | Excellent |
 | Claude | Yes | Excellent |
 | Llama 3 | Partial | May need guidance |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

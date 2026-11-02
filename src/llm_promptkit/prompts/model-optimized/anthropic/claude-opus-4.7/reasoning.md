@@ -125,3 +125,10 @@ Flag any motivated reasoning or confirmation bias in the sources.
 - Self-verifies before responding -- ask it to double-check its work
 - Distinguishes carefully between knowledge, inference, and assumption
 - Ask for confidence levels explicitly -- it will calibrate well
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

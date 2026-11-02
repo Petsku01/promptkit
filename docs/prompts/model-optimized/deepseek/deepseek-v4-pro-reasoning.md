@@ -97,3 +97,10 @@ If you reach a contradiction, backtrack and identify the flawed assumption.
 - Competitive with GPT-5 / Claude Opus on most benchmarks
 - Cost-efficient enough for experimental/exploratory reasoning
 - V4 Pro replaces R1 for most use cases (use thinking mode instead)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

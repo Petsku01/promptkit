@@ -52,3 +52,5 @@ If confidence < 7, say so explicitly.
 | GPT-4 | Yes | Responds well to uncertainty framing |
 | Claude | Yes | Naturally good at this |
 | Llama 3 | Partial | May still confabulate |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -95,3 +95,10 @@ Present findings with supporting evidence from the data.
 - Specify "show each step" to prevent skipping
 - Works well with structured prompts and explicit numbering
 - Use `developer` role to set analysis persona and constraints
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -47,3 +47,10 @@ What do most people get wrong about this, and why?
 - It's designed to be less restricted and more direct
 - Can handle controversial topics without excessive hedging
 - Good at current events and real-time analysis
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

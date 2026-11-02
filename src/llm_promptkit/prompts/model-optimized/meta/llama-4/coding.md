@@ -102,3 +102,10 @@ Constraints:
 - Both variants support tool use for agentic coding workflows
 - Explicit format requirements lead to better results
 - Great for self-hosted coding assistants with full codebase context (up to 10M tokens)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

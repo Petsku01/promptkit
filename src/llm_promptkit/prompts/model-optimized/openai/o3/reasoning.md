@@ -81,3 +81,10 @@ For each option, evaluate expected outcomes. Recommend the best option with just
 - Harder problems produce better results -- save o3 for genuinely difficult tasks
 - Provide all necessary information upfront -- it won't ask clarifying questions mid-reasoning
 - Specify desired output format if you need structured responses
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

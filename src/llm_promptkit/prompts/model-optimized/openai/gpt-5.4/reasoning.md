@@ -118,3 +118,10 @@ Flag any assumptions that need validation.
 - Can maintain reasoning chains across very long contexts
 - Excellent at identifying hidden assumptions and biases
 - Benefits from structured analysis frameworks (5 Whys, SWOT, etc.)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

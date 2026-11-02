@@ -89,3 +89,10 @@ Include working code examples.
 - Better at maintaining consistent voice over long documents than GPT-4o
 - Use explicit constraints ("no filler", "under 200 words") for best results
 - Specify audience explicitly -- it adapts language level well
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

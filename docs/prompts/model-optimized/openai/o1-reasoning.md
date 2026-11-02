@@ -55,3 +55,10 @@ What is the optimal approach and why?
 - Don't over-explain or add excessive structure
 - Let the model do the reasoning work
 - Works best for math, code, logic, and strategy
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

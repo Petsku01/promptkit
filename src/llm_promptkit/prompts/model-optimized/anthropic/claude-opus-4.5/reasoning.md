@@ -82,3 +82,10 @@ Synthesize these sources into a coherent understanding:
 - Explicitly request reasoning transparency
 - Higher cost - use for high-value analysis
 - Excellent at nuanced, multi-perspective analysis
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

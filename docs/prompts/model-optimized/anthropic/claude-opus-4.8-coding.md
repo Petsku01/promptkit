@@ -59,3 +59,10 @@ expected versus actual behavior, severity, confidence, and verification status.
 Rank findings only after discovery. Do not equate a narrow reporting threshold
 with permission to skip investigating the rest of the component.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

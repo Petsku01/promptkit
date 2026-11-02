@@ -40,3 +40,5 @@ LLMs are naturally sycophantic and tend to say "This looks great, but...". This 
 | GPT-4 | Yes | Very thorough |
 | Claude | Yes | Excellent critical analysis |
 | Llama 3 | Partial | Sometimes too polite |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -78,4 +78,7 @@ Unlike [Debate Coach](../education/debate-coach.md), this is evidence-conditione
 
 ## Tested On
 
-Not model-tested. Curated Apache-2.0 adaptation; no live debate run, investment-return, backtest, or order-routing evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

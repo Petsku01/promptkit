@@ -33,3 +33,10 @@ Use the existing investigation state to avoid repeating inconclusive work. Rank 
 
 Return the chosen experiment, expected observations under each hypothesis, measured results if executed, and a go/no-go criterion for the patch. Keep the rationale short and engineering-focused.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

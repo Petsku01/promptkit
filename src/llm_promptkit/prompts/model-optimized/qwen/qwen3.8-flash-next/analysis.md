@@ -34,3 +34,10 @@ Create an event timeline from visible evidence. Distinguish exact observations f
 
 Output event, timestamp or interval, visual evidence, matching log ID, and uncertainty. State whether the available video coverage is sufficient for the requested conclusion.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

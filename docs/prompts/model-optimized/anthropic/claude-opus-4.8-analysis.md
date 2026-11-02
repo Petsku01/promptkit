@@ -53,3 +53,10 @@ interpretation, and confidence. Use the same fields for every reported differenc
 Separate a visual discrepancy from a verified functional defect. End with the
 smallest follow-up inspection needed to resolve each material ambiguity.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

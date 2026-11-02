@@ -96,3 +96,10 @@ Don't change functionality. Just make it cleaner.
 - XML tags help it stay focused on the specific task
 - Keep instructions direct: "Write X, include Y, skip Z"
 - Perfect for generating repetitive code patterns (CRUD endpoints, DTOs, migrations)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

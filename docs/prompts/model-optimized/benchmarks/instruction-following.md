@@ -127,3 +127,10 @@ User request: [request]
 
 4. **Repetition helps**
    - State constraint, give example, restate constraint
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -82,3 +82,10 @@ Skip the basics I can find on Wikipedia. Get to the interesting parts.
 - Direct style works best -- no need for elaborate system prompts
 - Good for quick iterations -- run many queries cheaply
 - Not meant for deeply complex reasoning (use full Grok 3 for that)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

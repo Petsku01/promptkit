@@ -30,3 +30,10 @@ Read the relevant implementation, tests, and developer documentation together. T
 
 Output the changed file map, executed checks, and the compatibility argument. If the harness cannot execute a required scenario, state the exact missing prerequisite instead of marking the feature complete.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

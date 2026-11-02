@@ -58,3 +58,10 @@ Help me:
 - Good at maintaining coherence over long inputs
 - Strong at multi-source analysis
 - Can reference specific parts of long documents accurately
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

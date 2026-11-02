@@ -76,3 +76,10 @@ Compare and recommend which is better for [use case].
 - Fast enough for interactive use
 - Use XML for complex multi-part requests
 - Balances depth with speed
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

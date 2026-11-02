@@ -106,3 +106,10 @@ Show before/after for each change with explanation.
 - MIT licensed -- can self-host for privacy/compliance
 - Good at Python, JavaScript, TypeScript -- strongest languages
 - Cost-efficient for high-volume coding tasks
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

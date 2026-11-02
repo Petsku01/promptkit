@@ -68,3 +68,10 @@ Trace the causal chain of this phenomenon.
 7. **Intervention Points**: Where could change happen
 </analysis>
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

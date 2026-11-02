@@ -44,3 +44,10 @@ Design a highly scalable architecture for [system].
 - It is a hybrid model that can reason extensively when prompted.
 - Use XML tags to structure the context and instructions clearly.
 - Ask it to explicitly plan and validate before writing the final output.
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

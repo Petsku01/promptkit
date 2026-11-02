@@ -148,6 +148,8 @@ Scope investigations narrowly. Choose an approach and commit to it -- avoid revi
 | GPT-4o | ✅ Yes | Good results |
 | Codex GPT-5.3 | ✅ Yes | Primary agentic use case |
 | o3/o4-mini | ⚠️ Partial | Remove planning template for reasoning models |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
 
 ## Design Notes
 

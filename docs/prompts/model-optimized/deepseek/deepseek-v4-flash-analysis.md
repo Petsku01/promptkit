@@ -86,3 +86,10 @@ Process all texts consistently.
 - Good for: batch classification, extraction, summarization, Q&A
 - Switch to V4 Pro for tasks requiring deeper reasoning
 - API: `deepseek-chat` for Flash, use temperature=0 for extraction tasks
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

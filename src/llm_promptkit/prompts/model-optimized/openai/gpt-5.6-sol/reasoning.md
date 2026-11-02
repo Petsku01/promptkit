@@ -48,3 +48,10 @@ calculation or formula supporting it, and conditions that would reverse the
 recommendation. State whether numerical results were executed and checked.
 Keep the explanation focused on decision value rather than exhaustive analysis.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

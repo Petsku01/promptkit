@@ -123,4 +123,7 @@ Unlike chain-of-thought's single linear chain, candidates can branch and later m
 
 ## Tested On
 
-Not model-tested. Paper-grounded authored adaptation; no reproduction of the paper's results or universal efficiency claim is made.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

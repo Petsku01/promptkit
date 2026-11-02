@@ -34,3 +34,10 @@ Trace the visible symptom through component state, request serialization, and th
 
 Deliver the code change and a concise evidence trail connecting the visible symptom to the tested correction. Mark rendering checks separately from service and unit tests.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

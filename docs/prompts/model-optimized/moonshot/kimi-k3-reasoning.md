@@ -32,3 +32,10 @@ Seek the observation most likely to falsify the hypothesis before expanding the 
 
 Conclude with support / reject / insufficient evidence, a brief rationale, the strongest counterexample, and the next discriminating experiment.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

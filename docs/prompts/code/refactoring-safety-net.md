@@ -120,4 +120,7 @@ Characterization, differential comparison, and isolated golden traces form a saf
 
 ## Tested On
 
-Not model-tested. Curated original workflow; no live model-quality evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

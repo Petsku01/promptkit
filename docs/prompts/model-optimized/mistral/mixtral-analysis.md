@@ -46,3 +46,10 @@ Think through it systematically.
 - 8x7B parameters but uses ~12B per inference
 - Good balance of capability and speed
 - Strong at both coding and analysis
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

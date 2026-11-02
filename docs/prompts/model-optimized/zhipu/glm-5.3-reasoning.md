@@ -33,3 +33,10 @@ Check the criteria against invariants and against each other. Seek a concrete co
 
 Return feasible / infeasible / unresolved, a concise supporting argument, and either a witness design or the conflicting criterion IDs. Include the next clarification or verification needed.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -33,3 +33,10 @@ Match each acceptance item to an artifact and a verification result. Where a too
 
 Return JSON only with keys completed, unverified, blocked, and recommended_next_action. Each item must include criterion_id and evidence_reference; use null when evidence is missing. Do not invent references to satisfy the output shape.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

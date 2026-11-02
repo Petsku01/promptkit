@@ -33,3 +33,10 @@ Extract a component and interaction inventory from the image, explicitly marking
 
 Deliver the runnable slice, the commands actually used to check it, and remaining mismatches. Never substitute a static mock for an interaction required by the contract.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: empty after thinking |

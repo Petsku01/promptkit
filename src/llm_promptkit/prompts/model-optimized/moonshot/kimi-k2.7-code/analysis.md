@@ -30,3 +30,10 @@ Trace the user-visible behavior through frontend, service, storage, and infrastr
 
 Produce an ordered change map with component, contract, prerequisite, test, and rollback columns. Flag boundaries that require human confirmation before the coding agent proceeds.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

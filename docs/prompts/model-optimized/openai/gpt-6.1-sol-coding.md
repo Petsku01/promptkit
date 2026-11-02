@@ -54,3 +54,10 @@ argument case and a failed tool execution. Keep reasoning effort in request
 configuration rather than embedding a fake parameter in the user message.
 Report the migrated paths, test results, and any unsupported legacy assumptions.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

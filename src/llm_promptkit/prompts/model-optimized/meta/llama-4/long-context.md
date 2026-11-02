@@ -85,3 +85,10 @@ Output as [JSON / CSV / table format].
 - For retrieval tasks, explicitly say "search the entire document" to prevent lazy reading
 - Scout variant is cheaper for long-context work that doesn't need top-tier reasoning
 - Maverick variant gives best results for complex reasoning over long contexts
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

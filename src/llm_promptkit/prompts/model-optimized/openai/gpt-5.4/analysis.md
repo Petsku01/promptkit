@@ -100,3 +100,10 @@ Action items must be SMART: Specific, Measurable, Achievable, Relevant, Time-bou
 - Can process and cross-reference multiple document sources
 - Benefits from comparison frameworks and rubrics
 - Use structured output formats for reproducible analysis
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -34,3 +34,5 @@ LLMs generally want to agree with the user. Explicitly commanding it to be a con
 | GPT-4 | Yes | Good critical thinking |
 | Claude | Yes | Excellent |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -28,3 +28,10 @@ Use native visual understanding to identify chart labels, axes, and visible exce
 
 Deliver discrepancies ranked by decision impact, each linked to an image region or report passage, followed by a concise corrected interpretation.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

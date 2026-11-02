@@ -117,3 +117,10 @@ Provide:
 - Strong at maintaining architectural consistency across changes
 - Use `developer` role with explicit constraints for best results
 - Supports tool use -- provide function schemas when applicable
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -88,3 +88,10 @@ Plan and execute this refactoring:
 - Use for thorough code reviews where depth matters
 - Great at explaining complex technical concepts
 - XML structure helps with multi-part coding tasks
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

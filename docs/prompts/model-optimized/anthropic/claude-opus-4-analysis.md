@@ -79,3 +79,10 @@ Create a unified understanding by:
 - Request explicit uncertainty acknowledgment
 - Best for tasks requiring careful reasoning over quick responses
 - Higher cost - use for high-value analysis tasks
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

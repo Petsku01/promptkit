@@ -91,3 +91,5 @@ RULES:
 | GPT-4 | Yes | Excellent structured output |
 | Claude | Yes | Very thorough |
 | Codex | Yes | Good for automated reviews |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

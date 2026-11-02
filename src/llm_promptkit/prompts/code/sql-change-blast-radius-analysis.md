@@ -78,4 +78,7 @@ SQL-first discovery followed by application tracing exposes cross-layer effects.
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no live model-quality evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

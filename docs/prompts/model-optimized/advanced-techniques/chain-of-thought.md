@@ -146,3 +146,10 @@ Step 3: Get answer
 | Llama 70B+ | High | Needs clear structure |
 | Llama 8B | Low | Limited benefit |
 | Gemini Pro | High | Works well |
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

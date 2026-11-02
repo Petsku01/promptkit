@@ -31,3 +31,10 @@ Distinguish reusable verified work from outputs invalidated by the failure. Dete
 
 Provide a recovery plan with retained artifacts, invalidated artifacts, retry conditions, and a final verification gate. Summarize the dependency argument without exposing private deliberation.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

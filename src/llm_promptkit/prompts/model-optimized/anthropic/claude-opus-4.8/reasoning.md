@@ -49,3 +49,10 @@ on the other clauses. If the outcome depends on an unresolved reading, provide
 a conditional verdict and the exact clarification needed. Present concise,
 checkable reasoning rather than exhaustive deliberation.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

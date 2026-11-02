@@ -98,4 +98,7 @@ Discovery narrows the feature to one host and org context before data access or 
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no live model-quality evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

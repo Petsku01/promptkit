@@ -464,3 +464,10 @@ can find relevant conversation history if needed.
 - **OpenAI Codex CLI `/compact`** -- Codex's compaction with summary prefix ([codex-rs/core/templates/compact/prompt.md](https://github.com/openai/codex/blob/main/codex-rs/core/templates/compact/prompt.md))
 - **OpenCode `/compact`** -- SST's open-source compaction with prune mechanism ([opencode/src/session/compaction.ts](https://github.com/sst/opencode/blob/main/packages/opencode/src/session/compaction.ts))
 - **Amp Handoff** -- Sourcegraph's manual handoff + thread references approach ([ampcode.com](https://ampcode.com/guides/context-management))
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -87,4 +87,7 @@ Unlike [SEO Consultant](../professional/seo-consultant.md), this is a persisted 
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no reproduced traffic, ranking, or conversion metrics are claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

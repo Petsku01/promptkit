@@ -66,3 +66,10 @@ Help me debug this systematically. Use the available tools to:
 - Much better at PowerShell and Windows environments than previous versions
 - Fewer thinking tokens needed - more efficient than earlier Codex
 - Works well with apply_patch tool for incremental changes
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

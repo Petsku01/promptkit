@@ -87,4 +87,7 @@ Unlike Meta-Prompting, the library is finite and selected by id rather than gene
 
 ## Tested On
 
-Not model-tested. Curated adaptation of an unofficial implementation of Zhou et al. 2024; no paper-reproduction or accuracy claim is made.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

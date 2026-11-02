@@ -127,3 +127,5 @@ Replace placeholder text in curly braces or quotes with your specific content.
 | GPT-4 | Yes | Works well |
 | Claude | Yes | Works well |
 | Llama 3 | Yes | Works well |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

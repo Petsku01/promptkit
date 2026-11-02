@@ -83,3 +83,10 @@ Implement with:
 - XML structure improves output quality
 - Fast enough for interactive use
 - More cost-effective than Opus for routine tasks
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: empty after thinking |

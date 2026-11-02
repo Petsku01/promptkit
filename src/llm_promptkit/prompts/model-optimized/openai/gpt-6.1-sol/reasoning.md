@@ -49,3 +49,10 @@ on the evidence, and the one observation worth collecting next. Explain only
 the decisive reasoning and validation checks. Do not manufacture certainty
 because additional reasoning effort was allocated by the caller.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -89,3 +89,10 @@ Document:
 - Use Structured Outputs (Pydantic) for guaranteed type-safe responses
 - Specify "Return ONLY valid JSON" to avoid explanatory text
 - Handles nested schemas well -- provide the full example schema
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

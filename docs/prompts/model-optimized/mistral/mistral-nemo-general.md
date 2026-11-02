@@ -43,3 +43,10 @@ Write a [language] function that [task]:
 - Good for simple to moderate tasks
 - Apache 2.0 license - use freely
 - Best for quick, straightforward requests
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -63,3 +63,10 @@ Provide:
 - Good at code and technical tasks
 - Works well with structured prompts
 - Can generate and interpret diagrams (mermaid, ASCII)
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

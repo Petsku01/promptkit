@@ -129,4 +129,7 @@ A valid no-change result is preferable to unsupported lasting instructions.
 
 ## Tested On
 
-Not model-tested. Research-grounded authored workflow; no persistent agent run, measured transfer improvement, or reproduction of paper results is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -98,3 +98,10 @@ Provide the full source if possible for best results.
 - Strong at autonomous multi-step coding workflows
 - Use `deepseek-chat` for standard, `deepseek-reasoner` for thinking mode
 - MIT licensed for self-hosting if needed
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

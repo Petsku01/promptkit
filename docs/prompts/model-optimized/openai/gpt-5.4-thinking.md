@@ -103,3 +103,10 @@ Provide a confidence score (0-100%) and explain what would increase it.
 - It will naturally show its work -- no need to force structured output
 - Best results when you provide context and constraints explicitly
 - Avoid rushing -- give it room to explore dead ends and backtrack
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

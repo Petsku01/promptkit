@@ -51,3 +51,10 @@ Do not rewrite unaffected modules or pretend to have inspected files outside
 the evidence packet. End with a minimal implementation sequence, not a broad
 architecture redesign.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: empty after thinking |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

@@ -34,3 +34,5 @@ It filters out the noise of framework boilerplate in stack traces and forces the
 | GPT-4 | Yes | Excellent |
 | Claude | Yes | Very detailed |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

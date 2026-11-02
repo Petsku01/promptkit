@@ -83,3 +83,10 @@ Format results as: [format]
 - Flash responds best with clear, simple instructions
 - Use batch patterns to process multiple items in one 1M-context call
 - Avoid multi-step reasoning -- Flash is optimized for speed over depth
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

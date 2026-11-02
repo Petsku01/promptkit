@@ -70,3 +70,10 @@ Take your time to analyze this systematically:
 - Ask for planning/thinking before implementation
 - Specify review criteria explicitly
 - Request line-number references in reviews
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -119,3 +119,10 @@ Provide:
 - For documents, specify extraction format (markdown tables, structured data)
 - Cross-modal reasoning is a Pro strength -- combine text + images for richer analysis
 - Reference specific parts of images: "the chart on the left", "the footnote at the bottom"
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

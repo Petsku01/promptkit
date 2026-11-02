@@ -94,4 +94,7 @@ Unlike [Agent Graph With Cycles](../system/agent-graph-cycle.md), this is not ge
 
 ## Tested On
 
-Not model-tested. Curated adaptation of an archived repository snapshot; no live research-run quality, completeness, or citation-accuracy evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -41,3 +41,5 @@ Explicitly forbidding markdown backticks and conversational filler ("Here is you
 | GPT-4 | Yes | Use response_format API |
 | Claude | Yes | Works well |
 | Llama 3 | Partial | May add markdown |
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

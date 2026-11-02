@@ -33,3 +33,10 @@ Inspect the implementation, launch the application when tools permit, and captur
 
 Deliver the patch and a short comparison report identifying verified matches and remaining visual differences. If rendering is unavailable, clearly separate code inspection from visual verification.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

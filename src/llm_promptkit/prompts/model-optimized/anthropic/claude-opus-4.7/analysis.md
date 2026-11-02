@@ -105,3 +105,10 @@ Strategic analysis:
 - Produces higher-quality professional output: docs, slides, interfaces
 - Use structured rubrics and scoring for reproducible analysis
 - Ask it to flag assumptions and uncertainties explicitly
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

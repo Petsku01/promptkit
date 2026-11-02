@@ -51,3 +51,10 @@ claiming exhaustive access to X. If requested, add one clearly labeled light
 metaphor after the findings; it must introduce no new factual assertion and
 must not ridicule victims or substitute for the evidence.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -133,3 +133,10 @@ Format per item:
 - Keep instructions minimal -- Haiku follows direct instructions well
 - 200K context means you can process long documents, but keep the task simple
 - For batch work, list items explicitly rather than describing them abstractly
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

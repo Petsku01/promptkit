@@ -78,4 +78,7 @@ Unlike [Deep Research Supervisor (Brief-Delegate-Compress)](deep-research-superv
 
 ## Tested On
 
-Not model-tested. Curated adaptation; no Wikipedia-quality, citation-accuracy, or live STORM-run evaluation is claimed.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

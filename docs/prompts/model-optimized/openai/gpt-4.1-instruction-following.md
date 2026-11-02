@@ -82,3 +82,10 @@ Output: [exact format specification]
 - Specify negative constraints ("do not add X") -- it respects these well
 - Use `developer` role for system-level behavioral rules
 - Give an example of desired output format for complex formatting requirements
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

@@ -41,3 +41,5 @@ LLMs are heavily trained on HTML/XML. Using pseudo-XML tags sharply delineates i
 | Claude | Yes | Recommended by Anthropic |
 | GPT-4 | Yes | Works well |
 | Llama 3 | Yes | Good |
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

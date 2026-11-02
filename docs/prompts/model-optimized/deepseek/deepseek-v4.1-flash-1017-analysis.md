@@ -32,3 +32,10 @@ Locate high-impact evidence first, then check nearby exceptions and cross-docume
 
 Deliver a ranked issue list, supporting source locations, and a coverage statement. Prefer compact actionable findings over a long serial summary of every document.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

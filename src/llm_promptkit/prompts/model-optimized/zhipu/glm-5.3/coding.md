@@ -32,3 +32,10 @@ Measure a baseline and identify the bottleneck with available profiling tools. C
 
 Deliver the patch, baseline and changed measurements, correctness results, and rollback steps. If measurements are too noisy, report an inconclusive result rather than an unearned speedup claim.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

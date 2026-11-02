@@ -51,3 +51,10 @@ they can be reconciled, and the concrete decision affected. Finish with missing
 evidence that prevents resolution. Do not summarize every document or claim
 that the entire collection was checked if parts were inaccessible.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: refusal |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

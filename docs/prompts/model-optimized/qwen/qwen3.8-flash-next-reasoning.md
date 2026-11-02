@@ -32,3 +32,10 @@ First identify the labels and constraints that are actually legible. Do not assu
 
 Provide the result, a concise derivation or proof summary, and an explicit list of assumptions. If an unreadable label makes the result underdetermined, describe what must be clarified instead of inventing a value.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |

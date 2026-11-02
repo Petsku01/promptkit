@@ -148,3 +148,10 @@ Provide:
 - Pro can reason about edge cases -- ask it to identify them explicitly
 - Use 1M context to include multiple related files for cross-file analysis
 - "Include error handling" and "add types" produce better production code
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

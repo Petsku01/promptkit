@@ -95,3 +95,10 @@ List each occurrence with:
 - Separate documents with clear delimiters (---, Document N:)
 - For Q&A, ask Flash to reference where it found the answer
 - Flash retrieves well from long context, but keep reasoning instructions simple
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

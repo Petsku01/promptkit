@@ -79,3 +79,10 @@ Provide the optimized version with complexity analysis.
 - Specify time/space constraints explicitly for best algorithm choice
 - No need to ask for explanations -- it will provide them automatically when relevant
 - For competitive programming problems, include all constraints upfront
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

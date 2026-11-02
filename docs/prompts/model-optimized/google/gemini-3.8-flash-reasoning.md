@@ -53,3 +53,10 @@ Walk the workflow through one success case and two specified failure cases
 state-transition table and a completion checklist. A plan is not an execution
 record: do not report external actions as completed unless actually performed.
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

@@ -26,3 +26,10 @@ Show your thinking clearly before the final answer.
 - Avoid complex system prompts. DeepSeek-R1 performs best with direct zero-shot instructions.
 - The model naturally uses `<think>` tags for internal reasoning; do not try to suppress them.
 - Keep the prompt straightforward and objective.
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

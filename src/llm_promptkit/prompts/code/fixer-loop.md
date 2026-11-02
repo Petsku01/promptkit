@@ -107,4 +107,7 @@ The loop specializes ReAct's action/observation structure into reproducible repa
 
 ## Tested On
 
-Not model-tested. Original authored workflow; repository validation does not constitute an agent repair benchmark.
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | PARTIAL: incomplete or off-spec |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | PARTIAL: empty after thinking |

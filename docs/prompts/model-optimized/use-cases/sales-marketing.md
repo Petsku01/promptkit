@@ -146,3 +146,10 @@ Generate:
 3. Full value prop (3-4 sentences)
 4. Supporting proof points
 ```
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |

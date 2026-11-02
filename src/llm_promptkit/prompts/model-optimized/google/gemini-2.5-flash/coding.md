@@ -90,3 +90,10 @@ Summary per file + overall assessment:
 - Batch file reviews leverage the 1M context window well
 - Specify language, framework, and style upfront
 - Add "keep it concise" for shorter output
+
+## Tested On
+
+| Model | Status | Notes |
+|-------|--------|-------|
+| glm-5.3-flash | Smoke 2026-11-02 | FOLLOWED |
+| deepseek-v4.1-flash:1017 | Smoke 2026-11-02 | FOLLOWED |
