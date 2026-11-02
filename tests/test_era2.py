@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-from typer.testing import CliRunner
+from tests._cli_runner import make_runner, visible_text
 
 from llm_promptkit import PromptBuilder
 from llm_promptkit import config as config_module
@@ -13,7 +13,7 @@ from llm_promptkit.cli import app
 from llm_promptkit.cli.commands import doctor, prompts
 from llm_promptkit.config import PromptKitConfig
 
-runner = CliRunner()
+runner = make_runner()
 
 
 def test_show_readme_route():
@@ -46,7 +46,7 @@ def test_prompt_read_error_exit_two():
     with patch.object(Path, "read_text", side_effect=OSError("unreadable")):
         result = runner.invoke(app, ["prompts", "--show", "openai/gpt-4o/coding"])
     assert result.exit_code == 2
-    assert "unreadable" in result.output
+    assert "unreadable" in visible_text(result)
 
 
 @pytest.mark.parametrize("fmt", ["table", "json"])
@@ -58,7 +58,7 @@ def test_empty_file_exit_two(tmp_path, fmt):
     if fmt == "json":
         assert json.loads(result.output) == {"error": "empty"}
     else:
-        assert "tyhjä prompt — mitään analyysoitavissa" in result.output
+        assert "tyhjä prompt — mitään analyysoitavissa" in visible_text(result)
 
 
 @pytest.mark.parametrize("fmt", ["table", "json"])
@@ -67,7 +67,7 @@ def test_doctor_either_or(tmp_path, fmt):
     file.write_text("Review this code.")
     result = runner.invoke(app, ["doctor", "text", "--file", str(file), "--format", fmt])
     assert result.exit_code == 2
-    message = json.loads(result.output)["error"] if fmt == "json" else result.output
+    message = json.loads(result.output)["error"] if fmt == "json" else visible_text(result)
     assert "Anna EITHER text TAI --file" in message
 
 
@@ -126,7 +126,7 @@ def test_config_types_and_cli(tmp_path, monkeypatch, toml, field):
     monkeypatch.setattr(config_module, "_config", None)
     result = runner.invoke(app, ["build", "--task", "Review"])
     assert result.exit_code == 2
-    assert field in result.output
+    assert field in visible_text(result)
 
 
 def test_variables_kwargs_changelog_signature():
