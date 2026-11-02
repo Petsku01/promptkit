@@ -5,13 +5,13 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-from tests._cli_runner import make_runner, visible_text
 
 from llm_promptkit import PromptBuilder
 from llm_promptkit import config as config_module
 from llm_promptkit.cli import app
 from llm_promptkit.cli.commands import doctor, prompts
 from llm_promptkit.config import PromptKitConfig
+from tests._cli_runner import make_runner, visible_text
 
 runner = make_runner()
 
